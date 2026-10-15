@@ -1,0 +1,9 @@
+{
+  "name": "AVA — باغ صداها",
+  "description": "سامانهٔ یادگیری خواندن فارسی برای کودکان ۴ تا ۷ سال و استودیوی طراحی تجربی آوا (AVA Persian Early Literacy)",
+  "version": "1.8.0",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ],
+  "permissions": []
+}
