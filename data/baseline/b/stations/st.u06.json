@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "story_id": "st.u06",
+ "unit": "u06",
+ "title_key": "copy.st.u06.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u06.p1",
+   "sentence": {
+    "text": "اُردَک دَر آب اَست.",
+    "words": [
+     "w_ordak",
+     "w_dar",
+     "w_ab",
+     "w_ast"
+    ],
+    "audio": "aud.story.u06.p1"
+   },
+   "allowed_max_lesson": 9
+  },
+  {
+   "page": 2,
+   "image": "img.story.u06.p2",
+   "sentence": {
+    "text": "بُز کِنارِ آب اَست.",
+    "words": [
+     "w_boz",
+     "w_kenaare",
+     "w_ab",
+     "w_ast"
+    ],
+    "audio": "aud.story.u06.p2"
+   },
+   "allowed_max_lesson": 9
+  },
+  {
+   "page": 3,
+   "image": "img.story.u06.p3",
+   "sentence": {
+    "text": "اُردَک با بُز بازی کَرد.",
+    "words": [
+     "w_ordak",
+     "w_baa",
+     "w_boz",
+     "w_bazi",
+     "w_kard"
+    ],
+    "audio": "aud.story.u06.p3"
+   },
+   "allowed_max_lesson": 9
+  },
+  {
+   "page": 4,
+   "image": "img.story.u06.p4",
+   "sentence": {
+    "text": "اُردَک شاد اَست.",
+    "words": [
+     "w_ordak",
+     "w_shaad",
+     "w_ast"
+    ],
+    "audio": "aud.story.u06.p4"
+   },
+   "allowed_max_lesson": 9
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u06.q1",
+   "answer": "img.word.ordak",
+   "distractors": [
+    "img.word.boz"
+   ]
+  }
+ ]
+}

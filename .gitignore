@@ -1,0 +1,16 @@
+.env
+*.zip
+node_modules/
+.dart_tool/
+build/
+.next/
+dist/
+__pycache__/
+*.pyc
+.DS_Store
+.artifacts/
+playwright-report/
+test-results/
+.venv/
+venv/
+*.rar

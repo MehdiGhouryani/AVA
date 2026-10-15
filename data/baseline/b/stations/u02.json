@@ -1,0 +1,801 @@
+{
+ "schema": 1,
+ "provisional": true,
+ "station_id": "u02",
+ "station_type": "letters",
+ "order": 2,
+ "theme_color": "coral",
+ "title_key": "copy.u02.title",
+ "goal_key": "copy.u02.goal",
+ "narration_audio": "aud.narr.s07.u02",
+ "lessons": [
+  "l02",
+  "l03"
+ ],
+ "new_symbols": [
+  "sym_a_short",
+  "sym_dal",
+  "sym_mim",
+  "sym_sin"
+ ],
+ "review_symbols": [
+  "sym_alef",
+  "sym_ba"
+ ],
+ "target_words": [
+  "w_ab",
+  "w_baba",
+  "w_bad",
+  "w_badam",
+  "w_sabad"
+ ],
+ "exit_criteria": {
+  "all_steps_completed": true,
+  "challenge_completed": true
+ },
+ "steps": [
+  {
+   "step_id": "b.u02.a_short",
+   "type": "letter",
+   "title_key": "copy.b.u02.a_short.title",
+   "est_min": 5,
+   "objective": "کودک صدای «اَ» را می‌شنود، شکلش را از میان گزینه‌ها تشخیص می‌دهد و با انگشت ردگیری می‌کند.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S08",
+     "symbol": "sym_a_short",
+     "keyword": "p_abr",
+     "keyword_display": "picture_only",
+     "audio_ids": [
+      "aud.letter.a_short.sound",
+      "aud.word.abr.say"
+     ],
+     "image_ids": [
+      "img.word.abr"
+     ],
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S09",
+     "symbol": "sym_a_short",
+     "attempts": "show_plus_2",
+     "trace_path": "trace.a_short",
+     "spoken_instruction": "aud.instr.trace"
+    },
+    {
+     "activity": "S10",
+     "rounds": 4,
+     "choices": 3,
+     "targets": [
+      "sym_a_short",
+      "sym_ba"
+     ],
+     "distractors": {
+      "policy": "learned_D0_D1",
+      "neutral_fill": true,
+      "neutral_max": 2,
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S11",
+     "mode": "scene",
+     "symbol": "sym_a_short",
+     "targets": [
+      "p_abr",
+      "w_anar",
+      "w_angur"
+     ],
+     "distractor_objects": [
+      "p_shotor",
+      "w_bachche"
+     ],
+     "image_ids": [
+      "img.scene.u02.a_short"
+     ],
+     "spoken_instruction": "aud.instr.find"
+    },
+    {
+     "activity": "S12",
+     "game": "G1",
+     "symbols": [
+      "sym_alef",
+      "sym_ba",
+      "sym_a_short"
+     ],
+     "spoken_instruction": "aud.instr.pop",
+     "rounds": 6
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.sym_a_short"
+    }
+   },
+   "mastery_effect": {
+    "sym_a_short": {
+     "learned_on": "complete",
+     "daily_gain_cap": 0.35
+    }
+   }
+  },
+  {
+   "step_id": "b.u02.dal",
+   "type": "letter",
+   "title_key": "copy.b.u02.dal.title",
+   "est_min": 5,
+   "objective": "کودک صدای «د» را می‌شنود، شکلش را از میان گزینه‌ها تشخیص می‌دهد و با انگشت ردگیری می‌کند.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S08",
+     "symbol": "sym_dal",
+     "keyword": "p_dasht",
+     "keyword_display": "picture_only",
+     "audio_ids": [
+      "aud.letter.dal.sound",
+      "aud.word.dasht.say"
+     ],
+     "image_ids": [
+      "img.word.dasht"
+     ],
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S09",
+     "symbol": "sym_dal",
+     "attempts": "show_plus_2",
+     "trace_path": "trace.dal",
+     "spoken_instruction": "aud.instr.trace"
+    },
+    {
+     "activity": "S10",
+     "rounds": 4,
+     "choices": 3,
+     "targets": [
+      "sym_dal",
+      "sym_a_short"
+     ],
+     "distractors": {
+      "policy": "learned_D0_D1",
+      "neutral_fill": true,
+      "neutral_max": 2,
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S11",
+     "mode": "scene",
+     "symbol": "sym_dal",
+     "targets": [
+      "p_dasht",
+      "w_dandan",
+      "w_dar"
+     ],
+     "distractor_objects": [
+      "w_sham",
+      "w_kif"
+     ],
+     "image_ids": [
+      "img.scene.u02.dal"
+     ],
+     "spoken_instruction": "aud.instr.find"
+    },
+    {
+     "activity": "S12",
+     "game": "G4",
+     "symbols": [
+      "sym_ba",
+      "sym_a_short",
+      "sym_dal"
+     ],
+     "spoken_instruction": "aud.instr.match",
+     "pairs": 3
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.sym_dal"
+    }
+   },
+   "mastery_effect": {
+    "sym_dal": {
+     "learned_on": "complete",
+     "daily_gain_cap": 0.35
+    }
+   }
+  },
+  {
+   "step_id": "b.u02.l02.w",
+   "type": "word",
+   "title_key": "copy.b.u02.l02.w.title",
+   "est_min": 5,
+   "objective": "کودک واژه‌ی «باد» را از حرف‌ها می‌سازد و صدای اول واژه‌ها را تشخیص می‌دهد.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S12",
+     "game": "G3",
+     "rounds": 1,
+     "words": [
+      "w_bad"
+     ],
+     "spoken_instruction": "aud.instr.drag_word"
+    },
+    {
+     "activity": "S10b",
+     "kind": "first_sound",
+     "rounds": 3,
+     "words": [
+      "w_bad",
+      "w_ab",
+      "w_baba"
+     ],
+     "choices": 3,
+     "distractors": {
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.first_sound"
+    },
+    {
+     "activity": "S12",
+     "game": "G4",
+     "pairs": 3,
+     "symbols": [
+      "sym_ba",
+      "sym_a_short",
+      "sym_dal"
+     ],
+     "spoken_instruction": "aud.instr.match"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.w_bad"
+    }
+   }
+  },
+  {
+   "step_id": "b.u02.mim",
+   "type": "letter",
+   "title_key": "copy.b.u02.mim.title",
+   "est_min": 5,
+   "objective": "کودک صدای «م» را می‌شنود، شکلش را از میان گزینه‌ها تشخیص می‌دهد و با انگشت ردگیری می‌کند.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S08",
+     "symbol": "sym_mim",
+     "keyword": "w_madar",
+     "keyword_display": "picture_only",
+     "audio_ids": [
+      "aud.letter.mim.sound",
+      "aud.word.madar.say"
+     ],
+     "image_ids": [
+      "img.word.madar"
+     ],
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S09",
+     "symbol": "sym_mim",
+     "attempts": "show_plus_2",
+     "trace_path": "trace.mim",
+     "spoken_instruction": "aud.instr.trace"
+    },
+    {
+     "activity": "S10",
+     "rounds": 4,
+     "choices": 3,
+     "targets": [
+      "sym_mim",
+      "sym_dal"
+     ],
+     "distractors": {
+      "policy": "learned_D0_D1",
+      "neutral_fill": true,
+      "neutral_max": 2,
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S11",
+     "mode": "scene",
+     "symbol": "sym_mim",
+     "targets": [
+      "w_madar",
+      "w_mar",
+      "p_moz"
+     ],
+     "distractor_objects": [
+      "w_chay",
+      "p_ahu"
+     ],
+     "image_ids": [
+      "img.scene.u02.mim"
+     ],
+     "spoken_instruction": "aud.instr.find"
+    },
+    {
+     "activity": "S12",
+     "game": "G1",
+     "symbols": [
+      "sym_a_short",
+      "sym_dal",
+      "sym_mim"
+     ],
+     "spoken_instruction": "aud.instr.pop",
+     "rounds": 6
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.sym_mim"
+    }
+   },
+   "mastery_effect": {
+    "sym_mim": {
+     "learned_on": "complete",
+     "daily_gain_cap": 0.35
+    }
+   }
+  },
+  {
+   "step_id": "b.u02.sin",
+   "type": "letter",
+   "title_key": "copy.b.u02.sin.title",
+   "est_min": 5,
+   "objective": "کودک صدای «س» را می‌شنود، شکلش را از میان گزینه‌ها تشخیص می‌دهد و با انگشت ردگیری می‌کند.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S08",
+     "symbol": "sym_sin",
+     "keyword": "w_sabad",
+     "keyword_display": "text",
+     "audio_ids": [
+      "aud.letter.sin.sound",
+      "aud.word.sabad.say"
+     ],
+     "image_ids": [
+      "img.word.sabad"
+     ],
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S09",
+     "symbol": "sym_sin",
+     "attempts": "show_plus_2",
+     "trace_path": "trace.sin",
+     "spoken_instruction": "aud.instr.trace"
+    },
+    {
+     "activity": "S10",
+     "rounds": 4,
+     "choices": 3,
+     "targets": [
+      "sym_sin",
+      "sym_mim"
+     ],
+     "distractors": {
+      "policy": "learned_D0_D1",
+      "neutral_fill": true,
+      "neutral_max": 2,
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S11",
+     "mode": "scene",
+     "symbol": "sym_sin",
+     "targets": [
+      "w_sabad",
+      "w_sut",
+      "w_sib"
+     ],
+     "distractor_objects": [
+      "w_mush",
+      "w_asal"
+     ],
+     "image_ids": [
+      "img.scene.u02.sin"
+     ],
+     "spoken_instruction": "aud.instr.find"
+    },
+    {
+     "activity": "S12",
+     "game": "G4",
+     "symbols": [
+      "sym_dal",
+      "sym_mim",
+      "sym_sin"
+     ],
+     "spoken_instruction": "aud.instr.match",
+     "pairs": 3
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.sym_sin"
+    }
+   },
+   "mastery_effect": {
+    "sym_sin": {
+     "learned_on": "complete",
+     "daily_gain_cap": 0.35
+    }
+   }
+  },
+  {
+   "step_id": "b.u02.l03.w",
+   "type": "word",
+   "title_key": "copy.b.u02.l03.w.title",
+   "est_min": 5,
+   "objective": "کودک واژه‌ی «سَبَد» را از حرف‌ها می‌سازد و صدای اول واژه‌ها را تشخیص می‌دهد.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S12",
+     "game": "G3",
+     "rounds": 1,
+     "words": [
+      "w_sabad"
+     ],
+     "spoken_instruction": "aud.instr.drag_word"
+    },
+    {
+     "activity": "S10b",
+     "kind": "first_sound",
+     "rounds": 3,
+     "words": [
+      "w_badam",
+      "w_sabad",
+      "w_bad"
+     ],
+     "choices": 3,
+     "distractors": {
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.first_sound"
+    },
+    {
+     "activity": "S12",
+     "game": "G5",
+     "rounds": 3,
+     "words": [
+      "w_badam",
+      "w_sabad",
+      "w_baba"
+     ],
+     "spoken_instruction": "aud.instr.syllable_bridge"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.w_sabad"
+    }
+   }
+  },
+  {
+   "step_id": "b.u02.treasure",
+   "type": "treasure",
+   "title_key": "copy.b.u02.treasure.title",
+   "est_min": 4,
+   "objective": "مرور شاد صداهای ایستگاه + واج‌آگاهی (قافیه).",
+   "activities": [
+    {
+     "activity": "S12",
+     "game": "G1",
+     "rounds": 6,
+     "symbols": [
+      "sym_a_short",
+      "sym_dal",
+      "sym_mim",
+      "sym_sin"
+     ],
+     "spoken_instruction": "aud.instr.pop"
+    },
+    {
+     "activity": "S12",
+     "game": "G6",
+     "rounds": 1,
+     "poem": "poem.p03",
+     "lines": 4,
+     "spoken_instruction": "aud.instr.rhyme_tap"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 10
+    }
+   }
+  },
+  {
+   "step_id": "b.u02.story",
+   "type": "story",
+   "title_key": "copy.b.u02.story.title",
+   "est_min": 5,
+   "objective": "کودک قصه‌ی 4 صفحه‌ای «باد و بادام» را می‌شنود/با هم می‌خواند و به یک پرسش تصویری پاسخ می‌دهد.",
+   "activities": [
+    {
+     "activity": "S14",
+     "story": "st.u02",
+     "pages": 4,
+     "modes": [
+      "listen",
+      "read_with_me"
+     ],
+     "spoken_instruction": "aud.instr.story_listen"
+    },
+    {
+     "activity": "S10b",
+     "kind": "picture_question",
+     "rounds": 1,
+     "choices": 2,
+     "question": "st.u02.q1",
+     "spoken_instruction": "aud.instr.story_question"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 8,
+     "album_card": "card.st.u02"
+    }
+   }
+  },
+  {
+   "step_id": "b.u02.challenge",
+   "type": "challenge",
+   "title_key": "copy.b.u02.challenge.title",
+   "est_min": 5,
+   "objective": "سنجش بدون راهنمای پیش‌فرض: صدا↔حرف و واژه↔تصویر برای نشانه‌های ایستگاه.",
+   "activities": [
+    {
+     "activity": "S10",
+     "rounds": 3,
+     "choices": 4,
+     "targets": [
+      "sym_a_short",
+      "sym_dal",
+      "sym_mim",
+      "sym_sin"
+     ],
+     "hints": "after_second_miss",
+     "distractors": {
+      "policy": "learned_D1",
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S10b",
+     "kind": "word_to_picture",
+     "rounds": 3,
+     "words": [
+      "w_badam",
+      "w_sabad",
+      "w_bad"
+     ],
+     "choices": 3,
+     "hints": "after_second_miss",
+     "spoken_instruction": "aud.instr.word_pick"
+    },
+    {
+     "activity": "S13",
+     "variant": "station"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 15
+    },
+    "station": {
+     "coins": 20,
+     "item": "reward.u02",
+     "album_card": "card.station.u02"
+    }
+   }
+  }
+ ],
+ "station_audio": [
+  "aud.instr.drag_word",
+  "aud.instr.find",
+  "aud.instr.first_sound",
+  "aud.instr.listen_pick",
+  "aud.instr.match",
+  "aud.instr.pop",
+  "aud.instr.rhyme_tap",
+  "aud.instr.story_listen",
+  "aud.instr.story_question",
+  "aud.instr.syllable_bridge",
+  "aud.instr.trace",
+  "aud.instr.word_pick",
+  "aud.letter.a_short.sound",
+  "aud.letter.dal.sound",
+  "aud.letter.mim.sound",
+  "aud.letter.sin.sound",
+  "aud.narr.s07.u02",
+  "aud.word.abr.say",
+  "aud.word.dasht.say",
+  "aud.word.madar.say",
+  "aud.word.sabad.say"
+ ],
+ "station_assets": [
+  "img.scene.u02.a_short",
+  "img.scene.u02.dal",
+  "img.scene.u02.mim",
+  "img.scene.u02.sin",
+  "img.word.abr",
+  "img.word.dasht",
+  "img.word.madar",
+  "img.word.sabad"
+ ],
+ "learn_items": [
+  "sounds",
+  "letters",
+  "simple_words"
+ ],
+ "risk_notes": [
+  "س ↔ ص, ث: هم‌صدا",
+  "اَ: «اَ» در آغاز؛ نشانه‌ی ـَ روی حرف",
+  "د: نچسب"
+ ]
+}

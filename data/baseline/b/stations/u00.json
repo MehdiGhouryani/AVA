@@ -1,0 +1,248 @@
+{
+ "schema": 1,
+ "provisional": true,
+ "station_id": "u00",
+ "station_type": "sounds",
+ "order": 0,
+ "theme_color": "teal",
+ "title_key": "copy.u00.title",
+ "goal_key": "copy.u00.goal",
+ "narration_audio": "aud.narr.s07.u00",
+ "lessons": [],
+ "new_symbols": [],
+ "review_symbols": [],
+ "target_words": [],
+ "exit_criteria": {
+  "all_steps_completed": true,
+  "challenge_completed": true
+ },
+ "steps": [
+  {
+   "step_id": "b.u00.s1",
+   "type": "sounds",
+   "title_key": "copy.b.u00.s1.title",
+   "est_min": 4,
+   "objective": "کودک در حالت‌های env, clap از ۲ تصویر، پاسخ درست را انتخاب می‌کند (واج‌آگاهی بدون حرف).",
+   "activities": [
+    {
+     "activity": "S32",
+     "mode": "env",
+     "rounds": 4,
+     "choices": 2,
+     "spoken_instruction": "aud.instr.env",
+     "items_policy": "pool.sounds.env"
+    },
+    {
+     "activity": "S32",
+     "mode": "clap",
+     "rounds": 3,
+     "choices": 2,
+     "spoken_instruction": "aud.instr.clap",
+     "items_policy": "pool.sounds.clap"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5
+    }
+   }
+  },
+  {
+   "step_id": "b.u00.s2",
+   "type": "sounds",
+   "title_key": "copy.b.u00.s2.title",
+   "est_min": 4,
+   "objective": "کودک در حالت‌های rhyme, env از ۲ تصویر، پاسخ درست را انتخاب می‌کند (واج‌آگاهی بدون حرف).",
+   "activities": [
+    {
+     "activity": "S32",
+     "mode": "rhyme",
+     "rounds": 4,
+     "choices": 2,
+     "spoken_instruction": "aud.instr.rhyme",
+     "items_policy": "pool.sounds.rhyme"
+    },
+    {
+     "activity": "S32",
+     "mode": "env",
+     "rounds": 3,
+     "choices": 2,
+     "spoken_instruction": "aud.instr.env",
+     "items_policy": "pool.sounds.env"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5
+    }
+   }
+  },
+  {
+   "step_id": "b.u00.s3",
+   "type": "sounds",
+   "title_key": "copy.b.u00.s3.title",
+   "est_min": 4,
+   "objective": "کودک در حالت‌های clap, rhyme از ۲ تصویر، پاسخ درست را انتخاب می‌کند (واج‌آگاهی بدون حرف).",
+   "activities": [
+    {
+     "activity": "S32",
+     "mode": "clap",
+     "rounds": 4,
+     "choices": 2,
+     "spoken_instruction": "aud.instr.clap",
+     "items_policy": "pool.sounds.clap"
+    },
+    {
+     "activity": "S32",
+     "mode": "rhyme",
+     "rounds": 3,
+     "choices": 2,
+     "spoken_instruction": "aud.instr.rhyme",
+     "items_policy": "pool.sounds.rhyme"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5
+    }
+   }
+  },
+  {
+   "step_id": "b.u00.s4",
+   "type": "sounds",
+   "title_key": "copy.b.u00.s4.title",
+   "est_min": 4,
+   "objective": "کودک در حالت‌های first, clap از ۲ تصویر، پاسخ درست را انتخاب می‌کند (واج‌آگاهی بدون حرف).",
+   "activities": [
+    {
+     "activity": "S32",
+     "mode": "first",
+     "rounds": 4,
+     "choices": 2,
+     "spoken_instruction": "aud.instr.first",
+     "items_policy": "pool.sounds.first"
+    },
+    {
+     "activity": "S32",
+     "mode": "clap",
+     "rounds": 3,
+     "choices": 2,
+     "spoken_instruction": "aud.instr.clap",
+     "items_policy": "pool.sounds.clap"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5
+    }
+   }
+  },
+  {
+   "step_id": "b.u00.challenge",
+   "type": "challenge",
+   "title_key": "copy.b.u00.challenge.title",
+   "est_min": 5,
+   "objective": "سنجش واج‌آگاهی: صدای اول و قافیه، بدون راهنمای پیش‌فرض.",
+   "activities": [
+    {
+     "activity": "S32",
+     "mode": "first",
+     "rounds": 3,
+     "choices": 2,
+     "hints": "after_second_miss",
+     "spoken_instruction": "aud.instr.first"
+    },
+    {
+     "activity": "S32",
+     "mode": "rhyme",
+     "rounds": 3,
+     "choices": 2,
+     "hints": "after_second_miss",
+     "spoken_instruction": "aud.instr.rhyme"
+    },
+    {
+     "activity": "S13",
+     "variant": "station"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 15
+    },
+    "station": {
+     "coins": 20,
+     "item": "reward.u00",
+     "album_card": "card.station.u00"
+    }
+   }
+  }
+ ],
+ "station_audio": [
+  "aud.instr.clap",
+  "aud.instr.env",
+  "aud.instr.first",
+  "aud.instr.rhyme",
+  "aud.narr.s07.u00"
+ ],
+ "station_assets": [],
+ "learn_items": [
+  "sounds"
+ ],
+ "risk_notes": []
+}

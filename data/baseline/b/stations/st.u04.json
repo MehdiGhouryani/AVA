@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "story_id": "st.u04",
+ "unit": "u04",
+ "title_key": "copy.st.u04.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u04.p1",
+   "sentence": {
+    "text": "باد آمَد، باران آمَد.",
+    "words": [
+     "w_bad",
+     "w_amad",
+     "w_baran",
+     "w_amad"
+    ],
+    "audio": "aud.story.u04.p1"
+   },
+   "allowed_max_lesson": 5
+  },
+  {
+   "page": 2,
+   "image": "img.story.u04.p2",
+   "sentence": {
+    "text": "بابا دَر را بَست.",
+    "words": [
+     "w_baba",
+     "w_dar",
+     "w_ra",
+     "w_bast"
+    ],
+    "audio": "aud.story.u04.p2"
+   },
+   "allowed_max_lesson": 5
+  },
+  {
+   "page": 3,
+   "image": "img.story.u04.p3",
+   "sentence": {
+    "text": "مادَر نان داد.",
+    "words": [
+     "w_madar",
+     "w_nan",
+     "w_dad"
+    ],
+    "audio": "aud.story.u04.p3"
+   },
+   "allowed_max_lesson": 5
+  },
+  {
+   "page": 4,
+   "image": "img.story.u04.p4",
+   "sentence": {
+    "text": "نان، توت، اَنار!",
+    "words": [
+     "w_nan",
+     "w_tut",
+     "w_anar"
+    ],
+    "audio": "aud.story.u04.p4"
+   },
+   "allowed_max_lesson": 5
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u04.q1",
+   "answer": "img.word.anar",
+   "distractors": [
+    "img.word.mar"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+ "schema": 1,
+ "story_id": "st.u01",
+ "unit": "u01",
+ "title_key": "copy.st.u01.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u01.p1",
+   "sentence": {
+    "text": "بابا",
+    "words": [
+     "w_baba"
+    ],
+    "audio": "aud.story.u01.p1"
+   },
+   "allowed_max_lesson": 1
+  },
+  {
+   "page": 2,
+   "image": "img.story.u01.p2",
+   "sentence": {
+    "text": "آب",
+    "words": [
+     "w_ab"
+    ],
+    "audio": "aud.story.u01.p2"
+   },
+   "allowed_max_lesson": 1
+  },
+  {
+   "page": 3,
+   "image": "img.story.u01.p3",
+   "sentence": {
+    "text": "بابا، آب!",
+    "words": [
+     "w_baba",
+     "w_ab"
+    ],
+    "audio": "aud.story.u01.p3"
+   },
+   "allowed_max_lesson": 1
+  },
+  {
+   "page": 4,
+   "image": "img.story.u01.p4",
+   "sentence": {
+    "text": "آب، آب، آب!",
+    "words": [
+     "w_ab",
+     "w_ab",
+     "w_ab"
+    ],
+    "audio": "aud.story.u01.p4"
+   },
+   "allowed_max_lesson": 1
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u01.q1",
+   "answer": "img.word.ab",
+   "distractors": [
+    "img.word.baba"
+   ]
+  }
+ ]
+}

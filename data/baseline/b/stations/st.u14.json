@@ -1,0 +1,75 @@
+{
+ "schema": 1,
+ "story_id": "st.u14",
+ "unit": "u14",
+ "title_key": "copy.st.u14.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u14.p1",
+   "sentence": {
+    "text": "ظُهر اَست.",
+    "words": [
+     "w_zohr",
+     "w_ast"
+    ],
+    "audio": "aud.story.u14.p1"
+   },
+   "allowed_max_lesson": 21
+  },
+  {
+   "page": 2,
+   "image": "img.story.u14.p2",
+   "sentence": {
+    "text": "پِنگوئَن کِنارِ حوض اَست.",
+    "words": [
+     "w_penguen",
+     "w_kenaare",
+     "w_hoz",
+     "w_ast"
+    ],
+    "audio": "aud.story.u14.p2"
+   },
+   "allowed_max_lesson": 21
+  },
+  {
+   "page": 3,
+   "image": "img.story.u14.p3",
+   "sentence": {
+    "text": "او ظَرفِ ماهی دارَد.",
+    "words": [
+     "w_u",
+     "w_zarfe",
+     "w_mahi",
+     "w_darad"
+    ],
+    "audio": "aud.story.u14.p3"
+   },
+   "allowed_max_lesson": 21
+  },
+  {
+   "page": 4,
+   "image": "img.story.u14.p4",
+   "sentence": {
+    "text": "پِنگوئَن شاد اَست!",
+    "words": [
+     "w_penguen",
+     "w_shaad",
+     "w_ast"
+    ],
+    "audio": "aud.story.u14.p4"
+   },
+   "allowed_max_lesson": 21
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u14.q1",
+   "answer": "img.word.penguen",
+   "distractors": [
+    "img.word.hoz"
+   ]
+  }
+ ]
+}

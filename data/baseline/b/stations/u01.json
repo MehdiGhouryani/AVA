@@ -1,0 +1,478 @@
+{
+ "schema": 1,
+ "provisional": true,
+ "station_id": "u01",
+ "station_type": "letters",
+ "order": 1,
+ "theme_color": "saffron",
+ "title_key": "copy.u01.title",
+ "goal_key": "copy.u01.goal",
+ "narration_audio": "aud.narr.s07.u01",
+ "lessons": [
+  "l01"
+ ],
+ "new_symbols": [
+  "sym_alef",
+  "sym_ba"
+ ],
+ "review_symbols": [],
+ "target_words": [
+  "w_ab",
+  "w_baba"
+ ],
+ "exit_criteria": {
+  "all_steps_completed": true,
+  "challenge_completed": true
+ },
+ "steps": [
+  {
+   "step_id": "b.u01.alef",
+   "type": "letter",
+   "title_key": "copy.b.u01.alef.title",
+   "est_min": 6,
+   "objective": "کودک صدای «آ» را می‌شنود، شکلش را از میان گزینه‌ها تشخیص می‌دهد و با انگشت ردگیری می‌کند.",
+   "activities": [
+    {
+     "activity": "S08",
+     "symbol": "sym_alef",
+     "keyword": "w_ab",
+     "keyword_display": "text",
+     "audio_ids": [
+      "aud.letter.alef.sound",
+      "aud.word.ab.say"
+     ],
+     "image_ids": [
+      "img.word.ab"
+     ],
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S09",
+     "symbol": "sym_alef",
+     "attempts": "show_plus_2",
+     "trace_path": "trace.alef",
+     "spoken_instruction": "aud.instr.trace"
+    },
+    {
+     "activity": "S10",
+     "rounds": 4,
+     "choices": 3,
+     "targets": [
+      "sym_alef"
+     ],
+     "distractors": {
+      "policy": "learned_D0_D1",
+      "neutral_fill": true,
+      "neutral_max": 2,
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S11",
+     "mode": "scene",
+     "symbol": "sym_alef",
+     "targets": [
+      "w_ab",
+      "w_aseman",
+      "p_atash"
+     ],
+     "distractor_objects": [
+      "w_khargush",
+      "w_bad"
+     ],
+     "image_ids": [
+      "img.scene.u01.alef"
+     ],
+     "spoken_instruction": "aud.instr.find"
+    },
+    {
+     "activity": "S12",
+     "game": "G1",
+     "symbols": [
+      "sym_alef"
+     ],
+     "spoken_instruction": "aud.instr.pop",
+     "rounds": 6
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.sym_alef"
+    }
+   },
+   "mastery_effect": {
+    "sym_alef": {
+     "learned_on": "complete",
+     "daily_gain_cap": 0.35
+    }
+   }
+  },
+  {
+   "step_id": "b.u01.ba",
+   "type": "letter",
+   "title_key": "copy.b.u01.ba.title",
+   "est_min": 5,
+   "objective": "کودک صدای «ب» را می‌شنود، شکلش را از میان گزینه‌ها تشخیص می‌دهد و با انگشت ردگیری می‌کند.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S08",
+     "symbol": "sym_ba",
+     "keyword": "w_baba",
+     "keyword_display": "text",
+     "audio_ids": [
+      "aud.letter.ba.sound",
+      "aud.word.baba.say"
+     ],
+     "image_ids": [
+      "img.word.baba"
+     ],
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S09",
+     "symbol": "sym_ba",
+     "attempts": "show_plus_2",
+     "trace_path": "trace.ba",
+     "spoken_instruction": "aud.instr.trace"
+    },
+    {
+     "activity": "S10",
+     "rounds": 4,
+     "choices": 3,
+     "targets": [
+      "sym_ba",
+      "sym_alef"
+     ],
+     "distractors": {
+      "policy": "learned_D0_D1",
+      "neutral_fill": true,
+      "neutral_max": 2,
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S11",
+     "mode": "scene",
+     "symbol": "sym_ba",
+     "targets": [
+      "w_baba",
+      "w_bad",
+      "w_badam"
+     ],
+     "distractor_objects": [
+      "p_lak",
+      "w_derakht"
+     ],
+     "image_ids": [
+      "img.scene.u01.ba"
+     ],
+     "spoken_instruction": "aud.instr.find"
+    },
+    {
+     "activity": "S12",
+     "game": "G4",
+     "symbols": [
+      "sym_alef",
+      "sym_ba"
+     ],
+     "spoken_instruction": "aud.instr.match",
+     "pairs": 3
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.sym_ba"
+    }
+   },
+   "mastery_effect": {
+    "sym_ba": {
+     "learned_on": "complete",
+     "daily_gain_cap": 0.35
+    }
+   }
+  },
+  {
+   "step_id": "b.u01.l01.w",
+   "type": "word",
+   "title_key": "copy.b.u01.l01.w.title",
+   "est_min": 5,
+   "objective": "کودک واژه‌ی «آب» را از حرف‌ها می‌سازد و صدای اول واژه‌ها را تشخیص می‌دهد.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S12",
+     "game": "G3",
+     "rounds": 1,
+     "words": [
+      "w_ab"
+     ],
+     "spoken_instruction": "aud.instr.drag_word"
+    },
+    {
+     "activity": "S10b",
+     "kind": "first_sound",
+     "rounds": 3,
+     "words": [
+      "w_ab",
+      "w_baba"
+     ],
+     "choices": 3,
+     "distractors": {
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.first_sound"
+    },
+    {
+     "activity": "S12",
+     "game": "G4",
+     "pairs": 3,
+     "symbols": [
+      "sym_alef",
+      "sym_ba"
+     ],
+     "spoken_instruction": "aud.instr.match"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.w_ab"
+    }
+   }
+  },
+  {
+   "step_id": "b.u01.treasure",
+   "type": "treasure",
+   "title_key": "copy.b.u01.treasure.title",
+   "est_min": 4,
+   "objective": "مرور شاد صداهای ایستگاه + واج‌آگاهی (قافیه).",
+   "activities": [
+    {
+     "activity": "S12",
+     "game": "G1",
+     "rounds": 6,
+     "symbols": [
+      "sym_alef",
+      "sym_ba"
+     ],
+     "spoken_instruction": "aud.instr.pop"
+    },
+    {
+     "activity": "S12",
+     "game": "G6",
+     "rounds": 1,
+     "poem": "poem.p02",
+     "lines": 4,
+     "spoken_instruction": "aud.instr.rhyme_tap"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 10
+    }
+   }
+  },
+  {
+   "step_id": "b.u01.story",
+   "type": "story",
+   "title_key": "copy.b.u01.story.title",
+   "est_min": 5,
+   "objective": "کودک قصه‌ی 4 صفحه‌ای «آب و بابا» را می‌شنود/با هم می‌خواند و به یک پرسش تصویری پاسخ می‌دهد.",
+   "activities": [
+    {
+     "activity": "S14",
+     "story": "st.u01",
+     "pages": 4,
+     "modes": [
+      "listen",
+      "read_with_me"
+     ],
+     "spoken_instruction": "aud.instr.story_listen"
+    },
+    {
+     "activity": "S10b",
+     "kind": "picture_question",
+     "rounds": 1,
+     "choices": 2,
+     "question": "st.u01.q1",
+     "spoken_instruction": "aud.instr.story_question"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 8,
+     "album_card": "card.st.u01"
+    }
+   }
+  },
+  {
+   "step_id": "b.u01.challenge",
+   "type": "challenge",
+   "title_key": "copy.b.u01.challenge.title",
+   "est_min": 5,
+   "objective": "سنجش بدون راهنمای پیش‌فرض: صدا↔حرف و واژه↔تصویر برای نشانه‌های ایستگاه.",
+   "activities": [
+    {
+     "activity": "S10",
+     "rounds": 3,
+     "choices": 3,
+     "targets": [
+      "sym_alef",
+      "sym_ba"
+     ],
+     "hints": "after_second_miss",
+     "distractors": {
+      "policy": "learned_D1",
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S10b",
+     "kind": "word_to_picture",
+     "rounds": 3,
+     "words": [
+      "w_ab",
+      "w_baba"
+     ],
+     "choices": 3,
+     "hints": "after_second_miss",
+     "spoken_instruction": "aud.instr.word_pick"
+    },
+    {
+     "activity": "S13",
+     "variant": "station"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 15
+    },
+    "station": {
+     "coins": 20,
+     "item": "reward.u01",
+     "album_card": "card.station.u01"
+    }
+   }
+  }
+ ],
+ "station_audio": [
+  "aud.instr.drag_word",
+  "aud.instr.find",
+  "aud.instr.first_sound",
+  "aud.instr.listen_pick",
+  "aud.instr.match",
+  "aud.instr.pop",
+  "aud.instr.rhyme_tap",
+  "aud.instr.story_listen",
+  "aud.instr.story_question",
+  "aud.instr.trace",
+  "aud.instr.word_pick",
+  "aud.letter.alef.sound",
+  "aud.letter.ba.sound",
+  "aud.narr.s07.u01",
+  "aud.word.ab.say",
+  "aud.word.baba.say"
+ ],
+ "station_assets": [
+  "img.scene.u01.alef",
+  "img.scene.u01.ba",
+  "img.word.ab",
+  "img.word.baba"
+ ],
+ "learn_items": [
+  "sounds",
+  "letters",
+  "simple_words"
+ ],
+ "risk_notes": [
+  "آ: آ در آغاز؛ «ا» در میان/پایان = صدای آ"
+ ]
+}

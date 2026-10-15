@@ -1,0 +1,487 @@
+{
+  "version": "1.8",
+  "child_reference": {
+    "width": 360,
+    "height": 800,
+    "scroll": "vertical when needed",
+    "safe_area": "native verification pending"
+  },
+  "width_checks": [
+    320,
+    360,
+    412
+  ],
+  "cms_reference": {
+    "desktop_viewport": [
+      1440,
+      1000
+    ],
+    "table_overflow": "contained horizontal scroll"
+  },
+  "screens": [
+    {
+      "id": "S01",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "لوگو، کتاب باز همراه، نشان آماده‌سازی آرام؛ CTA فقط در دفتر طراحی برای عبور دستی.",
+      "target": 64,
+      "state_count": 3
+    },
+    {
+      "id": "S02",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "سه صحنهٔ متفاوت: سلام آوا، باغ کتابی، دوستان؛ روایت/بازپخش، next و skip؛ کودک محور.",
+      "target": 64,
+      "state_count": 6
+    },
+    {
+      "id": "S04",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "پیش‌نمایش همراه و فرم نام کودک؛ دامنهٔ محصول ثابت ۴ تا ۷ سال؛ بدون انتخاب سن یا گروه.",
+      "target": 64,
+      "state_count": 6
+    },
+    {
+      "id": "S22",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "همراه منتظر، کارت بسته و progress fixture؛ بازی آماده و کمک بزرگ‌تر؛ دانلود واقعی نیست.",
+      "target": 64,
+      "state_count": 10
+    },
+    {
+      "id": "S03a",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "لوگو و همراه کوچک، handoff بزرگ‌تر، رضایت، سه روش auth بدون credential در نمونه.",
+      "target": 48,
+      "state_count": 6
+    },
+    {
+      "id": "S03b",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "شش خانهٔ کد غیرقابل‌ورود؛ موفقیت/ارسال دوبارهٔ نمایشی؛ وضعیت wrong/expired/locked.",
+      "target": 48,
+      "state_count": 7
+    },
+    {
+      "id": "S03c",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "نمای provider، ادامهٔ نمایشی و برگشت؛ auth در سرویس امن تولیدی.",
+      "target": 48,
+      "state_count": 5
+    },
+    {
+      "id": "S03e",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "نمای ایمیل بزرگ‌تر، پیوند و مسیر not_received/error؛ بدون فیلد دریافت ایمیل در نمونه.",
+      "target": 48,
+      "state_count": 6
+    },
+    {
+      "id": "S03d",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "دو پروفایل محلی/حساب، انتخاب حفظ هر دو و انصراف؛ merge بدون حذف پنهان.",
+      "target": 48,
+      "state_count": 6
+    },
+    {
+      "id": "S23",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "صفحهٔ مرجع غیرفعال: راه بزرگ‌ترها باز است؛ بدون معما/رمز در V1.",
+      "target": 64,
+      "state_count": 5
+    },
+    {
+      "id": "S18",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "انتخاب ماهانه/سالانه، شرایط و قیمت از فروشگاه، pending، restore، بعداً؛ parent-only.",
+      "target": 48,
+      "state_count": 8
+    },
+    {
+      "id": "S19",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "معرفی‌شدن و تسلط جدا، سه ردیف نشانه، پیشنهاد تمرین بیرون صفحه؛ no_data بدون نمودار جعلی.",
+      "target": 48,
+      "state_count": 6
+    },
+    {
+      "id": "S20",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "فهرست والد با گزارش، صدا/حرکت، بسته‌ها، پروفایل، اشتراک، حساب، پشتیبانی و قوانین.",
+      "target": 48,
+      "state_count": 4
+    },
+    {
+      "id": "S24",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "بستهٔ آماده، بستهٔ درحال‌دریافت، pause/resume، گام‌های verify/install و مسیر کمبود فضا.",
+      "target": 48,
+      "state_count": 7
+    },
+    {
+      "id": "S27",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "دو پروفایل ثابت نمونه، انتخاب فعال، avatar مستقل، ویرایش/افزودن/مرور حذف.",
+      "target": 48,
+      "state_count": 7
+    },
+    {
+      "id": "S21",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "قفل ترتیبی، اشتراک و offline با copy و مقصد متفاوت؛ کودک قیمت نمی‌بیند.",
+      "target": 64,
+      "state_count": 7
+    },
+    {
+      "id": "S05",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "شروع از صفر یا بازی تعیین سطح بدون نمره؛ دارایی starter مستقل از دانلود.",
+      "target": 64,
+      "state_count": 7
+    },
+    {
+      "id": "S05r",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "ایستگاه پیشنهادی و گزینهٔ ازاول؛ ورود به خانهٔ آماده یا S22 در صورت نیاز بسته.",
+      "target": 64,
+      "state_count": 4
+    },
+    {
+      "id": "S06-A",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "مرجع hidden آینده؛ سطح Toy تولیدی فعال نشده است.",
+      "target": 64,
+      "state_count": 4
+    },
+    {
+      "id": "S06-B",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "پروفایل شخصی، عنوان کتاب، باغ کتابی کوچک، گرهٔ مرور/جاری/بعدی، CTA و سه تب.",
+      "target": 64,
+      "state_count": 7
+    },
+    {
+      "id": "S06-C",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "مرجع hidden آینده؛ سطح Game/Learning تولیدی فعال نشده است.",
+      "target": 64,
+      "state_count": 3
+    },
+    {
+      "id": "S07",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "روباه همراه معرفی، برگ نشانه، سه preview صدا/بازی/قصه، شروع مرحله.",
+      "target": 64,
+      "state_count": 5
+    },
+    {
+      "id": "S30",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "پوستهٔ اجرای درس، cue، progress، بازپخش و خروج امن؛ ترتیب از engine تولیدی می‌آید.",
+      "target": 64,
+      "state_count": 9
+    },
+    {
+      "id": "S08",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "تصویر آب، نشانه/واژه و همراه شنوا؛ یک replay. mapping آموزشی fixture نیازمند تأیید.",
+      "target": 64,
+      "state_count": 6
+    },
+    {
+      "id": "S09",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "همراه راهنما، بوم pointer، نقطهٔ شروع روشن، reset و demo؛ gesture بدون grading آموزشی.",
+      "target": 64,
+      "state_count": 7
+    },
+    {
+      "id": "S10",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "همراه شنوا، audio orb و کارت نشانه؛ selected/tick، cue آرام بعد خطا.",
+      "target": 64,
+      "state_count": 6
+    },
+    {
+      "id": "S10b",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "تصویر keyword اضافه بر شنیدن، سپس انتخاب صدای اول؛ هدف متفاوت از S10.",
+      "target": 64,
+      "state_count": 5
+    },
+    {
+      "id": "S11",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "باغ و گزینهٔ شیء هدف با تصویر؛ found/retry بدون امتیاز منفی.",
+      "target": 64,
+      "state_count": 6
+    },
+    {
+      "id": "S12-G1",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "سه بادکنک محدود به بوم، حرکت کم، پاسخ با لمس؛ بدون timer یا بادکنک فراری.",
+      "target": 64,
+      "state_count": 6
+    },
+    {
+      "id": "S12-G2",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "دوست و کاسه، انتخاب کارت و حالت تحویل؛ tap alternative به جای drag اجباری.",
+      "target": 64,
+      "state_count": 6
+    },
+    {
+      "id": "S12-G3",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "همراه فکرکننده، دو slot و tokenها RTL؛ چیدن و reset؛ موتور validation در تولید.",
+      "target": 64,
+      "state_count": 6
+    },
+    {
+      "id": "S12-G4",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "شش کارت برگ، open/reset و state match؛ engine دو کارت و pairing در تولید.",
+      "target": 64,
+      "state_count": 6
+    },
+    {
+      "id": "S12-G5",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "دو دوست دو سوی آب، دو کاشی پل، هجا با لمس و واژهٔ نهایی.",
+      "target": 64,
+      "state_count": 6
+    },
+    {
+      "id": "S12-G6",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "جغد قصه‌گو، سه سطر صوت‌پذیر و focus سطر؛ شعر نمونه تأییدنشده است.",
+      "target": 64,
+      "state_count": 6
+    },
+    {
+      "id": "S31",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "کشف آزاد باغ و شیء شنیداری؛ گونه و keyword با curriculum قفل می‌شوند.",
+      "target": 64,
+      "state_count": 7
+    },
+    {
+      "id": "S32",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "پرندهٔ شنوا، audio، گزینه‌های محیطی و cue variantهای صدا؛ محتوای صوتی production لازم.",
+      "target": 64,
+      "state_count": 10
+    },
+    {
+      "id": "S33",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "نشانه‌های جدا، سرسرهٔ RTL، tap alternative، سپس انتخاب معنای تصویری؛ بدون صدای واقعی.",
+      "target": 64,
+      "state_count": 7
+    },
+    {
+      "id": "S13",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "saving/commit سپس جشن آوا، برگ collectible و مقصد کتاب/باغ؛ ledger نمونه profile-scoped.",
+      "target": 64,
+      "state_count": 6
+    },
+    {
+      "id": "S14",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "سه برگ قصهٔ نمونه، tap کلمه، برگ‌گردان RTL، خواندن با راوی و پرسش تصویری.",
+      "target": 64,
+      "state_count": 7
+    },
+    {
+      "id": "S15",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "آواتار مستقل، چهار category رنگ/کلاه/کتاب/نقش، preview و save، مسیر والد و تب‌ها.",
+      "target": 64,
+      "state_count": 5
+    },
+    {
+      "id": "S16",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "کتاب دوصفحه‌ای کشف‌ها، برگ تازه/قابل‌شنیدن/بعدی؛ قفل بدون فشار.",
+      "target": 64,
+      "state_count": 5
+    },
+    {
+      "id": "S17",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "هفت گل هفته با روزهای خالی بدون جریمه و دعوت آرام به برگشت.",
+      "target": 64,
+      "state_count": 5
+    },
+    {
+      "id": "S26",
+      "audience": "child",
+      "frame": "child_or_parent",
+      "layout": "همراه جشن، گواهی غیررقابتی و مسیر بازی دوباره/بزرگ‌تر.",
+      "target": 64,
+      "state_count": 4
+    },
+    {
+      "id": "CMS-01",
+      "audience": "cms",
+      "frame": "desktop",
+      "layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "target": 48,
+      "state_count": 4
+    },
+    {
+      "id": "CMS-02",
+      "audience": "cms",
+      "frame": "desktop",
+      "layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "target": 48,
+      "state_count": 6
+    },
+    {
+      "id": "CMS-03",
+      "audience": "cms",
+      "frame": "desktop",
+      "layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "target": 48,
+      "state_count": 5
+    },
+    {
+      "id": "CMS-04",
+      "audience": "cms",
+      "frame": "desktop",
+      "layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "target": 48,
+      "state_count": 7
+    },
+    {
+      "id": "CMS-05",
+      "audience": "cms",
+      "frame": "desktop",
+      "layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "target": 48,
+      "state_count": 6
+    },
+    {
+      "id": "CMS-06",
+      "audience": "cms",
+      "frame": "desktop",
+      "layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "target": 48,
+      "state_count": 6
+    },
+    {
+      "id": "CMS-07",
+      "audience": "cms",
+      "frame": "desktop",
+      "layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "target": 48,
+      "state_count": 7
+    },
+    {
+      "id": "CMS-08",
+      "audience": "cms",
+      "frame": "desktop",
+      "layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "target": 48,
+      "state_count": 5
+    },
+    {
+      "id": "UX-01",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "قوانین نسخه‌دار، دادهٔ کمتر، cached/offline و تغییر نسخهٔ consent.",
+      "target": 48,
+      "state_count": 5
+    },
+    {
+      "id": "UX-02",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "حساب/خروج/حذف، reauth و تأیید آثار، وضعیت offline/deleting/receipt؛ هیچ حذف واقعی در نمونه.",
+      "target": 48,
+      "state_count": 7
+    },
+    {
+      "id": "UX-03",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "FAQ، دستهٔ مشکل، رضایت مستقل برای diagnostic و receipt؛ بدون PII کودک.",
+      "target": 48,
+      "state_count": 7
+    },
+    {
+      "id": "UX-04",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "چرخهٔ اتصال/فضا در parent area و بازگشت به package آماده.",
+      "target": 48,
+      "state_count": 8
+    },
+    {
+      "id": "UX-05",
+      "audience": "parent",
+      "frame": "child_or_parent",
+      "layout": "چرخهٔ store/entitlement با pending، success، failure، cancelled، restore و expired؛ parent-only.",
+      "target": 48,
+      "state_count": 10
+    },
+    {
+      "id": "CMS-00",
+      "audience": "cms",
+      "frame": "desktop",
+      "layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "target": 48,
+      "state_count": 8
+    },
+    {
+      "id": "CMS-09",
+      "audience": "cms",
+      "frame": "desktop",
+      "layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "target": 48,
+      "state_count": 8
+    }
+  ]
+}

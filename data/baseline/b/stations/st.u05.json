@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "story_id": "st.u05",
+ "unit": "u05",
+ "title_key": "copy.st.u05.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u05.p1",
+   "sentence": {
+    "text": "این سیب اَست.",
+    "words": [
+     "w_in",
+     "w_sib",
+     "w_ast"
+    ],
+    "audio": "aud.story.u05.p1"
+   },
+   "allowed_max_lesson": 7
+  },
+  {
+   "page": 2,
+   "image": "img.story.u05.p2",
+   "sentence": {
+    "text": "سیب سَرِ میز اَست.",
+    "words": [
+     "w_sib",
+     "w_sare",
+     "w_miz",
+     "w_ast"
+    ],
+    "audio": "aud.story.u05.p2"
+   },
+   "allowed_max_lesson": 7
+  },
+  {
+   "page": 3,
+   "image": "img.story.u05.p3",
+   "sentence": {
+    "text": "موش سیب را دید.",
+    "words": [
+     "w_mush",
+     "w_sib",
+     "w_ra",
+     "w_did"
+    ],
+    "audio": "aud.story.u05.p3"
+   },
+   "allowed_max_lesson": 7
+  },
+  {
+   "page": 4,
+   "image": "img.story.u05.p4",
+   "sentence": {
+    "text": "موش به سیب رِسید!",
+    "words": [
+     "w_mush",
+     "w_be",
+     "w_sib",
+     "w_resid"
+    ],
+    "audio": "aud.story.u05.p4"
+   },
+   "allowed_max_lesson": 7
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u05.q1",
+   "answer": "img.word.mush",
+   "distractors": [
+    "img.word.shir"
+   ]
+  }
+ ]
+}

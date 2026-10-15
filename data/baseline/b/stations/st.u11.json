@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "story_id": "st.u11",
+ "unit": "u11",
+ "title_key": "copy.st.u11.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u11.p1",
+   "sentence": {
+    "text": "طوطی سَرِ صَندَلی اَست.",
+    "words": [
+     "w_tuti",
+     "w_sare",
+     "w_sandali",
+     "w_ast"
+    ],
+    "audio": "aud.story.u11.p1"
+   },
+   "allowed_max_lesson": 17
+  },
+  {
+   "page": 2,
+   "image": "img.story.u11.p2",
+   "sentence": {
+    "text": "او عَسَل دید.",
+    "words": [
+     "w_u",
+     "w_asal",
+     "w_did"
+    ],
+    "audio": "aud.story.u11.p2"
+   },
+   "allowed_max_lesson": 17
+  },
+  {
+   "page": 3,
+   "image": "img.story.u11.p3",
+   "sentence": {
+    "text": "حَلَزون هَم آمَد.",
+    "words": [
+     "w_halazun",
+     "w_ham",
+     "w_amad"
+    ],
+    "audio": "aud.story.u11.p3"
+   },
+   "allowed_max_lesson": 17
+  },
+  {
+   "page": 4,
+   "image": "img.story.u11.p4",
+   "sentence": {
+    "text": "طوطی و حَلَزون عَسَل خوردَند.",
+    "words": [
+     "w_tuti",
+     "w_o",
+     "w_halazun",
+     "w_asal",
+     "w_khordand"
+    ],
+    "audio": "aud.story.u11.p4"
+   },
+   "allowed_max_lesson": 17
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u11.q1",
+   "answer": "img.word.asal",
+   "distractors": [
+    "img.word.sabun"
+   ]
+  }
+ ]
+}

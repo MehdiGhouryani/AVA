@@ -1,0 +1,149 @@
+{
+ "schema": 1,
+ "poems": [
+  {
+   "poem_id": "poem.p01",
+   "title_key": "copy.poem.p01.title",
+   "lines": [
+    "باران میاد شُر شُر شُر",
+    "باغچه می‌شه از گل پُر",
+    "ابرِ سفید، ابرِ سیاه",
+    "رنگین‌کمون اومد تو راه"
+   ],
+   "rhyme_targets": [
+    "شُر",
+    "پُر",
+    "سیاه",
+    "راه"
+   ],
+   "line_audio": [
+    "aud.poem.p01.l1",
+    "aud.poem.p01.l2",
+    "aud.poem.p01.l3",
+    "aud.poem.p01.l4"
+   ],
+   "original": true,
+   "approved": false
+  },
+  {
+   "poem_id": "poem.p02",
+   "title_key": "copy.poem.p02.title",
+   "lines": [
+    "ماهِ قشنگ، ماهِ بلند",
+    "تو آسمون زد لبخند",
+    "ستاره‌ها چشمک زدن",
+    "دورِ ماه رقصیدن"
+   ],
+   "rhyme_targets": [
+    "بلند",
+    "لبخند",
+    "زدن",
+    "رقصیدن"
+   ],
+   "line_audio": [
+    "aud.poem.p02.l1",
+    "aud.poem.p02.l2",
+    "aud.poem.p02.l3",
+    "aud.poem.p02.l4"
+   ],
+   "original": true,
+   "approved": false
+  },
+  {
+   "poem_id": "poem.p03",
+   "title_key": "copy.poem.p03.title",
+   "lines": [
+    "خرگوشِ ناز، گوش‌دراز",
+    "می‌پره بالا، باز و باز",
+    "تو باغ داره یه خونه",
+    "هویج می‌خوره دونه‌دونه"
+   ],
+   "rhyme_targets": [
+    "دراز",
+    "باز",
+    "خونه",
+    "دونه‌دونه"
+   ],
+   "line_audio": [
+    "aud.poem.p03.l1",
+    "aud.poem.p03.l2",
+    "aud.poem.p03.l3",
+    "aud.poem.p03.l4"
+   ],
+   "original": true,
+   "approved": false
+  },
+  {
+   "poem_id": "poem.p04",
+   "title_key": "copy.poem.p04.title",
+   "lines": [
+    "اردک تو آب، شَلپ شُلوپ",
+    "شنا می‌کنه با یه توپ",
+    "پاهاش نارنجی، پَرهاش نرم",
+    "آبِ برکه شده گرم"
+   ],
+   "rhyme_targets": [
+    "شُلوپ",
+    "توپ",
+    "نرم",
+    "گرم"
+   ],
+   "line_audio": [
+    "aud.poem.p04.l1",
+    "aud.poem.p04.l2",
+    "aud.poem.p04.l3",
+    "aud.poem.p04.l4"
+   ],
+   "original": true,
+   "approved": false
+  },
+  {
+   "poem_id": "poem.p05",
+   "title_key": "copy.poem.p05.title",
+   "lines": [
+    "یه کتاب دارم رنگارنگ",
+    "پر از قصه‌های قشنگ",
+    "ورق می‌زنم آهسته",
+    "تا قصه نشه خسته"
+   ],
+   "rhyme_targets": [
+    "رنگارنگ",
+    "قشنگ",
+    "آهسته",
+    "خسته"
+   ],
+   "line_audio": [
+    "aud.poem.p05.l1",
+    "aud.poem.p05.l2",
+    "aud.poem.p05.l3",
+    "aud.poem.p05.l4"
+   ],
+   "original": true,
+   "approved": false
+  },
+  {
+   "poem_id": "poem.p06",
+   "title_key": "copy.poem.p06.title",
+   "lines": [
+    "سیبِ قرمز، سیبِ گرد",
+    "باد اومد و اونو برد",
+    "افتاد تو حوض، تاب‌تاب",
+    "ماهی گفت: سلام! تو آب"
+   ],
+   "rhyme_targets": [
+    "گرد",
+    "برد",
+    "تاب‌تاب",
+    "آب"
+   ],
+   "line_audio": [
+    "aud.poem.p06.l1",
+    "aud.poem.p06.l2",
+    "aud.poem.p06.l3",
+    "aud.poem.p06.l4"
+   ],
+   "original": true,
+   "approved": false
+  }
+ ]
+}

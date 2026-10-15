@@ -1,0 +1,1217 @@
+{
+ "schema": 1,
+ "provisional": true,
+ "symbols": [
+  {
+   "symbol_id": "sym_alef",
+   "glyph": "آ",
+   "forms": {
+    "isolated": "آ",
+    "initial": "آ",
+    "medial": "ـا",
+    "final": "ـا"
+   },
+   "sound": "ā",
+   "kind": "long_vowel",
+   "introduced_in": "l01",
+   "sound_family": "vowel_open",
+   "shape_group": "alef",
+   "mouth_shape": "m1",
+   "joins_left": false,
+   "homophones": [],
+   "note": "آ در آغاز؛ «ا» در میان/پایان = صدای آ",
+   "sound_audio": "aud.letter.alef.sound",
+   "name_audio": "aud.letter.alef.name",
+   "trace_path": "trace.alef",
+   "confusions": [],
+   "station": "u01",
+   "stage": 1,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_ba",
+   "glyph": "ب",
+   "forms": {
+    "isolated": "ب",
+    "initial": "بـ",
+    "medial": "ـبـ",
+    "final": "ـب"
+   },
+   "sound": "b",
+   "kind": "consonant",
+   "introduced_in": "l01",
+   "sound_family": "lips_closed",
+   "shape_group": "bowl_dots",
+   "mouth_shape": "m3",
+   "joins_left": true,
+   "homophones": [],
+   "note": "",
+   "sound_audio": "aud.letter.ba.sound",
+   "name_audio": "aud.letter.ba.name",
+   "trace_path": "trace.ba",
+   "confusions": [
+    "sym_te",
+    "sym_nun",
+    "sym_pe",
+    "sym_se"
+   ],
+   "station": "u01",
+   "stage": 1,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_a_short",
+   "glyph": "اَ",
+   "forms": {
+    "isolated": "اَ",
+    "initial": "اَ",
+    "medial": "ـَ",
+    "final": "ـَ"
+   },
+   "sound": "a",
+   "kind": "short_vowel",
+   "introduced_in": "l02",
+   "sound_family": "vowel_open",
+   "shape_group": "vowel_mark",
+   "mouth_shape": "m1",
+   "joins_left": false,
+   "homophones": [],
+   "note": "«اَ» در آغاز؛ نشانه‌ی ـَ روی حرف",
+   "sound_audio": "aud.letter.a_short.sound",
+   "name_audio": "aud.letter.a_short.name",
+   "trace_path": "trace.a_short",
+   "confusions": [],
+   "station": "u02",
+   "stage": 2,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_dal",
+   "glyph": "د",
+   "forms": {
+    "isolated": "د",
+    "initial": "د",
+    "medial": "ـد",
+    "final": "ـد"
+   },
+   "sound": "d",
+   "kind": "consonant",
+   "introduced_in": "l02",
+   "sound_family": "tongue_tip",
+   "shape_group": "dal",
+   "mouth_shape": "m6",
+   "joins_left": false,
+   "homophones": [],
+   "note": "نچسب",
+   "sound_audio": "aud.letter.dal.sound",
+   "name_audio": "aud.letter.dal.name",
+   "trace_path": "trace.dal",
+   "confusions": [
+    "sym_zal"
+   ],
+   "station": "u02",
+   "stage": 2,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_mim",
+   "glyph": "م",
+   "forms": {
+    "isolated": "م",
+    "initial": "مـ",
+    "medial": "ـمـ",
+    "final": "ـم"
+   },
+   "sound": "m",
+   "kind": "consonant",
+   "introduced_in": "l03",
+   "sound_family": "lips_closed",
+   "shape_group": "mim",
+   "mouth_shape": "m3",
+   "joins_left": true,
+   "homophones": [],
+   "note": "",
+   "sound_audio": "aud.letter.mim.sound",
+   "name_audio": "aud.letter.mim.name",
+   "trace_path": "trace.mim",
+   "confusions": [],
+   "station": "u02",
+   "stage": 3,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_sin",
+   "glyph": "س",
+   "forms": {
+    "isolated": "س",
+    "initial": "سـ",
+    "medial": "ـسـ",
+    "final": "ـس"
+   },
+   "sound": "s",
+   "kind": "consonant",
+   "introduced_in": "l03",
+   "sound_family": "hiss",
+   "shape_group": "teeth",
+   "mouth_shape": "m5",
+   "joins_left": true,
+   "homophones": [
+    "sym_sad",
+    "sym_se"
+   ],
+   "note": "",
+   "sound_audio": "aud.letter.sin.sound",
+   "name_audio": "aud.letter.sin.name",
+   "trace_path": "trace.sin",
+   "confusions": [
+    "sym_shin"
+   ],
+   "station": "u02",
+   "stage": 3,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_u_long",
+   "glyph": "او",
+   "forms": {
+    "isolated": "او",
+    "initial": "او",
+    "medial": "ـو",
+    "final": "ـو"
+   },
+   "sound": "u",
+   "kind": "long_vowel",
+   "introduced_in": "l04",
+   "sound_family": "vowel_round",
+   "shape_group": "vav",
+   "mouth_shape": "m2",
+   "joins_left": false,
+   "homophones": [],
+   "note": "«او» در آغاز؛ «ـو» در میان/پایان",
+   "sound_audio": "aud.letter.u_long.sound",
+   "name_audio": "aud.letter.u_long.name",
+   "trace_path": "trace.u_long",
+   "confusions": [
+    "sym_vav",
+    "sym_vav_o"
+   ],
+   "station": "u03",
+   "stage": 4,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_te",
+   "glyph": "ت",
+   "forms": {
+    "isolated": "ت",
+    "initial": "تـ",
+    "medial": "ـتـ",
+    "final": "ـت"
+   },
+   "sound": "t",
+   "kind": "consonant",
+   "introduced_in": "l04",
+   "sound_family": "tongue_tip",
+   "shape_group": "bowl_dots",
+   "mouth_shape": "m6",
+   "joins_left": true,
+   "homophones": [
+    "sym_ta"
+   ],
+   "note": "",
+   "sound_audio": "aud.letter.te.sound",
+   "name_audio": "aud.letter.te.name",
+   "trace_path": "trace.te",
+   "confusions": [
+    "sym_ba",
+    "sym_nun",
+    "sym_pe",
+    "sym_se"
+   ],
+   "station": "u03",
+   "stage": 4,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_re",
+   "glyph": "ر",
+   "forms": {
+    "isolated": "ر",
+    "initial": "ر",
+    "medial": "ـر",
+    "final": "ـر"
+   },
+   "sound": "r",
+   "kind": "consonant",
+   "introduced_in": "l05",
+   "sound_family": "rolled",
+   "shape_group": "re",
+   "mouth_shape": "m9",
+   "joins_left": false,
+   "homophones": [],
+   "note": "نچسب",
+   "sound_audio": "aud.letter.re.sound",
+   "name_audio": "aud.letter.re.name",
+   "trace_path": "trace.re",
+   "confusions": [
+    "sym_ze",
+    "sym_zhe"
+   ],
+   "station": "u03",
+   "stage": 5,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_nun",
+   "glyph": "ن",
+   "forms": {
+    "isolated": "ن",
+    "initial": "نـ",
+    "medial": "ـنـ",
+    "final": "ـن"
+   },
+   "sound": "n",
+   "kind": "consonant",
+   "introduced_in": "l05",
+   "sound_family": "tongue_tip",
+   "shape_group": "bowl_dots",
+   "mouth_shape": "m6",
+   "joins_left": true,
+   "homophones": [],
+   "note": "",
+   "sound_audio": "aud.letter.nun.sound",
+   "name_audio": "aud.letter.nun.name",
+   "trace_path": "trace.nun",
+   "confusions": [
+    "sym_ba",
+    "sym_te",
+    "sym_pe",
+    "sym_se"
+   ],
+   "station": "u03",
+   "stage": 5,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_i_long",
+   "glyph": "ای",
+   "forms": {
+    "isolated": "ای",
+    "initial": "ایـ",
+    "medial": "ـیـ",
+    "final": "ـی"
+   },
+   "sound": "i",
+   "kind": "long_vowel",
+   "introduced_in": "l06",
+   "sound_family": "vowel_smile",
+   "shape_group": "ye",
+   "mouth_shape": "m7",
+   "joins_left": true,
+   "homophones": [],
+   "note": "«ای» در آغاز؛ «ـیـ/ـی» در میان/پایان",
+   "sound_audio": "aud.letter.i_long.sound",
+   "name_audio": "aud.letter.i_long.name",
+   "trace_path": "trace.i_long",
+   "confusions": [
+    "sym_ye"
+   ],
+   "station": "u05",
+   "stage": 6,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_ze",
+   "glyph": "ز",
+   "forms": {
+    "isolated": "ز",
+    "initial": "ز",
+    "medial": "ـز",
+    "final": "ـز"
+   },
+   "sound": "z",
+   "kind": "consonant",
+   "introduced_in": "l06",
+   "sound_family": "hiss",
+   "shape_group": "re",
+   "mouth_shape": "m5",
+   "joins_left": false,
+   "homophones": [
+    "sym_zal",
+    "sym_zad",
+    "sym_za"
+   ],
+   "note": "نچسب",
+   "sound_audio": "aud.letter.ze.sound",
+   "name_audio": "aud.letter.ze.name",
+   "trace_path": "trace.ze",
+   "confusions": [
+    "sym_re",
+    "sym_zhe"
+   ],
+   "station": "u05",
+   "stage": 6,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_e_short",
+   "glyph": "اِ",
+   "forms": {
+    "isolated": "اِ",
+    "initial": "اِ",
+    "medial": "ـِ",
+    "final": "ـه"
+   },
+   "sound": "e",
+   "kind": "short_vowel",
+   "introduced_in": "l07",
+   "sound_family": "vowel_smile",
+   "shape_group": "vowel_mark",
+   "mouth_shape": "m7",
+   "joins_left": false,
+   "homophones": [],
+   "note": "«اِ» در آغاز؛ ـِ زیر حرف؛ «ـه/ه» پایانی با صدای اِ (خانه)",
+   "sound_audio": "aud.letter.e_short.sound",
+   "name_audio": "aud.letter.e_short.name",
+   "trace_path": "trace.e_short",
+   "confusions": [],
+   "station": "u05",
+   "stage": 7,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_shin",
+   "glyph": "ش",
+   "forms": {
+    "isolated": "ش",
+    "initial": "شـ",
+    "medial": "ـشـ",
+    "final": "ـش"
+   },
+   "sound": "sh",
+   "kind": "consonant",
+   "introduced_in": "l07",
+   "sound_family": "hush",
+   "shape_group": "teeth",
+   "mouth_shape": "m5",
+   "joins_left": true,
+   "homophones": [],
+   "note": "",
+   "sound_audio": "aud.letter.shin.sound",
+   "name_audio": "aud.letter.shin.name",
+   "trace_path": "trace.shin",
+   "confusions": [
+    "sym_sin"
+   ],
+   "station": "u05",
+   "stage": 7,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_ye",
+   "glyph": "ی",
+   "forms": {
+    "isolated": "ی",
+    "initial": "یـ",
+    "medial": "ـیـ",
+    "final": "ـی"
+   },
+   "sound": "y",
+   "kind": "consonant",
+   "introduced_in": "l08",
+   "sound_family": "glide",
+   "shape_group": "ye",
+   "mouth_shape": "m7",
+   "joins_left": true,
+   "homophones": [],
+   "note": "همخوان «ی» (یاس)؛ جدا از «ای»",
+   "sound_audio": "aud.letter.ye.sound",
+   "name_audio": "aud.letter.ye.name",
+   "trace_path": "trace.ye",
+   "confusions": [
+    "sym_i_long"
+   ],
+   "station": "u06",
+   "stage": 8,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_o_short",
+   "glyph": "اُ",
+   "forms": {
+    "isolated": "اُ",
+    "initial": "اُ",
+    "medial": "ـُ",
+    "final": "ـُ"
+   },
+   "sound": "o",
+   "kind": "short_vowel",
+   "introduced_in": "l08",
+   "sound_family": "vowel_round",
+   "shape_group": "vowel_mark",
+   "mouth_shape": "m2",
+   "joins_left": false,
+   "homophones": [
+    "sym_vav_o"
+   ],
+   "note": "«اُ» در آغاز؛ ـُ روی حرف",
+   "sound_audio": "aud.letter.o_short.sound",
+   "name_audio": "aud.letter.o_short.name",
+   "trace_path": "trace.o_short",
+   "confusions": [],
+   "station": "u06",
+   "stage": 8,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_kaf",
+   "glyph": "ک",
+   "forms": {
+    "isolated": "ک",
+    "initial": "کـ",
+    "medial": "ـکـ",
+    "final": "ـک"
+   },
+   "sound": "k",
+   "kind": "consonant",
+   "introduced_in": "l09",
+   "sound_family": "throat",
+   "shape_group": "kaf",
+   "mouth_shape": "m8",
+   "joins_left": true,
+   "homophones": [],
+   "note": "",
+   "sound_audio": "aud.letter.kaf.sound",
+   "name_audio": "aud.letter.kaf.name",
+   "trace_path": "trace.kaf",
+   "confusions": [
+    "sym_gaf"
+   ],
+   "station": "u06",
+   "stage": 9,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_vav",
+   "glyph": "و",
+   "forms": {
+    "isolated": "و",
+    "initial": "و",
+    "medial": "ـو",
+    "final": "ـو"
+   },
+   "sound": "v",
+   "kind": "consonant",
+   "introduced_in": "l09",
+   "sound_family": "lips_teeth",
+   "shape_group": "vav",
+   "mouth_shape": "m4",
+   "joins_left": false,
+   "homophones": [],
+   "note": "همخوان «و» (وان)؛ جدا از «او»",
+   "sound_audio": "aud.letter.vav.sound",
+   "name_audio": "aud.letter.vav.name",
+   "trace_path": "trace.vav",
+   "confusions": [
+    "sym_u_long",
+    "sym_vav_o"
+   ],
+   "station": "u06",
+   "stage": 9,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_pe",
+   "glyph": "پ",
+   "forms": {
+    "isolated": "پ",
+    "initial": "پـ",
+    "medial": "ـپـ",
+    "final": "ـپ"
+   },
+   "sound": "p",
+   "kind": "consonant",
+   "introduced_in": "l10",
+   "sound_family": "lips_closed",
+   "shape_group": "bowl_dots",
+   "mouth_shape": "m3",
+   "joins_left": true,
+   "homophones": [],
+   "note": "",
+   "sound_audio": "aud.letter.pe.sound",
+   "name_audio": "aud.letter.pe.name",
+   "trace_path": "trace.pe",
+   "confusions": [
+    "sym_ba",
+    "sym_te",
+    "sym_nun",
+    "sym_se"
+   ],
+   "station": "u07",
+   "stage": 10,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_gaf",
+   "glyph": "گ",
+   "forms": {
+    "isolated": "گ",
+    "initial": "گـ",
+    "medial": "ـگـ",
+    "final": "ـگ"
+   },
+   "sound": "g",
+   "kind": "consonant",
+   "introduced_in": "l10",
+   "sound_family": "throat",
+   "shape_group": "kaf",
+   "mouth_shape": "m8",
+   "joins_left": true,
+   "homophones": [],
+   "note": "",
+   "sound_audio": "aud.letter.gaf.sound",
+   "name_audio": "aud.letter.gaf.name",
+   "trace_path": "trace.gaf",
+   "confusions": [
+    "sym_kaf"
+   ],
+   "station": "u07",
+   "stage": 10,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_fe",
+   "glyph": "ف",
+   "forms": {
+    "isolated": "ف",
+    "initial": "فـ",
+    "medial": "ـفـ",
+    "final": "ـف"
+   },
+   "sound": "f",
+   "kind": "consonant",
+   "introduced_in": "l11",
+   "sound_family": "lips_teeth",
+   "shape_group": "fe",
+   "mouth_shape": "m4",
+   "joins_left": true,
+   "homophones": [],
+   "note": "",
+   "sound_audio": "aud.letter.fe.sound",
+   "name_audio": "aud.letter.fe.name",
+   "trace_path": "trace.fe",
+   "confusions": [
+    "sym_qaf"
+   ],
+   "station": "u07",
+   "stage": 11,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_khe",
+   "glyph": "خ",
+   "forms": {
+    "isolated": "خ",
+    "initial": "خـ",
+    "medial": "ـخـ",
+    "final": "ـخ"
+   },
+   "sound": "kh",
+   "kind": "consonant",
+   "introduced_in": "l11",
+   "sound_family": "throat",
+   "shape_group": "jim",
+   "mouth_shape": "m8",
+   "joins_left": true,
+   "homophones": [],
+   "note": "",
+   "sound_audio": "aud.letter.khe.sound",
+   "name_audio": "aud.letter.khe.name",
+   "trace_path": "trace.khe",
+   "confusions": [
+    "sym_jim",
+    "sym_che",
+    "sym_khaa",
+    "sym_he_jimi"
+   ],
+   "station": "u07",
+   "stage": 11,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_qaf",
+   "glyph": "ق",
+   "forms": {
+    "isolated": "ق",
+    "initial": "قـ",
+    "medial": "ـقـ",
+    "final": "ـق"
+   },
+   "sound": "gh",
+   "kind": "consonant",
+   "introduced_in": "l12",
+   "sound_family": "throat",
+   "shape_group": "fe",
+   "mouth_shape": "m8",
+   "joins_left": true,
+   "homophones": [
+    "sym_gheyn"
+   ],
+   "note": "",
+   "sound_audio": "aud.letter.qaf.sound",
+   "name_audio": "aud.letter.qaf.name",
+   "trace_path": "trace.qaf",
+   "confusions": [
+    "sym_fe"
+   ],
+   "station": "u09",
+   "stage": 12,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_lam",
+   "glyph": "ل",
+   "forms": {
+    "isolated": "ل",
+    "initial": "لـ",
+    "medial": "ـلـ",
+    "final": "ـل"
+   },
+   "sound": "l",
+   "kind": "consonant",
+   "introduced_in": "l12",
+   "sound_family": "tongue_tip",
+   "shape_group": "lam",
+   "mouth_shape": "m6",
+   "joins_left": true,
+   "homophones": [],
+   "note": "",
+   "sound_audio": "aud.letter.lam.sound",
+   "name_audio": "aud.letter.lam.name",
+   "trace_path": "trace.lam",
+   "confusions": [],
+   "station": "u09",
+   "stage": 12,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_jim",
+   "glyph": "ج",
+   "forms": {
+    "isolated": "ج",
+    "initial": "جـ",
+    "medial": "ـجـ",
+    "final": "ـج"
+   },
+   "sound": "j",
+   "kind": "consonant",
+   "introduced_in": "l13",
+   "sound_family": "hush",
+   "shape_group": "jim",
+   "mouth_shape": "m9",
+   "joins_left": true,
+   "homophones": [],
+   "note": "",
+   "sound_audio": "aud.letter.jim.sound",
+   "name_audio": "aud.letter.jim.name",
+   "trace_path": "trace.jim",
+   "confusions": [
+    "sym_khe",
+    "sym_che",
+    "sym_khaa",
+    "sym_he_jimi"
+   ],
+   "station": "u09",
+   "stage": 13,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_vav_o",
+   "glyph": "و",
+   "forms": {
+    "isolated": "و",
+    "initial": "و",
+    "medial": "ـو",
+    "final": "ـو"
+   },
+   "sound": "o",
+   "kind": "exception",
+   "introduced_in": "l13",
+   "sound_family": "vowel_round",
+   "shape_group": "vav",
+   "mouth_shape": "m2",
+   "joins_left": false,
+   "homophones": [
+    "sym_o_short"
+   ],
+   "note": "استثنا: «و» با صدای اُ (دو، خود، تو)",
+   "sound_audio": "aud.letter.vav_o.sound",
+   "name_audio": "aud.letter.vav_o.name",
+   "trace_path": null,
+   "confusions": [
+    "sym_u_long",
+    "sym_vav"
+   ],
+   "station": "u09",
+   "stage": 13,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_he",
+   "glyph": "ه",
+   "forms": {
+    "isolated": "ه",
+    "initial": "هـ",
+    "medial": "ـهـ",
+    "final": "ـه"
+   },
+   "sound": "h",
+   "kind": "consonant",
+   "introduced_in": "l14",
+   "sound_family": "breath",
+   "shape_group": "he",
+   "mouth_shape": "m9",
+   "joins_left": true,
+   "homophones": [
+    "sym_he_jimi"
+   ],
+   "note": "همخوان «ه» (ماه)؛ جدا از «ـه» پایانی با صدای اِ",
+   "sound_audio": "aud.letter.he.sound",
+   "name_audio": "aud.letter.he.name",
+   "trace_path": "trace.he",
+   "confusions": [],
+   "station": "u10",
+   "stage": 14,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_che",
+   "glyph": "چ",
+   "forms": {
+    "isolated": "چ",
+    "initial": "چـ",
+    "medial": "ـچـ",
+    "final": "ـچ"
+   },
+   "sound": "ch",
+   "kind": "consonant",
+   "introduced_in": "l14",
+   "sound_family": "hush",
+   "shape_group": "jim",
+   "mouth_shape": "m9",
+   "joins_left": true,
+   "homophones": [],
+   "note": "",
+   "sound_audio": "aud.letter.che.sound",
+   "name_audio": "aud.letter.che.name",
+   "trace_path": "trace.che",
+   "confusions": [
+    "sym_khe",
+    "sym_jim",
+    "sym_khaa",
+    "sym_he_jimi"
+   ],
+   "station": "u10",
+   "stage": 14,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_zhe",
+   "glyph": "ژ",
+   "forms": {
+    "isolated": "ژ",
+    "initial": "ژ",
+    "medial": "ـژ",
+    "final": "ـژ"
+   },
+   "sound": "zh",
+   "kind": "consonant",
+   "introduced_in": "l15",
+   "sound_family": "hush",
+   "shape_group": "re",
+   "mouth_shape": "m5",
+   "joins_left": false,
+   "homophones": [],
+   "note": "نچسب",
+   "sound_audio": "aud.letter.zhe.sound",
+   "name_audio": "aud.letter.zhe.name",
+   "trace_path": "trace.zhe",
+   "confusions": [
+    "sym_re",
+    "sym_ze"
+   ],
+   "station": "u10",
+   "stage": 15,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_khaa",
+   "glyph": "خوا",
+   "forms": {
+    "isolated": "خوا",
+    "initial": "خوا",
+    "medial": "ـخوا",
+    "final": "ـخوا"
+   },
+   "sound": "khā",
+   "kind": "exception",
+   "introduced_in": "l15",
+   "sound_family": "throat",
+   "shape_group": "jim",
+   "mouth_shape": "m8",
+   "joins_left": false,
+   "homophones": [],
+   "note": "استثنا: «و» در «خوا» خوانده نمی‌شود",
+   "sound_audio": "aud.letter.khaa.sound",
+   "name_audio": "aud.letter.khaa.name",
+   "trace_path": null,
+   "confusions": [
+    "sym_khe",
+    "sym_jim",
+    "sym_che",
+    "sym_he_jimi"
+   ],
+   "station": "u10",
+   "stage": 15,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_sad",
+   "glyph": "ص",
+   "forms": {
+    "isolated": "ص",
+    "initial": "صـ",
+    "medial": "ـصـ",
+    "final": "ـص"
+   },
+   "sound": "s",
+   "kind": "consonant",
+   "introduced_in": "l16",
+   "sound_family": "hiss",
+   "shape_group": "sad",
+   "mouth_shape": "m5",
+   "joins_left": true,
+   "homophones": [
+    "sym_sin",
+    "sym_se"
+   ],
+   "note": "هم‌صدا با س",
+   "sound_audio": "aud.letter.sad.sound",
+   "name_audio": "aud.letter.sad.name",
+   "trace_path": "trace.sad",
+   "confusions": [
+    "sym_zad"
+   ],
+   "station": "u11",
+   "stage": 16,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_eyn",
+   "glyph": "ع",
+   "forms": {
+    "isolated": "ع",
+    "initial": "عـ",
+    "medial": "ـعـ",
+    "final": "ـع"
+   },
+   "sound": "ʔ",
+   "kind": "consonant",
+   "introduced_in": "l16",
+   "sound_family": "throat",
+   "shape_group": "eyn",
+   "mouth_shape": "m8",
+   "joins_left": true,
+   "homophones": [
+    "sym_hamze"
+   ],
+   "note": "",
+   "sound_audio": "aud.letter.eyn.sound",
+   "name_audio": "aud.letter.eyn.name",
+   "trace_path": "trace.eyn",
+   "confusions": [
+    "sym_gheyn"
+   ],
+   "station": "u11",
+   "stage": 16,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_he_jimi",
+   "glyph": "ح",
+   "forms": {
+    "isolated": "ح",
+    "initial": "حـ",
+    "medial": "ـحـ",
+    "final": "ـح"
+   },
+   "sound": "h",
+   "kind": "consonant",
+   "introduced_in": "l17",
+   "sound_family": "breath",
+   "shape_group": "jim",
+   "mouth_shape": "m9",
+   "joins_left": true,
+   "homophones": [
+    "sym_he"
+   ],
+   "note": "هم‌صدا با ه",
+   "sound_audio": "aud.letter.he_jimi.sound",
+   "name_audio": "aud.letter.he_jimi.name",
+   "trace_path": "trace.he_jimi",
+   "confusions": [
+    "sym_khe",
+    "sym_jim",
+    "sym_che",
+    "sym_khaa"
+   ],
+   "station": "u11",
+   "stage": 17,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_ta",
+   "glyph": "ط",
+   "forms": {
+    "isolated": "ط",
+    "initial": "طـ",
+    "medial": "ـطـ",
+    "final": "ـط"
+   },
+   "sound": "t",
+   "kind": "consonant",
+   "introduced_in": "l17",
+   "sound_family": "tongue_tip",
+   "shape_group": "ta",
+   "mouth_shape": "m6",
+   "joins_left": true,
+   "homophones": [
+    "sym_te"
+   ],
+   "note": "هم‌صدا با ت",
+   "sound_audio": "aud.letter.ta.sound",
+   "name_audio": "aud.letter.ta.name",
+   "trace_path": "trace.ta",
+   "confusions": [
+    "sym_za"
+   ],
+   "station": "u11",
+   "stage": 17,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_gheyn",
+   "glyph": "غ",
+   "forms": {
+    "isolated": "غ",
+    "initial": "غـ",
+    "medial": "ـغـ",
+    "final": "ـغ"
+   },
+   "sound": "gh",
+   "kind": "consonant",
+   "introduced_in": "l18",
+   "sound_family": "throat",
+   "shape_group": "eyn",
+   "mouth_shape": "m8",
+   "joins_left": true,
+   "homophones": [
+    "sym_qaf"
+   ],
+   "note": "هم‌صدا با ق",
+   "sound_audio": "aud.letter.gheyn.sound",
+   "name_audio": "aud.letter.gheyn.name",
+   "trace_path": "trace.gheyn",
+   "confusions": [
+    "sym_eyn"
+   ],
+   "station": "u13",
+   "stage": 18,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_zal",
+   "glyph": "ذ",
+   "forms": {
+    "isolated": "ذ",
+    "initial": "ذ",
+    "medial": "ـذ",
+    "final": "ـذ"
+   },
+   "sound": "z",
+   "kind": "consonant",
+   "introduced_in": "l18",
+   "sound_family": "hiss",
+   "shape_group": "dal",
+   "mouth_shape": "m5",
+   "joins_left": false,
+   "homophones": [
+    "sym_ze",
+    "sym_zad",
+    "sym_za"
+   ],
+   "note": "هم‌صدا با ز؛ نچسب",
+   "sound_audio": "aud.letter.zal.sound",
+   "name_audio": "aud.letter.zal.name",
+   "trace_path": "trace.zal",
+   "confusions": [
+    "sym_dal"
+   ],
+   "station": "u13",
+   "stage": 18,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_tashdid",
+   "glyph": "ـّ",
+   "forms": {
+    "isolated": "ـّ",
+    "initial": "ـّ",
+    "medial": "ـّ",
+    "final": "ـّ"
+   },
+   "sound": "double",
+   "kind": "mark",
+   "introduced_in": "l19",
+   "sound_family": "mark",
+   "shape_group": "mark",
+   "mouth_shape": "m0",
+   "joins_left": false,
+   "homophones": [],
+   "note": "تشدید: حرف دوبار خوانده می‌شود",
+   "sound_audio": "aud.letter.tashdid.sound",
+   "name_audio": "aud.letter.tashdid.name",
+   "trace_path": "trace.tashdid",
+   "confusions": [],
+   "station": "u13",
+   "stage": 19,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_se",
+   "glyph": "ث",
+   "forms": {
+    "isolated": "ث",
+    "initial": "ثـ",
+    "medial": "ـثـ",
+    "final": "ـث"
+   },
+   "sound": "s",
+   "kind": "consonant",
+   "introduced_in": "l19",
+   "sound_family": "hiss",
+   "shape_group": "bowl_dots",
+   "mouth_shape": "m5",
+   "joins_left": true,
+   "homophones": [
+    "sym_sin",
+    "sym_sad"
+   ],
+   "note": "هم‌صدا با س",
+   "sound_audio": "aud.letter.se.sound",
+   "name_audio": "aud.letter.se.name",
+   "trace_path": "trace.se",
+   "confusions": [
+    "sym_ba",
+    "sym_te",
+    "sym_nun",
+    "sym_pe"
+   ],
+   "station": "u13",
+   "stage": 19,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_zad",
+   "glyph": "ض",
+   "forms": {
+    "isolated": "ض",
+    "initial": "ضـ",
+    "medial": "ـضـ",
+    "final": "ـض"
+   },
+   "sound": "z",
+   "kind": "consonant",
+   "introduced_in": "l20",
+   "sound_family": "hiss",
+   "shape_group": "sad",
+   "mouth_shape": "m5",
+   "joins_left": true,
+   "homophones": [
+    "sym_ze",
+    "sym_zal",
+    "sym_za"
+   ],
+   "note": "هم‌صدا با ز",
+   "sound_audio": "aud.letter.zad.sound",
+   "name_audio": "aud.letter.zad.name",
+   "trace_path": "trace.zad",
+   "confusions": [
+    "sym_sad"
+   ],
+   "station": "u14",
+   "stage": 20,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_za",
+   "glyph": "ظ",
+   "forms": {
+    "isolated": "ظ",
+    "initial": "ظـ",
+    "medial": "ـظـ",
+    "final": "ـظ"
+   },
+   "sound": "z",
+   "kind": "consonant",
+   "introduced_in": "l20",
+   "sound_family": "hiss",
+   "shape_group": "ta",
+   "mouth_shape": "m5",
+   "joins_left": true,
+   "homophones": [
+    "sym_ze",
+    "sym_zal",
+    "sym_zad"
+   ],
+   "note": "هم‌صدا با ز",
+   "sound_audio": "aud.letter.za.sound",
+   "name_audio": "aud.letter.za.name",
+   "trace_path": "trace.za",
+   "confusions": [
+    "sym_ta"
+   ],
+   "station": "u14",
+   "stage": 20,
+   "teacher_approved": false
+  },
+  {
+   "symbol_id": "sym_hamze",
+   "glyph": "ء",
+   "forms": {
+    "isolated": "ء",
+    "initial": "أ",
+    "medial": "ئـ",
+    "final": "ء"
+   },
+   "sound": "ʔ",
+   "kind": "consonant",
+   "introduced_in": "l21",
+   "sound_family": "throat",
+   "shape_group": "hamze",
+   "mouth_shape": "m0",
+   "joins_left": false,
+   "homophones": [
+    "sym_eyn"
+   ],
+   "note": "همزه (ء، أ، ئـ، ؤ)",
+   "sound_audio": "aud.letter.hamze.sound",
+   "name_audio": "aud.letter.hamze.name",
+   "trace_path": "trace.hamze",
+   "confusions": [],
+   "station": "u14",
+   "stage": 21,
+   "teacher_approved": false
+  }
+ ]
+}

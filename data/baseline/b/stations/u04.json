@@ -1,0 +1,299 @@
+{
+ "schema": 1,
+ "provisional": true,
+ "station_id": "u04",
+ "station_type": "review",
+ "order": 4,
+ "theme_color": "violet",
+ "title_key": "copy.u04.title",
+ "goal_key": "copy.u04.goal",
+ "narration_audio": "aud.narr.s07.u04",
+ "lessons": [],
+ "new_symbols": [],
+ "review_symbols": [
+  "sym_mim",
+  "sym_sin",
+  "sym_u_long",
+  "sym_te",
+  "sym_re",
+  "sym_nun"
+ ],
+ "target_words": [
+  "w_anar",
+  "w_aseman",
+  "w_badban",
+  "w_baran",
+  "w_dar",
+  "w_mar"
+ ],
+ "exit_criteria": {
+  "all_steps_completed": true,
+  "challenge_completed": true
+ },
+ "steps": [
+  {
+   "step_id": "b.u04.r1",
+   "type": "review",
+   "title_key": "copy.b.u04.r1.title",
+   "est_min": 5,
+   "objective": "مرور تطبیقی: نشانه‌های assisted_flag و کم‌قدرت اول.",
+   "activities": [
+    {
+     "activity": "S10",
+     "rounds": 6,
+     "choices": 3,
+     "targets": "policy:review_pool",
+     "distractors": {
+      "policy": "learned_D1",
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S12",
+     "game": "G4",
+     "pairs": 3,
+     "symbols": "policy:review_pool",
+     "spoken_instruction": "aud.instr.match"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5
+    }
+   }
+  },
+  {
+   "step_id": "b.u04.r2",
+   "type": "review",
+   "title_key": "copy.b.u04.r2.title",
+   "est_min": 5,
+   "objective": "خواندن واژه‌های ایستگاه‌های قبل و تطبیق با تصویر.",
+   "activities": [
+    {
+     "activity": "S10b",
+     "kind": "word_to_picture",
+     "rounds": 4,
+     "words": [
+      "w_anar",
+      "w_aseman",
+      "w_badban",
+      "w_baran"
+     ],
+     "choices": 3,
+     "spoken_instruction": "aud.instr.word_pick"
+    },
+    {
+     "activity": "S12",
+     "game": "G3",
+     "rounds": 2,
+     "words": [
+      "w_dar",
+      "w_mar"
+     ],
+     "spoken_instruction": "aud.instr.drag_word"
+    },
+    {
+     "activity": "S12",
+     "game": "G1",
+     "rounds": 6,
+     "symbols": "policy:review_pool",
+     "spoken_instruction": "aud.instr.pop"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5
+    }
+   }
+  },
+  {
+   "step_id": "b.u04.treasure",
+   "type": "treasure",
+   "title_key": "copy.b.u04.treasure.title",
+   "est_min": 4,
+   "objective": "مرور شاد + قافیه.",
+   "activities": [
+    {
+     "activity": "S12",
+     "game": "G4",
+     "pairs": 3,
+     "symbols": "policy:review_pool",
+     "spoken_instruction": "aud.instr.match"
+    },
+    {
+     "activity": "S12",
+     "game": "G6",
+     "rounds": 1,
+     "poem": "poem.p05",
+     "lines": 4,
+     "spoken_instruction": "aud.instr.rhyme_tap"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 10
+    }
+   }
+  },
+  {
+   "step_id": "b.u04.story",
+   "type": "story",
+   "title_key": "copy.b.u04.story.title",
+   "est_min": 5,
+   "objective": "کودک قصه‌ی 4 صفحه‌ای «مرورِ شاد ۱» را می‌شنود/با هم می‌خواند و به یک پرسش تصویری پاسخ می‌دهد.",
+   "activities": [
+    {
+     "activity": "S14",
+     "story": "st.u04",
+     "pages": 4,
+     "modes": [
+      "listen",
+      "read_with_me"
+     ],
+     "spoken_instruction": "aud.instr.story_listen"
+    },
+    {
+     "activity": "S10b",
+     "kind": "picture_question",
+     "rounds": 1,
+     "choices": 2,
+     "question": "st.u04.q1",
+     "spoken_instruction": "aud.instr.story_question"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 8,
+     "album_card": "card.st.u04"
+    }
+   }
+  },
+  {
+   "step_id": "b.u04.challenge",
+   "type": "challenge",
+   "title_key": "copy.b.u04.challenge.title",
+   "est_min": 5,
+   "objective": "سنجش بدون راهنمای پیش‌فرض: صدا↔حرف و واژه↔تصویر برای نشانه‌های ایستگاه.",
+   "activities": [
+    {
+     "activity": "S10",
+     "rounds": 3,
+     "choices": 4,
+     "targets": [
+      "sym_u_long",
+      "sym_te",
+      "sym_re",
+      "sym_nun"
+     ],
+     "hints": "after_second_miss",
+     "distractors": {
+      "policy": "learned_D1",
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S10b",
+     "kind": "word_to_picture",
+     "rounds": 3,
+     "words": [
+      "w_anar",
+      "w_aseman",
+      "w_badban"
+     ],
+     "choices": 3,
+     "hints": "after_second_miss",
+     "spoken_instruction": "aud.instr.word_pick"
+    },
+    {
+     "activity": "S13",
+     "variant": "station"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 15
+    },
+    "station": {
+     "coins": 20,
+     "item": "reward.u04",
+     "album_card": "card.station.u04"
+    }
+   }
+  }
+ ],
+ "station_audio": [
+  "aud.instr.drag_word",
+  "aud.instr.listen_pick",
+  "aud.instr.match",
+  "aud.instr.pop",
+  "aud.instr.rhyme_tap",
+  "aud.instr.story_listen",
+  "aud.instr.story_question",
+  "aud.instr.word_pick",
+  "aud.narr.s07.u04"
+ ],
+ "station_assets": [],
+ "learn_items": [
+  "simple_words",
+  "stories"
+ ],
+ "risk_notes": []
+}

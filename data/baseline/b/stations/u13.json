@@ -1,0 +1,781 @@
+{
+ "schema": 1,
+ "provisional": true,
+ "station_id": "u13",
+ "station_type": "letters",
+ "order": 13,
+ "theme_color": "lime",
+ "title_key": "copy.u13.title",
+ "goal_key": "copy.u13.goal",
+ "narration_audio": "aud.narr.s07.u13",
+ "lessons": [
+  "l18",
+  "l19"
+ ],
+ "new_symbols": [
+  "sym_gheyn",
+  "sym_zal",
+  "sym_tashdid",
+  "sym_se"
+ ],
+ "review_symbols": [
+  "sym_zhe",
+  "sym_khaa",
+  "sym_sad",
+  "sym_eyn",
+  "sym_he_jimi",
+  "sym_ta"
+ ],
+ "target_words": [
+  "w_arre",
+  "w_bachche",
+  "w_bagh",
+  "w_cheragh",
+  "w_ghaz",
+  "w_hole",
+  "w_kaghaz",
+  "w_mosallas"
+ ],
+ "exit_criteria": {
+  "all_steps_completed": true,
+  "challenge_completed": true
+ },
+ "steps": [
+  {
+   "step_id": "b.u13.gheyn",
+   "type": "letter",
+   "title_key": "copy.b.u13.gheyn.title",
+   "est_min": 5,
+   "objective": "کودک صدای «غ» را می‌شنود، شکلش را از میان گزینه‌ها تشخیص می‌دهد و با انگشت ردگیری می‌کند.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S08",
+     "symbol": "sym_gheyn",
+     "keyword": "w_ghaz",
+     "keyword_display": "text",
+     "audio_ids": [
+      "aud.letter.gheyn.sound",
+      "aud.word.ghaz.say"
+     ],
+     "image_ids": [
+      "img.word.ghaz"
+     ],
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S09",
+     "symbol": "sym_gheyn",
+     "attempts": "show_plus_2",
+     "trace_path": "trace.gheyn",
+     "spoken_instruction": "aud.instr.trace"
+    },
+    {
+     "activity": "S10",
+     "rounds": 4,
+     "choices": 3,
+     "targets": [
+      "sym_gheyn",
+      "sym_ta"
+     ],
+     "distractors": {
+      "policy": "learned_D0_D1",
+      "neutral_fill": true,
+      "neutral_max": 2,
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.homophone_cue",
+     "cue": "sound_plus_keyword"
+    },
+    {
+     "activity": "S11",
+     "mode": "word_cards",
+     "targets": [
+      "w_bagh",
+      "w_cheragh",
+      "w_ghaz",
+      "w_kaghaz"
+     ],
+     "symbol": "sym_gheyn",
+     "spoken_instruction": "aud.instr.find_in_word"
+    },
+    {
+     "activity": "S12",
+     "game": "G1",
+     "symbols": [
+      "sym_he_jimi",
+      "sym_ta",
+      "sym_gheyn"
+     ],
+     "spoken_instruction": "aud.instr.pop",
+     "rounds": 6
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.sym_gheyn"
+    }
+   },
+   "mastery_effect": {
+    "sym_gheyn": {
+     "learned_on": "complete",
+     "daily_gain_cap": 0.35
+    }
+   }
+  },
+  {
+   "step_id": "b.u13.zal",
+   "type": "letter",
+   "title_key": "copy.b.u13.zal.title",
+   "est_min": 5,
+   "objective": "کودک صدای «ذ» را می‌شنود، شکلش را از میان گزینه‌ها تشخیص می‌دهد و با انگشت ردگیری می‌کند.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S08",
+     "symbol": "sym_zal",
+     "keyword": "w_zorrat",
+     "keyword_display": "picture_only",
+     "audio_ids": [
+      "aud.letter.zal.sound",
+      "aud.word.zorrat.say"
+     ],
+     "image_ids": [
+      "img.word.zorrat"
+     ],
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S09",
+     "symbol": "sym_zal",
+     "attempts": "show_plus_2",
+     "trace_path": "trace.zal",
+     "spoken_instruction": "aud.instr.trace"
+    },
+    {
+     "activity": "S10",
+     "rounds": 4,
+     "choices": 3,
+     "targets": [
+      "sym_zal",
+      "sym_gheyn"
+     ],
+     "distractors": {
+      "policy": "learned_D0_D1",
+      "neutral_fill": true,
+      "neutral_max": 2,
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.homophone_cue",
+     "cue": "sound_plus_keyword"
+    },
+    {
+     "activity": "S11",
+     "mode": "word_cards",
+     "targets": [
+      "w_gozasht",
+      "w_kaghaz",
+      "w_laziz"
+     ],
+     "symbol": "sym_zal",
+     "spoken_instruction": "aud.instr.find_in_word"
+    },
+    {
+     "activity": "S12",
+     "game": "G4",
+     "symbols": [
+      "sym_ta",
+      "sym_gheyn",
+      "sym_zal"
+     ],
+     "spoken_instruction": "aud.instr.match",
+     "pairs": 3
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.sym_zal"
+    }
+   },
+   "mastery_effect": {
+    "sym_zal": {
+     "learned_on": "complete",
+     "daily_gain_cap": 0.35
+    }
+   }
+  },
+  {
+   "step_id": "b.u13.l18.w",
+   "type": "word",
+   "title_key": "copy.b.u13.l18.w.title",
+   "est_min": 5,
+   "objective": "کودک واژه‌ی «باغ» را از حرف‌ها می‌سازد و صدای اول واژه‌ها را تشخیص می‌دهد.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S12",
+     "game": "G3",
+     "rounds": 2,
+     "words": [
+      "w_bagh",
+      "w_ghaz"
+     ],
+     "spoken_instruction": "aud.instr.drag_word"
+    },
+    {
+     "activity": "S10b",
+     "kind": "first_sound",
+     "rounds": 3,
+     "words": [
+      "w_bagh",
+      "w_cheragh",
+      "w_ghaz"
+     ],
+     "choices": 3,
+     "distractors": {
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.first_sound"
+    },
+    {
+     "activity": "S12",
+     "game": "G5",
+     "rounds": 3,
+     "words": [
+      "w_cheragh",
+      "w_kaghaz",
+      "w_hole"
+     ],
+     "spoken_instruction": "aud.instr.syllable_bridge"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.w_bagh"
+    }
+   }
+  },
+  {
+   "step_id": "b.u13.tashdid",
+   "type": "letter",
+   "title_key": "copy.b.u13.tashdid.title",
+   "est_min": 5,
+   "objective": "کودک صدای «ـّ» را می‌شنود، شکلش را از میان گزینه‌ها تشخیص می‌دهد و با انگشت ردگیری می‌کند.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S08",
+     "symbol": "sym_tashdid",
+     "keyword": "w_arre",
+     "keyword_display": "text",
+     "audio_ids": [
+      "aud.letter.tashdid.sound",
+      "aud.word.arre.say"
+     ],
+     "image_ids": [
+      "img.word.arre"
+     ],
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S09",
+     "symbol": "sym_tashdid",
+     "attempts": "show_plus_2",
+     "trace_path": "trace.tashdid",
+     "spoken_instruction": "aud.instr.trace"
+    },
+    {
+     "activity": "S10b",
+     "kind": "word_to_picture",
+     "rounds": 3,
+     "words": [
+      "w_arre",
+      "w_bachche",
+      "w_mosallas"
+     ],
+     "choices": 3,
+     "spoken_instruction": "aud.instr.word_pick"
+    },
+    {
+     "activity": "S11",
+     "mode": "word_cards",
+     "targets": [
+      "w_arre",
+      "w_bachche",
+      "w_mosallas",
+      "w_najjar"
+     ],
+     "symbol": "sym_tashdid",
+     "spoken_instruction": "aud.instr.find_in_word"
+    },
+    {
+     "activity": "S12",
+     "game": "G3",
+     "rounds": 2,
+     "words": [
+      "w_arre"
+     ],
+     "spoken_instruction": "aud.instr.drag_word"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.sym_tashdid"
+    }
+   },
+   "mastery_effect": {
+    "sym_tashdid": {
+     "learned_on": "complete",
+     "daily_gain_cap": 0.35
+    }
+   }
+  },
+  {
+   "step_id": "b.u13.se",
+   "type": "letter",
+   "title_key": "copy.b.u13.se.title",
+   "est_min": 5,
+   "objective": "کودک صدای «ث» را می‌شنود، شکلش را از میان گزینه‌ها تشخیص می‌دهد و با انگشت ردگیری می‌کند.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S08",
+     "symbol": "sym_se",
+     "keyword": "w_mosallas",
+     "keyword_display": "text",
+     "audio_ids": [
+      "aud.letter.se.sound",
+      "aud.word.mosallas.say"
+     ],
+     "image_ids": [
+      "img.word.mosallas"
+     ],
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S09",
+     "symbol": "sym_se",
+     "attempts": "show_plus_2",
+     "trace_path": "trace.se",
+     "spoken_instruction": "aud.instr.trace"
+    },
+    {
+     "activity": "S10",
+     "rounds": 4,
+     "choices": 3,
+     "targets": [
+      "sym_se",
+      "sym_zal"
+     ],
+     "distractors": {
+      "policy": "learned_D0_D1",
+      "neutral_fill": true,
+      "neutral_max": 2,
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.homophone_cue",
+     "cue": "sound_plus_keyword"
+    },
+    {
+     "activity": "S11",
+     "mode": "word_cards",
+     "targets": [
+      "w_lese",
+      "w_mosallas",
+      "w_sabet"
+     ],
+     "symbol": "sym_se",
+     "spoken_instruction": "aud.instr.find_in_word"
+    },
+    {
+     "activity": "S12",
+     "game": "G1",
+     "symbols": [
+      "sym_gheyn",
+      "sym_zal",
+      "sym_se"
+     ],
+     "spoken_instruction": "aud.instr.pop",
+     "rounds": 6
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.sym_se"
+    }
+   },
+   "mastery_effect": {
+    "sym_se": {
+     "learned_on": "complete",
+     "daily_gain_cap": 0.35
+    }
+   }
+  },
+  {
+   "step_id": "b.u13.l19.w",
+   "type": "word",
+   "title_key": "copy.b.u13.l19.w.title",
+   "est_min": 5,
+   "objective": "کودک واژه‌ی «اَرّه» را از حرف‌ها می‌سازد و صدای اول واژه‌ها را تشخیص می‌دهد.",
+   "activities": [
+    {
+     "activity": "S10",
+     "role": "warmup",
+     "rounds": 1,
+     "choices": 2,
+     "targets": "policy:warmup",
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S12",
+     "game": "G3",
+     "rounds": 2,
+     "words": [
+      "w_arre",
+      "w_bachche"
+     ],
+     "spoken_instruction": "aud.instr.drag_word"
+    },
+    {
+     "activity": "S10b",
+     "kind": "first_sound",
+     "rounds": 3,
+     "words": [
+      "w_arre",
+      "w_bachche",
+      "w_mosallas"
+     ],
+     "choices": 3,
+     "distractors": {
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.first_sound"
+    },
+    {
+     "activity": "S12",
+     "game": "G5",
+     "rounds": 3,
+     "words": [
+      "w_cheragh",
+      "w_kaghaz",
+      "w_hole"
+     ],
+     "spoken_instruction": "aud.instr.syllable_bridge"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5,
+     "album_card": "card.w_arre"
+    }
+   }
+  },
+  {
+   "step_id": "b.u13.treasure",
+   "type": "treasure",
+   "title_key": "copy.b.u13.treasure.title",
+   "est_min": 4,
+   "objective": "مرور شاد صداهای ایستگاه + واج‌آگاهی (قافیه).",
+   "activities": [
+    {
+     "activity": "S12",
+     "game": "G1",
+     "rounds": 6,
+     "symbols": [
+      "sym_gheyn",
+      "sym_zal",
+      "sym_se"
+     ],
+     "spoken_instruction": "aud.instr.pop"
+    },
+    {
+     "activity": "S12",
+     "game": "G6",
+     "rounds": 1,
+     "poem": "poem.p02",
+     "lines": 4,
+     "spoken_instruction": "aud.instr.rhyme_tap"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 10
+    }
+   }
+  },
+  {
+   "step_id": "b.u13.story",
+   "type": "story",
+   "title_key": "copy.b.u13.story.title",
+   "est_min": 5,
+   "objective": "کودک قصه‌ی 4 صفحه‌ای «قورباغه و چراغ» را می‌شنود/با هم می‌خواند و به یک پرسش تصویری پاسخ می‌دهد.",
+   "activities": [
+    {
+     "activity": "S14",
+     "story": "st.u13",
+     "pages": 4,
+     "modes": [
+      "listen",
+      "read_with_me"
+     ],
+     "spoken_instruction": "aud.instr.story_listen"
+    },
+    {
+     "activity": "S10b",
+     "kind": "picture_question",
+     "rounds": 1,
+     "choices": 2,
+     "question": "st.u13.q1",
+     "spoken_instruction": "aud.instr.story_question"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 8,
+     "album_card": "card.st.u13"
+    }
+   }
+  },
+  {
+   "step_id": "b.u13.challenge",
+   "type": "challenge",
+   "title_key": "copy.b.u13.challenge.title",
+   "est_min": 5,
+   "objective": "سنجش بدون راهنمای پیش‌فرض: صدا↔حرف و واژه↔تصویر برای نشانه‌های ایستگاه.",
+   "activities": [
+    {
+     "activity": "S10",
+     "rounds": 3,
+     "choices": 4,
+     "targets": [
+      "sym_gheyn",
+      "sym_zal",
+      "sym_se"
+     ],
+     "hints": "after_second_miss",
+     "cue": "sound_plus_keyword",
+     "distractors": {
+      "policy": "learned_D1",
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S10b",
+     "kind": "word_to_picture",
+     "rounds": 3,
+     "words": [
+      "w_arre",
+      "w_bachche",
+      "w_mosallas"
+     ],
+     "choices": 3,
+     "hints": "after_second_miss",
+     "spoken_instruction": "aud.instr.word_pick"
+    },
+    {
+     "activity": "S13",
+     "variant": "station"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 15
+    },
+    "station": {
+     "coins": 20,
+     "item": "reward.u13",
+     "album_card": "card.station.u13"
+    }
+   }
+  }
+ ],
+ "station_audio": [
+  "aud.instr.drag_word",
+  "aud.instr.find_in_word",
+  "aud.instr.first_sound",
+  "aud.instr.homophone_cue",
+  "aud.instr.listen_pick",
+  "aud.instr.match",
+  "aud.instr.pop",
+  "aud.instr.rhyme_tap",
+  "aud.instr.story_listen",
+  "aud.instr.story_question",
+  "aud.instr.syllable_bridge",
+  "aud.instr.trace",
+  "aud.instr.word_pick",
+  "aud.letter.gheyn.sound",
+  "aud.letter.se.sound",
+  "aud.letter.tashdid.sound",
+  "aud.letter.zal.sound",
+  "aud.narr.s07.u13",
+  "aud.word.arre.say",
+  "aud.word.ghaz.say",
+  "aud.word.mosallas.say",
+  "aud.word.zorrat.say"
+ ],
+ "station_assets": [
+  "img.word.arre",
+  "img.word.ghaz",
+  "img.word.mosallas",
+  "img.word.zorrat"
+ ],
+ "learn_items": [
+  "sounds",
+  "letters",
+  "simple_words"
+ ],
+ "risk_notes": [
+  "غ ↔ ق: هم‌صدا",
+  "ذ ↔ ز, ض, ظ: هم‌صدا",
+  "ث ↔ س, ص: هم‌صدا",
+  "غ: هم‌صدا با ق",
+  "ذ: هم‌صدا با ز؛ نچسب",
+  "ـّ: تشدید: حرف دوبار خوانده می‌شود",
+  "ث: هم‌صدا با س"
+ ]
+}

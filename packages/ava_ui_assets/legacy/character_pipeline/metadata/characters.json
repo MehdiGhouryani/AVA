@@ -1,0 +1,132 @@
+{
+ "schema": 2,
+ "bg": "#FFF8EC",
+ "allowed_emotions": [
+  "idle",
+  "curious",
+  "explain",
+  "encourage",
+  "retry",
+  "celebrate",
+  "listen",
+  "wink",
+  "sleep"
+ ],
+ "banned_emotions": [
+  "sad",
+  "angry",
+  "scared",
+  "crying",
+  "bored",
+  "mocking"
+ ],
+ "ava": {
+  "id": "ava",
+  "name_fa": "آوا",
+  "role": "host",
+  "construction": {
+   "head": "rounded blob (one shape)",
+   "body": "rounded blob",
+   "limbs": "capsules",
+   "crest": "3 rounded leaves",
+   "extra": "backpack = rounded rectangle"
+  },
+  "palette": {
+   "base": "#2BCDB6",
+   "shade": "#06A09E",
+   "light": "#6BE7C3",
+   "backpack": "#FFB627",
+   "cheek": "#E8B7A8",
+   "eye": "#12214A"
+  },
+  "size_ratio": 1.0,
+  "silhouette_class": "blob_crest",
+  "emotion_map": {
+   "idle": "Happy",
+   "curious": "Thinking",
+   "explain": "Happy(open mouth)",
+   "encourage": "Excited",
+   "retry": "Thinking(small smile)",
+   "celebrate": "Laughing",
+   "listen": "Surprised(soft)",
+   "wink": "Wink",
+   "sleep": "Sleepy"
+  },
+  "sheet_expressions_unused": [
+   "Sad"
+  ],
+  "poses_v1": [
+   "standing",
+   "cheering",
+   "thinking",
+   "holding_star",
+   "sleeping"
+  ],
+  "mouth_shapes": [
+   "m0",
+   "m1",
+   "m2",
+   "m3",
+   "m4",
+   "m5",
+   "m6",
+   "m7",
+   "m8",
+   "m9"
+  ],
+  "single_colour": true,
+  "zone": "ava_zone",
+  "not_in": "lesson_zone (D-77): Ava never appears inside educational screens",
+  "poses_extra": [
+   "peek",
+   "waving",
+   "jumping",
+   "reading",
+   "running"
+  ]
+ },
+ "friends": [],
+ "story_kids": [
+  {
+   "id": "kid_girl",
+   "name_fa": "ترانه",
+   "role": "story/onboarding stand-in",
+   "note": "appearance pending user decision (clothing/headwear) — see doc §6"
+  },
+  {
+   "id": "kid_boy",
+   "name_fa": "کیان",
+   "role": "story/onboarding stand-in",
+   "note": "same"
+  }
+ ],
+ "measured": {
+  "silhouette_iou": {
+   "duck|ava": 0.76,
+   "squirrel|ava": 0.66,
+   "snail|squirrel": 0.65,
+   "duck|squirrel": 0.64,
+   "duck|bird": 0.63,
+   "bird|ava": 0.6,
+   "bird|squirrel": 0.59,
+   "snail|ava": 0.56
+  },
+  "iou_confusable_threshold": 0.75,
+  "mitigation": {
+   "duck|ava": "duck always wide side-pose + beak + pencil; Ava always has 3-leaf crest + backpack; size ratio 0.62 vs 1.00"
+  }
+ },
+ "required_owners": [],
+ "screen_cast": {},
+ "letter_spirits": {
+  "status": "removed by user (only Ava remains)"
+ },
+ "zones": {
+  "lesson_zone": [],
+  "ava_zone": [],
+  "no_character": []
+ },
+ "roster_notes": {
+  "decision": "single character: Ava. No other lesson hosts for now."
+ }
+}

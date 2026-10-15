@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "story_id": "st.u07",
+ "unit": "u07",
+ "title_key": "copy.st.u07.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u07.p1",
+   "sentence": {
+    "text": "خَرگوش دَر خانه اَست.",
+    "words": [
+     "w_khargush",
+     "w_dar",
+     "w_khane",
+     "w_ast"
+    ],
+    "audio": "aud.story.u07.p1"
+   },
+   "allowed_max_lesson": 11
+  },
+  {
+   "page": 2,
+   "image": "img.story.u07.p2",
+   "sentence": {
+    "text": "بَرف آمَد.",
+    "words": [
+     "w_barf",
+     "w_amad"
+    ],
+    "audio": "aud.story.u07.p2"
+   },
+   "allowed_max_lesson": 11
+  },
+  {
+   "page": 3,
+   "image": "img.story.u07.p3",
+   "sentence": {
+    "text": "خَرگوش کَفش پوشید.",
+    "words": [
+     "w_khargush",
+     "w_kafsh",
+     "w_pushid"
+    ],
+    "audio": "aud.story.u07.p3"
+   },
+   "allowed_max_lesson": 11
+  },
+  {
+   "page": 4,
+   "image": "img.story.u07.p4",
+   "sentence": {
+    "text": "خَرگوش دَر بَرف بازی کَرد.",
+    "words": [
+     "w_khargush",
+     "w_dar",
+     "w_barf",
+     "w_bazi",
+     "w_kard"
+    ],
+    "audio": "aud.story.u07.p4"
+   },
+   "allowed_max_lesson": 11
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u07.q1",
+   "answer": "img.word.kafsh",
+   "distractors": [
+    "img.word.gav"
+   ]
+  }
+ ]
+}

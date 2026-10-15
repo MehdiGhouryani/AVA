@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "story_id": "st.u12",
+ "unit": "u12",
+ "title_key": "copy.st.u12.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u12.p1",
+   "sentence": {
+    "text": "صُبح اَست.",
+    "words": [
+     "w_sobh",
+     "w_ast"
+    ],
+    "audio": "aud.story.u12.p1"
+   },
+   "allowed_max_lesson": 17
+  },
+  {
+   "page": 2,
+   "image": "img.story.u12.p2",
+   "sentence": {
+    "text": "طاووس دَر حَیاط اَست.",
+    "words": [
+     "w_tavus",
+     "w_dar",
+     "w_hayaat",
+     "w_ast"
+    ],
+    "audio": "aud.story.u12.p2"
+   },
+   "allowed_max_lesson": 17
+  },
+  {
+   "page": 3,
+   "image": "img.story.u12.p3",
+   "sentence": {
+    "text": "پَرِ او رَنگی اَست.",
+    "words": [
+     "w_pare",
+     "w_u",
+     "w_rangi",
+     "w_ast"
+    ],
+    "audio": "aud.story.u12.p3"
+   },
+   "allowed_max_lesson": 17
+  },
+  {
+   "page": 4,
+   "image": "img.story.u12.p4",
+   "sentence": {
+    "text": "طاووس با جوجه بازی کَرد.",
+    "words": [
+     "w_tavus",
+     "w_baa",
+     "w_juje",
+     "w_bazi",
+     "w_kard"
+    ],
+    "audio": "aud.story.u12.p4"
+   },
+   "allowed_max_lesson": 17
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u12.q1",
+   "answer": "img.word.tavus",
+   "distractors": [
+    "img.word.tuti"
+   ]
+  }
+ ]
+}

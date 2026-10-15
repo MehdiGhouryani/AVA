@@ -1,0 +1,7 @@
+# Add under `flutter:` in the app's pubspec.yaml (every folder must be listed; folders must exist)
+flutter:
+  assets:
+    - assets/characters/manifest.json
+    - assets/characters/ava/body/
+    - assets/characters/ava/head/
+    - assets/characters/ava/face/          # layered face (spike S-09); .gitkeep keeps the folder valid

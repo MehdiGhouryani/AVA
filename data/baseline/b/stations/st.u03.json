@@ -1,0 +1,74 @@
+{
+ "schema": 1,
+ "story_id": "st.u03",
+ "unit": "u03",
+ "title_key": "copy.st.u03.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u03.p1",
+   "sentence": {
+    "text": "باران آمَد.",
+    "words": [
+     "w_baran",
+     "w_amad"
+    ],
+    "audio": "aud.story.u03.p1"
+   },
+   "allowed_max_lesson": 5
+  },
+  {
+   "page": 2,
+   "image": "img.story.u03.p2",
+   "sentence": {
+    "text": "مادَر نان دارَد.",
+    "words": [
+     "w_madar",
+     "w_nan",
+     "w_darad"
+    ],
+    "audio": "aud.story.u03.p2"
+   },
+   "allowed_max_lesson": 5
+  },
+  {
+   "page": 3,
+   "image": "img.story.u03.p3",
+   "sentence": {
+    "text": "بابا توت دارَد.",
+    "words": [
+     "w_baba",
+     "w_tut",
+     "w_darad"
+    ],
+    "audio": "aud.story.u03.p3"
+   },
+   "allowed_max_lesson": 5
+  },
+  {
+   "page": 4,
+   "image": "img.story.u03.p4",
+   "sentence": {
+    "text": "توت دَر سَبَد اَست.",
+    "words": [
+     "w_tut",
+     "w_dar",
+     "w_sabad",
+     "w_ast"
+    ],
+    "audio": "aud.story.u03.p4"
+   },
+   "allowed_max_lesson": 5
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u03.q1",
+   "answer": "img.word.nan",
+   "distractors": [
+    "img.word.tut"
+   ]
+  }
+ ]
+}

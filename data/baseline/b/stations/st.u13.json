@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "story_id": "st.u13",
+ "unit": "u13",
+ "title_key": "copy.st.u13.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u13.p1",
+   "sentence": {
+    "text": "قورباغه دَر باغ اَست.",
+    "words": [
+     "w_qurbaghe",
+     "w_dar",
+     "w_bagh",
+     "w_ast"
+    ],
+    "audio": "aud.story.u13.p1"
+   },
+   "allowed_max_lesson": 19
+  },
+  {
+   "page": 2,
+   "image": "img.story.u13.p2",
+   "sentence": {
+    "text": "بَچّه‌ها آمَدَند.",
+    "words": [
+     "w_bachehaa",
+     "w_aamadand"
+    ],
+    "audio": "aud.story.u13.p2"
+   },
+   "allowed_max_lesson": 19
+  },
+  {
+   "page": 3,
+   "image": "img.story.u13.p3",
+   "sentence": {
+    "text": "آن‌ها کاغَذ و مِداد آوَردَند.",
+    "words": [
+     "w_aanhaa",
+     "w_kaghaz",
+     "w_o",
+     "w_medad",
+     "w_aavardand"
+    ],
+    "audio": "aud.story.u13.p3"
+   },
+   "allowed_max_lesson": 19
+  },
+  {
+   "page": 4,
+   "image": "img.story.u13.p4",
+   "sentence": {
+    "text": "بَچّه‌ها قورباغه کِشیدَند.",
+    "words": [
+     "w_bachehaa",
+     "w_qurbaghe",
+     "w_keshidand"
+    ],
+    "audio": "aud.story.u13.p4"
+   },
+   "allowed_max_lesson": 19
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u13.q1",
+   "answer": "img.word.qurbaghe",
+   "distractors": [
+    "img.word.ghaz"
+   ]
+  }
+ ]
+}

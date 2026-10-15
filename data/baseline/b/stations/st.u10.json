@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "story_id": "st.u10",
+ "unit": "u10",
+ "title_key": "copy.st.u10.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u10.p1",
+   "sentence": {
+    "text": "شَب اَست. ماه دَر آسمان اَست.",
+    "words": [
+     "w_shab",
+     "w_ast",
+     "w_mah",
+     "w_dar",
+     "w_aseman",
+     "w_ast"
+    ],
+    "audio": "aud.story.u10.p1"
+   },
+   "allowed_max_lesson": 15
+  },
+  {
+   "page": 2,
+   "image": "img.story.u10.p2",
+   "sentence": {
+    "text": "ماهی دَر آب اَست.",
+    "words": [
+     "w_mahi",
+     "w_dar",
+     "w_ab",
+     "w_ast"
+    ],
+    "audio": "aud.story.u10.p2"
+   },
+   "allowed_max_lesson": 15
+  },
+  {
+   "page": 3,
+   "image": "img.story.u10.p3",
+   "sentence": {
+    "text": "خواهَرَم ژاکَت پوشید.",
+    "words": [
+     "w_khaaharam",
+     "w_zhaket",
+     "w_pushid"
+    ],
+    "audio": "aud.story.u10.p3"
+   },
+   "allowed_max_lesson": 15
+  },
+  {
+   "page": 4,
+   "image": "img.story.u10.p4",
+   "sentence": {
+    "text": "او به خواب رَفت.",
+    "words": [
+     "w_u",
+     "w_be",
+     "w_khab",
+     "w_raft"
+    ],
+    "audio": "aud.story.u10.p4"
+   },
+   "allowed_max_lesson": 15
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u10.q1",
+   "answer": "img.word.mah",
+   "distractors": [
+    "img.word.chatr"
+   ]
+  }
+ ]
+}

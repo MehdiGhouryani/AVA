@@ -1,0 +1,4971 @@
+{
+ "schema": 1,
+ "provisional": true,
+ "words": [
+  {
+   "word_id": "w_ab",
+   "text": "آب",
+   "symbols": [
+    "sym_alef",
+    "sym_ba"
+   ],
+   "first_sound": "sym_alef",
+   "syllables": [
+    "آب"
+   ],
+   "stage": 1,
+   "gloss_en": "water",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.ab",
+   "say_audio": "aud.word.ab.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_baba",
+   "text": "بابا",
+   "symbols": [
+    "sym_ba",
+    "sym_alef",
+    "sym_ba",
+    "sym_alef"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "با",
+    "با"
+   ],
+   "stage": 1,
+   "gloss_en": "dad",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.baba",
+   "say_audio": "aud.word.baba.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_bad",
+   "text": "باد",
+   "symbols": [
+    "sym_ba",
+    "sym_alef",
+    "sym_dal"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "باد"
+   ],
+   "stage": 2,
+   "gloss_en": "wind",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.bad",
+   "say_audio": "aud.word.bad.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_amad",
+   "text": "آمَد",
+   "symbols": [
+    "sym_alef",
+    "sym_mim",
+    "sym_a_short",
+    "sym_dal"
+   ],
+   "first_sound": "sym_alef",
+   "syllables": [
+    "آ",
+    "مَد"
+   ],
+   "stage": 3,
+   "gloss_en": "came",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.amad.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_dad",
+   "text": "داد",
+   "symbols": [
+    "sym_dal",
+    "sym_alef",
+    "sym_dal"
+   ],
+   "first_sound": "sym_dal",
+   "syllables": [
+    "داد"
+   ],
+   "stage": 2,
+   "gloss_en": "gave",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.dad.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_badam",
+   "text": "بادام",
+   "symbols": [
+    "sym_ba",
+    "sym_alef",
+    "sym_dal",
+    "sym_alef",
+    "sym_mim"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "با",
+    "دام"
+   ],
+   "stage": 3,
+   "gloss_en": "almond",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.badam",
+   "say_audio": "aud.word.badam.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sabad",
+   "text": "سَبَد",
+   "symbols": [
+    "sym_sin",
+    "sym_a_short",
+    "sym_ba",
+    "sym_a_short",
+    "sym_dal"
+   ],
+   "first_sound": "sym_sin",
+   "syllables": [
+    "سَ",
+    "بَد"
+   ],
+   "stage": 3,
+   "gloss_en": "basket",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.sabad",
+   "say_audio": "aud.word.sabad.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_tut",
+   "text": "توت",
+   "symbols": [
+    "sym_te",
+    "sym_u_long",
+    "sym_te"
+   ],
+   "first_sound": "sym_te",
+   "syllables": [
+    "توت"
+   ],
+   "stage": 4,
+   "gloss_en": "berry",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.tut",
+   "say_audio": "aud.word.tut.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_tab",
+   "text": "تاب",
+   "symbols": [
+    "sym_te",
+    "sym_alef",
+    "sym_ba"
+   ],
+   "first_sound": "sym_te",
+   "syllables": [
+    "تاب"
+   ],
+   "stage": 4,
+   "gloss_en": "swing",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.tab",
+   "say_audio": "aud.word.tab.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sut",
+   "text": "سوت",
+   "symbols": [
+    "sym_sin",
+    "sym_u_long",
+    "sym_te"
+   ],
+   "first_sound": "sym_sin",
+   "syllables": [
+    "سوت"
+   ],
+   "stage": 4,
+   "gloss_en": "whistle",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.sut",
+   "say_audio": "aud.word.sut.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_tas",
+   "text": "تاس",
+   "symbols": [
+    "sym_te",
+    "sym_alef",
+    "sym_sin"
+   ],
+   "first_sound": "sym_te",
+   "syllables": [
+    "تاس"
+   ],
+   "stage": 4,
+   "gloss_en": "dice",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.tas",
+   "say_audio": "aud.word.tas.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_dust",
+   "text": "دوست",
+   "symbols": [
+    "sym_dal",
+    "sym_u_long",
+    "sym_sin",
+    "sym_te"
+   ],
+   "first_sound": "sym_dal",
+   "syllables": [
+    "دوست"
+   ],
+   "stage": 4,
+   "gloss_en": "friend",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.dust.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_bud",
+   "text": "بود",
+   "symbols": [
+    "sym_ba",
+    "sym_u_long",
+    "sym_dal"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "بود"
+   ],
+   "stage": 4,
+   "gloss_en": "was",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.bud.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_ast",
+   "text": "اَست",
+   "symbols": [
+    "sym_a_short",
+    "sym_sin",
+    "sym_te"
+   ],
+   "first_sound": "sym_a_short",
+   "syllables": [
+    "اَست"
+   ],
+   "stage": 4,
+   "gloss_en": "is",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.ast.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_nan",
+   "text": "نان",
+   "symbols": [
+    "sym_nun",
+    "sym_alef",
+    "sym_nun"
+   ],
+   "first_sound": "sym_nun",
+   "syllables": [
+    "نان"
+   ],
+   "stage": 5,
+   "gloss_en": "bread",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.nan",
+   "say_audio": "aud.word.nan.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_rud",
+   "text": "رود",
+   "symbols": [
+    "sym_re",
+    "sym_u_long",
+    "sym_dal"
+   ],
+   "first_sound": "sym_re",
+   "syllables": [
+    "رود"
+   ],
+   "stage": 5,
+   "gloss_en": "river",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.rud",
+   "say_audio": "aud.word.rud.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_mar",
+   "text": "مار",
+   "symbols": [
+    "sym_mim",
+    "sym_alef",
+    "sym_re"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": [
+    "مار"
+   ],
+   "stage": 5,
+   "gloss_en": "snake",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.mar",
+   "say_audio": "aud.word.mar.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_anar",
+   "text": "اَنار",
+   "symbols": [
+    "sym_a_short",
+    "sym_nun",
+    "sym_alef",
+    "sym_re"
+   ],
+   "first_sound": "sym_a_short",
+   "syllables": [
+    "اَ",
+    "نار"
+   ],
+   "stage": 5,
+   "gloss_en": "pomegranate",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.anar",
+   "say_audio": "aud.word.anar.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_dandan",
+   "text": "دَندان",
+   "symbols": [
+    "sym_dal",
+    "sym_a_short",
+    "sym_nun",
+    "sym_dal",
+    "sym_alef",
+    "sym_nun"
+   ],
+   "first_sound": "sym_dal",
+   "syllables": [
+    "دَن",
+    "دان"
+   ],
+   "stage": 5,
+   "gloss_en": "tooth",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.dandan",
+   "say_audio": "aud.word.dandan.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_baran",
+   "text": "باران",
+   "symbols": [
+    "sym_ba",
+    "sym_alef",
+    "sym_re",
+    "sym_alef",
+    "sym_nun"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "با",
+    "ران"
+   ],
+   "stage": 5,
+   "gloss_en": "rain",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.baran",
+   "say_audio": "aud.word.baran.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_madar",
+   "text": "مادَر",
+   "symbols": [
+    "sym_mim",
+    "sym_alef",
+    "sym_dal",
+    "sym_a_short",
+    "sym_re"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": [
+    "ما",
+    "دَر"
+   ],
+   "stage": 5,
+   "gloss_en": "mother",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.madar",
+   "say_audio": "aud.word.madar.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_dar",
+   "text": "دَر",
+   "symbols": [
+    "sym_dal",
+    "sym_a_short",
+    "sym_re"
+   ],
+   "first_sound": "sym_dal",
+   "syllables": [
+    "دَر"
+   ],
+   "stage": 5,
+   "gloss_en": "door",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.dar",
+   "say_audio": "aud.word.dar.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_darad",
+   "text": "دارَد",
+   "symbols": [
+    "sym_dal",
+    "sym_alef",
+    "sym_re",
+    "sym_a_short",
+    "sym_dal"
+   ],
+   "first_sound": "sym_dal",
+   "syllables": [
+    "دا",
+    "رَد"
+   ],
+   "stage": 5,
+   "gloss_en": "has",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.darad.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_ra",
+   "text": "را",
+   "symbols": [
+    "sym_re",
+    "sym_alef"
+   ],
+   "first_sound": "sym_re",
+   "syllables": [
+    "را"
+   ],
+   "stage": 5,
+   "gloss_en": "(obj)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.ra.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_badban",
+   "text": "بادبان",
+   "symbols": [
+    "sym_ba",
+    "sym_alef",
+    "sym_dal",
+    "sym_ba",
+    "sym_alef",
+    "sym_nun"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "باد",
+    "بان"
+   ],
+   "stage": 5,
+   "gloss_en": "sail",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.badban",
+   "say_audio": "aud.word.badban.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sib",
+   "text": "سیب",
+   "symbols": [
+    "sym_sin",
+    "sym_i_long",
+    "sym_ba"
+   ],
+   "first_sound": "sym_sin",
+   "syllables": [
+    "سیب"
+   ],
+   "stage": 6,
+   "gloss_en": "apple",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.sib",
+   "say_audio": "aud.word.sib.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_miz",
+   "text": "میز",
+   "symbols": [
+    "sym_mim",
+    "sym_i_long",
+    "sym_ze"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": [
+    "میز"
+   ],
+   "stage": 6,
+   "gloss_en": "table",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.miz",
+   "say_audio": "aud.word.miz.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_zanbur",
+   "text": "زَنبور",
+   "symbols": [
+    "sym_ze",
+    "sym_a_short",
+    "sym_nun",
+    "sym_ba",
+    "sym_u_long",
+    "sym_re"
+   ],
+   "first_sound": "sym_ze",
+   "syllables": [
+    "زَن",
+    "بور"
+   ],
+   "stage": 6,
+   "gloss_en": "bee",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.zanbur",
+   "say_audio": "aud.word.zanbur.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_zamin",
+   "text": "زَمین",
+   "symbols": [
+    "sym_ze",
+    "sym_a_short",
+    "sym_mim",
+    "sym_i_long",
+    "sym_nun"
+   ],
+   "first_sound": "sym_ze",
+   "syllables": [
+    "زَ",
+    "مین"
+   ],
+   "stage": 6,
+   "gloss_en": "ground",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.zamin",
+   "say_audio": "aud.word.zamin.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_in",
+   "text": "این",
+   "symbols": [
+    "sym_i_long",
+    "sym_nun"
+   ],
+   "first_sound": "sym_i_long",
+   "syllables": [
+    "این"
+   ],
+   "stage": 6,
+   "gloss_en": "this",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.in.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_ziba",
+   "text": "زیبا",
+   "symbols": [
+    "sym_ze",
+    "sym_i_long",
+    "sym_ba",
+    "sym_alef"
+   ],
+   "first_sound": "sym_ze",
+   "syllables": [
+    "زی",
+    "با"
+   ],
+   "stage": 6,
+   "gloss_en": "beautiful",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.ziba.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_aseman",
+   "text": "آسمان",
+   "symbols": [
+    "sym_alef",
+    "sym_sin",
+    "sym_mim",
+    "sym_alef",
+    "sym_nun"
+   ],
+   "first_sound": "sym_alef",
+   "syllables": [
+    "آس",
+    "مان"
+   ],
+   "stage": 5,
+   "gloss_en": "sky",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.aseman",
+   "say_audio": "aud.word.aseman.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sir",
+   "text": "سیر",
+   "symbols": [
+    "sym_sin",
+    "sym_i_long",
+    "sym_re"
+   ],
+   "first_sound": "sym_sin",
+   "syllables": [
+    "سیر"
+   ],
+   "stage": 6,
+   "gloss_en": "garlic",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.sir",
+   "say_audio": "aud.word.sir.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_shir",
+   "text": "شیر",
+   "symbols": [
+    "sym_shin",
+    "sym_i_long",
+    "sym_re"
+   ],
+   "first_sound": "sym_shin",
+   "syllables": [
+    "شیر"
+   ],
+   "stage": 7,
+   "gloss_en": "lion",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.shir",
+   "say_audio": "aud.word.shir.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_mush",
+   "text": "موش",
+   "symbols": [
+    "sym_mim",
+    "sym_u_long",
+    "sym_shin"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": [
+    "موش"
+   ],
+   "stage": 7,
+   "gloss_en": "mouse",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.mush",
+   "say_audio": "aud.word.mush.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_asb",
+   "text": "اِسب",
+   "symbols": [
+    "sym_e_short",
+    "sym_sin",
+    "sym_ba"
+   ],
+   "first_sound": "sym_e_short",
+   "syllables": [
+    "اِسب"
+   ],
+   "stage": 7,
+   "gloss_en": "horse",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.asb",
+   "say_audio": "aud.word.asb.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_shane",
+   "text": "شانه",
+   "symbols": [
+    "sym_shin",
+    "sym_alef",
+    "sym_nun",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_shin",
+   "syllables": [
+    "شا",
+    "نه"
+   ],
+   "stage": 7,
+   "gloss_en": "comb",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.shane",
+   "say_audio": "aud.word.shane.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_setare",
+   "text": "سِتاره",
+   "symbols": [
+    "sym_sin",
+    "sym_e_short",
+    "sym_te",
+    "sym_alef",
+    "sym_re",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_sin",
+   "syllables": [
+    "سِ",
+    "تا",
+    "ره"
+   ],
+   "stage": 7,
+   "gloss_en": "star",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.setare",
+   "say_audio": "aud.word.setare.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_shishe",
+   "text": "شیشه",
+   "symbols": [
+    "sym_shin",
+    "sym_i_long",
+    "sym_shin",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_shin",
+   "syllables": [
+    "شی",
+    "شه"
+   ],
+   "stage": 7,
+   "gloss_en": "bottle",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.shishe",
+   "say_audio": "aud.word.shishe.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_medad",
+   "text": "مِداد",
+   "symbols": [
+    "sym_mim",
+    "sym_e_short",
+    "sym_dal",
+    "sym_alef",
+    "sym_dal"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": [
+    "مِ",
+    "داد"
+   ],
+   "stage": 7,
+   "gloss_en": "pencil",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.medad",
+   "say_audio": "aud.word.medad.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_be",
+   "text": "به",
+   "symbols": [
+    "sym_ba",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "به"
+   ],
+   "stage": 7,
+   "gloss_en": "to",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.be.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sabze",
+   "text": "سَبزه",
+   "symbols": [
+    "sym_sin",
+    "sym_a_short",
+    "sym_ba",
+    "sym_ze",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_sin",
+   "syllables": [
+    "سَب",
+    "زه"
+   ],
+   "stage": 7,
+   "gloss_en": "sprout",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.sabze",
+   "say_audio": "aud.word.sabze.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_ash",
+   "text": "آش",
+   "symbols": [
+    "sym_alef",
+    "sym_shin"
+   ],
+   "first_sound": "sym_alef",
+   "syllables": [
+    "آش"
+   ],
+   "stage": 7,
+   "gloss_en": "soup",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.ash",
+   "say_audio": "aud.word.ash.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_boz",
+   "text": "بُز",
+   "symbols": [
+    "sym_ba",
+    "sym_o_short",
+    "sym_ze"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "بُز"
+   ],
+   "stage": 8,
+   "gloss_en": "goat",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.boz",
+   "say_audio": "aud.word.boz.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_dom",
+   "text": "دُم",
+   "symbols": [
+    "sym_dal",
+    "sym_o_short",
+    "sym_mim"
+   ],
+   "first_sound": "sym_dal",
+   "syllables": [
+    "دُم"
+   ],
+   "stage": 8,
+   "gloss_en": "tail",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.dom",
+   "say_audio": "aud.word.dom.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_otu",
+   "text": "اُتو",
+   "symbols": [
+    "sym_o_short",
+    "sym_te",
+    "sym_u_long"
+   ],
+   "first_sound": "sym_o_short",
+   "syllables": [
+    "اُ",
+    "تو"
+   ],
+   "stage": 8,
+   "gloss_en": "iron",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.otu",
+   "say_audio": "aud.word.otu.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sorsore",
+   "text": "سُرسُره",
+   "symbols": [
+    "sym_sin",
+    "sym_o_short",
+    "sym_re",
+    "sym_sin",
+    "sym_o_short",
+    "sym_re",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_sin",
+   "syllables": [
+    "سُر",
+    "سُ",
+    "ره"
+   ],
+   "stage": 8,
+   "gloss_en": "slide",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.sorsore",
+   "say_audio": "aud.word.sorsore.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_yas",
+   "text": "یاس",
+   "symbols": [
+    "sym_ye",
+    "sym_alef",
+    "sym_sin"
+   ],
+   "first_sound": "sym_ye",
+   "syllables": [
+    "یاس"
+   ],
+   "stage": 8,
+   "gloss_en": "jasmine",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.yas",
+   "say_audio": "aud.word.yas.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_bazi",
+   "text": "بازی",
+   "symbols": [
+    "sym_ba",
+    "sym_alef",
+    "sym_ze",
+    "sym_i_long"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "با",
+    "زی"
+   ],
+   "stage": 6,
+   "gloss_en": "play",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.bazi.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_ketab",
+   "text": "کِتاب",
+   "symbols": [
+    "sym_kaf",
+    "sym_e_short",
+    "sym_te",
+    "sym_alef",
+    "sym_ba"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "کِ",
+    "تاب"
+   ],
+   "stage": 9,
+   "gloss_en": "book",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.ketab",
+   "say_audio": "aud.word.ketab.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_ordak",
+   "text": "اُردَک",
+   "symbols": [
+    "sym_o_short",
+    "sym_re",
+    "sym_dal",
+    "sym_a_short",
+    "sym_kaf"
+   ],
+   "first_sound": "sym_o_short",
+   "syllables": [
+    "اُر",
+    "دَک"
+   ],
+   "stage": 9,
+   "gloss_en": "duck",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.ordak",
+   "say_audio": "aud.word.ordak.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_kabutar",
+   "text": "کَبوتَر",
+   "symbols": [
+    "sym_kaf",
+    "sym_a_short",
+    "sym_ba",
+    "sym_u_long",
+    "sym_te",
+    "sym_a_short",
+    "sym_re"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "کَ",
+    "بو",
+    "تَر"
+   ],
+   "stage": 9,
+   "gloss_en": "pigeon",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.kabutar",
+   "say_audio": "aud.word.kabutar.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_kase",
+   "text": "کاسه",
+   "symbols": [
+    "sym_kaf",
+    "sym_alef",
+    "sym_sin",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "کا",
+    "سه"
+   ],
+   "stage": 9,
+   "gloss_en": "bowl",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.kase",
+   "say_audio": "aud.word.kase.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_van",
+   "text": "وان",
+   "symbols": [
+    "sym_vav",
+    "sym_alef",
+    "sym_nun"
+   ],
+   "first_sound": "sym_vav",
+   "syllables": [
+    "وان"
+   ],
+   "stage": 9,
+   "gloss_en": "bathtub",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.van",
+   "say_audio": "aud.word.van.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_divar",
+   "text": "دیوار",
+   "symbols": [
+    "sym_dal",
+    "sym_i_long",
+    "sym_vav",
+    "sym_alef",
+    "sym_re"
+   ],
+   "first_sound": "sym_dal",
+   "syllables": [
+    "دی",
+    "وار"
+   ],
+   "stage": 9,
+   "gloss_en": "wall",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.divar",
+   "say_audio": "aud.word.divar.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_kuze",
+   "text": "کوزه",
+   "symbols": [
+    "sym_kaf",
+    "sym_u_long",
+    "sym_ze",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "کو",
+    "زه"
+   ],
+   "stage": 9,
+   "gloss_en": "jug",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.kuze",
+   "say_audio": "aud.word.kuze.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_zeytun",
+   "text": "زِیتون",
+   "symbols": [
+    "sym_ze",
+    "sym_e_short",
+    "sym_ye",
+    "sym_te",
+    "sym_u_long",
+    "sym_nun"
+   ],
+   "first_sound": "sym_ze",
+   "syllables": [
+    "زِی",
+    "تون"
+   ],
+   "stage": 8,
+   "gloss_en": "olive",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.zeytun",
+   "say_audio": "aud.word.zeytun.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_ke",
+   "text": "که",
+   "symbols": [
+    "sym_kaf",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "که"
+   ],
+   "stage": 9,
+   "gloss_en": "that",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.ke.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_yek",
+   "text": "یِک",
+   "symbols": [
+    "sym_ye",
+    "sym_e_short",
+    "sym_kaf"
+   ],
+   "first_sound": "sym_ye",
+   "syllables": [
+    "یِک"
+   ],
+   "stage": 9,
+   "gloss_en": "one",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.yek",
+   "say_audio": "aud.word.yek.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_tup",
+   "text": "توپ",
+   "symbols": [
+    "sym_te",
+    "sym_u_long",
+    "sym_pe"
+   ],
+   "first_sound": "sym_te",
+   "syllables": [
+    "توپ"
+   ],
+   "stage": 10,
+   "gloss_en": "ball",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.tup",
+   "say_audio": "aud.word.tup.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_gav",
+   "text": "گاو",
+   "symbols": [
+    "sym_gaf",
+    "sym_alef",
+    "sym_vav"
+   ],
+   "first_sound": "sym_gaf",
+   "syllables": [
+    "گاو"
+   ],
+   "stage": 10,
+   "gloss_en": "cow",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.gav",
+   "say_audio": "aud.word.gav.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sag",
+   "text": "سَگ",
+   "symbols": [
+    "sym_sin",
+    "sym_a_short",
+    "sym_gaf"
+   ],
+   "first_sound": "sym_sin",
+   "syllables": [
+    "سَگ"
+   ],
+   "stage": 10,
+   "gloss_en": "dog",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.sag",
+   "say_audio": "aud.word.sag.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_gush",
+   "text": "گوش",
+   "symbols": [
+    "sym_gaf",
+    "sym_u_long",
+    "sym_shin"
+   ],
+   "first_sound": "sym_gaf",
+   "syllables": [
+    "گوش"
+   ],
+   "stage": 10,
+   "gloss_en": "ear",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.gush",
+   "say_audio": "aud.word.gush.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_angur",
+   "text": "اَنگور",
+   "symbols": [
+    "sym_a_short",
+    "sym_nun",
+    "sym_gaf",
+    "sym_u_long",
+    "sym_re"
+   ],
+   "first_sound": "sym_a_short",
+   "syllables": [
+    "اَن",
+    "گور"
+   ],
+   "stage": 10,
+   "gloss_en": "grapes",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.angur",
+   "say_audio": "aud.word.angur.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_gorg",
+   "text": "گُرگ",
+   "symbols": [
+    "sym_gaf",
+    "sym_o_short",
+    "sym_re",
+    "sym_gaf"
+   ],
+   "first_sound": "sym_gaf",
+   "syllables": [
+    "گُرگ"
+   ],
+   "stage": 10,
+   "gloss_en": "wolf",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.gorg",
+   "say_audio": "aud.word.gorg.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_gorbe",
+   "text": "گُربه",
+   "symbols": [
+    "sym_gaf",
+    "sym_o_short",
+    "sym_re",
+    "sym_ba",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_gaf",
+   "syllables": [
+    "گُر",
+    "به"
+   ],
+   "stage": 10,
+   "gloss_en": "cat",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.gorbe",
+   "say_audio": "aud.word.gorbe.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_par",
+   "text": "پَر",
+   "symbols": [
+    "sym_pe",
+    "sym_a_short",
+    "sym_re"
+   ],
+   "first_sound": "sym_pe",
+   "syllables": [
+    "پَر"
+   ],
+   "stage": 10,
+   "gloss_en": "feather",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.par",
+   "say_audio": "aud.word.par.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_pa",
+   "text": "پا",
+   "symbols": [
+    "sym_pe",
+    "sym_alef"
+   ],
+   "first_sound": "sym_pe",
+   "syllables": [
+    "پا"
+   ],
+   "stage": 10,
+   "gloss_en": "foot",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.pa",
+   "say_audio": "aud.word.pa.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_khane",
+   "text": "خانه",
+   "symbols": [
+    "sym_khe",
+    "sym_alef",
+    "sym_nun",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_khe",
+   "syllables": [
+    "خا",
+    "نه"
+   ],
+   "stage": 11,
+   "gloss_en": "house",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.khane",
+   "say_audio": "aud.word.khane.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_khargush",
+   "text": "خَرگوش",
+   "symbols": [
+    "sym_khe",
+    "sym_a_short",
+    "sym_re",
+    "sym_gaf",
+    "sym_u_long",
+    "sym_shin"
+   ],
+   "first_sound": "sym_khe",
+   "syllables": [
+    "خَر",
+    "گوش"
+   ],
+   "stage": 11,
+   "gloss_en": "rabbit",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.khargush",
+   "say_audio": "aud.word.khargush.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_khorus",
+   "text": "خُروس",
+   "symbols": [
+    "sym_khe",
+    "sym_o_short",
+    "sym_re",
+    "sym_u_long",
+    "sym_sin"
+   ],
+   "first_sound": "sym_khe",
+   "syllables": [
+    "خُ",
+    "روس"
+   ],
+   "stage": 11,
+   "gloss_en": "rooster",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.khorus",
+   "say_audio": "aud.word.khorus.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_derakht",
+   "text": "دِرَخت",
+   "symbols": [
+    "sym_dal",
+    "sym_e_short",
+    "sym_re",
+    "sym_a_short",
+    "sym_khe",
+    "sym_te"
+   ],
+   "first_sound": "sym_dal",
+   "syllables": [
+    "دِ",
+    "رَخت"
+   ],
+   "stage": 11,
+   "gloss_en": "tree",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.derakht",
+   "say_audio": "aud.word.derakht.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_kafsh",
+   "text": "کَفش",
+   "symbols": [
+    "sym_kaf",
+    "sym_a_short",
+    "sym_fe",
+    "sym_shin"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "کَفش"
+   ],
+   "stage": 11,
+   "gloss_en": "shoe",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.kafsh",
+   "say_audio": "aud.word.kafsh.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_barf",
+   "text": "بَرف",
+   "symbols": [
+    "sym_ba",
+    "sym_a_short",
+    "sym_re",
+    "sym_fe"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "بَرف"
+   ],
+   "stage": 11,
+   "gloss_en": "snow",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.barf",
+   "say_audio": "aud.word.barf.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_kif",
+   "text": "کیف",
+   "symbols": [
+    "sym_kaf",
+    "sym_i_long",
+    "sym_fe"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "کیف"
+   ],
+   "stage": 11,
+   "gloss_en": "bag",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.kif",
+   "say_audio": "aud.word.kif.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_farsh",
+   "text": "فَرش",
+   "symbols": [
+    "sym_fe",
+    "sym_a_short",
+    "sym_re",
+    "sym_shin"
+   ],
+   "first_sound": "sym_fe",
+   "syllables": [
+    "فَرش"
+   ],
+   "stage": 11,
+   "gloss_en": "rug",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.farsh",
+   "say_audio": "aud.word.farsh.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_khers",
+   "text": "خِرس",
+   "symbols": [
+    "sym_khe",
+    "sym_e_short",
+    "sym_re",
+    "sym_sin"
+   ],
+   "first_sound": "sym_khe",
+   "syllables": [
+    "خِرس"
+   ],
+   "stage": 11,
+   "gloss_en": "bear",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.khers",
+   "say_audio": "aud.word.khers.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_qashoq",
+   "text": "قاشُق",
+   "symbols": [
+    "sym_qaf",
+    "sym_alef",
+    "sym_shin",
+    "sym_o_short",
+    "sym_qaf"
+   ],
+   "first_sound": "sym_qaf",
+   "syllables": [
+    "قا",
+    "شُق"
+   ],
+   "stage": 12,
+   "gloss_en": "spoon",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.qashoq",
+   "say_audio": "aud.word.qashoq.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_fil",
+   "text": "فیل",
+   "symbols": [
+    "sym_fe",
+    "sym_i_long",
+    "sym_lam"
+   ],
+   "first_sound": "sym_fe",
+   "syllables": [
+    "فیل"
+   ],
+   "stage": 12,
+   "gloss_en": "elephant",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.fil",
+   "say_audio": "aud.word.fil.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_gol",
+   "text": "گُل",
+   "symbols": [
+    "sym_gaf",
+    "sym_o_short",
+    "sym_lam"
+   ],
+   "first_sound": "sym_gaf",
+   "syllables": [
+    "گُل"
+   ],
+   "stage": 12,
+   "gloss_en": "flower",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.gol",
+   "say_audio": "aud.word.gol.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_lakposht",
+   "text": "لاک‌پُشت",
+   "symbols": [
+    "sym_lam",
+    "sym_alef",
+    "sym_kaf",
+    "sym_pe",
+    "sym_o_short",
+    "sym_shin",
+    "sym_te"
+   ],
+   "first_sound": "sym_lam",
+   "syllables": [
+    "لاک‌",
+    "پُشت"
+   ],
+   "stage": 12,
+   "gloss_en": "turtle",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.lakposht",
+   "say_audio": "aud.word.lakposht.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_qayeq",
+   "text": "قایِق",
+   "symbols": [
+    "sym_qaf",
+    "sym_alef",
+    "sym_ye",
+    "sym_e_short",
+    "sym_qaf"
+   ],
+   "first_sound": "sym_qaf",
+   "syllables": [
+    "قا",
+    "یِق"
+   ],
+   "stage": 12,
+   "gloss_en": "boat",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.qayeq",
+   "say_audio": "aud.word.qayeq.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_livan",
+   "text": "لیوان",
+   "symbols": [
+    "sym_lam",
+    "sym_i_long",
+    "sym_vav",
+    "sym_alef",
+    "sym_nun"
+   ],
+   "first_sound": "sym_lam",
+   "syllables": [
+    "لی",
+    "وان"
+   ],
+   "stage": 12,
+   "gloss_en": "glass",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.livan",
+   "say_audio": "aud.word.livan.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_balesh",
+   "text": "بالِش",
+   "symbols": [
+    "sym_ba",
+    "sym_alef",
+    "sym_lam",
+    "sym_e_short",
+    "sym_shin"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "با",
+    "لِش"
+   ],
+   "stage": 12,
+   "gloss_en": "pillow",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.balesh",
+   "say_audio": "aud.word.balesh.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_bolbol",
+   "text": "بُلبُل",
+   "symbols": [
+    "sym_ba",
+    "sym_o_short",
+    "sym_lam",
+    "sym_ba",
+    "sym_o_short",
+    "sym_lam"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "بُل",
+    "بُل"
+   ],
+   "stage": 12,
+   "gloss_en": "nightingale",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.bolbol",
+   "say_audio": "aud.word.bolbol.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_juje",
+   "text": "جوجه",
+   "symbols": [
+    "sym_jim",
+    "sym_u_long",
+    "sym_jim",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_jim",
+   "syllables": [
+    "جو",
+    "جه"
+   ],
+   "stage": 13,
+   "gloss_en": "chick",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.juje",
+   "say_audio": "aud.word.juje.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_jurab",
+   "text": "جوراب",
+   "symbols": [
+    "sym_jim",
+    "sym_u_long",
+    "sym_re",
+    "sym_alef",
+    "sym_ba"
+   ],
+   "first_sound": "sym_jim",
+   "syllables": [
+    "جو",
+    "راب"
+   ],
+   "stage": 13,
+   "gloss_en": "sock",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.jurab",
+   "say_audio": "aud.word.jurab.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_taj",
+   "text": "تاج",
+   "symbols": [
+    "sym_te",
+    "sym_alef",
+    "sym_jim"
+   ],
+   "first_sound": "sym_te",
+   "syllables": [
+    "تاج"
+   ],
+   "stage": 13,
+   "gloss_en": "crown",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.taj",
+   "say_audio": "aud.word.taj.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_jaru",
+   "text": "جارو",
+   "symbols": [
+    "sym_jim",
+    "sym_alef",
+    "sym_re",
+    "sym_u_long"
+   ],
+   "first_sound": "sym_jim",
+   "syllables": [
+    "جا",
+    "رو"
+   ],
+   "stage": 13,
+   "gloss_en": "broom",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.jaru",
+   "say_audio": "aud.word.jaru.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_do",
+   "text": "دو",
+   "symbols": [
+    "sym_dal",
+    "sym_vav_o"
+   ],
+   "first_sound": "sym_dal",
+   "syllables": [
+    "دو"
+   ],
+   "stage": 13,
+   "gloss_en": "two",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.do",
+   "say_audio": "aud.word.do.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_panj",
+   "text": "پَنج",
+   "symbols": [
+    "sym_pe",
+    "sym_a_short",
+    "sym_nun",
+    "sym_jim"
+   ],
+   "first_sound": "sym_pe",
+   "syllables": [
+    "پَنج"
+   ],
+   "stage": 13,
+   "gloss_en": "five",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.panj",
+   "say_audio": "aud.word.panj.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_kaj",
+   "text": "کاج",
+   "symbols": [
+    "sym_kaf",
+    "sym_alef",
+    "sym_jim"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "کاج"
+   ],
+   "stage": 13,
+   "gloss_en": "pine",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.kaj",
+   "say_audio": "aud.word.kaj.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_khod",
+   "text": "خود",
+   "symbols": [
+    "sym_khe",
+    "sym_vav_o",
+    "sym_dal"
+   ],
+   "first_sound": "sym_khe",
+   "syllables": [
+    "خود"
+   ],
+   "stage": 13,
+   "gloss_en": "self",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.khod.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_mah",
+   "text": "ماه",
+   "symbols": [
+    "sym_mim",
+    "sym_alef",
+    "sym_he"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": [
+    "ماه"
+   ],
+   "stage": 14,
+   "gloss_en": "moon",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.mah",
+   "say_audio": "aud.word.mah.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_mahi",
+   "text": "ماهی",
+   "symbols": [
+    "sym_mim",
+    "sym_alef",
+    "sym_he",
+    "sym_i_long"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": [
+    "ما",
+    "هی"
+   ],
+   "stage": 14,
+   "gloss_en": "fish",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.mahi",
+   "say_audio": "aud.word.mahi.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_kuh",
+   "text": "کوه",
+   "symbols": [
+    "sym_kaf",
+    "sym_u_long",
+    "sym_he"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "کوه"
+   ],
+   "stage": 14,
+   "gloss_en": "mountain",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.kuh",
+   "say_audio": "aud.word.kuh.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_chatr",
+   "text": "چَتر",
+   "symbols": [
+    "sym_che",
+    "sym_a_short",
+    "sym_te",
+    "sym_re"
+   ],
+   "first_sound": "sym_che",
+   "syllables": [
+    "چَتر"
+   ],
+   "stage": 14,
+   "gloss_en": "umbrella",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.chatr",
+   "say_audio": "aud.word.chatr.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_qarch",
+   "text": "قارچ",
+   "symbols": [
+    "sym_qaf",
+    "sym_alef",
+    "sym_re",
+    "sym_che"
+   ],
+   "first_sound": "sym_qaf",
+   "syllables": [
+    "قارچ"
+   ],
+   "stage": 14,
+   "gloss_en": "mushroom",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.qarch",
+   "say_audio": "aud.word.qarch.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_havij",
+   "text": "هَویج",
+   "symbols": [
+    "sym_he",
+    "sym_a_short",
+    "sym_vav",
+    "sym_i_long",
+    "sym_jim"
+   ],
+   "first_sound": "sym_he",
+   "syllables": [
+    "هَ",
+    "ویج"
+   ],
+   "stage": 14,
+   "gloss_en": "carrot",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.havij",
+   "say_audio": "aud.word.havij.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_cheshm",
+   "text": "چِشم",
+   "symbols": [
+    "sym_che",
+    "sym_e_short",
+    "sym_shin",
+    "sym_mim"
+   ],
+   "first_sound": "sym_che",
+   "syllables": [
+    "چِشم"
+   ],
+   "stage": 14,
+   "gloss_en": "eye",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.cheshm",
+   "say_audio": "aud.word.cheshm.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_chay",
+   "text": "چای",
+   "symbols": [
+    "sym_che",
+    "sym_alef",
+    "sym_ye"
+   ],
+   "first_sound": "sym_che",
+   "syllables": [
+    "چای"
+   ],
+   "stage": 14,
+   "gloss_en": "tea",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.chay",
+   "say_audio": "aud.word.chay.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_zhaket",
+   "text": "ژاکَت",
+   "symbols": [
+    "sym_zhe",
+    "sym_alef",
+    "sym_kaf",
+    "sym_a_short",
+    "sym_te"
+   ],
+   "first_sound": "sym_zhe",
+   "syllables": [
+    "ژا",
+    "کَت"
+   ],
+   "stage": 15,
+   "gloss_en": "sweater",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.zhaket",
+   "say_audio": "aud.word.zhaket.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_mozhe",
+   "text": "مُژه",
+   "symbols": [
+    "sym_mim",
+    "sym_o_short",
+    "sym_zhe",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": [
+    "مُ",
+    "ژه"
+   ],
+   "stage": 15,
+   "gloss_en": "eyelash",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.mozhe",
+   "say_audio": "aud.word.mozhe.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_khab",
+   "text": "خواب",
+   "symbols": [
+    "sym_khaa",
+    "sym_ba"
+   ],
+   "first_sound": "sym_khaa",
+   "syllables": [
+    "خواب"
+   ],
+   "stage": 15,
+   "gloss_en": "sleep",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.khab",
+   "say_audio": "aud.word.khab.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_khahar",
+   "text": "خواهَر",
+   "symbols": [
+    "sym_khaa",
+    "sym_he",
+    "sym_a_short",
+    "sym_re"
+   ],
+   "first_sound": "sym_khaa",
+   "syllables": [
+    "خوا",
+    "هَر"
+   ],
+   "stage": 15,
+   "gloss_en": "sister",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.khahar",
+   "say_audio": "aud.word.khahar.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sabun",
+   "text": "صابون",
+   "symbols": [
+    "sym_sad",
+    "sym_alef",
+    "sym_ba",
+    "sym_u_long",
+    "sym_nun"
+   ],
+   "first_sound": "sym_sad",
+   "syllables": [
+    "صا",
+    "بون"
+   ],
+   "stage": 16,
+   "gloss_en": "soap",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.sabun",
+   "say_audio": "aud.word.sabun.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sandali",
+   "text": "صَندَلی",
+   "symbols": [
+    "sym_sad",
+    "sym_a_short",
+    "sym_nun",
+    "sym_dal",
+    "sym_a_short",
+    "sym_lam",
+    "sym_i_long"
+   ],
+   "first_sound": "sym_sad",
+   "syllables": [
+    "صَن",
+    "دَ",
+    "لی"
+   ],
+   "stage": 16,
+   "gloss_en": "chair",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.sandali",
+   "say_audio": "aud.word.sandali.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sadaf",
+   "text": "صَدَف",
+   "symbols": [
+    "sym_sad",
+    "sym_a_short",
+    "sym_dal",
+    "sym_a_short",
+    "sym_fe"
+   ],
+   "first_sound": "sym_sad",
+   "syllables": [
+    "صَ",
+    "دَف"
+   ],
+   "stage": 16,
+   "gloss_en": "shell",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.sadaf",
+   "say_audio": "aud.word.sadaf.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_asal",
+   "text": "عَسَل",
+   "symbols": [
+    "sym_eyn",
+    "sym_a_short",
+    "sym_sin",
+    "sym_a_short",
+    "sym_lam"
+   ],
+   "first_sound": "sym_eyn",
+   "syllables": [
+    "عَ",
+    "سَل"
+   ],
+   "stage": 16,
+   "gloss_en": "honey",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.asal",
+   "say_audio": "aud.word.asal.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_saat",
+   "text": "ساعَت",
+   "symbols": [
+    "sym_sin",
+    "sym_alef",
+    "sym_eyn",
+    "sym_a_short",
+    "sym_te"
+   ],
+   "first_sound": "sym_sin",
+   "syllables": [
+    "سا",
+    "عَت"
+   ],
+   "stage": 16,
+   "gloss_en": "clock",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.saat",
+   "say_audio": "aud.word.saat.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sham",
+   "text": "شَمع",
+   "symbols": [
+    "sym_shin",
+    "sym_a_short",
+    "sym_mim",
+    "sym_eyn"
+   ],
+   "first_sound": "sym_shin",
+   "syllables": [
+    "شَمع"
+   ],
+   "stage": 16,
+   "gloss_en": "candle",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.sham",
+   "say_audio": "aud.word.sham.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_halazun",
+   "text": "حَلَزون",
+   "symbols": [
+    "sym_he_jimi",
+    "sym_a_short",
+    "sym_lam",
+    "sym_a_short",
+    "sym_ze",
+    "sym_u_long",
+    "sym_nun"
+   ],
+   "first_sound": "sym_he_jimi",
+   "syllables": [
+    "حَ",
+    "لَ",
+    "زون"
+   ],
+   "stage": 17,
+   "gloss_en": "snail",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.halazun",
+   "say_audio": "aud.word.halazun.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_hole",
+   "text": "حوله",
+   "symbols": [
+    "sym_he_jimi",
+    "sym_vav_o",
+    "sym_lam",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_he_jimi",
+   "syllables": [
+    "حو",
+    "له"
+   ],
+   "stage": 17,
+   "gloss_en": "towel",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.hole",
+   "say_audio": "aud.word.hole.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_tuti",
+   "text": "طوطی",
+   "symbols": [
+    "sym_ta",
+    "sym_u_long",
+    "sym_ta",
+    "sym_i_long"
+   ],
+   "first_sound": "sym_ta",
+   "syllables": [
+    "طو",
+    "طی"
+   ],
+   "stage": 17,
+   "gloss_en": "parrot",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.tuti",
+   "say_audio": "aud.word.tuti.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_tavus",
+   "text": "طاووس",
+   "symbols": [
+    "sym_ta",
+    "sym_alef",
+    "sym_vav",
+    "sym_u_long",
+    "sym_sin"
+   ],
+   "first_sound": "sym_ta",
+   "syllables": [
+    "طا",
+    "ووس"
+   ],
+   "stage": 17,
+   "gloss_en": "peacock",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.tavus",
+   "say_audio": "aud.word.tavus.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_tanab",
+   "text": "طَناب",
+   "symbols": [
+    "sym_ta",
+    "sym_a_short",
+    "sym_nun",
+    "sym_alef",
+    "sym_ba"
+   ],
+   "first_sound": "sym_ta",
+   "syllables": [
+    "طَ",
+    "ناب"
+   ],
+   "stage": 17,
+   "gloss_en": "rope",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.tanab",
+   "say_audio": "aud.word.tanab.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sobh",
+   "text": "صُبح",
+   "symbols": [
+    "sym_sad",
+    "sym_o_short",
+    "sym_ba",
+    "sym_he_jimi"
+   ],
+   "first_sound": "sym_sad",
+   "syllables": [
+    "صُبح"
+   ],
+   "stage": 17,
+   "gloss_en": "morning",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.sobh.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_ghaz",
+   "text": "غاز",
+   "symbols": [
+    "sym_gheyn",
+    "sym_alef",
+    "sym_ze"
+   ],
+   "first_sound": "sym_gheyn",
+   "syllables": [
+    "غاز"
+   ],
+   "stage": 18,
+   "gloss_en": "goose",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.ghaz",
+   "say_audio": "aud.word.ghaz.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_bagh",
+   "text": "باغ",
+   "symbols": [
+    "sym_ba",
+    "sym_alef",
+    "sym_gheyn"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "باغ"
+   ],
+   "stage": 18,
+   "gloss_en": "garden",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.bagh",
+   "say_audio": "aud.word.bagh.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_morgh",
+   "text": "مُرغ",
+   "symbols": [
+    "sym_mim",
+    "sym_o_short",
+    "sym_re",
+    "sym_gheyn"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": [
+    "مُرغ"
+   ],
+   "stage": 18,
+   "gloss_en": "hen",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.morgh",
+   "say_audio": "aud.word.morgh.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_cheragh",
+   "text": "چِراغ",
+   "symbols": [
+    "sym_che",
+    "sym_e_short",
+    "sym_re",
+    "sym_alef",
+    "sym_gheyn"
+   ],
+   "first_sound": "sym_che",
+   "syllables": [
+    "چِ",
+    "راغ"
+   ],
+   "stage": 18,
+   "gloss_en": "lamp",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.cheragh",
+   "say_audio": "aud.word.cheragh.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_qurbaghe",
+   "text": "قورباغه",
+   "symbols": [
+    "sym_qaf",
+    "sym_u_long",
+    "sym_re",
+    "sym_ba",
+    "sym_alef",
+    "sym_gheyn",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_qaf",
+   "syllables": [
+    "قور",
+    "با",
+    "غه"
+   ],
+   "stage": 18,
+   "gloss_en": "frog",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.qurbaghe",
+   "say_audio": "aud.word.qurbaghe.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_kaghaz",
+   "text": "کاغَذ",
+   "symbols": [
+    "sym_kaf",
+    "sym_alef",
+    "sym_gheyn",
+    "sym_a_short",
+    "sym_zal"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "کا",
+    "غَذ"
+   ],
+   "stage": 18,
+   "gloss_en": "paper",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.kaghaz",
+   "say_audio": "aud.word.kaghaz.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_laziz",
+   "text": "لَذیذ",
+   "symbols": [
+    "sym_lam",
+    "sym_a_short",
+    "sym_zal",
+    "sym_i_long",
+    "sym_zal"
+   ],
+   "first_sound": "sym_lam",
+   "syllables": [
+    "لَ",
+    "ذیذ"
+   ],
+   "stage": 18,
+   "gloss_en": "tasty",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.laziz.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_gozasht",
+   "text": "گُذاشت",
+   "symbols": [
+    "sym_gaf",
+    "sym_o_short",
+    "sym_zal",
+    "sym_alef",
+    "sym_shin",
+    "sym_te"
+   ],
+   "first_sound": "sym_gaf",
+   "syllables": [
+    "گُ",
+    "ذاشت"
+   ],
+   "stage": 18,
+   "gloss_en": "put",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.gozasht.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_bachche",
+   "text": "بَچّه",
+   "symbols": [
+    "sym_ba",
+    "sym_a_short",
+    "sym_che",
+    "sym_tashdid",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": null,
+   "stage": 19,
+   "gloss_en": "child",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.bachche",
+   "say_audio": "aud.word.bachche.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_arre",
+   "text": "اَرّه",
+   "symbols": [
+    "sym_a_short",
+    "sym_re",
+    "sym_tashdid",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_a_short",
+   "syllables": null,
+   "stage": 19,
+   "gloss_en": "saw",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.arre",
+   "say_audio": "aud.word.arre.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_najjar",
+   "text": "نَجّار",
+   "symbols": [
+    "sym_nun",
+    "sym_a_short",
+    "sym_jim",
+    "sym_tashdid",
+    "sym_alef",
+    "sym_re"
+   ],
+   "first_sound": "sym_nun",
+   "syllables": null,
+   "stage": 19,
+   "gloss_en": "carpenter",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.najjar",
+   "say_audio": "aud.word.najjar.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_zorrat",
+   "text": "ذُرَّت",
+   "symbols": [
+    "sym_zal",
+    "sym_o_short",
+    "sym_re",
+    "sym_a_short",
+    "sym_tashdid",
+    "sym_te"
+   ],
+   "first_sound": "sym_zal",
+   "syllables": null,
+   "stage": 19,
+   "gloss_en": "corn",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.zorrat",
+   "say_audio": "aud.word.zorrat.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_mosallas",
+   "text": "مُثَلَّث",
+   "symbols": [
+    "sym_mim",
+    "sym_o_short",
+    "sym_se",
+    "sym_a_short",
+    "sym_lam",
+    "sym_a_short",
+    "sym_tashdid",
+    "sym_se"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": null,
+   "stage": 19,
+   "gloss_en": "triangle",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.mosallas",
+   "say_audio": "aud.word.mosallas.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_lese",
+   "text": "لِثه",
+   "symbols": [
+    "sym_lam",
+    "sym_e_short",
+    "sym_se",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_lam",
+   "syllables": [
+    "لِ",
+    "ثه"
+   ],
+   "stage": 19,
+   "gloss_en": "gum",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.lese.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sabet",
+   "text": "ثابِت",
+   "symbols": [
+    "sym_se",
+    "sym_alef",
+    "sym_ba",
+    "sym_e_short",
+    "sym_te"
+   ],
+   "first_sound": "sym_se",
+   "syllables": [
+    "ثا",
+    "بِت"
+   ],
+   "stage": 19,
+   "gloss_en": "still",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.sabet.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_hoz",
+   "text": "حوض",
+   "symbols": [
+    "sym_he_jimi",
+    "sym_vav_o",
+    "sym_zad"
+   ],
+   "first_sound": "sym_he_jimi",
+   "syllables": [
+    "حوض"
+   ],
+   "stage": 20,
+   "gloss_en": "pond",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.hoz",
+   "say_audio": "aud.word.hoz.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_qazi",
+   "text": "قاضی",
+   "symbols": [
+    "sym_qaf",
+    "sym_alef",
+    "sym_zad",
+    "sym_i_long"
+   ],
+   "first_sound": "sym_qaf",
+   "syllables": [
+    "قا",
+    "ضی"
+   ],
+   "stage": 20,
+   "gloss_en": "judge",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.qazi",
+   "say_audio": "aud.word.qazi.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_zarf",
+   "text": "ظَرف",
+   "symbols": [
+    "sym_za",
+    "sym_a_short",
+    "sym_re",
+    "sym_fe"
+   ],
+   "first_sound": "sym_za",
+   "syllables": [
+    "ظَرف"
+   ],
+   "stage": 20,
+   "gloss_en": "dish",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.zarf",
+   "say_audio": "aud.word.zarf.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_zohr",
+   "text": "ظُهر",
+   "symbols": [
+    "sym_za",
+    "sym_o_short",
+    "sym_he",
+    "sym_re"
+   ],
+   "first_sound": "sym_za",
+   "syllables": [
+    "ظُهر"
+   ],
+   "stage": 20,
+   "gloss_en": "noon",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.zohr.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_razi",
+   "text": "راضی",
+   "symbols": [
+    "sym_re",
+    "sym_alef",
+    "sym_zad",
+    "sym_i_long"
+   ],
+   "first_sound": "sym_re",
+   "syllables": [
+    "را",
+    "ضی"
+   ],
+   "stage": 20,
+   "gloss_en": "pleased",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.razi.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_hafez",
+   "text": "حافِظ",
+   "symbols": [
+    "sym_he_jimi",
+    "sym_alef",
+    "sym_fe",
+    "sym_e_short",
+    "sym_za"
+   ],
+   "first_sound": "sym_he_jimi",
+   "syllables": [
+    "حا",
+    "فِظ"
+   ],
+   "stage": 20,
+   "gloss_en": "Hafez",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.hafez.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_penguen",
+   "text": "پِنگوئَن",
+   "symbols": [
+    "sym_pe",
+    "sym_e_short",
+    "sym_nun",
+    "sym_gaf",
+    "sym_u_long",
+    "sym_hamze",
+    "sym_a_short",
+    "sym_nun"
+   ],
+   "first_sound": "sym_pe",
+   "syllables": [
+    "پِن",
+    "گو",
+    "ئَن"
+   ],
+   "stage": 21,
+   "gloss_en": "penguin",
+   "use": [
+    "read",
+    "picture"
+   ],
+   "image": "img.word.penguen",
+   "say_audio": "aud.word.penguen.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_soal",
+   "text": "سُؤال",
+   "symbols": [
+    "sym_sin",
+    "sym_o_short",
+    "sym_hamze",
+    "sym_alef",
+    "sym_lam"
+   ],
+   "first_sound": "sym_sin",
+   "syllables": [
+    "سُ",
+    "ؤال"
+   ],
+   "stage": 21,
+   "gloss_en": "question",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.soal.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_rais",
+   "text": "رَئیس",
+   "symbols": [
+    "sym_re",
+    "sym_a_short",
+    "sym_hamze",
+    "sym_i_long",
+    "sym_sin"
+   ],
+   "first_sound": "sym_re",
+   "syllables": [
+    "رَ",
+    "ئیس"
+   ],
+   "stage": 21,
+   "gloss_en": "boss",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.rais.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_atash",
+   "text": "آتَش",
+   "symbols": [
+    "sym_alef",
+    "sym_te",
+    "sym_a_short",
+    "sym_shin"
+   ],
+   "first_sound": "sym_alef",
+   "syllables": [
+    "آ",
+    "تَش"
+   ],
+   "stage": 7,
+   "gloss_en": "fire",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.atash",
+   "say_audio": "aud.word.atash.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_ahu",
+   "text": "آهو",
+   "symbols": [
+    "sym_alef",
+    "sym_he",
+    "sym_u_long"
+   ],
+   "first_sound": "sym_alef",
+   "syllables": [
+    "آ",
+    "هو"
+   ],
+   "stage": 14,
+   "gloss_en": "deer",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.ahu",
+   "say_audio": "aud.word.ahu.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_estekan",
+   "text": "اِستِکان",
+   "symbols": [
+    "sym_e_short",
+    "sym_sin",
+    "sym_te",
+    "sym_e_short",
+    "sym_kaf",
+    "sym_alef",
+    "sym_nun"
+   ],
+   "first_sound": "sym_e_short",
+   "syllables": [
+    "اِس",
+    "تِ",
+    "کان"
+   ],
+   "stage": 9,
+   "gloss_en": "tea glass",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.estekan",
+   "say_audio": "aud.word.estekan.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_esfanj",
+   "text": "اِسفَنج",
+   "symbols": [
+    "sym_e_short",
+    "sym_sin",
+    "sym_fe",
+    "sym_a_short",
+    "sym_nun",
+    "sym_jim"
+   ],
+   "first_sound": "sym_e_short",
+   "syllables": [
+    "اِس",
+    "فَنج"
+   ],
+   "stage": 13,
+   "gloss_en": "sponge",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.esfanj",
+   "say_audio": "aud.word.esfanj.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_otobus",
+   "text": "اُتوبوس",
+   "symbols": [
+    "sym_o_short",
+    "sym_te",
+    "sym_u_long",
+    "sym_ba",
+    "sym_u_long",
+    "sym_sin"
+   ],
+   "first_sound": "sym_o_short",
+   "syllables": [
+    "اُ",
+    "تو",
+    "بوس"
+   ],
+   "stage": 8,
+   "gloss_en": "bus",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.otobus",
+   "say_audio": "aud.word.otobus.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_ostokhan",
+   "text": "اُستُخوان",
+   "symbols": [
+    "sym_o_short",
+    "sym_sin",
+    "sym_te",
+    "sym_o_short",
+    "sym_khaa",
+    "sym_nun"
+   ],
+   "first_sound": "sym_o_short",
+   "syllables": [
+    "اُس",
+    "تُ",
+    "خوان"
+   ],
+   "stage": 15,
+   "gloss_en": "bone",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.ostokhan",
+   "say_audio": "aud.word.ostokhan.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_abr",
+   "text": "اَبر",
+   "symbols": [
+    "sym_a_short",
+    "sym_ba",
+    "sym_re"
+   ],
+   "first_sound": "sym_a_short",
+   "syllables": [
+    "اَبر"
+   ],
+   "stage": 5,
+   "gloss_en": "cloud",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.abr",
+   "say_audio": "aud.word.abr.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_dasht",
+   "text": "دَست",
+   "symbols": [
+    "sym_dal",
+    "sym_a_short",
+    "sym_sin",
+    "sym_te"
+   ],
+   "first_sound": "sym_dal",
+   "syllables": [
+    "دَست"
+   ],
+   "stage": 4,
+   "gloss_en": "hand",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.dasht",
+   "say_audio": "aud.word.dasht.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_dokme",
+   "text": "دُکمه",
+   "symbols": [
+    "sym_dal",
+    "sym_o_short",
+    "sym_kaf",
+    "sym_mim",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_dal",
+   "syllables": [
+    "دُک",
+    "مه"
+   ],
+   "stage": 9,
+   "gloss_en": "button",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.dokme",
+   "say_audio": "aud.word.dokme.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_moz",
+   "text": "موز",
+   "symbols": [
+    "sym_mim",
+    "sym_u_long",
+    "sym_ze"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": [
+    "موز"
+   ],
+   "stage": 6,
+   "gloss_en": "banana",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.moz",
+   "say_audio": "aud.word.moz.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_mive",
+   "text": "میوه",
+   "symbols": [
+    "sym_mim",
+    "sym_i_long",
+    "sym_vav",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": [
+    "می",
+    "وه"
+   ],
+   "stage": 9,
+   "gloss_en": "fruit",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.mive",
+   "say_audio": "aud.word.mive.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_rubah",
+   "text": "روباه",
+   "symbols": [
+    "sym_re",
+    "sym_u_long",
+    "sym_ba",
+    "sym_alef",
+    "sym_he"
+   ],
+   "first_sound": "sym_re",
+   "syllables": [
+    "رو",
+    "باه"
+   ],
+   "stage": 14,
+   "gloss_en": "fox",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.rubah",
+   "say_audio": "aud.word.rubah.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_nardeban",
+   "text": "نَردِبان",
+   "symbols": [
+    "sym_nun",
+    "sym_a_short",
+    "sym_re",
+    "sym_dal",
+    "sym_e_short",
+    "sym_ba",
+    "sym_alef",
+    "sym_nun"
+   ],
+   "first_sound": "sym_nun",
+   "syllables": [
+    "نَر",
+    "دِ",
+    "بان"
+   ],
+   "stage": 7,
+   "gloss_en": "ladder",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.nardeban",
+   "say_audio": "aud.word.nardeban.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_zarafe",
+   "text": "زَرافه",
+   "symbols": [
+    "sym_ze",
+    "sym_a_short",
+    "sym_re",
+    "sym_alef",
+    "sym_fe",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_ze",
+   "syllables": [
+    "زَ",
+    "را",
+    "فه"
+   ],
+   "stage": 11,
+   "gloss_en": "giraffe",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.zarafe",
+   "say_audio": "aud.word.zarafe.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_shotor",
+   "text": "شُتُر",
+   "symbols": [
+    "sym_shin",
+    "sym_o_short",
+    "sym_te",
+    "sym_o_short",
+    "sym_re"
+   ],
+   "first_sound": "sym_shin",
+   "syllables": [
+    "شُ",
+    "تُر"
+   ],
+   "stage": 8,
+   "gloss_en": "camel",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.shotor",
+   "say_audio": "aud.word.shotor.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_yakh",
+   "text": "یَخ",
+   "symbols": [
+    "sym_ye",
+    "sym_a_short",
+    "sym_khe"
+   ],
+   "first_sound": "sym_ye",
+   "syllables": [
+    "یَخ"
+   ],
+   "stage": 11,
+   "gloss_en": "ice",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.yakh",
+   "say_audio": "aud.word.yakh.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_kelid",
+   "text": "کِلید",
+   "symbols": [
+    "sym_kaf",
+    "sym_e_short",
+    "sym_lam",
+    "sym_i_long",
+    "sym_dal"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "کِ",
+    "لید"
+   ],
+   "stage": 12,
+   "gloss_en": "key",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.kelid",
+   "say_audio": "aud.word.kelid.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_vazne",
+   "text": "وَزنه",
+   "symbols": [
+    "sym_vav",
+    "sym_a_short",
+    "sym_ze",
+    "sym_nun",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_vav",
+   "syllables": [
+    "وَز",
+    "نه"
+   ],
+   "stage": 9,
+   "gloss_en": "weight",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.vazne",
+   "say_audio": "aud.word.vazne.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_val",
+   "text": "وال",
+   "symbols": [
+    "sym_vav",
+    "sym_alef",
+    "sym_lam"
+   ],
+   "first_sound": "sym_vav",
+   "syllables": [
+    "وال"
+   ],
+   "stage": 12,
+   "gloss_en": "whale",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.val",
+   "say_audio": "aud.word.val.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_rangin",
+   "text": "رَنگین‌کَمان",
+   "symbols": [
+    "sym_re",
+    "sym_a_short",
+    "sym_nun",
+    "sym_gaf",
+    "sym_i_long",
+    "sym_nun",
+    "sym_kaf",
+    "sym_a_short",
+    "sym_mim",
+    "sym_alef",
+    "sym_nun"
+   ],
+   "first_sound": "sym_re",
+   "syllables": [
+    "رَن",
+    "گین‌",
+    "کَ",
+    "مان"
+   ],
+   "stage": 10,
+   "gloss_en": "rainbow",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.rangin",
+   "say_audio": "aud.word.rangin.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_pishi",
+   "text": "پیشی",
+   "symbols": [
+    "sym_pe",
+    "sym_i_long",
+    "sym_shin",
+    "sym_i_long"
+   ],
+   "first_sound": "sym_pe",
+   "syllables": [
+    "پی",
+    "شی"
+   ],
+   "stage": 10,
+   "gloss_en": "kitty",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.pishi",
+   "say_audio": "aud.word.pishi.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_fanus",
+   "text": "فانوس",
+   "symbols": [
+    "sym_fe",
+    "sym_alef",
+    "sym_nun",
+    "sym_u_long",
+    "sym_sin"
+   ],
+   "first_sound": "sym_fe",
+   "syllables": [
+    "فا",
+    "نوس"
+   ],
+   "stage": 11,
+   "gloss_en": "lantern",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.fanus",
+   "say_audio": "aud.word.fanus.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_khiar",
+   "text": "خیار",
+   "symbols": [
+    "sym_khe",
+    "sym_ye",
+    "sym_alef",
+    "sym_re"
+   ],
+   "first_sound": "sym_khe",
+   "syllables": [
+    "خیار"
+   ],
+   "stage": 11,
+   "gloss_en": "cucumber",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.khiar",
+   "say_audio": "aud.word.khiar.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_qand",
+   "text": "قَند",
+   "symbols": [
+    "sym_qaf",
+    "sym_a_short",
+    "sym_nun",
+    "sym_dal"
+   ],
+   "first_sound": "sym_qaf",
+   "syllables": [
+    "قَند"
+   ],
+   "stage": 12,
+   "gloss_en": "sugar cube",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.qand",
+   "say_audio": "aud.word.qand.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_lak",
+   "text": "لاک",
+   "symbols": [
+    "sym_lam",
+    "sym_alef",
+    "sym_kaf"
+   ],
+   "first_sound": "sym_lam",
+   "syllables": [
+    "لاک"
+   ],
+   "stage": 12,
+   "gloss_en": "shell",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.lak",
+   "say_audio": "aud.word.lak.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_jangal",
+   "text": "جَنگَل",
+   "symbols": [
+    "sym_jim",
+    "sym_a_short",
+    "sym_nun",
+    "sym_gaf",
+    "sym_a_short",
+    "sym_lam"
+   ],
+   "first_sound": "sym_jim",
+   "syllables": [
+    "جَن",
+    "گَل"
+   ],
+   "stage": 13,
+   "gloss_en": "forest",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.jangal",
+   "say_audio": "aud.word.jangal.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_hendevane",
+   "text": "هِندِوانه",
+   "symbols": [
+    "sym_he",
+    "sym_e_short",
+    "sym_nun",
+    "sym_dal",
+    "sym_e_short",
+    "sym_vav",
+    "sym_alef",
+    "sym_nun",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_he",
+   "syllables": [
+    "هِن",
+    "دِ",
+    "وا",
+    "نه"
+   ],
+   "stage": 14,
+   "gloss_en": "watermelon",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.hendevane",
+   "say_audio": "aud.word.hendevane.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_chub",
+   "text": "چوب",
+   "symbols": [
+    "sym_che",
+    "sym_u_long",
+    "sym_ba"
+   ],
+   "first_sound": "sym_che",
+   "syllables": [
+    "چوب"
+   ],
+   "stage": 14,
+   "gloss_en": "wood",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.chub",
+   "say_audio": "aud.word.chub.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_zhele",
+   "text": "ژِله",
+   "symbols": [
+    "sym_zhe",
+    "sym_e_short",
+    "sym_lam",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_zhe",
+   "syllables": [
+    "ژِ",
+    "له"
+   ],
+   "stage": 15,
+   "gloss_en": "jelly",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.zhele",
+   "say_audio": "aud.word.zhele.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_zhimnastik",
+   "text": "ژیمناستیک",
+   "symbols": [
+    "sym_zhe",
+    "sym_i_long",
+    "sym_mim",
+    "sym_nun",
+    "sym_alef",
+    "sym_sin",
+    "sym_te",
+    "sym_i_long",
+    "sym_kaf"
+   ],
+   "first_sound": "sym_zhe",
+   "syllables": [
+    "ژیم",
+    "ناس",
+    "تیک"
+   ],
+   "stage": 15,
+   "gloss_en": "gymnastics",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.zhimnastik",
+   "say_audio": "aud.word.zhimnastik.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_havapeyma",
+   "text": "هَواپِیما",
+   "symbols": [
+    "sym_he",
+    "sym_a_short",
+    "sym_vav",
+    "sym_alef",
+    "sym_pe",
+    "sym_e_short",
+    "sym_ye",
+    "sym_mim",
+    "sym_alef"
+   ],
+   "first_sound": "sym_he",
+   "syllables": [
+    "هَ",
+    "وا",
+    "پِی",
+    "ما"
+   ],
+   "stage": 14,
+   "gloss_en": "airplane",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.havapeyma",
+   "say_audio": "aud.word.havapeyma.say",
+   "approved": false
+  },
+  {
+   "word_id": "p_hodhod",
+   "text": "هُدهُد",
+   "symbols": [
+    "sym_he",
+    "sym_o_short",
+    "sym_dal",
+    "sym_he",
+    "sym_o_short",
+    "sym_dal"
+   ],
+   "first_sound": "sym_he",
+   "syllables": [
+    "هُد",
+    "هُد"
+   ],
+   "stage": 14,
+   "gloss_en": "hoopoe",
+   "use": [
+    "picture"
+   ],
+   "image": "img.word.hodhod",
+   "say_audio": "aud.word.hodhod.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_bast",
+   "text": "بَست",
+   "symbols": [
+    "sym_ba",
+    "sym_a_short",
+    "sym_sin",
+    "sym_te"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "بَست"
+   ],
+   "stage": 4,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.bast.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_sare",
+   "text": "سَرِ",
+   "symbols": [
+    "sym_sin",
+    "sym_a_short",
+    "sym_re",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_sin",
+   "syllables": [
+    "سَ",
+    "رِ"
+   ],
+   "stage": 7,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.sare.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_did",
+   "text": "دید",
+   "symbols": [
+    "sym_dal",
+    "sym_i_long",
+    "sym_dal"
+   ],
+   "first_sound": "sym_dal",
+   "syllables": [
+    "دید"
+   ],
+   "stage": 6,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.did.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_resid",
+   "text": "رِسید",
+   "symbols": [
+    "sym_re",
+    "sym_e_short",
+    "sym_sin",
+    "sym_i_long",
+    "sym_dal"
+   ],
+   "first_sound": "sym_re",
+   "syllables": [
+    "رِ",
+    "سید"
+   ],
+   "stage": 7,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.resid.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_kenaare",
+   "text": "کِنارِ",
+   "symbols": [
+    "sym_kaf",
+    "sym_e_short",
+    "sym_nun",
+    "sym_alef",
+    "sym_re",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "کِ",
+    "نا",
+    "رِ"
+   ],
+   "stage": 9,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.kenaare.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_baa",
+   "text": "با",
+   "symbols": [
+    "sym_ba",
+    "sym_alef"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": [
+    "با"
+   ],
+   "stage": 1,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.baa.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_kard",
+   "text": "کَرد",
+   "symbols": [
+    "sym_kaf",
+    "sym_a_short",
+    "sym_re",
+    "sym_dal"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "کَرد"
+   ],
+   "stage": 9,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.kard.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_shaad",
+   "text": "شاد",
+   "symbols": [
+    "sym_shin",
+    "sym_alef",
+    "sym_dal"
+   ],
+   "first_sound": "sym_shin",
+   "syllables": [
+    "شاد"
+   ],
+   "stage": 7,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.shaad.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_pushid",
+   "text": "پوشید",
+   "symbols": [
+    "sym_pe",
+    "sym_u_long",
+    "sym_shin",
+    "sym_i_long",
+    "sym_dal"
+   ],
+   "first_sound": "sym_pe",
+   "syllables": [
+    "پو",
+    "شید"
+   ],
+   "stage": 10,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.pushid.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_pishe",
+   "text": "پیشِ",
+   "symbols": [
+    "sym_pe",
+    "sym_i_long",
+    "sym_shin",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_pe",
+   "syllables": [
+    "پی",
+    "شِ"
+   ],
+   "stage": 10,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.pishe.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_khaste",
+   "text": "خَسته",
+   "symbols": [
+    "sym_khe",
+    "sym_a_short",
+    "sym_sin",
+    "sym_te",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_khe",
+   "syllables": [
+    "خَس",
+    "ته"
+   ],
+   "stage": 11,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.khaste.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_shod",
+   "text": "شُد",
+   "symbols": [
+    "sym_shin",
+    "sym_o_short",
+    "sym_dal"
+   ],
+   "first_sound": "sym_shin",
+   "syllables": [
+    "شُد"
+   ],
+   "stage": 8,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.shod.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_zard",
+   "text": "زَرد",
+   "symbols": [
+    "sym_ze",
+    "sym_a_short",
+    "sym_re",
+    "sym_dal"
+   ],
+   "first_sound": "sym_ze",
+   "syllables": [
+    "زَرد"
+   ],
+   "stage": 6,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.zard.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_raft",
+   "text": "رَفت",
+   "symbols": [
+    "sym_re",
+    "sym_a_short",
+    "sym_fe",
+    "sym_te"
+   ],
+   "first_sound": "sym_re",
+   "syllables": [
+    "رَفت"
+   ],
+   "stage": 11,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.raft.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_neshastand",
+   "text": "نِشَستَند",
+   "symbols": [
+    "sym_nun",
+    "sym_e_short",
+    "sym_shin",
+    "sym_a_short",
+    "sym_sin",
+    "sym_te",
+    "sym_a_short",
+    "sym_nun",
+    "sym_dal"
+   ],
+   "first_sound": "sym_nun",
+   "syllables": [
+    "نِ",
+    "شَس",
+    "تَند"
+   ],
+   "stage": 7,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.neshastand.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_shab",
+   "text": "شَب",
+   "symbols": [
+    "sym_shin",
+    "sym_a_short",
+    "sym_ba"
+   ],
+   "first_sound": "sym_shin",
+   "syllables": [
+    "شَب"
+   ],
+   "stage": 7,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.shab.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_khaaharam",
+   "text": "خواهَرَم",
+   "symbols": [
+    "sym_khaa",
+    "sym_he",
+    "sym_a_short",
+    "sym_re",
+    "sym_a_short",
+    "sym_mim"
+   ],
+   "first_sound": "sym_khaa",
+   "syllables": [
+    "خوا",
+    "هَ",
+    "رَم"
+   ],
+   "stage": 15,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.khaaharam.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_u",
+   "text": "او",
+   "symbols": [
+    "sym_u_long"
+   ],
+   "first_sound": "sym_u_long",
+   "syllables": [
+    "او"
+   ],
+   "stage": 4,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.u.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_ham",
+   "text": "هَم",
+   "symbols": [
+    "sym_he",
+    "sym_a_short",
+    "sym_mim"
+   ],
+   "first_sound": "sym_he",
+   "syllables": [
+    "هَم"
+   ],
+   "stage": 14,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.ham.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_o",
+   "text": "و",
+   "symbols": [
+    "sym_vav_o"
+   ],
+   "first_sound": "sym_vav_o",
+   "syllables": [
+    "و"
+   ],
+   "stage": 13,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.o.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_khordand",
+   "text": "خوردَند",
+   "symbols": [
+    "sym_khe",
+    "sym_vav_o",
+    "sym_re",
+    "sym_dal",
+    "sym_a_short",
+    "sym_nun",
+    "sym_dal"
+   ],
+   "first_sound": "sym_khe",
+   "syllables": [
+    "خور",
+    "دَند"
+   ],
+   "stage": 13,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.khordand.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_hayaat",
+   "text": "حَیاط",
+   "symbols": [
+    "sym_he_jimi",
+    "sym_a_short",
+    "sym_ye",
+    "sym_alef",
+    "sym_ta"
+   ],
+   "first_sound": "sym_he_jimi",
+   "syllables": [
+    "حَ",
+    "یاط"
+   ],
+   "stage": 17,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.hayaat.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_pare",
+   "text": "پَرِ",
+   "symbols": [
+    "sym_pe",
+    "sym_a_short",
+    "sym_re",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_pe",
+   "syllables": [
+    "پَ",
+    "رِ"
+   ],
+   "stage": 10,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.pare.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_rangi",
+   "text": "رَنگی",
+   "symbols": [
+    "sym_re",
+    "sym_a_short",
+    "sym_nun",
+    "sym_gaf",
+    "sym_i_long"
+   ],
+   "first_sound": "sym_re",
+   "syllables": [
+    "رَن",
+    "گی"
+   ],
+   "stage": 10,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.rangi.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_bachehaa",
+   "text": "بَچّه‌ها",
+   "symbols": [
+    "sym_ba",
+    "sym_a_short",
+    "sym_che",
+    "sym_tashdid",
+    "sym_e_short",
+    "sym_he",
+    "sym_alef"
+   ],
+   "first_sound": "sym_ba",
+   "syllables": null,
+   "stage": 19,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.bachehaa.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_aamadand",
+   "text": "آمَدَند",
+   "symbols": [
+    "sym_alef",
+    "sym_mim",
+    "sym_a_short",
+    "sym_dal",
+    "sym_a_short",
+    "sym_nun",
+    "sym_dal"
+   ],
+   "first_sound": "sym_alef",
+   "syllables": [
+    "آ",
+    "مَ",
+    "دَند"
+   ],
+   "stage": 5,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.aamadand.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_aanhaa",
+   "text": "آن‌ها",
+   "symbols": [
+    "sym_alef",
+    "sym_nun",
+    "sym_he",
+    "sym_alef"
+   ],
+   "first_sound": "sym_alef",
+   "syllables": [
+    "آن‌",
+    "ها"
+   ],
+   "stage": 14,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.aanhaa.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_aavardand",
+   "text": "آوَردَند",
+   "symbols": [
+    "sym_alef",
+    "sym_vav",
+    "sym_a_short",
+    "sym_re",
+    "sym_dal",
+    "sym_a_short",
+    "sym_nun",
+    "sym_dal"
+   ],
+   "first_sound": "sym_alef",
+   "syllables": [
+    "آ",
+    "وَر",
+    "دَند"
+   ],
+   "stage": 9,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.aavardand.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_keshidand",
+   "text": "کِشیدَند",
+   "symbols": [
+    "sym_kaf",
+    "sym_e_short",
+    "sym_shin",
+    "sym_i_long",
+    "sym_dal",
+    "sym_a_short",
+    "sym_nun",
+    "sym_dal"
+   ],
+   "first_sound": "sym_kaf",
+   "syllables": [
+    "کِ",
+    "شی",
+    "دَند"
+   ],
+   "stage": 9,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.keshidand.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_zarfe",
+   "text": "ظَرفِ",
+   "symbols": [
+    "sym_za",
+    "sym_a_short",
+    "sym_re",
+    "sym_fe",
+    "sym_e_short"
+   ],
+   "first_sound": "sym_za",
+   "syllables": [
+    "ظَر",
+    "فِ"
+   ],
+   "stage": 20,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.zarfe.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_aavaa",
+   "text": "آوا",
+   "symbols": [
+    "sym_alef",
+    "sym_vav",
+    "sym_alef"
+   ],
+   "first_sound": "sym_alef",
+   "syllables": [
+    "آ",
+    "وا"
+   ],
+   "stage": 9,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.aavaa.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_hast",
+   "text": "هَست",
+   "symbols": [
+    "sym_he",
+    "sym_a_short",
+    "sym_sin",
+    "sym_te"
+   ],
+   "first_sound": "sym_he",
+   "syllables": [
+    "هَست"
+   ],
+   "stage": 14,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.hast.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_parandehaa",
+   "text": "پَرَنده‌ها",
+   "symbols": [
+    "sym_pe",
+    "sym_a_short",
+    "sym_re",
+    "sym_a_short",
+    "sym_nun",
+    "sym_dal",
+    "sym_e_short",
+    "sym_he",
+    "sym_alef"
+   ],
+   "first_sound": "sym_pe",
+   "syllables": [
+    "پَ",
+    "رَن",
+    "ده‌",
+    "ها"
+   ],
+   "stage": 14,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.parandehaa.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_ruy",
+   "text": "روی",
+   "symbols": [
+    "sym_re",
+    "sym_u_long",
+    "sym_ye"
+   ],
+   "first_sound": "sym_re",
+   "syllables": [
+    "روی"
+   ],
+   "stage": 8,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.ruy.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_aavaaz",
+   "text": "آواز",
+   "symbols": [
+    "sym_alef",
+    "sym_vav",
+    "sym_alef",
+    "sym_ze"
+   ],
+   "first_sound": "sym_alef",
+   "syllables": [
+    "آ",
+    "واز"
+   ],
+   "stage": 9,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.aavaaz.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_mikhaanand",
+   "text": "می‌خوانَند",
+   "symbols": [
+    "sym_mim",
+    "sym_i_long",
+    "sym_khaa",
+    "sym_nun",
+    "sym_a_short",
+    "sym_nun",
+    "sym_dal"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": [
+    "می‌",
+    "خوا",
+    "نَند"
+   ],
+   "stage": 15,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.mikhaanand.say",
+   "approved": false
+  },
+  {
+   "word_id": "w_miravad",
+   "text": "می‌رَوَد",
+   "symbols": [
+    "sym_mim",
+    "sym_i_long",
+    "sym_re",
+    "sym_a_short",
+    "sym_vav",
+    "sym_a_short",
+    "sym_dal"
+   ],
+   "first_sound": "sym_mim",
+   "syllables": [
+    "می‌",
+    "رَ",
+    "وَد"
+   ],
+   "stage": 9,
+   "gloss_en": "(story token)",
+   "use": [
+    "read"
+   ],
+   "image": null,
+   "say_audio": "aud.word.miravad.say",
+   "approved": false
+  }
+ ]
+}

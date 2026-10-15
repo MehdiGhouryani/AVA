@@ -1,0 +1,113 @@
+{
+ "schema": 1,
+ "story_id": "st.u15",
+ "unit": "u15",
+ "title_key": "copy.st.u15.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u15.p1",
+   "sentence": {
+    "text": "آوا یِک کِتاب دارَد.",
+    "words": [
+     "w_aavaa",
+     "w_yek",
+     "w_ketab",
+     "w_darad"
+    ],
+    "audio": "aud.story.u15.p1"
+   },
+   "allowed_max_lesson": 21
+  },
+  {
+   "page": 2,
+   "image": "img.story.u15.p2",
+   "sentence": {
+    "text": "دَر کِتاب یِک باغ اَست.",
+    "words": [
+     "w_dar",
+     "w_ketab",
+     "w_yek",
+     "w_bagh",
+     "w_ast"
+    ],
+    "audio": "aud.story.u15.p2"
+   },
+   "allowed_max_lesson": 21
+  },
+  {
+   "page": 3,
+   "image": "img.story.u15.p3",
+   "sentence": {
+    "text": "دَر باغ دِرَخت و گُل هَست.",
+    "words": [
+     "w_dar",
+     "w_bagh",
+     "w_derakht",
+     "w_o",
+     "w_gol",
+     "w_hast"
+    ],
+    "audio": "aud.story.u15.p3"
+   },
+   "allowed_max_lesson": 21
+  },
+  {
+   "page": 4,
+   "image": "img.story.u15.p4",
+   "sentence": {
+    "text": "پَرَنده‌ها روی دِرَخت آواز می‌خوانَند.",
+    "words": [
+     "w_parandehaa",
+     "w_ruy",
+     "w_derakht",
+     "w_aavaaz",
+     "w_mikhaanand"
+    ],
+    "audio": "aud.story.u15.p4"
+   },
+   "allowed_max_lesson": 21
+  },
+  {
+   "page": 5,
+   "image": "img.story.u15.p5",
+   "sentence": {
+    "text": "آوا با کِتاب به باغ می‌رَوَد.",
+    "words": [
+     "w_aavaa",
+     "w_baa",
+     "w_ketab",
+     "w_be",
+     "w_bagh",
+     "w_miravad"
+    ],
+    "audio": "aud.story.u15.p5"
+   },
+   "allowed_max_lesson": 21
+  },
+  {
+   "page": 6,
+   "image": "img.story.u15.p6",
+   "sentence": {
+    "text": "آوا شاد اَست!",
+    "words": [
+     "w_aavaa",
+     "w_shaad",
+     "w_ast"
+    ],
+    "audio": "aud.story.u15.p6"
+   },
+   "allowed_max_lesson": 21
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u15.q1",
+   "answer": "img.word.ketab",
+   "distractors": [
+    "img.word.derakht"
+   ]
+  }
+ ]
+}

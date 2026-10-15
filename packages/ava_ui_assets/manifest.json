@@ -1,0 +1,373 @@
+{
+  "package": "ava_ui_assets",
+  "version": "0.1",
+  "scope": "UI assets per screen, Flutter asset layout",
+  "style_reference": "Dreamy storybook painterly style (user-approved images, 2026-10-10)",
+  "screens": {
+    "S02-P1": {
+      "title": "Onboarding scene 1",
+      "assets": [
+        "bg_s02p1",
+        "ava_wave_book_stars"
+      ],
+      "code_only": [
+        "texts",
+        "buttons",
+        "dots",
+        "skip",
+        "next",
+        "top layout"
+      ],
+      "status": "assets_ready"
+    },
+    "S02-P2": {
+      "title": "Onboarding scene 2",
+      "assets": [
+        "bg_s02p1 (shared)",
+        "ava_thinking"
+      ],
+      "code_only": [
+        "title",
+        "letter bubbles ب د س",
+        "buttons",
+        "dots",
+        "skip"
+      ],
+      "status": "assets_ready",
+      "open_decisions": [
+        "تیتر: spec یا تصویر",
+        "جای آوا: راست (spec) یا چپ (تصویر)"
+      ]
+    },
+    "S03a": {
+      "title": "Parent sign-in (phone only)",
+      "assets": [],
+      "code_only": [
+        "header lockup",
+        "phone field",
+        "consent",
+        "CTA"
+      ],
+      "status": "spec_needs_only_small_ava_sticker",
+      "open_decisions": [
+        "S03a spec needs no scenic background. Confirm whether the garden background and the extra characters are wanted."
+      ]
+    }
+  },
+  "assets": [
+    {
+      "id": "bg_s02p1",
+      "file": "assets/backgrounds/onboarding/bg_s02p1.webp",
+      "kind": "background",
+      "used_in": [
+        "S02-P1",
+        "S02-P2"
+      ],
+      "format": "webp",
+      "width": 1024,
+      "height": 1536,
+      "alpha": false,
+      "size_kb": 58.9,
+      "status": "ready",
+      "notes": "صحنه‌ی پس‌زمینه بدون متن، بدون دکمه، بدون کاراکتر. کادر وسط و پایین برای UI خالی است. نسبت 2:3 است؛ در Flutter با BoxFit.cover کراپ می‌شود (کناره‌های قصر و قفسه کمی بیرون می‌روند). در S02-P2 دوباره استفاده می‌شود."
+    },
+    {
+      "id": "ava_wave_book_stars",
+      "file": "assets/characters/ava/ava_wave_book_stars.webp",
+      "kind": "character",
+      "used_in": [
+        "S02-P1"
+      ],
+      "format": "webp",
+      "width": 873,
+      "height": 1152,
+      "alpha": true,
+      "size_kb": 76.9,
+      "status": "ready",
+      "notes": "آوا، حالت «دست تکان می‌دهد با کتاب جادویی». WebP با آلفای کامل و پس‌زمینه‌ی حذف‌شده و کادر کم‌ترین اندازه. ستاره‌های اطراف جزو همین تصویرند."
+    },
+    {
+      "id": "ava_thinking",
+      "file": "assets/characters/ava/ava_thinking.webp",
+      "kind": "character",
+      "used_in": [
+        "S02-P2"
+      ],
+      "format": "webp",
+      "width": 726,
+      "height": 1226,
+      "alpha": true,
+      "size_kb": 60.7,
+      "status": "ready",
+      "notes": "آوا، حالت متفکر (دست نزدیک چانه). پس‌زمینه‌ی تخت حذف شده، آلفای کامل. از شیت تأییدشده."
+    },
+    {
+      "id": "background_library",
+      "file": "assets/review/candidates/page2-1/background_library.webp",
+      "kind": "background",
+      "used_in": [
+        "UNASSIGNED: confirm screen"
+      ],
+      "format": "webp",
+      "width": 1024,
+      "height": 1536,
+      "alpha": false,
+      "size_kb": 94.1,
+      "status": "pending_screen_assignment",
+      "notes": "ROOM: library with arched window, shelves, rug. Different room from S02-P1 background."
+    },
+    {
+      "id": "character_ava_reading",
+      "file": "assets/review/candidates/page2-1/character_ava_reading.webp",
+      "kind": "character",
+      "used_in": [
+        "UNASSIGNED: confirm screen"
+      ],
+      "format": "webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "size_kb": 80.4,
+      "status": "pending_screen_assignment",
+      "notes": "Ava reading the magic book. Pose from the sheet. Has a light base shadow under her, trim it in the review step."
+    },
+    {
+      "id": "decoration_story_tree",
+      "file": "assets/review/candidates/page2-1/decoration_story_tree.webp",
+      "kind": "decoration",
+      "used_in": [
+        "UNASSIGNED: confirm screen"
+      ],
+      "format": "webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "size_kb": 130.7,
+      "status": "pending_screen_assignment",
+      "notes": "Story tree. Small edge artifacts at the top-right and bottom-right corners."
+    },
+    {
+      "id": "prop_magic_book",
+      "file": "assets/review/candidates/page2-1/prop_magic_book.webp",
+      "kind": "prop",
+      "used_in": [
+        "UNASSIGNED: confirm screen"
+      ],
+      "format": "webp",
+      "width": 1192,
+      "height": 771,
+      "alpha": true,
+      "size_kb": 56.1,
+      "status": "pending_screen_assignment",
+      "notes": "Purple magic book with gold star, open. Faint residue at the top-right page tips and a soft base shadow."
+    },
+    {
+      "id": "background_storybook_garden",
+      "file": "assets/review/candidates/page4/background_storybook_garden.webp",
+      "kind": "background",
+      "used_in": [
+        "UNASSIGNED: confirm screen"
+      ],
+      "format": "webp",
+      "width": 1024,
+      "height": 1536,
+      "alpha": false,
+      "size_kb": 340.2,
+      "status": "pending_screen_assignment",
+      "notes": "Garden path up a hill to a castle, balloon in the sky. Matches the four-character scene style (not the S02-P1 room). No text, no characters."
+    },
+    {
+      "id": "character_ava_walking_with_book",
+      "file": "assets/review/candidates/page4/character_ava_walking_with_book.webp",
+      "kind": "character",
+      "used_in": [
+        "UNASSIGNED: confirm screen"
+      ],
+      "format": "webp",
+      "width": 1159,
+      "height": 1358,
+      "alpha": true,
+      "size_kb": 98.0,
+      "status": "pending_screen_assignment",
+      "notes": "Ava walking with the purple book. \"walking\" is not in the Ava pose list; closest allowed pose is standing or running. Needs a pose decision."
+    },
+    {
+      "id": "character_rabbit_star_wand",
+      "file": "assets/review/candidates/page4/character_rabbit_star_wand.webp",
+      "kind": "character",
+      "used_in": [
+        "UNASSIGNED: confirm screen"
+      ],
+      "format": "webp",
+      "width": 1086,
+      "height": 1448,
+      "alpha": true,
+      "size_kb": 86.2,
+      "status": "pending_screen_assignment",
+      "notes": "Pofi waving with star wand. Waving is an allowed Pofi pose (welcome). Transparent."
+    },
+    {
+      "id": "prop_magic_star_wand",
+      "file": "assets/review/candidates/page4/prop_magic_star_wand.webp",
+      "kind": "prop",
+      "used_in": [
+        "UNASSIGNED: confirm screen"
+      ],
+      "format": "webp",
+      "width": 1183,
+      "height": 1330,
+      "alpha": true,
+      "size_kb": 46.0,
+      "status": "pending_screen_assignment",
+      "notes": "Pofi star-tipped magic wand. Transparent, faint light fringe around the star."
+    },
+    {
+      "id": "character_squirrel_waving",
+      "file": "assets/review/candidates/page4/character_squirrel_waving.webp",
+      "kind": "character",
+      "used_in": [
+        "UNASSIGNED: confirm screen"
+      ],
+      "format": "webp",
+      "width": 972,
+      "height": 1077,
+      "alpha": true,
+      "size_kb": 81.0,
+      "status": "pending_screen_assignment",
+      "notes": "Fandogh waving. \"waving\" is not in the Fandogh pose list (closest: happy). Outfit is a green scarf and backpack, not the sheet jacket with leaf medallion. Background removed, faint ground shadow at the feet."
+    },
+    {
+      "id": "character_fox_with_map",
+      "file": "assets/review/candidates/page4/character_fox_with_map.webp",
+      "kind": "character",
+      "used_in": [
+        "UNASSIGNED: confirm screen"
+      ],
+      "format": "webp",
+      "width": 830,
+      "height": 1131,
+      "alpha": true,
+      "size_kb": 74.1,
+      "status": "pending_screen_assignment",
+      "notes": "Roka holding a rolled map. Roka is allowed only on the S30R challenge screen. Background removed, faint ground shadow at the feet."
+    },
+    {
+      "id": "ava_fairytale_garden_background",
+      "file": "assets/review/candidates/page2-2/ava_fairytale_garden_background.webp",
+      "kind": "background",
+      "used_in": [
+        "S03a (candidate, not in spec)"
+      ],
+      "format": "webp",
+      "width": 941,
+      "height": 1672,
+      "alpha": false,
+      "size_kb": 98.7,
+      "status": "review_needed",
+      "notes": "Vertical garden with a castle at the bottom and a pale centre. No text, no UI. Not in the S03a spec: parent screens use the plain paper background (#EEF6F0). Kept for review."
+    },
+    {
+      "id": "ava_main_mascot_waving",
+      "file": "assets/review/candidates/page2-2/ava_main_mascot_waving.webp",
+      "kind": "character",
+      "used_in": [
+        "S03a (candidate, not in spec)"
+      ],
+      "format": "webp",
+      "width": 893,
+      "height": 1357,
+      "alpha": true,
+      "size_kb": 145.3,
+      "status": "review_needed",
+      "notes": "Ava waving. Waving is an allowed pose, but the yellow scarf is not on the Ava sheet, and the backpack is missing. Off-model. S03a spec wants a small peeking Ava (standing pose, about 72 dp)."
+    },
+    {
+      "id": "forest_bunny_star_wand",
+      "file": "assets/review/candidates/page2-2/forest_bunny_star_wand.webp",
+      "kind": "character",
+      "used_in": [
+        "S03a (candidate, not in spec)"
+      ],
+      "format": "webp",
+      "width": 989,
+      "height": 1493,
+      "alpha": true,
+      "size_kb": 155.4,
+      "status": "review_needed",
+      "notes": "Pofi-like bunny with star wand, leaf vest and brown boots. The sheet has a green backpack and no vest or boots. Pofi is not in the S03a spec."
+    },
+    {
+      "id": "forest_fox_laughing",
+      "file": "assets/review/candidates/page2-2/forest_fox_laughing.webp",
+      "kind": "character",
+      "used_in": [
+        "S03a (candidate, not in spec)"
+      ],
+      "format": "webp",
+      "width": 914,
+      "height": 1340,
+      "alpha": true,
+      "size_kb": 179.7,
+      "status": "review_needed",
+      "notes": "Roka laughing. Roka is allowed only on S30R. Leaf vest and boots are not on the sheet."
+    },
+    {
+      "id": "forest_squirrel_waving",
+      "file": "assets/review/candidates/page2-2/forest_squirrel_waving.webp",
+      "kind": "character",
+      "used_in": [
+        "S03a (candidate, not in spec)"
+      ],
+      "format": "webp",
+      "width": 1037,
+      "height": 1195,
+      "alpha": true,
+      "size_kb": 171.8,
+      "status": "review_needed",
+      "notes": "Fandogh waving. Waving is not in the Fandogh pose list (closest: happy). Outfit is a leaf vest and boots, while the sheet has a green jacket with a leaf medallion. Fake checkerboard background removed; faint light fringe along the fur edges."
+    }
+  ],
+  "export": {
+    "format": "webp",
+    "bg_quality": 84,
+    "char_quality": 90,
+    "char_alpha_quality": 100
+  },
+  "rejected_from_page3_upload": [
+    {
+      "file": "character_story_bird.webp",
+      "reason": "Not in approved cast (extra unlisted character). Opaque cream background with speckle noise."
+    },
+    {
+      "file": "decoration_stars_sparkles_music_notes.webp",
+      "reason": "Tiled pattern, not a sprite. Opaque cream background."
+    },
+    {
+      "file": "prop_ava_backpack.webp",
+      "reason": "Ava backpack is part of her body, not a standalone prop. Opaque grey speckled background."
+    },
+    {
+      "file": "decoration_castle_on_clouds.webp",
+      "reason": "Opaque cream background and black artifacts on the clouds. Needs regeneration."
+    }
+  ],
+  "rejected_from_page4_upload": [
+    {
+      "file": "prop_star_signpost.webp",
+      "reason": "Noisy speckled grey background, not cleanly transparent. Also not an approved prop. Regenerate on a plain background if needed."
+    }
+  ],
+  "references": [
+    {
+      "id": "four_characters_scene_full_reference",
+      "file": "reference/four_characters_scene_full_reference.webp",
+      "kind": "full_screen_reference",
+      "format": "webp",
+      "width": 1024,
+      "height": 1536,
+      "size_kb": 170.4,
+      "status": "reference_only",
+      "notes": "Full composed screen: Ava, Pofi, Fandogh, Roka, balloon, castle, text and button baked in. NOT a production asset. Use only for visual comparison. Conflicts with S02-P3 spec (spec allows only Ava and Fandogh). Text is baked in and must be built in code."
+    }
+  ]
+}

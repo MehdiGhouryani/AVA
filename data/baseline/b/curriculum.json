@@ -1,0 +1,771 @@
+{
+ "schema": 1,
+ "provisional": true,
+ "track": "B",
+ "free_until_station": "u03",
+ "units": [
+  {
+   "unit_id": "u00",
+   "order": 0,
+   "station_type": "sounds",
+   "theme": "teal",
+   "title_key": "copy.u00.title",
+   "goal_key": "copy.u00.goal",
+   "learn_items": [
+    "sounds"
+   ],
+   "scene_img": "img.unit.u00.scene",
+   "lessons": [],
+   "steps": [
+    "b.u00.s1",
+    "b.u00.s2",
+    "b.u00.s3",
+    "b.u00.s4",
+    "b.u00.challenge"
+   ]
+  },
+  {
+   "unit_id": "u01",
+   "order": 1,
+   "station_type": "letters",
+   "theme": "saffron",
+   "title_key": "copy.u01.title",
+   "goal_key": "copy.u01.goal",
+   "learn_items": [
+    "sounds",
+    "letters",
+    "simple_words"
+   ],
+   "scene_img": "img.unit.u01.scene",
+   "lessons": [
+    {
+     "lesson_id": "l01",
+     "symbols": [
+      "sym_alef",
+      "sym_ba"
+     ],
+     "words": [
+      "w_ab",
+      "w_baba",
+      "w_baa"
+     ]
+    }
+   ],
+   "steps": [
+    "b.u01.alef",
+    "b.u01.ba",
+    "b.u01.l01.w",
+    "b.u01.treasure",
+    "b.u01.story",
+    "b.u01.challenge"
+   ]
+  },
+  {
+   "unit_id": "u02",
+   "order": 2,
+   "station_type": "letters",
+   "theme": "coral",
+   "title_key": "copy.u02.title",
+   "goal_key": "copy.u02.goal",
+   "learn_items": [
+    "sounds",
+    "letters",
+    "simple_words"
+   ],
+   "scene_img": "img.unit.u02.scene",
+   "lessons": [
+    {
+     "lesson_id": "l02",
+     "symbols": [
+      "sym_a_short",
+      "sym_dal"
+     ],
+     "words": [
+      "w_bad",
+      "w_dad"
+     ]
+    },
+    {
+     "lesson_id": "l03",
+     "symbols": [
+      "sym_mim",
+      "sym_sin"
+     ],
+     "words": [
+      "w_amad",
+      "w_badam",
+      "w_sabad"
+     ]
+    }
+   ],
+   "steps": [
+    "b.u02.a_short",
+    "b.u02.dal",
+    "b.u02.l02.w",
+    "b.u02.mim",
+    "b.u02.sin",
+    "b.u02.l03.w",
+    "b.u02.treasure",
+    "b.u02.story",
+    "b.u02.challenge"
+   ]
+  },
+  {
+   "unit_id": "u03",
+   "order": 3,
+   "station_type": "letters",
+   "theme": "sky",
+   "title_key": "copy.u03.title",
+   "goal_key": "copy.u03.goal",
+   "learn_items": [
+    "sounds",
+    "letters",
+    "simple_words"
+   ],
+   "scene_img": "img.unit.u03.scene",
+   "lessons": [
+    {
+     "lesson_id": "l04",
+     "symbols": [
+      "sym_u_long",
+      "sym_te"
+     ],
+     "words": [
+      "w_tut",
+      "w_tab",
+      "w_sut",
+      "w_tas",
+      "w_dust",
+      "w_bud",
+      "w_ast",
+      "w_bast",
+      "w_u"
+     ]
+    },
+    {
+     "lesson_id": "l05",
+     "symbols": [
+      "sym_re",
+      "sym_nun"
+     ],
+     "words": [
+      "w_nan",
+      "w_rud",
+      "w_mar",
+      "w_anar",
+      "w_dandan",
+      "w_baran",
+      "w_madar",
+      "w_dar",
+      "w_darad",
+      "w_ra",
+      "w_badban",
+      "w_aseman",
+      "w_aamadand"
+     ]
+    }
+   ],
+   "steps": [
+    "b.u03.u_long",
+    "b.u03.te",
+    "b.u03.l04.w",
+    "b.u03.re",
+    "b.u03.nun",
+    "b.u03.l05.w",
+    "b.u03.treasure",
+    "b.u03.story",
+    "b.u03.challenge"
+   ]
+  },
+  {
+   "unit_id": "u04",
+   "order": 4,
+   "station_type": "review",
+   "theme": "violet",
+   "title_key": "copy.u04.title",
+   "goal_key": "copy.u04.goal",
+   "learn_items": [
+    "simple_words",
+    "stories"
+   ],
+   "scene_img": "img.unit.u04.scene",
+   "lessons": [],
+   "steps": [
+    "b.u04.r1",
+    "b.u04.r2",
+    "b.u04.treasure",
+    "b.u04.story",
+    "b.u04.challenge"
+   ]
+  },
+  {
+   "unit_id": "u05",
+   "order": 5,
+   "station_type": "letters",
+   "theme": "pink",
+   "title_key": "copy.u05.title",
+   "goal_key": "copy.u05.goal",
+   "learn_items": [
+    "sounds",
+    "letters",
+    "simple_words"
+   ],
+   "scene_img": "img.unit.u05.scene",
+   "lessons": [
+    {
+     "lesson_id": "l06",
+     "symbols": [
+      "sym_i_long",
+      "sym_ze"
+     ],
+     "words": [
+      "w_sib",
+      "w_miz",
+      "w_zanbur",
+      "w_zamin",
+      "w_in",
+      "w_ziba",
+      "w_sir",
+      "w_bazi",
+      "w_did",
+      "w_zard"
+     ]
+    },
+    {
+     "lesson_id": "l07",
+     "symbols": [
+      "sym_e_short",
+      "sym_shin"
+     ],
+     "words": [
+      "w_shir",
+      "w_mush",
+      "w_asb",
+      "w_shane",
+      "w_setare",
+      "w_shishe",
+      "w_medad",
+      "w_be",
+      "w_sabze",
+      "w_ash",
+      "w_sare",
+      "w_resid",
+      "w_shaad",
+      "w_neshastand",
+      "w_shab"
+     ]
+    }
+   ],
+   "steps": [
+    "b.u05.i_long",
+    "b.u05.ze",
+    "b.u05.l06.w",
+    "b.u05.e_short",
+    "b.u05.shin",
+    "b.u05.l07.w",
+    "b.u05.treasure",
+    "b.u05.story",
+    "b.u05.challenge"
+   ]
+  },
+  {
+   "unit_id": "u06",
+   "order": 6,
+   "station_type": "letters",
+   "theme": "lime",
+   "title_key": "copy.u06.title",
+   "goal_key": "copy.u06.goal",
+   "learn_items": [
+    "sounds",
+    "letters",
+    "simple_words"
+   ],
+   "scene_img": "img.unit.u06.scene",
+   "lessons": [
+    {
+     "lesson_id": "l08",
+     "symbols": [
+      "sym_ye",
+      "sym_o_short"
+     ],
+     "words": [
+      "w_boz",
+      "w_dom",
+      "w_otu",
+      "w_sorsore",
+      "w_yas",
+      "w_zeytun",
+      "w_shod",
+      "w_ruy"
+     ]
+    },
+    {
+     "lesson_id": "l09",
+     "symbols": [
+      "sym_kaf",
+      "sym_vav"
+     ],
+     "words": [
+      "w_ketab",
+      "w_ordak",
+      "w_kabutar",
+      "w_kase",
+      "w_van",
+      "w_divar",
+      "w_kuze",
+      "w_ke",
+      "w_yek",
+      "w_kenaare",
+      "w_kard",
+      "w_aavardand",
+      "w_keshidand",
+      "w_aavaa",
+      "w_aavaaz",
+      "w_miravad"
+     ]
+    }
+   ],
+   "steps": [
+    "b.u06.ye",
+    "b.u06.o_short",
+    "b.u06.l08.w",
+    "b.u06.kaf",
+    "b.u06.vav",
+    "b.u06.l09.w",
+    "b.u06.treasure",
+    "b.u06.story",
+    "b.u06.challenge"
+   ]
+  },
+  {
+   "unit_id": "u07",
+   "order": 7,
+   "station_type": "letters",
+   "theme": "teal",
+   "title_key": "copy.u07.title",
+   "goal_key": "copy.u07.goal",
+   "learn_items": [
+    "sounds",
+    "letters",
+    "simple_words"
+   ],
+   "scene_img": "img.unit.u07.scene",
+   "lessons": [
+    {
+     "lesson_id": "l10",
+     "symbols": [
+      "sym_pe",
+      "sym_gaf"
+     ],
+     "words": [
+      "w_tup",
+      "w_gav",
+      "w_sag",
+      "w_gush",
+      "w_angur",
+      "w_gorg",
+      "w_gorbe",
+      "w_par",
+      "w_pa",
+      "w_pushid",
+      "w_pishe",
+      "w_pare",
+      "w_rangi"
+     ]
+    },
+    {
+     "lesson_id": "l11",
+     "symbols": [
+      "sym_fe",
+      "sym_khe"
+     ],
+     "words": [
+      "w_khane",
+      "w_khargush",
+      "w_khorus",
+      "w_derakht",
+      "w_kafsh",
+      "w_barf",
+      "w_kif",
+      "w_farsh",
+      "w_khers",
+      "w_khaste",
+      "w_raft"
+     ]
+    }
+   ],
+   "steps": [
+    "b.u07.pe",
+    "b.u07.gaf",
+    "b.u07.l10.w",
+    "b.u07.fe",
+    "b.u07.khe",
+    "b.u07.l11.w",
+    "b.u07.treasure",
+    "b.u07.story",
+    "b.u07.challenge"
+   ]
+  },
+  {
+   "unit_id": "u08",
+   "order": 8,
+   "station_type": "review",
+   "theme": "saffron",
+   "title_key": "copy.u08.title",
+   "goal_key": "copy.u08.goal",
+   "learn_items": [
+    "simple_words",
+    "stories"
+   ],
+   "scene_img": "img.unit.u08.scene",
+   "lessons": [],
+   "steps": [
+    "b.u08.r1",
+    "b.u08.r2",
+    "b.u08.treasure",
+    "b.u08.story",
+    "b.u08.challenge"
+   ]
+  },
+  {
+   "unit_id": "u09",
+   "order": 9,
+   "station_type": "letters",
+   "theme": "coral",
+   "title_key": "copy.u09.title",
+   "goal_key": "copy.u09.goal",
+   "learn_items": [
+    "sounds",
+    "letters",
+    "simple_words"
+   ],
+   "scene_img": "img.unit.u09.scene",
+   "lessons": [
+    {
+     "lesson_id": "l12",
+     "symbols": [
+      "sym_qaf",
+      "sym_lam"
+     ],
+     "words": [
+      "w_qashoq",
+      "w_fil",
+      "w_gol",
+      "w_lakposht",
+      "w_qayeq",
+      "w_livan",
+      "w_balesh",
+      "w_bolbol"
+     ]
+    },
+    {
+     "lesson_id": "l13",
+     "symbols": [
+      "sym_jim",
+      "sym_vav_o"
+     ],
+     "words": [
+      "w_juje",
+      "w_jurab",
+      "w_taj",
+      "w_jaru",
+      "w_do",
+      "w_panj",
+      "w_kaj",
+      "w_khod",
+      "w_o",
+      "w_khordand"
+     ]
+    }
+   ],
+   "steps": [
+    "b.u09.qaf",
+    "b.u09.lam",
+    "b.u09.l12.w",
+    "b.u09.jim",
+    "b.u09.vav_o",
+    "b.u09.l13.w",
+    "b.u09.treasure",
+    "b.u09.story",
+    "b.u09.challenge"
+   ]
+  },
+  {
+   "unit_id": "u10",
+   "order": 10,
+   "station_type": "letters",
+   "theme": "sky",
+   "title_key": "copy.u10.title",
+   "goal_key": "copy.u10.goal",
+   "learn_items": [
+    "sounds",
+    "letters",
+    "simple_words"
+   ],
+   "scene_img": "img.unit.u10.scene",
+   "lessons": [
+    {
+     "lesson_id": "l14",
+     "symbols": [
+      "sym_he",
+      "sym_che"
+     ],
+     "words": [
+      "w_mah",
+      "w_mahi",
+      "w_kuh",
+      "w_chatr",
+      "w_qarch",
+      "w_havij",
+      "w_cheshm",
+      "w_chay",
+      "w_ham",
+      "w_aanhaa",
+      "w_hast",
+      "w_parandehaa"
+     ]
+    },
+    {
+     "lesson_id": "l15",
+     "symbols": [
+      "sym_zhe",
+      "sym_khaa"
+     ],
+     "words": [
+      "w_zhaket",
+      "w_mozhe",
+      "w_khab",
+      "w_khahar",
+      "w_khaaharam",
+      "w_mikhaanand"
+     ]
+    }
+   ],
+   "steps": [
+    "b.u10.he",
+    "b.u10.che",
+    "b.u10.l14.w",
+    "b.u10.zhe",
+    "b.u10.khaa",
+    "b.u10.l15.w",
+    "b.u10.treasure",
+    "b.u10.story",
+    "b.u10.challenge"
+   ]
+  },
+  {
+   "unit_id": "u11",
+   "order": 11,
+   "station_type": "letters",
+   "theme": "violet",
+   "title_key": "copy.u11.title",
+   "goal_key": "copy.u11.goal",
+   "learn_items": [
+    "sounds",
+    "letters",
+    "simple_words"
+   ],
+   "scene_img": "img.unit.u11.scene",
+   "lessons": [
+    {
+     "lesson_id": "l16",
+     "symbols": [
+      "sym_sad",
+      "sym_eyn"
+     ],
+     "words": [
+      "w_sabun",
+      "w_sandali",
+      "w_sadaf",
+      "w_asal",
+      "w_saat",
+      "w_sham"
+     ]
+    },
+    {
+     "lesson_id": "l17",
+     "symbols": [
+      "sym_he_jimi",
+      "sym_ta"
+     ],
+     "words": [
+      "w_halazun",
+      "w_hole",
+      "w_tuti",
+      "w_tavus",
+      "w_tanab",
+      "w_sobh",
+      "w_hayaat"
+     ]
+    }
+   ],
+   "steps": [
+    "b.u11.sad",
+    "b.u11.eyn",
+    "b.u11.l16.w",
+    "b.u11.he_jimi",
+    "b.u11.ta",
+    "b.u11.l17.w",
+    "b.u11.treasure",
+    "b.u11.story",
+    "b.u11.challenge"
+   ]
+  },
+  {
+   "unit_id": "u12",
+   "order": 12,
+   "station_type": "review",
+   "theme": "pink",
+   "title_key": "copy.u12.title",
+   "goal_key": "copy.u12.goal",
+   "learn_items": [
+    "simple_words",
+    "stories"
+   ],
+   "scene_img": "img.unit.u12.scene",
+   "lessons": [],
+   "steps": [
+    "b.u12.r1",
+    "b.u12.r2",
+    "b.u12.treasure",
+    "b.u12.story",
+    "b.u12.challenge"
+   ]
+  },
+  {
+   "unit_id": "u13",
+   "order": 13,
+   "station_type": "letters",
+   "theme": "lime",
+   "title_key": "copy.u13.title",
+   "goal_key": "copy.u13.goal",
+   "learn_items": [
+    "sounds",
+    "letters",
+    "simple_words"
+   ],
+   "scene_img": "img.unit.u13.scene",
+   "lessons": [
+    {
+     "lesson_id": "l18",
+     "symbols": [
+      "sym_gheyn",
+      "sym_zal"
+     ],
+     "words": [
+      "w_ghaz",
+      "w_bagh",
+      "w_morgh",
+      "w_cheragh",
+      "w_qurbaghe",
+      "w_kaghaz",
+      "w_laziz",
+      "w_gozasht"
+     ]
+    },
+    {
+     "lesson_id": "l19",
+     "symbols": [
+      "sym_tashdid",
+      "sym_se"
+     ],
+     "words": [
+      "w_bachche",
+      "w_arre",
+      "w_najjar",
+      "w_zorrat",
+      "w_mosallas",
+      "w_lese",
+      "w_sabet",
+      "w_bachehaa"
+     ]
+    }
+   ],
+   "steps": [
+    "b.u13.gheyn",
+    "b.u13.zal",
+    "b.u13.l18.w",
+    "b.u13.tashdid",
+    "b.u13.se",
+    "b.u13.l19.w",
+    "b.u13.treasure",
+    "b.u13.story",
+    "b.u13.challenge"
+   ]
+  },
+  {
+   "unit_id": "u14",
+   "order": 14,
+   "station_type": "letters",
+   "theme": "teal",
+   "title_key": "copy.u14.title",
+   "goal_key": "copy.u14.goal",
+   "learn_items": [
+    "sounds",
+    "letters",
+    "simple_words"
+   ],
+   "scene_img": "img.unit.u14.scene",
+   "lessons": [
+    {
+     "lesson_id": "l20",
+     "symbols": [
+      "sym_zad",
+      "sym_za"
+     ],
+     "words": [
+      "w_hoz",
+      "w_qazi",
+      "w_zarf",
+      "w_zohr",
+      "w_razi",
+      "w_hafez",
+      "w_zarfe"
+     ]
+    },
+    {
+     "lesson_id": "l21",
+     "symbols": [
+      "sym_hamze"
+     ],
+     "words": [
+      "w_penguen",
+      "w_soal",
+      "w_rais"
+     ]
+    }
+   ],
+   "steps": [
+    "b.u14.zad",
+    "b.u14.za",
+    "b.u14.l20.w",
+    "b.u14.hamze",
+    "b.u14.l21.w",
+    "b.u14.treasure",
+    "b.u14.story",
+    "b.u14.challenge"
+   ]
+  },
+  {
+   "unit_id": "u15",
+   "order": 15,
+   "station_type": "reading",
+   "theme": "saffron",
+   "title_key": "copy.u15.title",
+   "goal_key": "copy.u15.goal",
+   "learn_items": [
+    "simple_words",
+    "stories"
+   ],
+   "scene_img": "img.unit.u15.scene",
+   "lessons": [],
+   "steps": [
+    "b.u15.rd1",
+    "b.u15.rd2",
+    "b.u15.rd3",
+    "b.u15.story",
+    "b.u15.challenge"
+   ]
+  }
+ ]
+}

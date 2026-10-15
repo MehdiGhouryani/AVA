@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "story_id": "st.u09",
+ "unit": "u09",
+ "title_key": "copy.st.u09.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u09.p1",
+   "sentence": {
+    "text": "جوجه گُل دید.",
+    "words": [
+     "w_juje",
+     "w_gol",
+     "w_did"
+    ],
+    "audio": "aud.story.u09.p1"
+   },
+   "allowed_max_lesson": 13
+  },
+  {
+   "page": 2,
+   "image": "img.story.u09.p2",
+   "sentence": {
+    "text": "گُل زَرد بود.",
+    "words": [
+     "w_gol",
+     "w_zard",
+     "w_bud"
+    ],
+    "audio": "aud.story.u09.p2"
+   },
+   "allowed_max_lesson": 13
+  },
+  {
+   "page": 3,
+   "image": "img.story.u09.p3",
+   "sentence": {
+    "text": "جوجه پیشِ گُل رَفت.",
+    "words": [
+     "w_juje",
+     "w_pishe",
+     "w_gol",
+     "w_raft"
+    ],
+    "audio": "aud.story.u09.p3"
+   },
+   "allowed_max_lesson": 13
+  },
+  {
+   "page": 4,
+   "image": "img.story.u09.p4",
+   "sentence": {
+    "text": "دو جوجه کِنارِ گُل نِشَستَند.",
+    "words": [
+     "w_do",
+     "w_juje",
+     "w_kenaare",
+     "w_gol",
+     "w_neshastand"
+    ],
+    "audio": "aud.story.u09.p4"
+   },
+   "allowed_max_lesson": 13
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u09.q1",
+   "answer": "img.word.gol",
+   "distractors": [
+    "img.word.fil"
+   ]
+  }
+ ]
+}

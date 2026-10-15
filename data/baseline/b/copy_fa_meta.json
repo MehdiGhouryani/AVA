@@ -1,0 +1,2711 @@
+{
+  "copy.s01.logo": {
+    "fa": "آوا",
+    "audience": "both",
+    "note": "لوگو",
+    "source": "03 S01",
+    "approved": false
+  },
+  "copy.s02.skip": {
+    "fa": "رد کردن",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S02",
+    "approved": false
+  },
+  "copy.s02.scene1": {
+    "fa": "سلام! من آوام",
+    "audience": "child",
+    "note": "= aud.narr.s02.1",
+    "source": "05 §7",
+    "approved": false
+  },
+  "copy.s02.scene2": {
+    "fa": "این حرف‌ها صداشون گم شده!",
+    "audience": "child",
+    "note": "= aud.narr.s02.2",
+    "source": "05 §7",
+    "approved": false
+  },
+  "copy.s02.scene3": {
+    "fa": "کمکم می‌کنی پیداشون کنیم؟",
+    "audience": "child",
+    "note": "= aud.narr.s02.3",
+    "source": "05 §7",
+    "approved": false
+  },
+  "copy.s03a.title": {
+    "fa": "ورود یا ساخت حساب",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03a",
+    "approved": false
+  },
+  "copy.s03a.subtitle": {
+    "fa": "برای اینکه پیشرفت فرزندتان همیشه بماند.",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03a",
+    "approved": false
+  },
+  "copy.s03a.phone_label": {
+    "fa": "شماره‌ی موبایل",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03a",
+    "approved": false
+  },
+  "copy.s03a.phone_hint": {
+    "fa": "۹۱۲۳۴۵۶۷۸۹",
+    "audience": "parent",
+    "note": "placeholder",
+    "source": "03 S03a",
+    "approved": false
+  },
+  "copy.s03a.get_code": {
+    "fa": "دریافت کد",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03a",
+    "approved": false
+  },
+  "copy.s03a.google": {
+    "fa": "ورود با گوگل",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03a",
+    "approved": false
+  },
+  "copy.s03a.email": {
+    "fa": "ورود با ایمیل",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03a",
+    "approved": false
+  },
+  "copy.s03a.consent": {
+    "fa": "حریم خصوصی و قوانین را می‌پذیرم",
+    "audience": "parent",
+    "note": "دو بخش لینک",
+    "source": "03 S03a, D-60",
+    "approved": false
+  },
+  "copy.s03a.privacy": {
+    "fa": "حریم خصوصی",
+    "audience": "parent",
+    "note": "لینک",
+    "source": "03 S03a",
+    "approved": false
+  },
+  "copy.s03a.terms": {
+    "fa": "قوانین و مقررات",
+    "audience": "parent",
+    "note": "لینک",
+    "source": "03 S03a",
+    "approved": false
+  },
+  "copy.s03a.invalid": {
+    "fa": "شماره درست نیست",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03a",
+    "approved": false
+  },
+  "copy.s03a.rate_limited": {
+    "fa": "بعداً دوباره امتحان کنید؛ تا ۳ کد در ساعت",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03a",
+    "approved": false
+  },
+  "copy.s03a.network": {
+    "fa": "به اینترنت وصل نیستید. اتصال را بررسی کنید.",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03a",
+    "approved": false
+  },
+  "copy.s03b.title": {
+    "fa": "کد تأیید را وارد کنید",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03b",
+    "approved": false
+  },
+  "copy.s03b.sent_sms": {
+    "fa": "کد ۶ رقمی به شماره‌ی {phone} ارسال شد",
+    "audience": "parent",
+    "note": "{phone} با ارقام فارسی",
+    "source": "03 S03b",
+    "approved": false
+  },
+  "copy.s03b.sent_email": {
+    "fa": "کد ۶ رقمی به ایمیل {email} ارسال شد",
+    "audience": "parent",
+    "note": "{email} ماسک‌شده",
+    "source": "03 S03b",
+    "approved": false
+  },
+  "copy.s03b.resend_in": {
+    "fa": "ارسال مجدد کد تا {mm:ss}",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03b",
+    "approved": false
+  },
+  "copy.s03b.resend": {
+    "fa": "ارسال مجدد کد",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03b",
+    "approved": false
+  },
+  "copy.s03b.continue": {
+    "fa": "ادامه",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03b",
+    "approved": false
+  },
+  "copy.s03b.wrong": {
+    "fa": "کد درست نیست",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03b",
+    "approved": false
+  },
+  "copy.s03b.expired": {
+    "fa": "کد منقضی شد. یک کد تازه بگیرید.",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03b",
+    "approved": false
+  },
+  "copy.s03b.exhausted": {
+    "fa": "تعداد تلاش‌ها تمام شد. دوباره کد بگیرید.",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03b",
+    "approved": false
+  },
+  "copy.s03b.edit": {
+    "fa": "ویرایش شماره",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03b",
+    "approved": false
+  },
+  "copy.s03c.unavailable": {
+    "fa": "ورود با گوگل روی این دستگاه ممکن نیست؛ با شماره‌ی موبایل یا ایمیل وارد شوید.",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03c",
+    "approved": false
+  },
+  "copy.s03e.title": {
+    "fa": "ورود با ایمیل",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03e",
+    "approved": false
+  },
+  "copy.s03e.subtitle": {
+    "fa": "یک کد ۶ رقمی به ایمیلتان می‌فرستیم.",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03e",
+    "approved": false
+  },
+  "copy.s03e.email_label": {
+    "fa": "ایمیل",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03e",
+    "approved": false
+  },
+  "copy.s03e.invalid": {
+    "fa": "ایمیل درست نیست",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03e",
+    "approved": false
+  },
+  "copy.s03e.not_received": {
+    "fa": "ایمیل نرسید؟ پوشه‌ی هرزنامه را ببینید.",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03e",
+    "approved": false
+  },
+  "copy.s03e.mail_subject": {
+    "fa": "کد ورود آوا: {code}",
+    "audience": "parent",
+    "note": "ایمیل",
+    "source": "03 S03e",
+    "approved": false
+  },
+  "copy.s03e.mail_body": {
+    "fa": "کد ورود شما به آوا: {code}\nاین کد تا ۵ دقیقه معتبر است. اگر شما درخواست نداده‌اید، این ایمیل را نادیده بگیرید.",
+    "audience": "parent",
+    "note": "ایمیل",
+    "source": "03 S03e",
+    "approved": false
+  },
+  "copy.s03d.title": {
+    "fa": "این حساب قبلاً پروفایل دارد",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03d",
+    "approved": false
+  },
+  "copy.s03d.merge": {
+    "fa": "اضافه کردن {name} به حساب",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03d",
+    "approved": false
+  },
+  "copy.s03d.account_only": {
+    "fa": "فقط پروفایل‌های حساب",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03d",
+    "approved": false
+  },
+  "copy.s03d.summary": {
+    "fa": "{track} · {done} مرحله‌ی تمام‌شده",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S03d",
+    "approved": false
+  },
+  "copy.s04.title": {
+    "fa": "یک پروفایل بسازیم",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S04",
+    "approved": false
+  },
+  "copy.s04.subtitle": {
+    "fa": "چند چیز کوچک درباره‌ی فرزندتان",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S04",
+    "approved": false
+  },
+  "copy.s04.name_label": {
+    "fa": "نام کودک",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S04",
+    "approved": false
+  },
+  "copy.s04.name_invalid": {
+    "fa": "نام را کوتاه‌تر و بدون ایموجی بنویسید",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S04",
+    "approved": false
+  },
+  "copy.s04.color_label": {
+    "fa": "رنگ همراه",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S04",
+    "approved": false
+  },
+  "copy.s04.continue": {
+    "fa": "ادامه",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S04",
+    "approved": false
+  },
+  "copy.s22.loading_b": {
+    "fa": "در حال آماده‌سازی مسیر تو…",
+    "audience": "child",
+    "note": "≤۶ کلمه",
+    "source": "03 S22",
+    "approved": false
+  },
+  "copy.s22.loading_logo": {
+    "fa": "در حال دانلود اطلاعات دروس…",
+    "audience": "both",
+    "note": "D-56",
+    "source": "02 §3",
+    "approved": false
+  },
+  "copy.s22.size": {
+    "fa": "{done} از {total} مگابایت · {pct}٪",
+    "audience": "parent",
+    "note": "فقط C",
+    "source": "03 S22",
+    "approved": false
+  },
+  "copy.s22.ready": {
+    "fa": "آماده‌ایم!",
+    "audience": "child",
+    "note": "",
+    "source": "03 S22",
+    "approved": false
+  },
+  "copy.s22.go": {
+    "fa": "بزن بریم",
+    "audience": "child",
+    "note": "",
+    "source": "03 S22",
+    "approved": false
+  },
+  "copy.s22.no_network": {
+    "fa": "به اینترنت وصل نیستیم",
+    "audience": "child",
+    "note": "",
+    "source": "02 §3.5",
+    "approved": false
+  },
+  "copy.s22.mirror": {
+    "fa": "سرور دور است",
+    "audience": "child",
+    "note": "",
+    "source": "02 §3.5",
+    "approved": false
+  },
+  "copy.s22.storage": {
+    "fa": "کیف پر است",
+    "audience": "child",
+    "note": "",
+    "source": "02 §3.5",
+    "approved": false
+  },
+  "copy.s22.checksum": {
+    "fa": "یه چیزی جا افتاد. دوباره بگیریم؟",
+    "audience": "child",
+    "note": "جایگزین «یه چیزی خراب شد» (بدون «خراب»)",
+    "source": "02 §3.5",
+    "approved": false
+  },
+  "copy.s22.update": {
+    "fa": "برنامه را به‌روز کن",
+    "audience": "parent",
+    "note": "",
+    "source": "02 §3.5",
+    "approved": false
+  },
+  "copy.s22.maintenance": {
+    "fa": "کمی بعد برگرد",
+    "audience": "child",
+    "note": "",
+    "source": "02 §3.5",
+    "approved": false
+  },
+  "copy.s22.retry": {
+    "fa": "دوباره",
+    "audience": "child",
+    "note": "",
+    "source": "02 §3.5",
+    "approved": false
+  },
+  "copy.s22.network_settings": {
+    "fa": "تنظیمات شبکه",
+    "audience": "parent",
+    "note": "",
+    "source": "02 §3.5",
+    "approved": false
+  },
+  "copy.s22.free_space": {
+    "fa": "آزاد کردن فضا",
+    "audience": "parent",
+    "note": "",
+    "source": "02 §3.5",
+    "approved": false
+  },
+  "copy.s22.use_mobile": {
+    "fa": "با اینترنت همراه ادامه بده",
+    "audience": "parent",
+    "note": "",
+    "source": "02 §4",
+    "approved": false
+  },
+  "copy.s22.wifi": {
+    "fa": "به Wi-Fi وصل شو",
+    "audience": "parent",
+    "note": "",
+    "source": "02 §4",
+    "approved": false
+  },
+  "copy.s22.later_q": {
+    "fa": "می‌خوای بعداً ادامه بدی؟",
+    "audience": "child",
+    "note": "برگه‌ی برگشت",
+    "source": "02 §7",
+    "approved": false
+  },
+  "copy.common.stay": {
+    "fa": "بمان",
+    "audience": "child",
+    "note": "آیکونی + برچسب",
+    "source": "02 §7",
+    "approved": false
+  },
+  "copy.common.close_app": {
+    "fa": "بستن برنامه",
+    "audience": "child",
+    "note": "",
+    "source": "02 §7",
+    "approved": false
+  },
+  "copy.s05.offer": {
+    "fa": "می‌خوای ببینیم تا کجا بلدی؟",
+    "audience": "child",
+    "note": "",
+    "source": "04 S05",
+    "approved": false
+  },
+  "copy.s05.from_start": {
+    "fa": "از اول شروع کنیم",
+    "audience": "child",
+    "note": "B اصلی",
+    "source": "04 S05",
+    "approved": false
+  },
+  "copy.s05.try": {
+    "fa": "امتحان کنیم؟",
+    "audience": "child",
+    "note": "B فرعی",
+    "source": "04 S05",
+    "approved": false
+  },
+  "copy.s05.next": {
+    "fa": "مرسی! بعدی",
+    "audience": "child",
+    "note": "",
+    "source": "04 S05",
+    "approved": false
+  },
+  "copy.s05.skip": {
+    "fa": "رد کردن",
+    "audience": "child",
+    "note": "",
+    "source": "04 S05",
+    "approved": false
+  },
+  "copy.s05r.result": {
+    "fa": "از ایستگاه {n} شروع می‌کنیم!",
+    "audience": "child",
+    "note": "{n} ارقام فارسی",
+    "source": "04 S05r, D-64",
+    "approved": false
+  },
+  "copy.s05r.go": {
+    "fa": "بزن بریم",
+    "audience": "child",
+    "note": "",
+    "source": "04 S05r",
+    "approved": false
+  },
+  "copy.s06.new": {
+    "fa": "بزن بریم!",
+    "audience": "child",
+    "note": "",
+    "source": "05 §7",
+    "approved": false
+  },
+  "copy.s06.path_start": {
+    "fa": "آماده‌ای؟ بریم اولین مرحله رو شروع کنیم!",
+    "audience": "child",
+    "note": "«درس» → «مرحله» (D-64)",
+    "source": "05 §7",
+    "approved": false
+  },
+  "copy.s06.world": {
+    "fa": "دنیای یادگیری",
+    "audience": "child",
+    "note": "طومار اول",
+    "source": "05 §9 #21",
+    "approved": false
+  },
+  "copy.s06.station_banner": {
+    "fa": "ایستگاه {n}",
+    "audience": "child",
+    "note": "",
+    "source": "D-64",
+    "approved": false
+  },
+  "copy.s06.station_done": {
+    "fa": "ایستگاه {n} تمام شد!",
+    "audience": "child",
+    "note": "بنر پایان",
+    "source": "04 S06-B",
+    "approved": false
+  },
+  "copy.s06.soon_sign": {
+    "fa": "مرحله‌های بعدی به‌زودی باز می‌شوند",
+    "audience": "child",
+    "note": "تابلوی چوبی",
+    "source": "05 §8.1",
+    "approved": false
+  },
+  "copy.s06.exit_again": {
+    "fa": "یک بار دیگر بزن",
+    "audience": "child",
+    "note": "خروج",
+    "source": "02 §7",
+    "approved": false
+  },
+  "copy.s06.returning": {
+    "fa": "سلام دوباره!",
+    "audience": "child",
+    "note": "حباب همراه",
+    "source": "04 S06",
+    "approved": false
+  },
+  "copy.tab.path": {
+    "fa": "مسیر",
+    "audience": "child",
+    "note": "",
+    "source": "04 S06-B",
+    "approved": false
+  },
+  "copy.tab.companion": {
+    "fa": "همراه",
+    "audience": "child",
+    "note": "",
+    "source": "04 S06-B",
+    "approved": false
+  },
+  "copy.tab.album": {
+    "fa": "آلبوم",
+    "audience": "child",
+    "note": "",
+    "source": "04 S06-B",
+    "approved": false
+  },
+  "copy.s06.daily_goal": {
+    "fa": "امروز {x} از {y}",
+    "audience": "child",
+    "note": "فقط C",
+    "source": "04 S06-C",
+    "approved": false
+  },
+  "copy.s07.start": {
+    "fa": "شروع ایستگاه",
+    "audience": "child",
+    "note": "D-64 (به‌جای «شروع واحد»)",
+    "source": "04 S07",
+    "approved": false
+  },
+  "copy.s07.learn": {
+    "fa": "چی یاد می‌گیریم؟",
+    "audience": "child",
+    "note": "",
+    "source": "04 S07",
+    "approved": false
+  },
+  "copy.s07.learn.sounds": {
+    "fa": "صداها",
+    "audience": "child",
+    "note": "",
+    "source": "05 §3",
+    "approved": false
+  },
+  "copy.s07.learn.letters": {
+    "fa": "حرف‌ها",
+    "audience": "child",
+    "note": "",
+    "source": "05 §3",
+    "approved": false
+  },
+  "copy.s07.learn.simple_words": {
+    "fa": "کلمه‌ها",
+    "audience": "child",
+    "note": "",
+    "source": "05 §3",
+    "approved": false
+  },
+  "copy.s07.learn.syllables": {
+    "fa": "هجاها",
+    "audience": "child",
+    "note": "",
+    "source": "05 §3",
+    "approved": false
+  },
+  "copy.s07.learn.stories": {
+    "fa": "قصه‌ها",
+    "audience": "child",
+    "note": "",
+    "source": "05 §3",
+    "approved": false
+  },
+  "copy.s30.exit_q": {
+    "fa": "می‌خوای بری؟",
+    "audience": "child",
+    "note": "",
+    "source": "02 §7",
+    "approved": false
+  },
+  "copy.s30.stay": {
+    "fa": "بمان",
+    "audience": "child",
+    "note": "",
+    "source": "02 §7",
+    "approved": false
+  },
+  "copy.s30.go": {
+    "fa": "برو",
+    "audience": "child",
+    "note": "",
+    "source": "02 §7",
+    "approved": false
+  },
+  "copy.s30.idle_q": {
+    "fa": "می‌خوای ادامه بدیم؟",
+    "audience": "child",
+    "note": "۳۰ث بی‌تعاملی",
+    "source": "14 §5.1",
+    "approved": false
+  },
+  "copy.s30.idle_continue": {
+    "fa": "ادامه",
+    "audience": "child",
+    "note": "",
+    "source": "14 §5.1",
+    "approved": false
+  },
+  "copy.s30.idle_home": {
+    "fa": "خانه",
+    "audience": "child",
+    "note": "",
+    "source": "14 §5.1",
+    "approved": false
+  },
+  "copy.s30.loading": {
+    "fa": "یک لحظه…",
+    "audience": "child",
+    "note": "loading_step > 300ms",
+    "source": "04 S30",
+    "approved": false
+  },
+  "copy.act.replay": {
+    "fa": "دوباره بشنو",
+    "audience": "child",
+    "note": "فقط برچسب دسترسی‌پذیری",
+    "source": "04",
+    "approved": false
+  },
+  "copy.act.hint": {
+    "fa": "راهنما",
+    "audience": "child",
+    "note": "",
+    "source": "04 S10",
+    "approved": false
+  },
+  "copy.act.retry": {
+    "fa": "دوباره امتحان کن",
+    "audience": "child",
+    "note": "",
+    "source": "05 §7",
+    "approved": false
+  },
+  "copy.act.clear": {
+    "fa": "دوباره",
+    "audience": "child",
+    "note": "پاک‌کردن رسم S09",
+    "source": "04 S09",
+    "approved": false
+  },
+  "copy.s13.bravo": {
+    "fa": "آفرین!",
+    "audience": "child",
+    "note": "",
+    "source": "04 S13",
+    "approved": false
+  },
+  "copy.s13.continue": {
+    "fa": "ادامه",
+    "audience": "child",
+    "note": "",
+    "source": "04 S13",
+    "approved": false
+  },
+  "copy.s13.coins": {
+    "fa": "+{n}",
+    "audience": "child",
+    "note": "عدد فارسی",
+    "source": "04 S13",
+    "approved": false
+  },
+  "copy.s13.new_card": {
+    "fa": "کارت تازه!",
+    "audience": "child",
+    "note": "",
+    "source": "04 S13",
+    "approved": false
+  },
+  "copy.s13.station": {
+    "fa": "ایستگاه {n} رو تموم کردی!",
+    "audience": "child",
+    "note": "",
+    "source": "04 S13",
+    "approved": false
+  },
+  "copy.s14.mode.listen": {
+    "fa": "برایم بخوان",
+    "audience": "child",
+    "note": "",
+    "source": "04 S14",
+    "approved": false
+  },
+  "copy.s14.mode.with_me": {
+    "fa": "با هم بخوانیم",
+    "audience": "child",
+    "note": "",
+    "source": "04 S14",
+    "approved": false
+  },
+  "copy.s14.mode.myself": {
+    "fa": "خودم می‌خوانم",
+    "audience": "child",
+    "note": "فقط C",
+    "source": "04 S14",
+    "approved": false
+  },
+  "copy.s15.closet": {
+    "fa": "کمد",
+    "audience": "child",
+    "note": "",
+    "source": "04 S15",
+    "approved": false
+  },
+  "copy.s15.shop": {
+    "fa": "دکور",
+    "audience": "child",
+    "note": "",
+    "source": "04 S15",
+    "approved": false
+  },
+  "copy.s15.buy_q": {
+    "fa": "می‌خری؟",
+    "audience": "child",
+    "note": "",
+    "source": "04 S15",
+    "approved": false
+  },
+  "copy.s15.need_coins": {
+    "fa": "{n} سکه‌ی دیگه لازم داری",
+    "audience": "child",
+    "note": "",
+    "source": "04 S15",
+    "approved": false
+  },
+  "copy.s15.equipped": {
+    "fa": "پوشیده",
+    "audience": "child",
+    "note": "",
+    "source": "04 S15",
+    "approved": false
+  },
+  "copy.s16.title": {
+    "fa": "آلبوم",
+    "audience": "child",
+    "note": "",
+    "source": "04 S16",
+    "approved": false
+  },
+  "copy.s16.empty": {
+    "fa": "هنوز کارتی نداری. بیا بازی کنیم!",
+    "audience": "child",
+    "note": "",
+    "source": "04 S16",
+    "approved": false
+  },
+  "copy.s17.title": {
+    "fa": "گل‌های هفته",
+    "audience": "child",
+    "note": "",
+    "source": "04 S17",
+    "approved": false
+  },
+  "copy.s17.waiting": {
+    "fa": "آوا منتظر توئه!",
+    "audience": "child",
+    "note": "روز بدون بازی؛ نه غمگین",
+    "source": "04 S17",
+    "approved": false
+  },
+  "copy.s17.goal_done": {
+    "fa": "هدف امروز انجام شد!",
+    "audience": "child",
+    "note": "",
+    "source": "04 S17",
+    "approved": false
+  },
+  "copy.weekday.sat": {
+    "fa": "ش",
+    "audience": "both",
+    "note": "",
+    "source": "04 S17",
+    "approved": false
+  },
+  "copy.weekday.sun": {
+    "fa": "ی",
+    "audience": "both",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.weekday.mon": {
+    "fa": "د",
+    "audience": "both",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.weekday.tue": {
+    "fa": "س",
+    "audience": "both",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.weekday.wed": {
+    "fa": "چ",
+    "audience": "both",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.weekday.thu": {
+    "fa": "پ",
+    "audience": "both",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.weekday.fri": {
+    "fa": "ج",
+    "audience": "both",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s26.bravo": {
+    "fa": "آفرین! همه‌ی ایستگاه‌ها رو تموم کردی!",
+    "audience": "child",
+    "note": "",
+    "source": "04 S26",
+    "approved": false
+  },
+  "copy.s26.continue": {
+    "fa": "ادامه",
+    "audience": "child",
+    "note": "",
+    "source": "04 S26",
+    "approved": false
+  },
+  "copy.s21.locked_sub": {
+    "fa": "این گنج قفله! از بزرگ‌ترها کمک بگیر.",
+    "audience": "child",
+    "note": "D-57: بدون معما",
+    "source": "03 S21",
+    "approved": false
+  },
+  "copy.s21.locked_sub_btn": {
+    "fa": "بزرگ‌ترها",
+    "audience": "child",
+    "note": "دکمه ← S18",
+    "source": "03 S21",
+    "approved": false
+  },
+  "copy.s21.locked_seq": {
+    "fa": "اول این یکی!",
+    "audience": "child",
+    "note": "",
+    "source": "03 S21",
+    "approved": false
+  },
+  "copy.s21.soon": {
+    "fa": "به‌زودی باز می‌شود",
+    "audience": "child",
+    "note": "",
+    "source": "03 S21",
+    "approved": false
+  },
+  "copy.s21.offline": {
+    "fa": "به اینترنت وصل شو",
+    "audience": "child",
+    "note": "",
+    "source": "03 S21",
+    "approved": false
+  },
+  "copy.s21.retry": {
+    "fa": "دوباره",
+    "audience": "child",
+    "note": "",
+    "source": "03 S21",
+    "approved": false
+  },
+  "copy.parent.entry": {
+    "fa": "تنظیمات و گزارش",
+    "audience": "parent",
+    "note": "آیکون در تب همراه (D-58)",
+    "source": "02 §1.5",
+    "approved": false
+  },
+  "copy.parent.confirm_title": {
+    "fa": "مطمئنید؟",
+    "audience": "parent",
+    "note": "پنجره‌ی تأیید ساده",
+    "source": "02 §1.5",
+    "approved": false
+  },
+  "copy.parent.confirm_reset": {
+    "fa": "پیشرفت {name} پاک می‌شود و برنمی‌گردد.",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S20",
+    "approved": false
+  },
+  "copy.parent.confirm_delete_profile": {
+    "fa": "پروفایل {name} و همه‌ی پیشرفتش حذف می‌شود.",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.parent.confirm_logout": {
+    "fa": "از حساب خارج می‌شوید. پیشرفت در حساب می‌ماند.",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.parent.confirm_yes": {
+    "fa": "بله",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.parent.confirm_no": {
+    "fa": "انصراف",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s19.title": {
+    "fa": "گزارش پیشرفت",
+    "audience": "parent",
+    "note": "D-66",
+    "source": "03 S19",
+    "approved": false
+  },
+  "copy.s19.letters": {
+    "fa": "حرف‌های آموخته‌شده",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S19",
+    "approved": false
+  },
+  "copy.s19.letters_summary": {
+    "fa": "{n} حرف آموخته‌شده",
+    "audience": "parent",
+    "note": "ردیف اول S20",
+    "source": "03 S19",
+    "approved": false
+  },
+  "copy.s19.time": {
+    "fa": "زمان این هفته",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S19",
+    "approved": false
+  },
+  "copy.s19.time_value": {
+    "fa": "{m} دقیقه",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s19.review": {
+    "fa": "نیاز به مرور",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S19",
+    "approved": false
+  },
+  "copy.s19.review_none": {
+    "fa": "فعلاً هیچ حرفی نیاز به مرور ندارد.",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s19.no_data": {
+    "fa": "هنوز چیزی انجام نشده",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S19",
+    "approved": false
+  },
+  "copy.s19.legend_learned": {
+    "fa": "آموخته",
+    "audience": "parent",
+    "note": "رنگ تسلط",
+    "source": "01 §7",
+    "approved": false
+  },
+  "copy.s19.legend_mastered": {
+    "fa": "مسلط",
+    "audience": "parent",
+    "note": "",
+    "source": "01 §7",
+    "approved": false
+  },
+  "copy.s19.legend_new": {
+    "fa": "هنوز نه",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s19.card_placed": {
+    "fa": "فرزندتان آماده‌ی ایستگاه {n} است؛ برای ادامه اشتراک لازم است.",
+    "audience": "parent",
+    "note": "D-34",
+    "source": "04 S05",
+    "approved": false
+  },
+  "copy.s19.card_suggest_up": {
+    "fa": "{name} خیلی خوب پیش می‌رود. شاید مسیر بالاتر برایش مناسب‌تر باشد.",
+    "audience": "parent",
+    "note": "01 §7",
+    "source": "01 §7",
+    "approved": false
+  },
+  "copy.s19.card_suggest_down": {
+    "fa": "{name} در چند مرحله‌ی اخیر کمک زیادی گرفته. مسیر آسان‌تر را امتحان کنید؟",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s19.card_next_track": {
+    "fa": "{name} این مسیر را تمام کرد! مسیر بعدی آماده است.",
+    "audience": "parent",
+    "note": "04 S26",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.title": {
+    "fa": "تنظیمات",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S20",
+    "approved": false
+  },
+  "copy.s20.report": {
+    "fa": "گزارش پیشرفت",
+    "audience": "parent",
+    "note": "ردیف اول",
+    "source": "03 S20",
+    "approved": false
+  },
+  "copy.s20.account": {
+    "fa": "حساب",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.music": {
+    "fa": "موسیقی پس‌زمینه",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.fx": {
+    "fa": "جلوه‌های صوتی",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.narration_note": {
+    "fa": "صدای راهنما همیشه روشن است تا فرزندتان دستورها را بشنود.",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.daily_goal": {
+    "fa": "هدف روزانه",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.calm": {
+    "fa": "حالت آرام",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.calm_note": {
+    "fa": "رنگ‌ها و حرکت‌ها ملایم‌تر می‌شوند.",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.downloads": {
+    "fa": "دانلودها و فضا",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.mobile_data": {
+    "fa": "اجازه‌ی دانلود با اینترنت همراه",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.profiles": {
+    "fa": "پروفایل‌ها",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.subscription": {
+    "fa": "اشتراک",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.login": {
+    "fa": "ورود به حساب",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.logout": {
+    "fa": "خروج از حساب",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.reset": {
+    "fa": "بازنشانی پیشرفت کودک",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.delete": {
+    "fa": "حذف حساب و داده‌ها",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.about": {
+    "fa": "درباره‌ی آوا",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.support": {
+    "fa": "پشتیبانی",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.privacy": {
+    "fa": "حریم خصوصی و قوانین",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s20.version": {
+    "fa": "نسخه‌ی {v}",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s24.title": {
+    "fa": "دانلودها و فضا",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S24",
+    "approved": false
+  },
+  "copy.s24.free_space": {
+    "fa": "فضای آزاد دستگاه: {mb} مگابایت",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s24.installed": {
+    "fa": "نصب‌شده",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s24.queued": {
+    "fa": "در صف",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s24.failed": {
+    "fa": "دانلود نشد",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s24.pause": {
+    "fa": "توقف دانلود",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s24.resume": {
+    "fa": "ادامه‌ی دانلود",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s24.delete_pack": {
+    "fa": "حذف این بسته",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s24.delete_old": {
+    "fa": "حذف دانلودهای قدیمی",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s24.wifi_only": {
+    "fa": "فقط Wi-Fi",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s24.current_warn": {
+    "fa": "این بسته برای ادامه‌ی درس لازم است و دوباره دانلود می‌شود.",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S24",
+    "approved": false
+  },
+  "copy.s24.storage_low": {
+    "fa": "فضای دستگاه کم است.",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s27.title": {
+    "fa": "پروفایل‌ها",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S27",
+    "approved": false
+  },
+  "copy.s27.add": {
+    "fa": "افزودن کودک",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s27.max": {
+    "fa": "حداکثر ۳ پروفایل",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s27.edit": {
+    "fa": "ویرایش",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s27.delete": {
+    "fa": "حذف",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s18.title": {
+    "fa": "راه {name} را ادامه بدهید",
+    "audience": "parent",
+    "note": "",
+    "source": "03 S18",
+    "approved": false
+  },
+  "copy.s18.benefit1": {
+    "fa": "همه‌ی ایستگاه‌ها و بازی‌ها",
+    "audience": "parent",
+    "note": "D-64",
+    "source": "03 S18",
+    "approved": false
+  },
+  "copy.s18.benefit2": {
+    "fa": "بدون تبلیغ",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s18.benefit3": {
+    "fa": "گزارش پیشرفت",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s18.start": {
+    "fa": "شروع اشتراک",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s18.restore": {
+    "fa": "بازیابی خرید",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s18.terms": {
+    "fa": "قوانین",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s18.wait": {
+    "fa": "لطفاً صبر کنید…",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s18.failed": {
+    "fa": "پرداخت انجام نشد",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s18.retry": {
+    "fa": "دوباره",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s18.success": {
+    "fa": "اشتراک فعال شد. ممنون!",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s18.coupon": {
+    "fa": "کد تخفیف دارید؟",
+    "audience": "parent",
+    "note": "D-67",
+    "source": "12 §2.5",
+    "approved": false
+  },
+  "copy.s18.coupon_apply": {
+    "fa": "اعمال",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s18.coupon_invalid": {
+    "fa": "این کد معتبر نیست یا منقضی شده.",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.s18.coupon_ok": {
+    "fa": "کد اعمال شد.",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.track.a": {
+    "fa": "بازی و شنیدن",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.track.b": {
+    "fa": "حرف‌ها",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.track.c": {
+    "fa": "خواندن",
+    "audience": "parent",
+    "note": "",
+    "source": "",
+    "approved": false
+  },
+  "copy.u00.title": {
+    "fa": "دنیای صداها",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u00.s1.title": {
+    "fa": "گوش کن!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u00.s2.title": {
+    "fa": "قافیه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u00.s3.title": {
+    "fa": "کف بزن",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u00.s4.title": {
+    "fa": "صدای اول",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u00.challenge.title": {
+    "fa": "جشن صداها",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u00.goal": {
+    "fa": "گوش کن! هر چیزی یک صدا دارد.",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u01.title": {
+    "fa": "آب و بابا",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u01.alef.title": {
+    "fa": "آ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u01.ba.title": {
+    "fa": "ب",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u01.l01.w.title": {
+    "fa": "آب",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u01.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u01.title": {
+    "fa": "آب و بابا",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u01.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u01.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u01.goal": {
+    "fa": "توی این ایستگاه با «آ»، «ب» آشنا می‌شی!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u02.title": {
+    "fa": "باد و بادام",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u02.a_short.title": {
+    "fa": "اَ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u02.dal.title": {
+    "fa": "د",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u02.l02.w.title": {
+    "fa": "باد",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u02.mim.title": {
+    "fa": "م",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u02.sin.title": {
+    "fa": "س",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u02.l03.w.title": {
+    "fa": "سَبَد",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u02.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u02.title": {
+    "fa": "باد و بادام",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u02.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u02.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u02.goal": {
+    "fa": "توی این ایستگاه با «اَ»، «د»، «م»، «س» آشنا می‌شی!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u03.title": {
+    "fa": "توت و نان",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u03.u_long.title": {
+    "fa": "او",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u03.te.title": {
+    "fa": "ت",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u03.l04.w.title": {
+    "fa": "سوت",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u03.re.title": {
+    "fa": "ر",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u03.nun.title": {
+    "fa": "ن",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u03.l05.w.title": {
+    "fa": "دَر",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u03.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u03.title": {
+    "fa": "توت و نان",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u03.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u03.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u03.goal": {
+    "fa": "توی این ایستگاه با «او»، «ت»، «ر»، «ن» آشنا می‌شی!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u04.title": {
+    "fa": "مرورِ شاد ۱",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u04.r1.title": {
+    "fa": "مرور صداها",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u04.r2.title": {
+    "fa": "مرور کلمه‌ها",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u04.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u04.title": {
+    "fa": "مرورِ شاد ۱",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u04.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u04.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u04.goal": {
+    "fa": "بیا هرچی یاد گرفتی رو با هم بازی کنیم!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u05.title": {
+    "fa": "سیب و شیر",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u05.i_long.title": {
+    "fa": "ای",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u05.ze.title": {
+    "fa": "ز",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u05.l06.w.title": {
+    "fa": "میز",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u05.e_short.title": {
+    "fa": "اِ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u05.shin.title": {
+    "fa": "ش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u05.l07.w.title": {
+    "fa": "اِسب",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u05.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u05.title": {
+    "fa": "سیب و شیر",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u05.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u05.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u05.goal": {
+    "fa": "توی این ایستگاه با «ای»، «ز»، «اِ»، «ش» آشنا می‌شی!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u06.title": {
+    "fa": "اردک و کتاب",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u06.ye.title": {
+    "fa": "ی",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u06.o_short.title": {
+    "fa": "اُ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u06.l08.w.title": {
+    "fa": "بُز",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u06.kaf.title": {
+    "fa": "ک",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u06.vav.title": {
+    "fa": "و",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u06.l09.w.title": {
+    "fa": "وان",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u06.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u06.title": {
+    "fa": "اردک و کتاب",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u06.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u06.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u06.goal": {
+    "fa": "توی این ایستگاه با «ی»، «اُ»، «ک»، «و» آشنا می‌شی!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u07.title": {
+    "fa": "خرگوش و برف",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u07.pe.title": {
+    "fa": "پ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u07.gaf.title": {
+    "fa": "گ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u07.l10.w.title": {
+    "fa": "گاو",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u07.fe.title": {
+    "fa": "ف",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u07.khe.title": {
+    "fa": "خ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u07.l11.w.title": {
+    "fa": "بَرف",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u07.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u07.title": {
+    "fa": "خرگوش و برف",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u07.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u07.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u07.goal": {
+    "fa": "توی این ایستگاه با «پ»، «گ»، «ف»، «خ» آشنا می‌شی!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u08.title": {
+    "fa": "مرورِ شاد ۲",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u08.r1.title": {
+    "fa": "مرور صداها",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u08.r2.title": {
+    "fa": "مرور کلمه‌ها",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u08.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u08.title": {
+    "fa": "مرورِ شاد ۲",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u08.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u08.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u08.goal": {
+    "fa": "بیا هرچی یاد گرفتی رو با هم بازی کنیم!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u09.title": {
+    "fa": "جوجه و گل",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u09.qaf.title": {
+    "fa": "ق",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u09.lam.title": {
+    "fa": "ل",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u09.l12.w.title": {
+    "fa": "فیل",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u09.jim.title": {
+    "fa": "ج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u09.vav_o.title": {
+    "fa": "و",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u09.l13.w.title": {
+    "fa": "دو",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u09.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u09.title": {
+    "fa": "جوجه و گل",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u09.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u09.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u09.goal": {
+    "fa": "توی این ایستگاه با «ق»، «ل»، «ج»، «و» آشنا می‌شی!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u10.title": {
+    "fa": "ماه و ماهی",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u10.he.title": {
+    "fa": "ه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u10.che.title": {
+    "fa": "چ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u10.l14.w.title": {
+    "fa": "چَتر",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u10.zhe.title": {
+    "fa": "ژ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u10.khaa.title": {
+    "fa": "خوا",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u10.l15.w.title": {
+    "fa": "مُژه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u10.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u10.title": {
+    "fa": "ماه و ماهی",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u10.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u10.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u10.goal": {
+    "fa": "توی این ایستگاه با «ه»، «چ»، «ژ»، «خوا» آشنا می‌شی!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u11.title": {
+    "fa": "طوطی و عسل",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u11.sad.title": {
+    "fa": "ص",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u11.eyn.title": {
+    "fa": "ع",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u11.l16.w.title": {
+    "fa": "عَسَل",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u11.he_jimi.title": {
+    "fa": "ح",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u11.ta.title": {
+    "fa": "ط",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u11.l17.w.title": {
+    "fa": "حوله",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u11.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u11.title": {
+    "fa": "طوطی و عسل",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u11.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u11.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u11.goal": {
+    "fa": "توی این ایستگاه با «ص»، «ع»، «ح»، «ط» آشنا می‌شی!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u12.title": {
+    "fa": "مرورِ شاد ۳",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u12.r1.title": {
+    "fa": "مرور صداها",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u12.r2.title": {
+    "fa": "مرور کلمه‌ها",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u12.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u12.title": {
+    "fa": "مرورِ شاد ۳",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u12.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u12.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u12.goal": {
+    "fa": "بیا هرچی یاد گرفتی رو با هم بازی کنیم!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u13.title": {
+    "fa": "قورباغه و چراغ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u13.gheyn.title": {
+    "fa": "غ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u13.zal.title": {
+    "fa": "ذ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u13.l18.w.title": {
+    "fa": "باغ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u13.tashdid.title": {
+    "fa": "تشدید",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u13.se.title": {
+    "fa": "ث",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u13.l19.w.title": {
+    "fa": "اَرّه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u13.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u13.title": {
+    "fa": "قورباغه و چراغ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u13.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u13.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u13.goal": {
+    "fa": "توی این ایستگاه با «غ»، «ذ»، «ـّ»، «ث» آشنا می‌شی!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u14.title": {
+    "fa": "پنگوئن و حوض",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u14.zad.title": {
+    "fa": "ض",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u14.za.title": {
+    "fa": "ظ",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u14.l20.w.title": {
+    "fa": "حوض",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u14.hamze.title": {
+    "fa": "ء",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u14.l21.w.title": {
+    "fa": "پِنگوئَن",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u14.treasure.title": {
+    "fa": "گنج",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u14.title": {
+    "fa": "پنگوئن و حوض",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u14.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u14.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u14.goal": {
+    "fa": "توی این ایستگاه با «ض»، «ظ»، «ء» آشنا می‌شی!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u15.title": {
+    "fa": "کتابِ آوا",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u15.rd1.title": {
+    "fa": "کلمه‌خوانی",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u15.rd2.title": {
+    "fa": "پلِ هجا",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u15.rd3.title": {
+    "fa": "جمله‌خوانی",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.st.u15.title": {
+    "fa": "کتابِ آوا",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u15.story.title": {
+    "fa": "قصه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.b.u15.challenge.title": {
+    "fa": "چالش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.u15.goal": {
+    "fa": "حالا خودت می‌تونی بخونی!",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.poem.p01.title": {
+    "fa": "باران",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.poem.p02.title": {
+    "fa": "ماه",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.poem.p03.title": {
+    "fa": "خرگوش",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.poem.p04.title": {
+    "fa": "اردک",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.poem.p05.title": {
+    "fa": "کتاب",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.poem.p06.title": {
+    "fa": "سیب",
+    "audience": "child",
+    "note": "محتوای ایستگاه (تولید خودکار)",
+    "source": "16",
+    "approved": false
+  },
+  "copy.product.age_range": {
+    "fa": "مناسب ۴ تا ۷ سال",
+    "audience": "parent",
+    "note": "دامنهٔ ثابت محصول؛ بدون selector رده‌بندی سنی",
+    "source": "CR-CLEANUP-02",
+    "approved": false
+  }
+}

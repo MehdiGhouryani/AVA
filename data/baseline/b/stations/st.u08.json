@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "story_id": "st.u08",
+ "unit": "u08",
+ "title_key": "copy.st.u08.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u08.p1",
+   "sentence": {
+    "text": "سَگ دَر خانه اَست.",
+    "words": [
+     "w_sag",
+     "w_dar",
+     "w_khane",
+     "w_ast"
+    ],
+    "audio": "aud.story.u08.p1"
+   },
+   "allowed_max_lesson": 11
+  },
+  {
+   "page": 2,
+   "image": "img.story.u08.p2",
+   "sentence": {
+    "text": "گُربه پیشِ سَگ آمَد.",
+    "words": [
+     "w_gorbe",
+     "w_pishe",
+     "w_sag",
+     "w_amad"
+    ],
+    "audio": "aud.story.u08.p2"
+   },
+   "allowed_max_lesson": 11
+  },
+  {
+   "page": 3,
+   "image": "img.story.u08.p3",
+   "sentence": {
+    "text": "سَگ با گُربه توپ بازی کَرد.",
+    "words": [
+     "w_sag",
+     "w_baa",
+     "w_gorbe",
+     "w_tup",
+     "w_bazi",
+     "w_kard"
+    ],
+    "audio": "aud.story.u08.p3"
+   },
+   "allowed_max_lesson": 11
+  },
+  {
+   "page": 4,
+   "image": "img.story.u08.p4",
+   "sentence": {
+    "text": "گُربه خَسته شُد.",
+    "words": [
+     "w_gorbe",
+     "w_khaste",
+     "w_shod"
+    ],
+    "audio": "aud.story.u08.p4"
+   },
+   "allowed_max_lesson": 11
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u08.q1",
+   "answer": "img.word.tup",
+   "distractors": [
+    "img.word.khargush"
+   ]
+  }
+ ]
+}

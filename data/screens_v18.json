@@ -1,0 +1,3357 @@
+[
+  {
+    "id": "S01",
+    "title": "Splash",
+    "group": "ورود",
+    "scope": "V1-B",
+    "purpose": "اجرای اول/بازگشت و bootstrap محلی بدون انتظار شبکه",
+    "states": [
+      "first_load",
+      "returning",
+      "offline_load"
+    ],
+    "source": "00 §4; 03 §S01",
+    "entry": "اجرای اپ",
+    "exit": "S02 در first-run؛ S06-B/ S22 در بازگشت",
+    "interactions": "لوگوی proposed/non-final فقط هویت؛ timeout یا درصد جعلی ممنوع",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "بدون شبکه مقصد محلی ≤۱٫۵ث و white flash صفر."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "00 §4; 03 §S01"
+    ],
+    "redesign": {
+      "proposed_target_layout": "صفحه‌ی تمام‌قد با لوگوی کوچک، همراه در مرکز، لودر بی‌درصد و بدون CTA اجباری؛ پس از bootstrap خودکار به مقصد.",
+      "microcopy_examples": "«داریم کتابت را باز می‌کنیم»",
+      "mascot_pose_action": "در آغوش گرفتن کتاب باز؛ آرام و ثابت",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "offline بدون white flash به مقصد ≤۱٫۵ث؛ شبکه هرگز مانع bootstrap نشود"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "auth/session و local DB",
+        "تأیید حقوقی copy"
+      ],
+      "actual_layout": "لوگو، کتاب باز همراه، نشان آماده‌سازی آرام؛ CTA فقط در دفتر طراحی برای عبور دستی.",
+      "pose_enum": "read",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ ۰٫۸–۱٫۵ ثانیه در اجرای بعد و مقصد محلی قطعی شود.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S02",
+    "title": "Onboarding سه‌صحنه‌ای",
+    "group": "ورود",
+    "scope": "V1-B",
+    "purpose": "معرفی سه‌صحنه‌ای و آماده‌سازی ورود والد",
+    "states": [
+      "scene1",
+      "scene2",
+      "scene3",
+      "narrating",
+      "idle",
+      "skipped"
+    ],
+    "source": "00 §4; 03 §S02",
+    "entry": "S01",
+    "exit": "S03a",
+    "interactions": "next/skip/back؛ روایت auto-advance ندارد؛ swipe و دکمه هر دو",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "هر سه صحنه با TalkBack و reduce-motion قابل عبور؛ skip در هر صحنه."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "00 §4; 03 §S02"
+    ],
+    "redesign": {
+      "proposed_target_layout": "اسلایدهای تمام‌صفحه‌ی RTL با تصویر مستقل، تیتر کوتاه، راوی/بازپخش، نقطه‌ها و «رد کردن» والدانه؛ حرکت فقط با لمس/فلش.",
+      "microcopy_examples": "«با آوا بخوان» / «هر صدا، یک کشف» / «بازی کن، یاد بگیر»",
+      "mascot_pose_action": "ورق‌زدن کتاب و اشاره به سه صحنه؛ حرکت کوتاه",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "سه صحنه با narration/replay، skip در همه‌ی صحنه‌ها و بدون auto-advance اجباری"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "auth/session و local DB",
+        "تأیید حقوقی copy"
+      ],
+      "actual_layout": "سه صحنهٔ متفاوت: سلام آوا، باغ کتابی، دوستان؛ روایت/بازپخش، next و skip؛ کودک محور.",
+      "pose_enum": "welcome",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ متن/تصویر نهایی و کاهش حرکت باید QA شود.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S04",
+    "title": "پروفایل کودک",
+    "group": "ورود",
+    "scope": "V1-B",
+    "purpose": "ساخت پروفایل کودک با بازهٔ سنی ثابت ۴ تا ۷ سال و بدون انتخاب رده‌بندی",
+    "states": [
+      "empty",
+      "typing",
+      "invalid_name",
+      "complete",
+      "saving",
+      "storage_low"
+    ],
+    "source": "00 D-03; 03 §S04",
+    "entry": "auth/افزودن profile",
+    "exit": "شروع دانلود پس‌زمینه و S05؛ سپس S22 فقط اگر بستهٔ لازم آماده نیست",
+    "interactions": "نام ۱–۲۰ نویسه فارسی/لاتین/فاصله، بدون emoji؛ سقف ۳ profile؛ بازهٔ سنی در محصول ثابت است",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "ادامه فقط نام معتبر؛ بازهٔ سنی ثابت ۴ تا ۷ سال؛ حداکثر ۳ پروفایل؛ داده هنگام برگشت حفظ شود."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "00 D-03; 03 §S04"
+    ],
+    "redesign": {
+      "proposed_target_layout": "فرم پروفایل با نام کودک و پیش‌نمایش همراه؛ هیچ selector برای سن یا گروه نشان داده نمی‌شود؛ محدودهٔ محصول ثابت ۴ تا ۷ سال است.",
+      "microcopy_examples": "«اسم کودک را وارد کنید»؛ «مناسب ۴ تا ۷ سال»",
+      "mascot_pose_action": "نشسته کنار فرم و اشاره‌ی راهنما، بدون خطاب والدانه به کودک",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "ادامه فقط نام معتبر؛ بازهٔ سنی ثابت ۴ تا ۷ سال؛ حداکثر ۳ پروفایل؛ داده هنگام برگشت حفظ شود"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "auth/session و local DB",
+        "تأیید حقوقی copy"
+      ],
+      "actual_layout": "پیش‌نمایش همراه و سه انتخاب رنگ؛ بازهٔ سنی ثابت ۴ تا ۷ سال؛ بدون انتخاب سن یا گروه در UI.",
+      "pose_enum": "welcome",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "V1.8: انتخاب گروه A/C فقط روی کاغذ بود؛ در پاکسازی جدید، selector رده‌بندی حذف و دامنه محصول روی ۴ تا ۷ سال ثابت شد.",
+    "actual_layout": ""
+  },
+  {
+    "id": "S22",
+    "title": "آماده‌سازی/دانلود بسته",
+    "group": "دانلود",
+    "scope": "V1-B",
+    "purpose": "پیش‌نیاز، دریافت، verify و نصب اتمیک بسته/ادامه آفلاین",
+    "states": [
+      "preflight",
+      "manifest",
+      "downloading",
+      "paused",
+      "resume",
+      "verify",
+      "installed",
+      "low_storage",
+      "offline",
+      "error"
+    ],
+    "source": "02 §3؛ 03 §S22",
+    "entry": "S04/S05/parent action",
+    "exit": "S05 یا S06-B یا مقصد درخواست",
+    "interactions": "Range/resume؛ checksum؛ required bytes؛ cancel فقط والد؛ صفحه در صورت آماده‌بودن flash نشود",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "قطع در ۵۰٪ و بازگشایی همان byte؛ فضا=Σbytes×۲+۵۰MB؛ خطا مسیر retry دارد."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "02 §3؛ 03 §S22"
+    ],
+    "redesign": {
+      "proposed_target_layout": "لایه‌ی کودک برای وضعیت، آیکون/همراه کنجکاو، نوار واقعی بر پایه‌ی bytes و مسیر امن تنظیمات والد؛ توقف/ادامه و خطای قابل‌بازیابی.",
+      "microcopy_examples": "«داریم بخش اول را آماده می‌کنیم»؛ «وقتی آماده شد، بزن بریم»",
+      "mascot_pose_action": "گوش‌به‌زنگ کنار چرخ دانلود؛ بدون حالت غمگین",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "قطع در ۵۰٪ و بازگشت از همان byte؛ checksum failure فایل نیمه‌تمام را پاک کند؛ starter ready قبل از محتوا"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "manifest/hash/Range/atomic install",
+        "فضای موردنیاز Σbytes×۲+۵۰MB و سیاست شبکه"
+      ],
+      "actual_layout": "همراه منتظر، کارت بسته و progress fixture؛ بازی آماده و کمک بزرگ‌تر؛ دانلود واقعی نیست.",
+      "pose_enum": "wait",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود اما تعارض بصری 02 §3.4 و 03 §S22 باید با Change Request حل شود؛ 02 به‌عنوان منبع منطق اولویت دارد.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S03a",
+    "title": "ورود والد: موبایل/گوگل/ایمیل",
+    "group": "ورود والد",
+    "scope": "V1-B",
+    "purpose": "ورود والد با موبایل/Google/ایمیل و ثبت پذیرش نسخه قوانین",
+    "states": [
+      "empty",
+      "phone",
+      "terms_unchecked",
+      "invalid",
+      "loading",
+      "provider_error"
+    ],
+    "source": "02 §1.1؛ 03 §S03a",
+    "entry": "S02/S23-off",
+    "exit": "S03b یا S03c یا S03e",
+    "interactions": "شماره +۹۸ و normalize؛ terms اجباری؛ لینک UX-01",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "دکمه تا پذیرش disabled؛ terms_version ذخیره؛ هیچ credential capture در demo."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "02 §1.1؛ 03 §S03a"
+    ],
+    "redesign": {
+      "proposed_target_layout": "صفحه‌ی ورود والد با تیتر خنثی، موبایل/گوگل/ایمیل، چک‌باکس قوانینِ بدون تیک و لینک متن کامل؛ هیچ مسیر مهمان.",
+      "microcopy_examples": "«ورود یا ساخت حساب»؛ «برای اینکه پیشرفت فرزندتان همیشه بماند»؛ «قوانین و حریم خصوصی را می‌پذیرم»",
+      "mascot_pose_action": "در حاشیه با حالت خنثی؛ نه عامل پاداش/فشار",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "login اجباری قبل از محتوا؛ consent بدون تیک CTA را قفل کند؛ OTP/Provider خطا و fallback قابل‌آزمایش"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "auth/session و local DB",
+        "تأیید حقوقی copy"
+      ],
+      "actual_layout": "لوگو و همراه کوچک، handoff بزرگ‌تر، رضایت، سه روش auth بدون credential در نمونه.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ متن حقوقی و سرویس OTP/ایمیل هنوز pending است.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S03b",
+    "title": "کد تأیید",
+    "group": "ورود والد",
+    "scope": "V1-B",
+    "purpose": "تأیید OTP برای SMS/email",
+    "states": [
+      "empty",
+      "typing",
+      "verifying",
+      "wrong",
+      "expired",
+      "resend",
+      "locked"
+    ],
+    "source": "03 §S03b",
+    "entry": "S03a",
+    "exit": "S03d یا مقصد حساب",
+    "interactions": "۶ خانه از راست؛ resend ۹۰ث، expiry ۵د، ۵ تلاش؛ manual همیشه",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "rotation/background مقدار را حفظ کند؛ رقم ششم auto verify؛ خطا متن+لرزش نه رنگ تنها."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "03 §S03b"
+    ],
+    "redesign": {
+      "proposed_target_layout": "ورودی OTP شش‌رقمی RTL با پشتیبانی رقم فارسی/لاتین، شمارش معکوس قابل‌فهم، تغییر کانال و resend با محدودیت امن.",
+      "microcopy_examples": "«کد را وارد کنید»؛ «کد را نگرفتید؟ دوباره بفرستید»",
+      "mascot_pose_action": "در حاشیه با حالت خنثی؛ نه عامل پاداش/فشار",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "login اجباری قبل از محتوا؛ consent بدون تیک CTA را قفل کند؛ OTP/Provider خطا و fallback قابل‌آزمایش"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "auth/session و local DB",
+        "تأیید حقوقی copy"
+      ],
+      "actual_layout": "شش خانهٔ کد غیرقابل‌ورود؛ موفقیت/ارسال دوبارهٔ نمایشی؛ وضعیت wrong/expired/locked.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ آزمون SMS Retriever، تحویل ایمیل و زمان‌سنج لازم است.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S03c",
+    "title": "ورود با گوگل",
+    "group": "ورود والد",
+    "scope": "V1-B",
+    "purpose": "احراز Google از طریق provider رسمی",
+    "states": [
+      "loading",
+      "cancelled",
+      "unavailable",
+      "success",
+      "error"
+    ],
+    "source": "03 §S03c؛ 02 §1.1",
+    "entry": "S03a",
+    "exit": "S03d/مقصد یا fallback",
+    "interactions": "بدون Google مسیر موبایل/ایمیل کامل؛ token فقط secure storage",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "cancel بی‌خطا به S03a؛ provider error با retry؛ credential هرگز log نشود."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "03 §S03c؛ 02 §1.1"
+    ],
+    "redesign": {
+      "proposed_target_layout": "صفحه‌ی hand-off امن به provider رسمی، وضعیت loading/cancelled/error و fallback به موبایل/ایمیل؛ credential در prototype هرگز جمع نشود.",
+      "microcopy_examples": "«در حال انتقال امن به گوگل…»؛ «روش دیگری را انتخاب کنید»",
+      "mascot_pose_action": "در حاشیه با حالت خنثی؛ نه عامل پاداش/فشار",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "login اجباری قبل از محتوا؛ consent بدون تیک CTA را قفل کند؛ OTP/Provider خطا و fallback قابل‌آزمایش"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "auth/session و local DB",
+        "تأیید حقوقی copy"
+      ],
+      "actual_layout": "نمای provider، ادامهٔ نمایشی و برگشت؛ auth در سرویس امن تولیدی.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود با fallback موبایل/ایمیل؛ وابستگی Play Services را در بازارها تست کنید.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S03e",
+    "title": "ورود با ایمیل",
+    "group": "ورود والد",
+    "scope": "V1-B",
+    "purpose": "ورود/تأیید از کانال ایمیل",
+    "states": [
+      "empty",
+      "typing",
+      "invalid",
+      "sent",
+      "not_received",
+      "error"
+    ],
+    "source": "03 §S03e؛ D-63",
+    "entry": "S03a",
+    "exit": "S03b با channel=email",
+    "interactions": "email داخل RTL به‌صورت LTR؛ trim/lowercase؛ حداکثر ۱۰۰",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "validation و hint بعد ۶۰ث؛ delivery تست و منبع رسمی لازم."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "03 §S03e؛ D-63"
+    ],
+    "redesign": {
+      "proposed_target_layout": "فرم ایمیل با خطای inline، پیام «کد را فرستادیم»، تغییر ایمیل و لینک resend/کمک؛ سپس S03b با channel=email.",
+      "microcopy_examples": "«کد به ایمیل شما فرستاده شد»؛ «ایمیل را اصلاح کنید»",
+      "mascot_pose_action": "در حاشیه با حالت خنثی؛ نه عامل پاداش/فشار",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "login اجباری قبل از محتوا؛ consent بدون تیک CTA را قفل کند؛ OTP/Provider خطا و fallback قابل‌آزمایش"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "auth/session و local DB",
+        "تأیید حقوقی copy"
+      ],
+      "actual_layout": "نمای ایمیل بزرگ‌تر، پیوند و مسیر not_received/error؛ بدون فیلد دریافت ایمیل در نمونه.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ اسپایک تحویل ایمیل ایرانی و مبدأ رسمی هنوز لازم است.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S03d",
+    "title": "ادغام حساب",
+    "group": "ورود والد",
+    "scope": "V1-B",
+    "purpose": "ادغام حساب و پروفایل محلی بدون حذف ناخواسته",
+    "states": [
+      "review",
+      "choose",
+      "merge",
+      "conflict",
+      "done",
+      "cancel"
+    ],
+    "source": "02 §1.3؛ 03 §S03d",
+    "entry": "auth موفق با local+server",
+    "exit": "profile/house",
+    "interactions": "نام/مسیر/تعداد completion؛ add پیش‌فرض؛ حذف فقط تأیید",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "مجموع profile>۳ اجازه add ندهد؛ local تا تأیید محفوظ."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "02 §1.3؛ 03 §S03d"
+    ],
+    "redesign": {
+      "proposed_target_layout": "مقایسه‌ی دو ستون محلی/حساب، برچسب تعارض، انتخاب نگه‌داری/ادغام و پیش‌نمایش نتیجه؛ حذف خودکار ممنوع.",
+      "microcopy_examples": "«کدام داده را نگه داریم؟»؛ «هیچ پروفایلی بدون تأیید حذف نمی‌شود»",
+      "mascot_pose_action": "در حاشیه با حالت خنثی؛ نه عامل پاداش/فشار",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "هیچ local profile بی‌تأیید حذف نشود؛ conflict قابل‌فهم و merge idempotent"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "auth/session و local DB",
+        "تأیید حقوقی copy"
+      ],
+      "actual_layout": "دو پروفایل محلی/حساب، انتخاب حفظ هر دو و انصراف؛ merge بدون حذف پنهان.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ مسیر عدم حذف پروفایل محلی باید صریح و قابل بازگشت بماند.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S23",
+    "title": "دروازه والد",
+    "group": "والد",
+    "scope": "V1-B (off) / future puzzle",
+    "purpose": "دروازه والد برای اقدام حساس؛ در V1 gate_mode=off و route hidden",
+    "states": [
+      "off",
+      "puzzle_proposed",
+      "failed",
+      "locked",
+      "success"
+    ],
+    "source": "00 D-10/D-57؛ 03 §S23",
+    "entry": "surface parent action",
+    "exit": "مقصد والد",
+    "interactions": "V1 بدون puzzle و بدون parent puzzle؛ فقط تأیید ساده destructive در parent",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "در V1 هیچ gate_token؛ flavor آینده پس از ۳ خطا قفل و token پس از ۳۰ث باطل."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ proposed/admin",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "00 D-10/D-57؛ 03 §S23"
+    ],
+    "redesign": {
+      "proposed_target_layout": "صفحه‌ی مستقل route-hidden در V1؛ در حالت off قابل‌مشاهده نیست، و برای حذف/خرید تأییدکننده‌ی شفاف نه puzzle.",
+      "microcopy_examples": "«این بخش در نسخه‌ی اول از دروازه‌ی والد استفاده نمی‌کند»",
+      "mascot_pose_action": "بی‌طرف و کوچک؛ هرگز نگهبان ترسناک",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "در V1 route پنهان و gate_mode=off؛ خرید/حذف تأیید مستقل دارند، puzzle یا محدودیت زمان بازی ندارند"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "صفحهٔ مرجع غیرفعال: راه بزرگ‌ترها باز است؛ بدون معما/رمز در V1.",
+      "pose_enum": "none",
+      "audience": "child",
+      "active_in_v1": false,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "در V1-B خاموش؛ پیاده‌سازی puzzle فقط پشت flavor و پس از سیاست‌گذاری/آزمون.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S18",
+    "title": "اشتراک",
+    "group": "والد/درآمد",
+    "scope": "V1-B",
+    "purpose": "نمایش plan و خرید/restore اشتراک از CMS/store",
+    "states": [
+      "loading",
+      "plans",
+      "pending",
+      "success",
+      "failure",
+      "cancelled",
+      "restore",
+      "offline"
+    ],
+    "source": "00 D-46/D-48؛ 03 §S18؛ 12 §2.5",
+    "entry": "S20/S21",
+    "exit": "success→مقصد؛ failure→retry",
+    "interactions": "قیمت/SKU/trial/promo hardcode نیست؛ حداکثر ۳ plan؛ fake gateway فقط تست",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "purchase idempotent؛ cancel/restore قابل retry؛ paywall فقط پس از مسیر والد."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "00 D-46/D-48؛ 03 §S18؛ 12 §2.5"
+    ],
+    "redesign": {
+      "proposed_target_layout": "کارت‌های plan با قیمت/دوره/تمدید/لغو شفاف از CMS، CTA والد، restore و همه‌ی pending/errorها؛ هیچ قیمت hardcode.",
+      "microcopy_examples": "«اشتراک را انتخاب کنید»؛ «خرید امن از فروشگاه»؛ «بازیابی خرید»",
+      "mascot_pose_action": "کنار کارت‌ها با دست باز؛ بدون هل‌دادن خرید",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "pending/cancel/failure/restore/expired/offline و duplicate purchase تست شود؛ کودک paywall نمی‌بیند"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "BillingGateway/receipt verification/entitlement idempotency",
+        "CMS SKU/قانون بازار"
+      ],
+      "actual_layout": "انتخاب ماهانه/سالانه، شرایط و قیمت از فروشگاه، pending، restore، بعداً؛ parent-only.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود به‌صورت قرارداد UI؛ قیمت، SKU، trial و promo بیرونی و pending است.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S19",
+    "title": "گزارش پیشرفت",
+    "group": "والد",
+    "scope": "V1-B",
+    "purpose": "گزارش والد، نیاز به مرور و پیشنهاد تمرین/انتقال",
+    "states": [
+      "loading",
+      "no_data",
+      "report",
+      "needs_review",
+      "suggest_group",
+      "offline"
+    ],
+    "source": "00 D-66؛ 03 §S19؛ 01 §7",
+    "entry": "S15 → S20 → S19",
+    "exit": "S20/UX-03؛  فقط در نسخهٔ آینده",
+    "interactions": "انتخاب child؛ اعداد فارسی؛ نمودار پیچیده نیست؛ child PII در analytics نیست",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "no_data و offline هرکدام action دارند؛ پیشنهاد خودکار نیست و کودک نمی‌بیند."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "00 D-66؛ 03 §S19؛ 01 §7"
+    ],
+    "redesign": {
+      "proposed_target_layout": "گزارش والد با خلاصه، mastery جدا از completion، نیاز به مرور و CTA «تمرین این حرف»؛ بدون نام/شناسه در telemetry.",
+      "microcopy_examples": "«گزارش پیشرفت»؛ «تمرین این حرف»؛ «پیشروی قصه با تسلط یکی نیست»",
+      "mascot_pose_action": "نشانه‌گذاری یک برگ گزارش؛ آرام",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "completion و mastery جدا؛ مقدارها از ledger می‌آیند؛ تمرین پیشنهادی به همان node می‌رود"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "معرفی‌شدن و تسلط جدا، سه ردیف نشانه، پیشنهاد تمرین بیرون صفحه؛ no_data بدون نمودار جعلی.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ داده‌ها/تعریف دقیق رنگ mastery باید قبل انتشار تثبیت شود.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S20",
+    "title": "تنظیمات والد",
+    "group": "والد",
+    "scope": "V1-B",
+    "purpose": "مرکز والد: گزارش، دانلود، پروفایل، صدا، حساب",
+    "states": [
+      "loaded",
+      "session_expired",
+      "offline",
+      "confirm_destructive"
+    ],
+    "source": "03 §S20؛ 02 §1.5",
+    "entry": "parent",
+    "exit": "S19/S24/S27/S18/UX-01/UX-02/UX-03",
+    "interactions": "session والد پس از ۵د بی‌تعامل بسته؛ گروه‌بندی روشن؛ راوی همیشه روشن",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "هر switch label/state؛ اقدام مخرب دو تأیید؛ خروج امن."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "03 §S20؛ 02 §1.5"
+    ],
+    "redesign": {
+      "proposed_target_layout": "مرکز والد کم‌تنش با ردیف اول گزارش، سپس صدا/حرکت، دانلود، پروفایل، اشتراک، حساب، پشتیبانی و قوانین.",
+      "microcopy_examples": "«تنظیمات و گزارش»؛ «صدا و حرکت»؛ «حساب و داده‌ها»",
+      "mascot_pose_action": "در حاشیه با کتابچه‌ی راهنما",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "گزارش اولین ردیف؛ parent routes روشن؛ آیکون والد روی خانه/S22 اضافه نشود جز shortcut مجاز S24"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "فهرست والد با گزارش، صدا/حرکت، بسته‌ها، پروفایل، اشتراک، حساب، پشتیبانی و قوانین.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ reset/delete نیاز طراحی جریان تأیید و سیاست retention دارند.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S24",
+    "title": "دانلودها و فضا",
+    "group": "والد",
+    "scope": "V1-B",
+    "purpose": "مدیریت chunk و فضای ذخیره",
+    "states": [
+      "empty",
+      "active",
+      "paused",
+      "low_space",
+      "delete_confirm",
+      "offline",
+      "error"
+    ],
+    "source": "02 §5؛ 03 §S24",
+    "entry": "S20",
+    "exit": "S20",
+    "interactions": "pause/resume/delete old؛ هشدار chunk فعال؛ Wi-Fi preference",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "اندازه با installer یکی؛ حذف فعال توضیح re-download؛ عملیات safe."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "02 §5؛ 03 §S24"
+    ],
+    "redesign": {
+      "proposed_target_layout": "فهرست chunkها با اندازه‌ی واقعی، Wi‑Fi/داده‌ی همراه، pause/resume/delete و فضای موردنیاز؛ تأیید حذف و مسیر retry.",
+      "microcopy_examples": "«دانلودها و فضا»؛ «توقف»؛ «ادامه»؛ «برای ادامه فضا آزاد کنید»",
+      "mascot_pose_action": "حمل جعبه‌ی chunk و اشاره به فضا",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "manifest/hash/Range/atomic install",
+        "فضای موردنیاز Σbytes×۲+۵۰MB و سیاست شبکه"
+      ],
+      "actual_layout": "بستهٔ آماده، بستهٔ درحال‌دریافت، pause/resume، گام‌های verify/install و مسیر کمبود فضا.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ نمایش اندازه واقعی و اقدام آزادسازی فضا باید با installer یکسان شود.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S27",
+    "title": "پروفایل‌ها",
+    "group": "پروفایل",
+    "scope": "V1-B",
+    "purpose": "انتخاب/افزودن/ویرایش/حذف پروفایل",
+    "states": [
+      "list",
+      "active",
+      "add",
+      "edit",
+      "delete_confirm",
+      "limit",
+      "error"
+    ],
+    "source": "03 §S27؛ 02 §1.3",
+    "entry": "home/parent",
+    "exit": "S04/S20",
+    "interactions": "کودک فقط switch؛ mutation والد؛ سقف ۳",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "delete دو تأیید و قابل فهم؛ selected با متن/شکل نه رنگ تنها."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "03 §S27؛ 02 §1.3"
+    ],
+    "redesign": {
+      "proposed_target_layout": "فهرست پروفایل با active marker، افزودن/ویرایش/حذف، سقف سه و confirmation مخرب؛ ورود کودک به فرم والد ممنوع.",
+      "microcopy_examples": "«پروفایل‌های کودک»؛ «پروفایل چهارم ممکن نیست»",
+      "mascot_pose_action": "چیدن سه کارت پروفایل",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "دو پروفایل ثابت نمونه، انتخاب فعال، avatar مستقل، ویرایش/افزودن/مرور حذف.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ جداسازی لمس کودک از actions والد باید با gate_mode=off و تأییدهای ساده روشن باشد.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S21",
+    "title": "حالت‌های خاص",
+    "group": "کودک/خطا",
+    "scope": "V1-B",
+    "purpose": "حالت‌های locked/download/loading/subscription/retry بدون dead-end",
+    "states": [
+      "locked_sequential",
+      "locked_subscription",
+      "soon",
+      "offline",
+      "loading",
+      "retry",
+      "error"
+    ],
+    "source": "02 §3.5/§6؛ 03 §S21",
+    "entry": "node",
+    "exit": "S18/S24/S06-B/retry",
+    "interactions": "copy مهربان؛ رنگ تنها نیست؛ paywall بعد celebration/parent",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "هر state action/destination؛ دو skip پیوسته→retry/خانه؛ بدون «شکست» شرم‌آور."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "02 §3.5/§6؛ 03 §S21"
+    ],
+    "redesign": {
+      "proposed_target_layout": "صفحه‌ی state-specific با سه ظاهر متمایز (ترتیبی/اشتراک/به‌زودی)، توضیح مهربان، عمل اصلی و fallback به دانلود/خانه.",
+      "microcopy_examples": "«این بخش هنوز آماده نیست»؛ «بیایید یک مسیر دیگر را امتحان کنیم»",
+      "mascot_pose_action": "کنجکاو و دعوت به مسیر امن، نه خواب/غم",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "قفل ترتیبی، اشتراک و offline با copy و مقصد متفاوت؛ کودک قیمت نمی‌بیند.",
+      "pose_enum": "none",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود به‌صورت state surface؛ برای هر خطا آیکون/صوت و مقصد والد لازم است.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S05",
+    "title": "پیشنهاد/اجرای تعیین سطح",
+    "group": "تعیین سطح",
+    "scope": "V1-B",
+    "purpose": "تعیین سطح ایستگاه‌محور B",
+    "states": [
+      "intro",
+      "item",
+      "wrong",
+      "correct",
+      "early_stop",
+      "complete",
+      "skip"
+    ],
+    "source": "04 §S05؛ 00 D-73",
+    "entry": "S04 پس از آغاز دانلود پس‌زمینه؛ دارایی آزمون داخل APK است",
+    "exit": "S05r؛ انتخاب از اول ⇒ u00؛ سپس S22 در صورت ناتمام‌بودن دانلود",
+    "interactions": "۸ item؛ hint/score نمایش نمی‌دهد؛ دو miss متوالی توقف؛ don’t know=wrong",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "کل اجرا ≤۹۰ث در all-correct؛ placement ثبت؛ surprise paywall صفر."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S05؛ 00 D-73"
+    ],
+    "redesign": {
+      "proposed_target_layout": "پیشنهاد تعیین‌سطح بدون نمره/تنبیه، چند آیتم نشانه‌محور، پخش/تکرار، کارت خنثی و دکمه‌ی «از اول شروع کنیم».",
+      "microcopy_examples": "«دوست داری از اول شروع کنی یا یک بازی کوتاه را امتحان کنی؟»",
+      "mascot_pose_action": "گوش‌دادن با دست پشت گوش",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "curriculum B و placement/ledger",
+        "بسته‌ی starter و resume"
+      ],
+      "actual_layout": "شروع از صفر یا بازی تعیین سطح بدون نمره؛ دارایی starter مستقل از دانلود.",
+      "pose_enum": "listen",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "V1-B فقط با placement داده‌محور B؛ هیچ نمره/درست‌غلط نمایشی نباشد.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S05r",
+    "title": "نتیجه تعیین سطح",
+    "group": "تعیین سطح",
+    "scope": "V1-B",
+    "purpose": "نتیجه تعیین سطح و شروع در ایستگاه",
+    "states": [
+      "result",
+      "free_boundary",
+      "download_needed",
+      "skip"
+    ],
+    "source": "04 §S05/S05r؛ 00 D-34",
+    "entry": "S05",
+    "exit": "S22 یا S06-B",
+    "interactions": "K_eff=min(K,free)؛ شروع K؛ learned/strength طبق قرارداد",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "نمایش «از ایستگاه…»؛ قبل K auto-complete؛ پولی وسط درس نمایش داده نشود."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S05/S05r؛ 00 D-34"
+    ],
+    "redesign": {
+      "proposed_target_layout": "نتیجه با زبان احتمالی («از اینجا شروع کنیم»)، ایستگاه پیشنهادی، امکان شروع از u00 و توضیح داده‌ی والد.",
+      "microcopy_examples": "«از اینجا شروع کنیم»؛ «این فقط پیشنهاد است»",
+      "mascot_pose_action": "کاشتن یک جوانه روی ایستگاه پیشنهادی",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "curriculum B و placement/ledger",
+        "بسته‌ی starter و resume"
+      ],
+      "actual_layout": "ایستگاه پیشنهادی و گزینهٔ ازاول؛ ورود به خانهٔ آماده یا S22 در صورت نیاز بسته.",
+      "pose_enum": "point",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ متن K و تفاوت placed_unit/K_eff باید برای والد قابل گزارش باشد، نه کودک‌محور.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S06-A",
+    "title": "خانه Toy",
+    "group": "خانه",
+    "scope": "future",
+    "purpose": "خانه Toy برای مسیر A؛ در V1-B expose نمی‌شود",
+    "states": [
+      "empty",
+      "available",
+      "locked",
+      "completed"
+    ],
+    "source": "01 §2/§4؛ 04 §S06-A",
+    "entry": "future A",
+    "exit": "S30/next",
+    "interactions": "play ≥۱۶۰dp؛ icon/audio-first؛ companion مرکزی",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "در V1 route و asset فعال نیست؛ در آینده target لمس/بدون متن آزمون شود."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ معماری future، در V1 پنهان",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "01 §2/§4؛ 04 §S06-A"
+    ],
+    "redesign": {
+      "proposed_target_layout": "معماری آینده/hidden؛ در صورت فعال‌سازی خانه‌ی Toy با یک CTA صوتی بزرگ و مسیر آزاد، نه expose در B.",
+      "microcopy_examples": "«ادامه می‌دهیم»؛ «دوباره امتحان کنیم»؛ متن نهایی فقط از copy table پس از approval.",
+      "mascot_pose_action": "در حاشیه با حالت خنثی؛ نه عامل پاداش/فشار",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "مرجع hidden آینده؛ سطح Toy تولیدی فعال نشده است.",
+      "pose_enum": "none",
+      "audience": "child",
+      "active_in_v1": false,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "آماری/آینده؛ برای V1-B قفل شود، اما قرارداد داده آماده بماند.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S06-B",
+    "title": "خانه مسیر",
+    "group": "خانه",
+    "scope": "V1-B",
+    "purpose": "خانهٔ کتاب‌باغ B با مرحلهٔ تکمیل‌شده، کشف جاری و مقصد بعدی؛ ترتیب آموزشی از داده می‌آید",
+    "states": [
+      "loading",
+      "ready",
+      "current",
+      "completed",
+      "locked_sequential",
+      "locked_subscription",
+      "offline"
+    ],
+    "source": "01 §2؛ 04 §S06-B؛ 00 D-72/D-84",
+    "entry": "S22/S05r",
+    "exit": "S07/S30/S15/S16/S17",
+    "interactions": "نام کودک، نه Ava؛ current ≤۱ scroll؛ tabs ≥۷۲dp؛ lockها تفکیک",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "available/completed مستقیم؛ TalkBack قفل را توضیح دهد؛ نقطه و progress از راست."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "01 §2؛ 04 §S06-B؛ 00 D-72/D-84"
+    ],
+    "redesign": {
+      "proposed_target_layout": "خانه‌ی B با نقشه‌ی bottom-up، گره‌ی فعلی بزرگ، قفل‌های واضح، tabs مسیر/همراه/آلبوم و آواتار کودک در سربرگ.",
+      "microcopy_examples": "«یک کتاب، هزار کشف»؛ «بریم کشف کنیم»",
+      "mascot_pose_action": "ایستاده کنار گره‌ی جاری و اشاره به مسیر",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "نقشه از پایین به بالا؛ B-only و آواتار کودک در header؛ قفل ترتیبی از قفل اشتراک جدا"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "curriculum B و placement/ledger",
+        "بسته‌ی starter و resume"
+      ],
+      "actual_layout": "پروفایل شخصی، عنوان کتاب، باغ کتابی کوچک، گرهٔ مرور/جاری/بعدی، CTA و سه تب.",
+      "pose_enum": "point",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ گره جاری، قفل ترتیبی/اشتراکی و اسکرول باید تست دسترس‌پذیری شوند.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S06-C",
+    "title": "خانه Game/Learning",
+    "group": "خانه",
+    "scope": "future",
+    "purpose": "خانه مسیر C؛ معماری retained، V1 hidden",
+    "states": [
+      "hidden",
+      "available",
+      "locked"
+    ],
+    "source": "01 §2؛ 04 §S06-C",
+    "entry": "future C",
+    "exit": "S30",
+    "interactions": "unit selector و ۱۲-word max در آینده",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "D-43 مانع exposure V1؛ هیچ داده C در UI B نشت نکند."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ معماری future، در V1 پنهان",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "01 §2؛ 04 §S06-C"
+    ],
+    "redesign": {
+      "proposed_target_layout": "معماری آینده/hidden؛ در صورت فعال‌سازی خانه‌ی Game/Learning با واحد/هدف روزانه، نه expose در B.",
+      "microcopy_examples": "«ادامه می‌دهیم»؛ «دوباره امتحان کنیم»؛ متن نهایی فقط از copy table پس از approval.",
+      "mascot_pose_action": "در حاشیه با حالت خنثی؛ نه عامل پاداش/فشار",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "مرجع hidden آینده؛ سطح Game/Learning تولیدی فعال نشده است.",
+      "pose_enum": "none",
+      "audience": "child",
+      "active_in_v1": false,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "آینده؛ D-43 اجرای V1 فقط B را تأیید می‌کند.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S07",
+    "title": "معرفی ایستگاه",
+    "group": "خانه/ورود مرحله",
+    "scope": "V1-B",
+    "purpose": "معرفی ایستگاه و ورود به اولین node",
+    "states": [
+      "loading",
+      "ready",
+      "narrating",
+      "skipped",
+      "missing_asset"
+    ],
+    "source": "04 §S07؛ 00 D-64",
+    "entry": "first unit entry",
+    "exit": "S30/back→S06-B",
+    "interactions": "≤۳ مورد یادگیری؛ narration skippable؛ R10 missing را حدس نزن",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "R10/تصویر نهایی موجود نیست: فقط layout-only؛ button ≥۷۲dp و transcript."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S07؛ 00 D-64"
+    ],
+    "redesign": {
+      "proposed_target_layout": "معرفی ایستگاه با تصویر/نام ایستگاه، خلاصه‌ی نشانه/واژه/قصه، راوی و CTA شروع؛ گم‌کردن مقصد ممنوع.",
+      "microcopy_examples": "«یک صدای تازه پیدا کنیم»؛ «شروع مرحله»",
+      "mascot_pose_action": "بازکردن کتاب باغ",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "curriculum B و placement/ledger",
+        "بسته‌ی starter و resume"
+      ],
+      "actual_layout": "روباه همراه معرفی، برگ نشانه، سه preview صدا/بازی/قصه، شروع مرحله.",
+      "pose_enum": "wave",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ مرجع تصویری R10 در بسته نیست، پس layout تا تأیید قفل موقت دارد.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S30",
+    "title": "اجراگر درس",
+    "group": "اجرای یادگیری",
+    "scope": "V1-B",
+    "purpose": "اجرای یک node با stepهای داده‌محور و resume",
+    "states": [
+      "loading",
+      "ready",
+      "playing",
+      "paused",
+      "retry",
+      "idle",
+      "asset_missing",
+      "exit_confirm",
+      "done"
+    ],
+    "source": "04 §S30؛ 02 §7",
+    "entry": "S06-B/S07",
+    "exit": "S13 یا خانه",
+    "interactions": "یک step؛ replay ۶۴؛ idle ۸/۱۶/۳۰/۶۰ث؛ node_run بعد هر success",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "missing asset skip+event؛ دو skip→S21؛ خروج <۲۴س ادامه از step."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S30؛ 02 §7"
+    ],
+    "redesign": {
+      "proposed_target_layout": "lesson shell داده‌محور: progress، replay، pause/exit، step renderer و resume؛ یک هدف در هر گام، نه کارت تزئینی.",
+      "microcopy_examples": "«یک مرحله، چند کشف»؛ «مکث و خروج»",
+      "mascot_pose_action": "راوی کنار progress، کنترل‌شده",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "curriculum B و placement/ledger",
+        "بسته‌ی starter و resume"
+      ],
+      "actual_layout": "پوستهٔ اجرای درس، cue، progress، بازپخش و خروج امن؛ ترتیب از engine تولیدی می‌آید.",
+      "pose_enum": "welcome",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ نقطه بازیابی، timeoutهای ۸/۱۶/۳۰/۶۰ث و skip asset باید instrumentation شود.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S08",
+    "title": "معرفی حرف",
+    "group": "فعالیت",
+    "scope": "V1-B",
+    "purpose": "معرفی نشانه با مدل پیشنهادی واژه‌اول D-99",
+    "states": [
+      "demo",
+      "keyword",
+      "audio",
+      "replay",
+      "forms",
+      "complete"
+    ],
+    "source": "04 §S08؛ 00 D-99/D-100",
+    "entry": "S30",
+    "exit": "S09/next",
+    "interactions": "B: picture+whole-word audio ۰–۱٫۵ث سپس نشانه؛ copy/audio approved gate؛ A/C future",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "صدا پیش از next؛ variantها و shape اول/وسط/آخر؛ trace/vector تأییدشده."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S08؛ 00 D-99/D-100"
+    ],
+    "redesign": {
+      "proposed_target_layout": "نمایش واژه/تصویر و نشانه‌ی هدف، صدای بی‌مصوت، replay و سپس انتقال آرام به ردگیری؛ متن داخل تصویر ممنوع.",
+      "microcopy_examples": "«با «آب» آشنا شو»؛ «حالا با هم بنویسیم»",
+      "mascot_pose_action": "نشان‌دادن واژه و لمس قطره",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "تصویر آب، نشانه/واژه و همراه شنوا؛ یک replay. mapping آموزشی fixture نیازمند تأیید.",
+      "pose_enum": "listen",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ شکل‌های رسمی و صدای حرف D-14/D-52 هنوز تصمیم/تأیید بیرونی دارند.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S09",
+    "title": "ردگیری",
+    "group": "فعالیت",
+    "scope": "V1-B",
+    "purpose": "ردگیری نشانه با vector رسمی و feedback غیرشرم‌آور",
+    "states": [
+      "ready",
+      "demo",
+      "tracing",
+      "near_miss",
+      "retry",
+      "success",
+      "paused"
+    ],
+    "source": "04 §S09؛ 00 D-83",
+    "entry": "S30",
+    "exit": "next/retry",
+    "interactions": "first finger؛ tolerance/coverage؛ نقطه بعد body؛ drag alternative محدود",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "۳۰fps ضعیف؛ R19 جهت/شروع با استثنا direction_note؛ path approved."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S09؛ 00 D-83"
+    ],
+    "redesign": {
+      "proposed_target_layout": "بوم trace بزرگ با vector رسمی و start/tolerance/coverage per glyph، نمایش نمونه، retry مهربان و لمس به‌جای drag.",
+      "microcopy_examples": "«با انگشتت بنویس»؛ «دوباره امتحان کنیم»",
+      "mascot_pose_action": "آهسته کشیدن مسیر با انگشت",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "vector رسمی per glyph، شروع stroke از راست و tolerance/coverage؛ R19/R20 سبز و pilot کودک"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "همراه راهنما، بوم pointer، نقطهٔ شروع روشن، reset و demo؛ gesture بدون grading آموزشی.",
+      "pose_enum": "demo",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ trace_path و جهت stroke باید تأیید معلم و آزمون ۳۰fps شوند.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S10",
+    "title": "گوش کن و انتخاب کن",
+    "group": "فعالیت",
+    "scope": "V1-B",
+    "purpose": "شنیدن صدا و انتخاب نشانه",
+    "states": [
+      "listen",
+      "choice",
+      "selected",
+      "wrong",
+      "retry",
+      "done"
+    ],
+    "source": "04 §S10؛ 01 §6",
+    "entry": "S30",
+    "exit": "next/retry",
+    "interactions": "choices فقط learned؛ min۲/max طبق data؛ homophone exclusion/cue؛ replay",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "label/TalkBack؛ رنگ تنها نیست؛ auto audio و no visual-only correctness."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S10؛ 01 §6"
+    ],
+    "redesign": {
+      "proposed_target_layout": "prompt صوتی و ۲–۴ انتخاب فقط از نشانه‌های مجاز، replay یکتا، feedback بی‌شرم و قفل شدن CTA تا انتخاب.",
+      "microcopy_examples": "«گوش کن و انتخاب کن»؛ «دوباره بشنو»",
+      "mascot_pose_action": "گوش‌دادن و اشاره به کارت‌ها",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "همراه شنوا، audio orb و کارت نشانه؛ selected/tick، cue آرام بعد خطا.",
+      "pose_enum": "listen",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ allowed_stages، هم‌صداها و کارت خنثی باید validator-enforced باشند.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S10b",
+    "title": "صدای اول/واژه به حرف",
+    "group": "فعالیت",
+    "scope": "V1-B",
+    "purpose": "واژه/تصویر به صدای اول/آخر و نشانه",
+    "states": [
+      "prompt",
+      "choice",
+      "wrong",
+      "retry",
+      "done"
+    ],
+    "source": "04 §S10b؛ 01 §6",
+    "entry": "S30",
+    "exit": "next/retry",
+    "interactions": "first_sound از مسیر؛ last_sound از u03؛ word approved؛ S10 قاطی نشود",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "هدف با ≥۶۴dp؛ validator واژه؛ متن و audio هم‌ارز."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S10b؛ 01 §6"
+    ],
+    "redesign": {
+      "proposed_target_layout": "تصویر/واژه و پرسش صدای اول/آخر بر اساس داده، کارت‌های خنثی در کمبود نشانه، replay و اعلام mode.",
+      "microcopy_examples": "«صدای اول را پیدا کن»؛ «صدای آخر را پیدا کن»",
+      "mascot_pose_action": "گوش‌دادن و اشاره به کارت‌ها",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "تصویر keyword اضافه بر شنیدن، سپس انتخاب صدای اول؛ هدف متفاوت از S10.",
+      "pose_enum": "listen",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ فقط words approved و گزینه‌های آموخته‌شده.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S11",
+    "title": "بگرد و پیدا کن",
+    "group": "فعالیت",
+    "scope": "V1-B",
+    "purpose": "پیدا کردن هدف در صحنه/کارت واژه",
+    "states": [
+      "scene",
+      "search",
+      "found",
+      "wrong",
+      "retry",
+      "done"
+    ],
+    "source": "04 §S11؛ 01 §5",
+    "entry": "S30",
+    "exit": "next/S13",
+    "interactions": "B scene/word_cards؛ target ≥۶۴؛ هدف با رنگ تنها مشخص نشود",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "همه target با یک انگشت؛ target/distractor spoken/labelled."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S11؛ 01 §5"
+    ],
+    "redesign": {
+      "proposed_target_layout": "صحنه‌ی خلوت با ۲–۳ هدف بزرگ، ناحیه‌های لمس مستقل، صوت نام شیء و بازخورد تدریجی؛ صفحه شلوغ نشود.",
+      "microcopy_examples": "«بگرد و پیدا کن»؛ «آفرین، پیداش کردی»",
+      "mascot_pose_action": "ذره‌بین و کشف نقطه‌ی هدف",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "باغ و گزینهٔ شیء هدف با تصویر؛ found/retry بدون امتیاز منفی.",
+      "pose_enum": "point",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ word_cards برای موارد کم‌واژه/هم‌صدا لازم است.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S12-G1",
+    "title": "صدا رو بگیر",
+    "group": "مینی‌گیم",
+    "scope": "V1-B",
+    "purpose": "شنیدن هدف و گرفتن حباب صدا",
+    "states": [
+      "intro",
+      "moving",
+      "choice",
+      "wrong",
+      "retry",
+      "done"
+    ],
+    "source": "04 §S12/G1",
+    "entry": "S30",
+    "exit": "next/S13",
+    "interactions": "B speed ۹۰dp/s؛ no timer؛ bubble خارج نشود",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "hit area و replay؛ reduced motion target ثابت/قابل تشخیص."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S12/G1"
+    ],
+    "redesign": {
+      "proposed_target_layout": "میدان حباب‌های صوتی با حرکت محدود و هدف‌های درون viewport؛ دکمه‌ی replay ثابت و بدون timer/failure.",
+      "microcopy_examples": "«صدا رو بگیر»؛ «دوباره گوش کنیم»",
+      "mascot_pose_action": "گرفتن حباب نزدیک، با حرکت محدود",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "هر شش G1–G6 در library V1؛ drag و tap alternative؛ rotation از curriculum نه نمایش همه در هر node"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "سه بادکنک محدود به بوم، حرکت کم، پاسخ با لمس؛ بدون timer یا بادکنک فراری.",
+      "pose_enum": "point",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ بادکنک باید loop شود و هرگز خارج نشود.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S12-G2",
+    "title": "غذای موجود",
+    "group": "مینی‌گیم",
+    "scope": "V1-B",
+    "purpose": "تطبیق غذای موجود با صدای اول",
+    "states": [
+      "intro",
+      "drag",
+      "tap_alt",
+      "wrong",
+      "retry",
+      "done"
+    ],
+    "source": "04 §S12/G2",
+    "entry": "S30 optional",
+    "exit": "next/S13",
+    "interactions": "drag و tap alternative؛ B در rotation پیش‌فرض نیست",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "کارت غلط برگردد؛ هیچ تنبیه/تف؛ recovery کامل."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S12/G2"
+    ],
+    "redesign": {
+      "proposed_target_layout": "دو مرحله‌ی واضح کارت→دوست با drag و tap جایگزین، بازخورد انتخاب و امکان برگشت؛ asset دوست configurable.",
+      "microcopy_examples": "«به دوستمان غذا بده»؛ «کارت را لمس کن»",
+      "mascot_pose_action": "تعارف‌کردن خوراکی به دوست",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "هر شش G1–G6 در library V1؛ drag و tap alternative؛ rotation از curriculum نه نمایش همه در هر node"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "دوست و کاسه، انتخاب کارت و حالت تحویل؛ tap alternative به جای drag اجباری.",
+      "pose_enum": "welcome",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ در چرخش پیش‌فرض B نیست و برای drag hit-area/بازگشت کارت تست شود.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S12-G3",
+    "title": "کلمه‌ساز",
+    "group": "مینی‌گیم",
+    "scope": "V1-B",
+    "purpose": "ساخت واژه با حروف مجاز",
+    "states": [
+      "intro",
+      "choosing",
+      "partial",
+      "wrong",
+      "retry",
+      "done"
+    ],
+    "source": "04 §S12/G3؛ 01 §5",
+    "entry": "S30 word node",
+    "exit": "next/S13",
+    "interactions": "B ≤۳ حرف، fill راست→چپ، بدون distractor؛ read-back",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "drop/tap alternative؛ واژه approved؛ slot labels."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S12/G3؛ 01 §5"
+    ],
+    "redesign": {
+      "proposed_target_layout": "بانک حروف و slotهای واژه، drag/tap، خواندن واژه‌ی ساخته‌شده و reset/retry؛ فقط حروف مجاز node.",
+      "microcopy_examples": "«واژه را بساز»؛ «حالا بخوانیم»",
+      "mascot_pose_action": "چیدن حروف روی slot",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "هر شش G1–G6 در library V1؛ drag و tap alternative؛ rotation از curriculum نه نمایش همه در هر node"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "همراه فکرکننده، دو slot و tokenها RTL؛ چیدن و reset؛ موتور validation در تولید.",
+      "pose_enum": "think",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ پرشدن از راست و واژه‌های approved/حداکثر ۳ حرف B.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S12-G4",
+    "title": "جفت‌یابی",
+    "group": "مینی‌گیم",
+    "scope": "V1-B",
+    "purpose": "جفت‌یابی شکل/صدا/تصویر",
+    "states": [
+      "intro",
+      "flipped",
+      "match",
+      "wrong",
+      "retry",
+      "done"
+    ],
+    "source": "04 §S12/G4",
+    "entry": "S30 letter node",
+    "exit": "next/S13",
+    "interactions": "B سه جفت؛ effort count ندارد؛ identity رنگ‌مستقل",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "دو کارت face-up؛ retry؛ ۱٫۵ث فقط A future."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S12/G4"
+    ],
+    "redesign": {
+      "proposed_target_layout": "شبکه‌ی کارت‌های بزرگ با flip کنترل‌شده، حالت match/mismatch و replay صوت؛ شمارش اشتباه/زمان‌سنج حذف.",
+      "microcopy_examples": "«دو تا دوست پیدا کن»؛ «آرام امتحان کن»",
+      "mascot_pose_action": "دو کارت را به هم نزدیک‌کردن",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "هر شش G1–G6 در library V1؛ drag و tap alternative؛ rotation از curriculum نه نمایش همه در هر node"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "شش کارت برگ، open/reset و state match؛ engine دو کارت و pairing در تولید.",
+      "pose_enum": "think",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ B سه جفت، بدون شمارش تلاش و با زمان نمایش A فقط آینده.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S12-G5",
+    "title": "پل هجا",
+    "group": "مینی‌گیم",
+    "scope": "V1-B",
+    "purpose": "ترکیب هجا به واژه",
+    "states": [
+      "intro",
+      "drag",
+      "tap_alt",
+      "wrong",
+      "retry",
+      "done"
+    ],
+    "source": "04 §S12/G5؛ 01 §5",
+    "entry": "S30 after lesson≥3",
+    "exit": "next/S13",
+    "interactions": "B دو تکه؛ قبل از درس۳ fallback=G4؛ drop ≥۶۴",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "ترتیب/semantic labels؛ واژه approved؛ بدون timer."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S12/G5؛ 01 §5"
+    ],
+    "redesign": {
+      "proposed_target_layout": "پل هجا با جایگاه‌های بزرگ و drag/tap، پخش پیوسته و انتخاب معنا؛ فقط پس از lesson≥۳.",
+      "microcopy_examples": "«پل هجا را بساز»؛ «هجاها را کنار هم بگذار»",
+      "mascot_pose_action": "ساختن پل با دو دست",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "هر شش G1–G6 در library V1؛ drag و tap alternative؛ rotation از curriculum نه نمایش همه در هر node"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "دو دوست دو سوی آب، دو کاشی پل، هجا با لمس و واژهٔ نهایی.",
+      "pose_enum": "point",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود مشروط؛ B پس از درس ۳، وگرنه G4.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S12-G6",
+    "title": "شعر و آهنگ",
+    "group": "مینی‌گیم",
+    "scope": "V1-B",
+    "purpose": "شعر/قافیه با متن قابل مشاهده",
+    "states": [
+      "intro",
+      "playing",
+      "choice",
+      "wrong",
+      "retry",
+      "done"
+    ],
+    "source": "04 §S12/G6",
+    "entry": "S30 story/treasure",
+    "exit": "next/S13",
+    "interactions": "شعر original/licensed؛ touch rhyming word؛ transcript",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "audio replay؛ قافیه فقط صوتی نیست؛ copyright gate."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S12/G6"
+    ],
+    "redesign": {
+      "proposed_target_layout": "شعر/قافیه با متن کامل قابل‌مشاهده، highlight صوتی، انتخاب قافیه و replay؛ متن به تصویر نسپارید.",
+      "microcopy_examples": "«با هم بخوانیم»؛ «کدام واژه هم‌قافیه است؟»",
+      "mascot_pose_action": "خواندن از روی کتابچه",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "هر شش G1–G6 در library V1؛ drag و tap alternative؛ rotation از curriculum نه نمایش همه در هر node"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "جغد قصه‌گو، سه سطر صوت‌پذیر و focus سطر؛ شعر نمونه تأییدنشده است.",
+      "pose_enum": "read",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود محدود؛ فقط داستان/گنج B و شعر باید اصیل/بدون حق نشر باشد.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S31",
+    "title": "نگاره‌گردی",
+    "group": "فعالیت A",
+    "scope": "future (baseline); V1-B proposed u00 v2 (review)",
+    "purpose": "نگاره‌گردی؛ در v1.7-review برای u00 B v2 proposed، نه future",
+    "states": [
+      "explore",
+      "find",
+      "say",
+      "wrong",
+      "retry",
+      "done",
+      "not_enabled"
+    ],
+    "source": "04 §S31؛ 01 §5",
+    "entry": "S30/u00",
+    "exit": "next/S13",
+    "interactions": "۴–۵ touchpoint؛ تصویر بدون متن؛ در B choices همه اشیای صحنه؛ no microphone",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "هر target ≥۸۰dp؛ voice-only equivalent؛ وضعیت pending تا اجرای ۲۰/R22."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود در register؛ scope اصلاح‌شده: proposed V1-B u00 v2، pending approval/content build (نه future)",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S31؛ 01 §5"
+    ],
+    "redesign": {
+      "proposed_target_layout": "u00 v2 پیشنهادی: صحنه‌ی تصویر بزرگ با ۴–۵ touchpoint، say/پیدا کن، بدون تحمیل متن؛ فقط پس از approval.",
+      "microcopy_examples": "«توی باغ بگرد»؛ «لمس کن و بگو»",
+      "mascot_pose_action": "ذره‌بین و کشف نقطه‌ی هدف",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "کشف آزاد باغ و شیء شنیداری؛ گونه و keyword با curriculum قفل می‌شوند.",
+      "pose_enum": "point",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "آینده A؛ موضوع نگاره‌ها و D-28 هنوز بیرونی/نامشخص است.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S32",
+    "title": "بازی صدا",
+    "group": "فعالیت A / ایستگاه صفر B",
+    "scope": "V1-B",
+    "purpose": "نردبان واج‌آگاهی و صداهای محیط در u00 B v2",
+    "states": [
+      "env",
+      "clap",
+      "syl_blend",
+      "rhyme",
+      "first",
+      "last",
+      "oral_blend",
+      "challenge",
+      "retry",
+      "done"
+    ],
+    "source": "04 §S32؛ 00 D-78",
+    "entry": "S30/u00",
+    "exit": "next/S13",
+    "interactions": "۴ دور/۲ choice؛ مکث B=۱۰۰۰ms؛ no timer؛ clap ≤۴ بدون failure",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "u00 v2 هفت حالت را پوشش دهد؛ R22 error؛ audio replay."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S32؛ 00 D-78"
+    ],
+    "redesign": {
+      "proposed_target_layout": "نردبان modeها (env/clap/syl_blend/rhyme/first/last/oral_blend/challenge) با progress و ۲–۴ choice؛ بدون timer.",
+      "microcopy_examples": "«کدام صدا را شنیدی؟»؛ «دوباره گوش کن»",
+      "mascot_pose_action": "دست پشت گوش در mode صوتی",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "تمام modeهای u00 v2 در R22 gate؛ بدون timer و failure برای clap"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "پرندهٔ شنوا، audio، گزینه‌های محیطی و cue variantهای صدا؛ محتوای صوتی production لازم.",
+      "pose_enum": "listen",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "برای B در u00 با دو گزینه و مکث ۱۰۰۰ms؛ A آینده و قواعد ۴ دور.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S33",
+    "title": "صداکشی و ترکیب",
+    "group": "فعالیت جدید",
+    "scope": "V1-B",
+    "purpose": "صداکشی/ترکیب پیوسته D-88؛ proposed pending در V1-B، نه future",
+    "states": [
+      "demo",
+      "ready",
+      "dragging",
+      "fast_prompt",
+      "meaning",
+      "retry",
+      "done"
+    ],
+    "source": "00 D-88؛ §4 فهرست صفحه‌ها",
+    "entry": "S30/u02+",
+    "exit": "S13/next",
+    "interactions": "B ≤۴ نشانه، ۳ item، سرسره راست→چپ، marks_ms؛ در نیمه word nodeها چرخشی با G3",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "silence بین phoneme ≤۸۰ms؛ آزمون ۵ساله ≥۸/۱۰ بدون توضیح؛ R21 error."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود در register؛ proposed V1-B، pending S33 contract/content CI (نه future)",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "00 D-88؛ §4 فهرست صفحه‌ها"
+    ],
+    "redesign": {
+      "proposed_target_layout": "سه فاز segment→blend→meaning، سرسره راست→چپ با marks_ms، پخش پیوسته، fast prompt و ۲–۳ تصویر؛ لمس جایگزین.",
+      "microcopy_examples": "«صداها را به هم بچسبان»؛ «از راست به چپ بکش»",
+      "mascot_pose_action": "کشیدن روبان صدا از راست به چپ",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "marks_ms، سکوت بین phonemeها ≤۸۰ms، ۳ item و pilot کودک ≥۸/۱۰؛ تا approval pending باقی بماند"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "تأیید آموزشی/معلم",
+        "audio + trace/vector رسمی و R19–R23"
+      ],
+      "actual_layout": "نشانه‌های جدا، سرسرهٔ RTL، tap alternative، سپس انتخاب معنای تصویری؛ بدون صدای واقعی.",
+      "pose_enum": "demo",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "وجودش در index تصمیم ثبت شده، اما جزئیات کامل در فایل ۲۰ خارج از این بسته است؛ قبل از اجرا specification را وارد source of truth کنید.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S13",
+    "title": "پایان درس/جشن",
+    "group": "پاداش",
+    "scope": "V1-B",
+    "purpose": "نمایش برگ کشف پس از completion معتبر و commit پاداش exactly-once؛ بازگشت بدون فشار",
+    "states": [
+      "saving",
+      "celebrate",
+      "collect",
+      "continue",
+      "idle",
+      "retry"
+    ],
+    "source": "04 §S13؛ 01 §9",
+    "entry": "S30",
+    "exit": "S06-B/S26",
+    "interactions": "ledger پیش از reveal؛ برگ نمایش بصری پاداش است، نه ارز تازه. جشن کوتاه و قابل عبور؛ بدون انتظار اجباری یا خروج خودکار ناخواسته. مقدار و نوع reward تولیدی از قرارداد داده می‌آید.",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "دو بار tap یک reward؛ قطع شبکه/پس‌زمینه duplicate نسازد."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S13؛ 01 §9"
+    ],
+    "redesign": {
+      "proposed_target_layout": "جشن کوتاه با reward قابل‌فهم، ثبت exactly-once قبل از انیمیشن، دکمه‌ی ادامه و مشاهده در آلبوم؛ پاداش جای یادگیری نیست.",
+      "microcopy_examples": "«یک کشف تازه!»؛ «برگردیم به مسیر»",
+      "mascot_pose_action": "پریدن کوتاه و گرفتن کارت؛ جشن ≤۴ث",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "ledger exactly-once قبل از celebrate؛ retry نباید reward دوبرابر بدهد؛ انیمیشن ≤۴ث"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "saving/commit سپس جشن آوا، برگ collectible و مقصد کتاب/باغ؛ ledger نمونه profile-scoped.",
+      "pose_enum": "celebrate",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ transaction باید قبل از نمایش ذخیره شود و دکمه بعد ۱٫۵ث فعال شود.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S14",
+    "title": "کتاب داستان",
+    "group": "فعالیت روایی",
+    "scope": "V1-B",
+    "purpose": "کتاب داستان رمزگشاپذیر و پرسش",
+    "states": [
+      "page",
+      "audio",
+      "read_with_me",
+      "read_myself",
+      "question",
+      "retry",
+      "done"
+    ],
+    "source": "04 §S14؛ 01 §5",
+    "entry": "story node",
+    "exit": "S13/back",
+    "interactions": "B چهار page؛ فقط learned letters؛ no auto page advance؛ true_false از u05",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "audio replay؛ arrows RTL؛ word hit area و question TalkBack."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S14؛ 01 §5"
+    ],
+    "redesign": {
+      "proposed_target_layout": "کتاب چندصفحه‌ای با تصویر، متن قابل‌خواندن، read-with-me/read-myself، لمس برای پخش و پرسش؛ کنترل صفحه بزرگ.",
+      "microcopy_examples": "«قصه‌ی امروز»؛ «با هم بخوانیم»؛ «خودم می‌خوانم»",
+      "mascot_pose_action": "نشستن و ورق‌زدن",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "سه برگ قصهٔ نمونه، tap کلمه، برگ‌گردان RTL، خواندن با راوی و پرسش تصویری.",
+      "pose_enum": "read",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "V1-B فقط دو حالت B؛ متن باید allowed_stages و approved باشد.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S15",
+    "title": "خانه همراه",
+    "group": "شخصی‌سازی",
+    "scope": "V1-B",
+    "purpose": "ساخت همراه شخصی هر پروفایل؛ رنگ، کلاه، کتاب و نقش با پیش‌نمایش و ذخیرهٔ مستقل",
+    "states": [
+      "empty",
+      "browse",
+      "owned",
+      "insufficient",
+      "confirm"
+    ],
+    "source": "04 §S15",
+    "entry": "S06-B tab",
+    "exit": "preview → ذخیرهٔ همراه؛ S20 بخش بزرگ‌ترها؛ S06-B/S16 با تب‌ها",
+    "interactions": "انتخاب آزاد رنگ/کلاه/کتاب/نقش؛ ذخیرهٔ profile-scoped؛ بدون خرید پولی یا کمیابی. موجودی سکهٔ legacy در دادهٔ مرجع دست‌نخورده است؛ UI تازهٔ شخصی‌سازی، پیشنهاد جایگزین surface فروشگاه است.",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "confirm semantics؛ کمبود سکه توضیح؛ layer-safe."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S15"
+    ],
+    "redesign": {
+      "proposed_target_layout": "تب همراه با پیش‌نمایش آواتار/لباس/کتاب و سکه؛ خرید فقط با سکه‌ی earned و parent settings خارج از کودک.",
+      "microcopy_examples": "«خانه‌ی آوا»؛ «فقط با سکه‌های خودت»",
+      "mascot_pose_action": "پوشیدن کوله/نگه‌داشتن کتاب",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "آواتار مستقل، چهار category رنگ/کلاه/کتاب/نقش، preview و save، مسیر والد و تب‌ها.",
+      "pose_enum": "welcome",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ کاتالوگ shop.json و لایه‌بندی CompanionView لازم است.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S16",
+    "title": "آلبوم",
+    "group": "پاداش/مرور",
+    "scope": "V1-B",
+    "purpose": "آلبوم نماد/واژه و مرور",
+    "states": [
+      "empty",
+      "partial",
+      "new",
+      "locked",
+      "playing"
+    ],
+    "source": "04 §S16",
+    "entry": "S06-B tab",
+    "exit": "card/replay",
+    "interactions": "هر card title/audio؛ grid keyboard/TalkBack",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "قفل dead-end نیست؛ shape/label مستقل از رنگ."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S16"
+    ],
+    "redesign": {
+      "proposed_target_layout": "شبکه‌ی آلبوم با کارت unlocked/locked، replay و دسته‌بندی نماد/واژه؛ سطح مرور بدون فشار.",
+      "microcopy_examples": "«کشف‌های من»؛ «هر کارت، یک یادآوری»",
+      "mascot_pose_action": "چسباندن کارت در آلبوم",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "کتاب دوصفحه‌ای کشف‌ها، برگ تازه/قابل‌شنیدن/بعدی؛ قفل بدون فشار.",
+      "pose_enum": "read",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ کارت فقط پس از S13 و صدای مرتبط.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S17",
+    "title": "گل‌های هفته/هدف روزانه",
+    "group": "برگه خانه",
+    "scope": "V1-B",
+    "purpose": "گل‌های هفته و هدف روزانه بدون شرم",
+    "states": [
+      "empty",
+      "today",
+      "complete",
+      "missed",
+      "new_week"
+    ],
+    "source": "04 §S17؛ 01 §9",
+    "entry": "S06-B",
+    "exit": "sheet/S06-B",
+    "interactions": "B هدف ۱ node؛ ۷ خانه؛ reward once؛ week شنبه/Jalali",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "already_complete و date boundary تست؛ reset/shame copy ممنوع."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S17؛ 01 §9"
+    ],
+    "redesign": {
+      "proposed_target_layout": "برگه‌ی گل هفتگی و هدف امروز با completion، missed/new week؛ روز خالی جریمه یا streak-breaking ندارد.",
+      "microcopy_examples": "«گل‌های این هفته»؛ «روزهای خالی جریمه ندارند»",
+      "mascot_pose_action": "آب‌دادن گل؛ روز خالی بی‌تفاوت",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "هفت گل هفته با روزهای خالی بدون جریمه و دعوت آرام به برگشت.",
+      "pose_enum": "wave",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود؛ هفته از شنبه و هدف B یک گره/روز، پاداش یک‌بار.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "S26",
+    "title": "پایان مسیر",
+    "group": "پایان مسیر",
+    "scope": "V1-B",
+    "purpose": "پایان B در u15 و free play",
+    "states": [
+      "reveal",
+      "certificate",
+      "free_play",
+      "report"
+    ],
+    "source": "04 §S26؛ 01 §4/§8",
+    "entry": "u15/S13",
+    "exit": "free play/report",
+    "interactions": "تغییر خودکار track ندارد؛ repeat free-play",
+    "errors": "خطای شبکه/دارایی/صدا/فضا در صورت مرتبط؛ هر خطا retry یا مسیر امن دارد.",
+    "acceptance": {
+      "source": "معیارهای منبع/ممیزی؛ در موارد باز نتیجه محسوب نمی‌شود",
+      "criterion": "گواهی accessible؛ u15 پایان B؛ والد suggestion جدا."
+    },
+    "source_kind": "موجود در register / منبع ممیزی",
+    "status": "موجود؛ اجرای V1-B",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "04 §S26؛ 01 §4/§8"
+    ],
+    "redesign": {
+      "proposed_target_layout": "پایان مسیر با خلاصه‌ی آموخته‌ها، certificate اختیاری، free play و گزارش والد؛ بازگشت امن به خانه.",
+      "microcopy_examples": "«کتابت را خواندی!»؛ «دوباره کشف کنیم»",
+      "mascot_pose_action": "ایستادن کنار قلعه با پرچم کوچک",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "همراه جشن، گواهی غیررقابتی و مسیر بازی دوباره/بزرگ‌تر.",
+      "pose_enum": "celebrate",
+      "audience": "child",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "موجود برای B؛ متن پیشنهاد مسیر فقط در S19 والد و بدون تغییر خودکار.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "CMS-01",
+    "title": "داشبورد CMS",
+    "group": "CMS",
+    "scope": "admin",
+    "purpose": "داشبورد ماژول‌ها، validator و blockers",
+    "states": [
+      "loaded",
+      "empty",
+      "blocked",
+      "offline"
+    ],
+    "source": "12 §2/§7",
+    "entry": "CMS-00",
+    "exit": "CMS-02..08",
+    "interactions": "nav role-specific؛ publish blockers visible",
+    "errors": "خطای validation/permission/network مسیر retry یا audit دارد.",
+    "acceptance": {
+      "source": "قرارداد پیشنهادی handoff بر پایه product/content audit و 12_CMS",
+      "criterion": "build در blocked audio/content publish نشود؛ نقش‌ها enforced."
+    },
+    "source_kind": "موجود در register؛ screen پیشنهادی CMS از ممیزی",
+    "status": "موجود؛ CMS production V1 (milestone)",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "12 §2/§7"
+    ],
+    "redesign": {
+      "proposed_target_layout": "داشبورد وب با وضعیت validator، blockers، نسخه‌ی بسته و ماژول‌های قابل‌ورود؛ ۱۲۰/۱۲۳ به‌عنوان current/target برچسب‌دار.",
+      "microcopy_examples": "«سلامت بسته‌ی آموزشی»؛ «انتشار مسدود تا تأیید»",
+      "mascot_pose_action": "نمایشگر/راهنمای خنثی، بدون mascot کودک",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "role/approval/publish server-side؛ audit و rollback؛ استقرار فقط پس از gateهای محتوا/صوت/دارایی"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "RBAC server-side",
+        "validator/approval/audit immutable"
+      ],
+      "actual_layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "pose_enum": "none",
+      "audience": "cms",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "پیشنهاد اجرایی؛ در spec صفحه/permission matrix مجزا نشده است.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "CMS-02",
+    "title": "مدیریت محتوا و برنامه درسی",
+    "group": "CMS",
+    "scope": "admin",
+    "purpose": "مدیریت نماد/ایستگاه/مرحله/واژه/قصه/placement",
+    "states": [
+      "draft",
+      "editing",
+      "review",
+      "validation_error",
+      "published",
+      "archived"
+    ],
+    "source": "12 §2.1/§3",
+    "entry": "CMS-01",
+    "exit": "CMS-07 یا draft",
+    "interactions": "drag order؛ preview؛ archive نه hard delete؛ before/after audit",
+    "errors": "خطای validation/permission/network مسیر retry یا audit دارد.",
+    "acceptance": {
+      "source": "قرارداد پیشنهادی handoff بر پایه product/content audit و 12_CMS",
+      "criterion": "draft error ممکن؛ publish فقط validation+approval؛ introduced_in unique."
+    },
+    "source_kind": "موجود در register؛ screen پیشنهادی CMS از ممیزی",
+    "status": "موجود؛ CMS production V1 (milestone)",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "12 §2.1/§3"
+    ],
+    "redesign": {
+      "proposed_target_layout": "لیست/ویرایش داده‌ی curriculum با draft/review/publish، diff، placement و validator inline؛ تغییر بدون approval منتشر نشود.",
+      "microcopy_examples": "«محتوا و برنامه‌ی درسی»؛ «ذخیره‌ی پیش‌نویس»",
+      "mascot_pose_action": "نمایشگر/راهنمای خنثی، بدون mascot کودک",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "role/approval/publish server-side؛ audit و rollback؛ استقرار فقط پس از gateهای محتوا/صوت/دارایی"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "RBAC server-side",
+        "validator/approval/audit immutable"
+      ],
+      "actual_layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "pose_enum": "none",
+      "audience": "cms",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "پیشنهاد اجرایی؛ ذخیره draft مجاز ولی انتشار با خطا ممنوع.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "CMS-03",
+    "title": "کتابخانه رسانه",
+    "group": "CMS",
+    "scope": "admin",
+    "purpose": "کتابخانه image/audio/trace و hash/مصرف",
+    "states": [
+      "inventory",
+      "orphan",
+      "missing",
+      "hash_mismatch",
+      "approved"
+    ],
+    "source": "12 §2.2",
+    "entry": "CMS-01",
+    "exit": "CMS-04/07",
+    "interactions": "filter status و usage؛ replacement silent ممنوع",
+    "errors": "خطای validation/permission/network مسیر retry یا audit دارد.",
+    "acceptance": {
+      "source": "قرارداد پیشنهادی handoff بر پایه product/content audit و 12_CMS",
+      "criterion": "هر asset manifest/hash/status/owner؛ orphan گزارش شود."
+    },
+    "source_kind": "موجود در register؛ screen پیشنهادی CMS از ممیزی",
+    "status": "موجود؛ CMS production V1 (milestone)",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "12 §2.2"
+    ],
+    "redesign": {
+      "proposed_target_layout": "کتابخانه asset با hash، owner/license/approval، orphan/missing و preview امن؛ مصرف هر asset قابل‌ردیابی.",
+      "microcopy_examples": "«کتابخانه‌ی رسانه»؛ «دارایی مفقود»",
+      "mascot_pose_action": "نمایشگر/راهنمای خنثی، بدون mascot کودک",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "role/approval/publish server-side؛ audit و rollback؛ استقرار فقط پس از gateهای محتوا/صوت/دارایی"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "RBAC server-side",
+        "validator/approval/audit immutable"
+      ],
+      "actual_layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "pose_enum": "none",
+      "audience": "cms",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "پیشنهاد اجرایی؛ orphan و used-without-asset باید دیدپذیر باشند.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "CMS-04",
+    "title": "صف اسلات صدا",
+    "group": "CMS",
+    "scope": "admin",
+    "purpose": "صف اسلات صدا و اعتبارسنجی فایل",
+    "states": [
+      "empty",
+      "upload",
+      "valid",
+      "decode_error",
+      "silence",
+      "clipping",
+      "duplicate"
+    ],
+    "source": "12 §2.2",
+    "entry": "CMS-03",
+    "exit": "CMS-05",
+    "interactions": "aud_id دقیق؛ single/batch؛ Opus mono؛ duration/LUFS/sample checks",
+    "errors": "خطای validation/permission/network مسیر retry یا audit دارد.",
+    "acceptance": {
+      "source": "قرارداد پیشنهادی handoff بر پایه product/content audit و 12_CMS",
+      "criterion": "filename ناشناخته auto-map نشود؛ error reject، warning confirmation."
+    },
+    "source_kind": "موجود در register؛ screen پیشنهادی CMS از ممیزی",
+    "status": "موجود؛ CMS production V1 (milestone)",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "12 §2.2"
+    ],
+    "redesign": {
+      "proposed_target_layout": "جدول audio slots با upload، decode/LUFS/silence/clipping/duplicate و وضعیت؛ filename auto-map ممنوع.",
+      "microcopy_examples": "«اسلات‌های صدا»؛ «فایل را بررسی کنید»",
+      "mascot_pose_action": "نمایشگر/راهنمای خنثی، بدون mascot کودک",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "role/approval/publish server-side؛ audit و rollback؛ استقرار فقط پس از gateهای محتوا/صوت/دارایی"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "RBAC server-side",
+        "validator/approval/audit immutable"
+      ],
+      "actual_layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "pose_enum": "none",
+      "audience": "cms",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "پیشنهاد اجرایی؛ اتصال حدسی ممنوع، فقط aud_id دقیق.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "CMS-05",
+    "title": "بازبینی صدا",
+    "group": "CMS",
+    "scope": "admin",
+    "purpose": "بازبینی انسانی صدا و history take",
+    "states": [
+      "queue",
+      "playing",
+      "compare",
+      "approve",
+      "reject",
+      "note"
+    ],
+    "source": "12 §2.2",
+    "entry": "CMS-04",
+    "exit": "CMS-07",
+    "interactions": "transcript و compare؛ reviewer role؛ history retained",
+    "errors": "خطای validation/permission/network مسیر retry یا audit دارد.",
+    "acceptance": {
+      "source": "قرارداد پیشنهادی handoff بر پایه product/content audit و 12_CMS",
+      "criterion": "required slot بدون approved publish نشود؛ approve نام/زمان ثبت."
+    },
+    "source_kind": "موجود در register؛ screen پیشنهادی CMS از ممیزی",
+    "status": "موجود؛ CMS production V1 (milestone)",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "12 §2.2"
+    ],
+    "redesign": {
+      "proposed_target_layout": "صف review انسانی با compare take، play، note، approve/reject و history؛ self-approval ممنوع.",
+      "microcopy_examples": "«بازبینی صدا»؛ «تأیید» / «نیازمند اصلاح»",
+      "mascot_pose_action": "نمایشگر/راهنمای خنثی، بدون mascot کودک",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "role/approval/publish server-side؛ audit و rollback؛ استقرار فقط پس از gateهای محتوا/صوت/دارایی"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "RBAC server-side",
+        "validator/approval/audit immutable"
+      ],
+      "actual_layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "pose_enum": "none",
+      "audience": "cms",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "پیشنهاد اجرایی؛ فقط take تأییدشده وارد انتشار شود.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "CMS-06",
+    "title": "دسترسی/درآمد",
+    "group": "CMS",
+    "scope": "admin",
+    "purpose": "کاربر/entitlement/plan/SKU/promo با کمینه PII",
+    "states": [
+      "search",
+      "grant",
+      "revoke",
+      "plans",
+      "promo",
+      "store_error"
+    ],
+    "source": "12 §2.4/§2.5",
+    "entry": "CMS-01",
+    "exit": "CMS-07/UX-03",
+    "interactions": "child name فقط support reason؛ عدد از CMS؛ comp/revoke audit",
+    "errors": "خطای validation/permission/network مسیر retry یا audit دارد.",
+    "acceptance": {
+      "source": "قرارداد پیشنهادی handoff بر پایه product/content audit و 12_CMS",
+      "criterion": "SKU/store fallback مستند؛ مقادیر تجاری hardcode صفر."
+    },
+    "source_kind": "موجود در register؛ screen پیشنهادی CMS از ممیزی",
+    "status": "موجود؛ CMS production V1 (milestone)",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "12 §2.4/§2.5"
+    ],
+    "redesign": {
+      "proposed_target_layout": "مدیریت user/entitlement/plan/SKU/promo با کمینه PII، grant/revoke audit و store error؛ مجوز server-side.",
+      "microcopy_examples": "«دسترسی و اشتراک»؛ «ثبت در تاریخچه»",
+      "mascot_pose_action": "نمایشگر/راهنمای خنثی، بدون mascot کودک",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "role/approval/publish server-side؛ audit و rollback؛ استقرار فقط پس از gateهای محتوا/صوت/دارایی"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "RBAC server-side",
+        "validator/approval/audit immutable"
+      ],
+      "actual_layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "pose_enum": "none",
+      "audience": "cms",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "پیشنهاد اجرایی؛ قیمت APK-hardcode نیست و رفتار promo به فروشگاه وابسته است.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "CMS-07",
+    "title": "پیکربندی/بسته‌ساز/انتشار",
+    "group": "CMS",
+    "scope": "admin",
+    "purpose": "validate/build/manifest/sign/publish/rollback/remote config",
+    "states": [
+      "validating",
+      "blocked",
+      "building",
+      "ready",
+      "publishing",
+      "rollback",
+      "failed"
+    ],
+    "source": "12 §2.6/§2.7/§3/§4",
+    "entry": "CMS-02/03/05",
+    "exit": "pack منتشرشده",
+    "interactions": "immutable content_version؛ atomic install؛ activate/rollback؛ kill switch",
+    "errors": "خطای validation/permission/network مسیر retry یا audit دارد.",
+    "acceptance": {
+      "source": "قرارداد پیشنهادی handoff بر پایه product/content audit و 12_CMS",
+      "criterion": "نسخه وسط node عوض نشود؛ permission/audit؛ signature/hash قابل راستی‌آزمایی."
+    },
+    "source_kind": "موجود در register؛ screen پیشنهادی CMS از ممیزی",
+    "status": "موجود؛ CMS production V1 (milestone)",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "12 §2.6/§2.7/§3/§4"
+    ],
+    "redesign": {
+      "proposed_target_layout": "pipeline چهارمرحله‌ای validate→build→sign→publish با manifest، rollback و remote config؛ blocker دلیل‌دار.",
+      "microcopy_examples": "«انتشار بسته»؛ «اعتبارسنجی را اجرا کنید»",
+      "mascot_pose_action": "نمایشگر/راهنمای خنثی، بدون mascot کودک",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "role/approval/publish server-side؛ audit و rollback؛ استقرار فقط پس از gateهای محتوا/صوت/دارایی"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "RBAC server-side",
+        "validator/approval/audit immutable"
+      ],
+      "actual_layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "pose_enum": "none",
+      "audience": "cms",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "پیشنهاد اجرایی؛ انتشار باید atomic و audit-able باشد.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "CMS-08",
+    "title": "گزارش و audit",
+    "group": "CMS",
+    "scope": "admin",
+    "purpose": "analytics ناشناس و audit immutable",
+    "states": [
+      "empty",
+      "filter",
+      "export",
+      "retention",
+      "denied"
+    ],
+    "source": "12 §1/§2.8/§5",
+    "entry": "CMS-01",
+    "exit": "export/filter",
+    "interactions": "eventهای install/completion/conversion؛ فیلتر نقش",
+    "errors": "خطای validation/permission/network مسیر retry یا audit دارد.",
+    "acceptance": {
+      "source": "قرارداد پیشنهادی handoff بر پایه product/content audit و 12_CMS",
+      "criterion": "PII کودک صفر؛ export و retention role-controlled."
+    },
+    "source_kind": "موجود در register؛ screen پیشنهادی CMS از ممیزی",
+    "status": "موجود؛ CMS production V1 (milestone)",
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "source_refs": [
+      "12 §1/§2.8/§5"
+    ],
+    "redesign": {
+      "proposed_target_layout": "گزارش ناشناس و audit immutable با filter/export/retention/denied؛ child name/phone/child_id در رویداد نیست.",
+      "microcopy_examples": "«گزارش و تاریخچه»؛ «خروجی ناشناس»",
+      "mascot_pose_action": "نمایشگر/راهنمای خنثی، بدون mascot کودک",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "role/approval/publish server-side؛ audit و rollback؛ استقرار فقط پس از gateهای محتوا/صوت/دارایی"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "RBAC server-side",
+        "validator/approval/audit immutable"
+      ],
+      "actual_layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "pose_enum": "none",
+      "audience": "cms",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "پیشنهاد اجرایی؛ هیچ نام کودک در گزارش ناشناس نباشد؛ دسترسی نقش‌محور.؛ v1.7-review: اجرای داده‌محور، بدون ادعای تأیید هنری/محتوایی."
+  },
+  {
+    "id": "UX-01",
+    "title": "قوانین و حریم خصوصی",
+    "group": "حقوق/ورود",
+    "scope": "V1-B proposed",
+    "purpose": "نمایش متن کامل Terms/Privacy با نسخه، تاریخ و رضایت والد",
+    "states": [
+      "loading",
+      "loaded",
+      "offline_cached",
+      "error",
+      "version_changed"
+    ],
+    "source": "docs/spec_sources_v1_8/06_QA_AND_OPEN_GATES_FA.md §۹ P-01; 12_CMS §8",
+    "status": "پیشنهاد v1.7-review؛ لازم برای production V1، pending legal",
+    "entry": "S03a/S20",
+    "exit": "back به مبدأ؛ consent success به S03a",
+    "interactions": "scroll/read; open external policy only if safe; versioned consent",
+    "errors": "load error→cached version یا retry؛ رضایت بدون نسخه ثبت نشود.",
+    "acceptance": {
+      "source": "new proposed criterion from audit gap",
+      "criterion": "نسخه/تاریخ/locale نمایش؛ consent_version و timestamp ثبت؛ screen reader و back کار کند؛ legal sign-off قبل release."
+    },
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "redesign": {
+      "proposed_target_layout": "متن کامل Terms/Privacy با version/date، cache آفلاین، تغییر نسخه و consent والد از همان صفحه.",
+      "microcopy_examples": "«قوانین و حریم خصوصی»؛ «نسخه و تاریخ»",
+      "mascot_pose_action": "راهنمای متین و خنثی",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "PII کودک در telemetry/diagnostics نیست؛ حالت offline و retry idempotent؛ متن حقوقی/سیاست نهایی owner دارد"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "قوانین نسخه‌دار، دادهٔ کمتر، cached/offline و تغییر نسخهٔ consent.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "سطح proposed؛ لینک از S03a؛ محتوا تا تأیید حقوقی non-final."
+  },
+  {
+    "id": "UX-02",
+    "title": "حساب، خروج و حذف داده",
+    "group": "والد/حریم خصوصی",
+    "scope": "V1-B proposed",
+    "purpose": "مدیریت خروج، حذف child/account، retention و تأیید مخرب",
+    "states": [
+      "loaded",
+      "reauth_required",
+      "confirm_delete",
+      "deleting",
+      "deleted",
+      "failure",
+      "offline"
+    ],
+    "source": "docs/spec_sources_v1_8/06_QA_AND_OPEN_GATES_FA.md §۹ P-01/P-08; docs/spec_sources_v1_8/04_STATE_BEHAVIOR_AND_CONTENT_FA.md Gate E",
+    "status": "پیشنهاد v1.7-review؛ لازم برای production V1، pending policy/backend",
+    "entry": "S20",
+    "exit": "S20 یا S01 پس از خروج/حذف",
+    "interactions": "parent confirmation؛ re-auth برای حذف؛ status progress",
+    "errors": "offline deletion queued/blocked with clear action؛ duplicate request idempotent.",
+    "acceptance": {
+      "source": "new proposed criterion from privacy/runtime audits",
+      "criterion": "داده محلی پاک و token revoke شود؛ پاسخ backend و receipt deletion ثبت؛ تا پایان حذف ادعای کامل‌شدن نمایش داده نشود."
+    },
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "redesign": {
+      "proposed_target_layout": "حساب والد با خروج، حذف profile/account و retention؛ قبل از delete دامنه/پیامد/receipt، reauth و offline handling.",
+      "microcopy_examples": "«حساب و داده‌ها»؛ «قبل از حذف، نتیجه را می‌بینید»",
+      "mascot_pose_action": "راهنمای متین و خنثی",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "PII کودک در telemetry/diagnostics نیست؛ حالت offline و retry idempotent؛ متن حقوقی/سیاست نهایی owner دارد"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "حساب/خروج/حذف، reauth و تأیید آثار، وضعیت offline/deleting/receipt؛ هیچ حذف واقعی در نمونه.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "حذف حساب و داده مستقل از حذف profile؛ export/retention به policy متصل."
+  },
+  {
+    "id": "UX-03",
+    "title": "پشتیبانی و گزارش مشکل",
+    "group": "والد/پشتیبانی",
+    "scope": "V1-B proposed",
+    "purpose": "کمک، FAQ، diagnostics کمینه و مسیر تماس والد",
+    "states": [
+      "home",
+      "faq",
+      "contact",
+      "collecting_diagnostics",
+      "submitted",
+      "offline",
+      "error"
+    ],
+    "source": "docs/spec_sources_v1_8/06_QA_AND_OPEN_GATES_FA.md §۹ P-06/P-07; docs/spec_sources_v1_8/04_STATE_BEHAVIOR_AND_CONTENT_FA.md Gate E",
+    "status": "پیشنهاد v1.7-review؛ لازم برای production V1",
+    "entry": "S20/S21/UX-04",
+    "exit": "S20؛ ticket receipt در صورت submit",
+    "interactions": "FAQ/search; submit category; retry; copy install_id",
+    "errors": "offline drafts locally؛ credential/child PII capture ممنوع.",
+    "acceptance": {
+      "source": "new proposed criterion from operational handoff",
+      "criterion": "submit در offline صف‌گذاری و وضعیت روشن؛ diagnostics redacted؛ مسیر تماس و policy retention قابل مشاهده."
+    },
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "redesign": {
+      "proposed_target_layout": "FAQ و گزارش مشکل والد با diagnostics redacted، queue آفلاین، ticket receipt و حذف PII.",
+      "microcopy_examples": "«چطور کمک کنیم؟»؛ «اطلاعات کودک ارسال نمی‌شود»",
+      "mascot_pose_action": "راهنمای متین و خنثی",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "PII کودک در telemetry/diagnostics نیست؛ حالت offline و retry idempotent؛ متن حقوقی/سیاست نهایی owner دارد"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest"
+      ],
+      "actual_layout": "FAQ، دستهٔ مشکل، رضایت مستقل برای diagnostic و receipt؛ بدون PII کودک.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "support mode فقط والد؛ امکان کپی شناسه نصب بدون child PII؛ attach log با رضایت."
+  },
+  {
+    "id": "UX-04",
+    "title": "چرخه آفلاین/اتصال/فضای سیستم",
+    "group": "سیستم/دانلود",
+    "scope": "V1-B proposed",
+    "purpose": "سطح تصمیم شبکه، فضای کم، resume و بازگشت از Settings",
+    "states": [
+      "checking",
+      "offline",
+      "metered",
+      "low_storage",
+      "open_settings",
+      "returned",
+      "retry",
+      "ready"
+    ],
+    "source": "docs/spec_sources_v1_8/06_QA_AND_OPEN_GATES_FA.md §۹ P-02/P-03/P-07; 02 §2–5",
+    "status": "پیشنهاد v1.7-review؛ لازم برای production V1",
+    "entry": "S22/S24/S21",
+    "exit": "S22 resume یا S06-B offline",
+    "interactions": "open network/storage settings; return resumes; cancel safe",
+    "errors": "checksum/host/permission/space error با action و event code.",
+    "acceptance": {
+      "source": "new proposed criterion from offline contract",
+      "criterion": "بازگشت از settings state را حفظ کند؛ ۰ dead-end؛ resume byte و checksum test ثبت؛ دو skip پیوسته home/retry."
+    },
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "redesign": {
+      "proposed_target_layout": "سطح تصمیم شبکه/فضا با open settings و return state؛ resume همان byte و مسیر ready/offline.",
+      "microcopy_examples": "«اتصال و فضای دستگاه»؛ «از همان‌جا ادامه می‌دهیم»",
+      "mascot_pose_action": "راهنمای متین و خنثی",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "PII کودک در telemetry/diagnostics نیست؛ حالت offline و retry idempotent؛ متن حقوقی/سیاست نهایی owner دارد"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "manifest/hash/Range/atomic install",
+        "فضای موردنیاز Σbytes×۲+۵۰MB و سیاست شبکه"
+      ],
+      "actual_layout": "چرخهٔ اتصال/فضا در parent area و بازگشت به package آماده.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "سیستم‌صفحه را از S22 جدا؛ کودک friendly، اقدام فنی فقط والد."
+  },
+  {
+    "id": "UX-05",
+    "title": "چرخه کامل پرداخت و entitlement",
+    "group": "والد/درآمد",
+    "scope": "V1-B proposed",
+    "purpose": "pending/success/failure/cancel/restore/expired و بازارهای هدف",
+    "states": [
+      "plan_loading",
+      "ready",
+      "checkout",
+      "pending",
+      "success",
+      "cancelled",
+      "failed",
+      "restore",
+      "expired",
+      "offline"
+    ],
+    "source": "docs/spec_sources_v1_8/06_QA_AND_OPEN_GATES_FA.md S18/P-04; docs/spec_sources_v1_8/04_STATE_BEHAVIOR_AND_CONTENT_FA.md Gate F",
+    "status": "پیشنهاد v1.7-review؛ لازم برای production V1، pending vendor/legal",
+    "entry": "S18",
+    "exit": "S21/S06-B/S18 retry",
+    "interactions": "checkout; cancel; restore; retry; receipt detail parent-only",
+    "errors": "store unavailable/offline/duplicate receipt; no entitlement until verified.",
+    "acceptance": {
+      "source": "new proposed criterion from payment lifecycle gap",
+      "criterion": "هر receipt نتیجه‌ی verified/idempotent؛ restore در reinstall؛ entitlement آفلاین طبق policy؛ هیچ قیمت hardcode."
+    },
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "redesign": {
+      "proposed_target_layout": "چرخه‌ی purchase/restore/expired با state machine و idempotency؛ pending و cancel نباید child را block کند.",
+      "microcopy_examples": "«ادامه‌ی مسیر خواندن»؛ «خرید در انتظار است»",
+      "mascot_pose_action": "راهنمای متین و خنثی",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "pending/cancel/failure/restore/expired/offline و duplicate purchase تست شود؛ کودک paywall نمی‌بیند"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "BillingGateway/receipt verification/entitlement idempotency",
+        "CMS SKU/قانون بازار"
+      ],
+      "actual_layout": "چرخهٔ store/entitlement با pending، success، failure، cancelled، restore و expired؛ parent-only.",
+      "pose_enum": "none",
+      "audience": "parent",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "UI مستقل از vendor؛ price/SKU از CMS؛ backend ledger و idempotency لازم در V1، نه future."
+  },
+  {
+    "id": "CMS-00",
+    "title": "ورود CMS و نشست امن",
+    "group": "CMS admin",
+    "scope": "admin V1 proposed",
+    "purpose": "ورود ایمیل+رمز، TOTP، expiry و recovery بدون credential capture demo",
+    "states": [
+      "login",
+      "totp",
+      "loading",
+      "invalid",
+      "locked",
+      "expired",
+      "recovery",
+      "offline"
+    ],
+    "source": "docs/spec_sources_v1_8/06_QA_AND_OPEN_GATES_FA.md §۹ P-05; 12_CMS §5",
+    "status": "پیشنهاد v1.7-review؛ لازم برای production CMS V1",
+    "entry": "CMS URL",
+    "exit": "CMS-01 یا recovery",
+    "interactions": "login; TOTP; logout; reset; session timeout",
+    "errors": "rate-limit/expired/retry؛ password در log/analytics صفر.",
+    "acceptance": {
+      "source": "new proposed criterion from CMS security surface",
+      "criterion": "MFA برای نقش‌های حساس؛ session expiry؛ failed attempts audit؛ secrets never persisted/logged."
+    },
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "redesign": {
+      "proposed_target_layout": "صفحه‌ی وب امن login+TOTP، rate-limit، expiry و recovery؛ credential در log/demo ذخیره نشود.",
+      "microcopy_examples": "«ورود امن مدیر»؛ «کد یک‌بارمصرف»",
+      "mascot_pose_action": "نمایشگر/راهنمای خنثی، بدون mascot کودک",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "role/approval/publish server-side؛ audit و rollback؛ استقرار فقط پس از gateهای محتوا/صوت/دارایی"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "RBAC server-side",
+        "validator/approval/audit immutable"
+      ],
+      "actual_layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "pose_enum": "none",
+      "audience": "cms",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "MFA و secure session؛ role بعد auth؛ audit login failure."
+  },
+  {
+    "id": "CMS-09",
+    "title": "نقش، مجوز و صف بازبینی",
+    "group": "CMS admin",
+    "scope": "admin V1 proposed",
+    "purpose": "مدیریت نقش‌ها، approval/review و جداسازی وظایف",
+    "states": [
+      "list",
+      "filter",
+      "review",
+      "approve",
+      "reject",
+      "conflict",
+      "denied",
+      "audit"
+    ],
+    "source": "docs/spec_sources_v1_8/06_QA_AND_OPEN_GATES_FA.md CMS §۷; docs/spec_sources_v1_8/04_STATE_BEHAVIOR_AND_CONTENT_FA.md Gate B/F; 12_CMS §1–7",
+    "status": "پیشنهاد v1.7-review؛ لازم برای production CMS V1",
+    "entry": "CMS-00/CMS-01",
+    "exit": "CMS-02/04/05/07",
+    "interactions": "filter queue; review diff; approve/reject with note; permission check",
+    "errors": "denied action no mutation؛ conflict reload؛ missing approval blocks publish.",
+    "acceptance": {
+      "source": "new proposed criterion from admin review gap",
+      "criterion": "role matrix قابل مشاهده؛ reviewer متفاوت از uploader؛ before/after audit immutable؛ CMS-07 publish blocked until required approvals."
+    },
+    "global_acceptance": {
+      "global": "اندروید Portrait؛ RTL؛ هدف کودک ≥۶۴dp و CTA ≥۷۲dp؛ والد ≥۴۸dp؛ TalkBack؛ reduced-motion؛ بدون بن‌بست؛ متن/صوت هم‌ارز.",
+      "qa": "سه عرض ۳۲۰×۵۶۰، ۳۶۰×۸۰۰ و ۴۱۲×۹۱۵dp + تبلت محتوای حداکثر ۶۰۰dp؛ font scale کودک ×۱٫۲ و والد ×۱٫۶."
+    },
+    "redesign": {
+      "proposed_target_layout": "چیدمان RTL متناسب با هدف صفحه، با یک اقدام اصلی، حالت‌های صریح و مسیر بازگشت امن؛ جزئیات layout باید در Figma/implementation contract قفل شود.",
+      "microcopy_examples": "«نقش‌ها و صف بازبینی»؛ «تأیید مستقل لازم است»",
+      "mascot_pose_action": "نمایشگر/راهنمای خنثی، بدون mascot کودک",
+      "acceptance_criteria": [
+        "۳۲۰×۵۶۰، ۳۶۰×۸۰۰، ۴۱۲×۹۱۵ و tablet با max-width ۶۰۰dp بدون بریدگی",
+        "هدف لمس کودک ≥۶۴dp و CTA اصلی ≥۷۲dp؛ متن child×۱٫۲ و parent×۱٫۶",
+        "RTL واقعی، ارقام فارسی در نمایش، TalkBack، reduced-motion و مسیر بدون dead-end",
+        "role/approval/publish server-side؛ audit و rollback؛ استقرار فقط پس از gateهای محتوا/صوت/دارایی"
+      ],
+      "dependencies": [
+        "JSON route/state contract",
+        "RTL و accessibility (TalkBack، reduced-motion)",
+        "copy/audio parity و asset manifest",
+        "RBAC server-side",
+        "validator/approval/audit immutable"
+      ],
+      "actual_layout": "پوستهٔ دسکتاپ مستقل، جدول و dataset مخصوص ماژول، پروندهٔ جزئیات و بازبینی با دلیل.",
+      "pose_enum": "none",
+      "audience": "cms",
+      "active_in_v1": true,
+      "sample_is_not_production_engine": true
+    },
+    "version": "1.8-design",
+    "approval": "pending_pilot_and_content",
+    "legacy_source": "editor/reviewer/publisher/support حداقل؛ self-approval برای content/audio ممنوع."
+  }
+]

@@ -1,0 +1,363 @@
+aud_id,type,variant,text_fa,used_in,required
+aud.instr.clap,instruction,normal,با من کف بزن,b.u00.s1 b.u00.s3 b.u00.s4,yes
+aud.instr.clap.slow,instruction,slow,با من کف بزن,b.u00.s1 b.u00.s3 b.u00.s4,yes
+aud.instr.drag_word,instruction,normal,حرف‌ها رو بذار سر جاشون,b.u01.l01.w b.u02.l02.w b.u02.l03.w b.u03.l04.w b.u03.l05.w b.u04.r2 b.u05.l06.w b.u05.l07.w b.u06.l08.w b.u06.l09.w b.u07.l10.w b.u07.l11.w b.u08.r2 b.u09.l12.w b.u09.l13.w b.u09.vav_o b.u10.khaa b.u10.l14.w b.u10.l15.w b.u11.l16.w b.u11.l17.w b.u12.r2 b.u13.l18.w b.u13.l19.w b.u13.tashdid b.u14.l20.w b.u14.l21.w,yes
+aud.instr.drag_word.slow,instruction,slow,حرف‌ها رو بذار سر جاشون,b.u01.l01.w b.u02.l02.w b.u02.l03.w b.u03.l04.w b.u03.l05.w b.u04.r2 b.u05.l06.w b.u05.l07.w b.u06.l08.w b.u06.l09.w b.u07.l10.w b.u07.l11.w b.u08.r2 b.u09.l12.w b.u09.l13.w b.u09.vav_o b.u10.khaa b.u10.l14.w b.u10.l15.w b.u11.l16.w b.u11.l17.w b.u12.r2 b.u13.l18.w b.u13.l19.w b.u13.tashdid b.u14.l20.w b.u14.l21.w,yes
+aud.instr.env,instruction,normal,این صدای چیه؟,b.u00.s1 b.u00.s2,yes
+aud.instr.env.slow,instruction,slow,این صدای چیه؟,b.u00.s1 b.u00.s2,yes
+aud.instr.exit_q,instruction,normal,می‌خوای بری؟,,no
+aud.instr.exit_q.slow,instruction,slow,می‌خوای بری؟,,no
+aud.instr.find,instruction,normal,بگرد و پیدا کن,b.u01.alef b.u01.ba b.u02.a_short b.u02.dal b.u02.mim b.u02.sin b.u03.nun b.u03.re b.u03.te b.u05.e_short b.u05.shin b.u05.ze b.u06.kaf b.u06.o_short b.u06.vav b.u06.ye b.u07.fe b.u07.gaf b.u07.khe b.u07.pe b.u09.jim b.u09.lam b.u09.qaf b.u10.che b.u10.he b.u10.zhe,yes
+aud.instr.find.slow,instruction,slow,بگرد و پیدا کن,b.u01.alef b.u01.ba b.u02.a_short b.u02.dal b.u02.mim b.u02.sin b.u03.nun b.u03.re b.u03.te b.u05.e_short b.u05.shin b.u05.ze b.u06.kaf b.u06.o_short b.u06.vav b.u06.ye b.u07.fe b.u07.gaf b.u07.khe b.u07.pe b.u09.jim b.u09.lam b.u09.qaf b.u10.che b.u10.he b.u10.zhe,yes
+aud.instr.find_in_word,instruction,normal,حرف رو توی کلمه‌ها پیدا کن,b.u03.u_long b.u05.i_long b.u11.eyn b.u11.he_jimi b.u11.sad b.u11.ta b.u13.gheyn b.u13.se b.u13.tashdid b.u13.zal b.u14.hamze b.u14.za b.u14.zad,yes
+aud.instr.find_in_word.slow,instruction,slow,حرف رو توی کلمه‌ها پیدا کن,b.u03.u_long b.u05.i_long b.u11.eyn b.u11.he_jimi b.u11.sad b.u11.ta b.u13.gheyn b.u13.se b.u13.tashdid b.u13.zal b.u14.hamze b.u14.za b.u14.zad,yes
+aud.instr.first,instruction,normal,کدوم با این صدا شروع می‌شه؟,b.u00.challenge b.u00.s4,yes
+aud.instr.first.slow,instruction,slow,کدوم با این صدا شروع می‌شه؟,b.u00.challenge b.u00.s4,yes
+aud.instr.first_sound,instruction,normal,کدوم حرف اولشه؟,b.u01.l01.w b.u02.l02.w b.u02.l03.w b.u03.l04.w b.u03.l05.w b.u05.l06.w b.u05.l07.w b.u06.l08.w b.u06.l09.w b.u07.l10.w b.u07.l11.w b.u09.l12.w b.u09.l13.w b.u10.l14.w b.u10.l15.w b.u11.l16.w b.u11.l17.w b.u13.l18.w b.u13.l19.w b.u14.l20.w b.u14.l21.w,yes
+aud.instr.first_sound.slow,instruction,slow,کدوم حرف اولشه؟,b.u01.l01.w b.u02.l02.w b.u02.l03.w b.u03.l04.w b.u03.l05.w b.u05.l06.w b.u05.l07.w b.u06.l08.w b.u06.l09.w b.u07.l10.w b.u07.l11.w b.u09.l12.w b.u09.l13.w b.u10.l14.w b.u10.l15.w b.u11.l16.w b.u11.l17.w b.u13.l18.w b.u13.l19.w b.u14.l20.w b.u14.l21.w,yes
+aud.instr.homophone_cue,instruction,normal,این حرفِ کلمه‌ی … ه. کدومه؟,b.u11.eyn b.u11.he_jimi b.u11.sad b.u11.ta b.u13.gheyn b.u13.se b.u13.zal b.u14.hamze b.u14.za b.u14.zad,yes
+aud.instr.homophone_cue.slow,instruction,slow,این حرفِ کلمه‌ی … ه. کدومه؟,b.u11.eyn b.u11.he_jimi b.u11.sad b.u11.ta b.u13.gheyn b.u13.se b.u13.zal b.u14.hamze b.u14.za b.u14.zad,yes
+aud.instr.listen_pick,instruction,normal,به صدا گوش بده و درست رو انتخاب کن,b.u01.alef b.u01.ba b.u01.challenge b.u01.l01.w b.u02.a_short b.u02.challenge b.u02.dal b.u02.l02.w b.u02.l03.w b.u02.mim b.u02.sin b.u03.challenge b.u03.l04.w b.u03.l05.w b.u03.nun b.u03.re b.u03.te b.u03.u_long b.u04.challenge b.u04.r1 b.u05.challenge b.u05.e_short b.u05.i_long b.u05.l06.w b.u05.l07.w b.u05.shin b.u05.ze b.u06.challenge b.u06.kaf b.u06.l08.w b.u06.l09.w b.u06.o_short b.u06.vav b.u06.ye b.u07.challenge b.u07.fe b.u07.gaf b.u07.khe b.u07.l10.w b.u07.l11.w b.u07.pe b.u08.challenge b.u08.r1 b.u09.challenge b.u09.jim b.u09.l12.w b.u09.l13.w b.u09.lam b.u09.qaf b.u09.vav_o b.u10.challenge b.u10.che b.u10.he b.u10.khaa b.u10.l14.w b.u10.l15.w b.u10.zhe b.u11.challenge b.u11.eyn b.u11.he_jimi b.u11.l16.w b.u11.l17.w b.u11.sad b.u11.ta b.u12.challenge b.u12.r1 b.u13.challenge b.u13.gheyn b.u13.l18.w b.u13.l19.w b.u13.se b.u13.tashdid b.u13.zal b.u14.challenge b.u14.hamze b.u14.l20.w b.u14.l21.w b.u14.za b.u14.zad b.u15.challenge,yes
+aud.instr.listen_pick.slow,instruction,slow,به صدا گوش بده و درست رو انتخاب کن,b.u01.alef b.u01.ba b.u01.challenge b.u01.l01.w b.u02.a_short b.u02.challenge b.u02.dal b.u02.l02.w b.u02.l03.w b.u02.mim b.u02.sin b.u03.challenge b.u03.l04.w b.u03.l05.w b.u03.nun b.u03.re b.u03.te b.u03.u_long b.u04.challenge b.u04.r1 b.u05.challenge b.u05.e_short b.u05.i_long b.u05.l06.w b.u05.l07.w b.u05.shin b.u05.ze b.u06.challenge b.u06.kaf b.u06.l08.w b.u06.l09.w b.u06.o_short b.u06.vav b.u06.ye b.u07.challenge b.u07.fe b.u07.gaf b.u07.khe b.u07.l10.w b.u07.l11.w b.u07.pe b.u08.challenge b.u08.r1 b.u09.challenge b.u09.jim b.u09.l12.w b.u09.l13.w b.u09.lam b.u09.qaf b.u09.vav_o b.u10.challenge b.u10.che b.u10.he b.u10.khaa b.u10.l14.w b.u10.l15.w b.u10.zhe b.u11.challenge b.u11.eyn b.u11.he_jimi b.u11.l16.w b.u11.l17.w b.u11.sad b.u11.ta b.u12.challenge b.u12.r1 b.u13.challenge b.u13.gheyn b.u13.l18.w b.u13.l19.w b.u13.se b.u13.tashdid b.u13.zal b.u14.challenge b.u14.hamze b.u14.l20.w b.u14.l21.w b.u14.za b.u14.zad b.u15.challenge,yes
+aud.instr.match,instruction,normal,جفت‌ها رو پیدا کن,b.u01.ba b.u01.l01.w b.u02.dal b.u02.l02.w b.u02.sin b.u03.nun b.u03.te b.u04.r1 b.u04.treasure b.u05.shin b.u05.ze b.u06.o_short b.u06.vav b.u07.gaf b.u07.khe b.u08.r1 b.u08.treasure b.u09.lam b.u10.he b.u10.zhe b.u11.eyn b.u11.ta b.u12.r1 b.u12.treasure b.u13.zal b.u14.hamze b.u14.zad,yes
+aud.instr.match.slow,instruction,slow,جفت‌ها رو پیدا کن,b.u01.ba b.u01.l01.w b.u02.dal b.u02.l02.w b.u02.sin b.u03.nun b.u03.te b.u04.r1 b.u04.treasure b.u05.shin b.u05.ze b.u06.o_short b.u06.vav b.u07.gaf b.u07.khe b.u08.r1 b.u08.treasure b.u09.lam b.u10.he b.u10.zhe b.u11.eyn b.u11.ta b.u12.r1 b.u12.treasure b.u13.zal b.u14.hamze b.u14.zad,yes
+aud.instr.pop,instruction,normal,گوش کن و بادکنک درست رو بترکون,b.u01.alef b.u01.treasure b.u02.a_short b.u02.mim b.u02.treasure b.u03.re b.u03.treasure b.u03.u_long b.u04.r2 b.u05.e_short b.u05.i_long b.u05.treasure b.u06.kaf b.u06.treasure b.u06.ye b.u07.fe b.u07.pe b.u07.treasure b.u08.r2 b.u09.jim b.u09.qaf b.u09.treasure b.u10.che b.u10.treasure b.u11.he_jimi b.u11.sad b.u11.treasure b.u12.r2 b.u13.gheyn b.u13.se b.u13.treasure b.u14.treasure b.u14.za,yes
+aud.instr.pop.slow,instruction,slow,گوش کن و بادکنک درست رو بترکون,b.u01.alef b.u01.treasure b.u02.a_short b.u02.mim b.u02.treasure b.u03.re b.u03.treasure b.u03.u_long b.u04.r2 b.u05.e_short b.u05.i_long b.u05.treasure b.u06.kaf b.u06.treasure b.u06.ye b.u07.fe b.u07.pe b.u07.treasure b.u08.r2 b.u09.jim b.u09.qaf b.u09.treasure b.u10.che b.u10.treasure b.u11.he_jimi b.u11.sad b.u11.treasure b.u12.r2 b.u13.gheyn b.u13.se b.u13.treasure b.u14.treasure b.u14.za,yes
+aud.instr.retry,instruction,normal,دوباره امتحان کن,,no
+aud.instr.retry.slow,instruction,slow,دوباره امتحان کن,,no
+aud.instr.rhyme,instruction,normal,کدوم با این قافیه داره؟,b.u00.challenge b.u00.s2 b.u00.s3,yes
+aud.instr.rhyme.slow,instruction,slow,کدوم با این قافیه داره؟,b.u00.challenge b.u00.s2 b.u00.s3,yes
+aud.instr.rhyme_tap,instruction,normal,کلمه‌ای که قافیه داره رو بزن,b.u01.treasure b.u02.treasure b.u03.treasure b.u04.treasure b.u05.treasure b.u06.treasure b.u07.treasure b.u08.treasure b.u09.treasure b.u10.treasure b.u11.treasure b.u12.treasure b.u13.treasure b.u14.treasure,yes
+aud.instr.rhyme_tap.slow,instruction,slow,کلمه‌ای که قافیه داره رو بزن,b.u01.treasure b.u02.treasure b.u03.treasure b.u04.treasure b.u05.treasure b.u06.treasure b.u07.treasure b.u08.treasure b.u09.treasure b.u10.treasure b.u11.treasure b.u12.treasure b.u13.treasure b.u14.treasure,yes
+aud.instr.story_listen,instruction,normal,گوش کن، قصه شروع شد,b.u01.story b.u02.story b.u03.story b.u04.story b.u05.story b.u06.story b.u07.story b.u08.story b.u09.story b.u10.story b.u11.story b.u12.story b.u13.story b.u14.story b.u15.story,yes
+aud.instr.story_listen.slow,instruction,slow,گوش کن، قصه شروع شد,b.u01.story b.u02.story b.u03.story b.u04.story b.u05.story b.u06.story b.u07.story b.u08.story b.u09.story b.u10.story b.u11.story b.u12.story b.u13.story b.u14.story b.u15.story,yes
+aud.instr.story_question,instruction,normal,کدوم عکس توی قصه بود؟,b.u01.story b.u02.story b.u03.story b.u04.story b.u05.story b.u06.story b.u07.story b.u08.story b.u09.story b.u10.story b.u11.story b.u12.story b.u13.story b.u14.story b.u15.story,yes
+aud.instr.story_question.slow,instruction,slow,کدوم عکس توی قصه بود؟,b.u01.story b.u02.story b.u03.story b.u04.story b.u05.story b.u06.story b.u07.story b.u08.story b.u09.story b.u10.story b.u11.story b.u12.story b.u13.story b.u14.story b.u15.story,yes
+aud.instr.syllable_bridge,instruction,normal,تکه‌ها رو بچین تا پل درست شه,b.u02.l03.w b.u03.l04.w b.u03.l05.w b.u05.l06.w b.u05.l07.w b.u06.l08.w b.u06.l09.w b.u07.l10.w b.u07.l11.w b.u09.l12.w b.u09.l13.w b.u10.l14.w b.u10.l15.w b.u11.l16.w b.u11.l17.w b.u13.l18.w b.u13.l19.w b.u14.l20.w b.u14.l21.w b.u15.rd1 b.u15.rd2 b.u15.rd3,yes
+aud.instr.syllable_bridge.slow,instruction,slow,تکه‌ها رو بچین تا پل درست شه,b.u02.l03.w b.u03.l04.w b.u03.l05.w b.u05.l06.w b.u05.l07.w b.u06.l08.w b.u06.l09.w b.u07.l10.w b.u07.l11.w b.u09.l12.w b.u09.l13.w b.u10.l14.w b.u10.l15.w b.u11.l16.w b.u11.l17.w b.u13.l18.w b.u13.l19.w b.u14.l20.w b.u14.l21.w b.u15.rd1 b.u15.rd2 b.u15.rd3,yes
+aud.instr.trace,instruction,normal,حرف رو با انگشتت دنبال کن,b.u01.alef b.u01.ba b.u02.a_short b.u02.dal b.u02.mim b.u02.sin b.u03.nun b.u03.re b.u03.te b.u03.u_long b.u05.e_short b.u05.i_long b.u05.shin b.u05.ze b.u06.kaf b.u06.o_short b.u06.vav b.u06.ye b.u07.fe b.u07.gaf b.u07.khe b.u07.pe b.u09.jim b.u09.lam b.u09.qaf b.u10.che b.u10.he b.u10.zhe b.u11.eyn b.u11.he_jimi b.u11.sad b.u11.ta b.u13.gheyn b.u13.se b.u13.tashdid b.u13.zal b.u14.hamze b.u14.za b.u14.zad,yes
+aud.instr.trace.slow,instruction,slow,حرف رو با انگشتت دنبال کن,b.u01.alef b.u01.ba b.u02.a_short b.u02.dal b.u02.mim b.u02.sin b.u03.nun b.u03.re b.u03.te b.u03.u_long b.u05.e_short b.u05.i_long b.u05.shin b.u05.ze b.u06.kaf b.u06.o_short b.u06.vav b.u06.ye b.u07.fe b.u07.gaf b.u07.khe b.u07.pe b.u09.jim b.u09.lam b.u09.qaf b.u10.che b.u10.he b.u10.zhe b.u11.eyn b.u11.he_jimi b.u11.sad b.u11.ta b.u13.gheyn b.u13.se b.u13.tashdid b.u13.zal b.u14.hamze b.u14.za b.u14.zad,yes
+aud.instr.word_pick,instruction,normal,کلمه رو بخون و عکسش رو پیدا کن,b.u01.challenge b.u02.challenge b.u03.challenge b.u04.challenge b.u04.r2 b.u05.challenge b.u06.challenge b.u07.challenge b.u08.challenge b.u08.r2 b.u09.challenge b.u09.vav_o b.u10.challenge b.u10.khaa b.u11.challenge b.u12.challenge b.u12.r2 b.u13.challenge b.u13.tashdid b.u14.challenge b.u15.challenge b.u15.rd1 b.u15.rd2 b.u15.rd3,yes
+aud.instr.word_pick.slow,instruction,slow,کلمه رو بخون و عکسش رو پیدا کن,b.u01.challenge b.u02.challenge b.u03.challenge b.u04.challenge b.u04.r2 b.u05.challenge b.u06.challenge b.u07.challenge b.u08.challenge b.u08.r2 b.u09.challenge b.u09.vav_o b.u10.challenge b.u10.khaa b.u11.challenge b.u12.challenge b.u12.r2 b.u13.challenge b.u13.tashdid b.u14.challenge b.u15.challenge b.u15.rd1 b.u15.rd2 b.u15.rd3,yes
+aud.letter.a_short.name,letter_name,normal,اسم حرف «اَ»,b.u02.a_short,yes
+aud.letter.a_short.sound,letter_sound,normal,صدای «اَ» (/a/),b.u02.a_short,yes
+aud.letter.alef.name,letter_name,normal,اسم حرف «آ»,b.u01.alef,yes
+aud.letter.alef.sound,letter_sound,normal,صدای «آ» (/ā/),b.u01.alef,yes
+aud.letter.ba.name,letter_name,normal,اسم حرف «ب»,b.u01.ba,yes
+aud.letter.ba.sound,letter_sound,normal,صدای «ب» (/b/),b.u01.ba,yes
+aud.letter.che.name,letter_name,normal,اسم حرف «چ»,b.u10.che,yes
+aud.letter.che.sound,letter_sound,normal,صدای «چ» (/ch/),b.u10.che,yes
+aud.letter.dal.name,letter_name,normal,اسم حرف «د»,b.u02.dal,yes
+aud.letter.dal.sound,letter_sound,normal,صدای «د» (/d/),b.u02.dal,yes
+aud.letter.e_short.name,letter_name,normal,اسم حرف «اِ»,b.u05.e_short,yes
+aud.letter.e_short.sound,letter_sound,normal,صدای «اِ» (/e/),b.u05.e_short,yes
+aud.letter.eyn.name,letter_name,normal,اسم حرف «ع»,b.u11.eyn,yes
+aud.letter.eyn.sound,letter_sound,normal,صدای «ع» (/ʔ/),b.u11.eyn,yes
+aud.letter.fe.name,letter_name,normal,اسم حرف «ف»,b.u07.fe,yes
+aud.letter.fe.sound,letter_sound,normal,صدای «ف» (/f/),b.u07.fe,yes
+aud.letter.gaf.name,letter_name,normal,اسم حرف «گ»,b.u07.gaf,yes
+aud.letter.gaf.sound,letter_sound,normal,صدای «گ» (/g/),b.u07.gaf,yes
+aud.letter.gheyn.name,letter_name,normal,اسم حرف «غ»,b.u13.gheyn,yes
+aud.letter.gheyn.sound,letter_sound,normal,صدای «غ» (/gh/),b.u13.gheyn,yes
+aud.letter.hamze.name,letter_name,normal,اسم حرف «ء»,b.u14.hamze,yes
+aud.letter.hamze.sound,letter_sound,normal,صدای «ء» (/ʔ/),b.u14.hamze,yes
+aud.letter.he.name,letter_name,normal,اسم حرف «ه»,b.u10.he,yes
+aud.letter.he.sound,letter_sound,normal,صدای «ه» (/h/),b.u10.he,yes
+aud.letter.he_jimi.name,letter_name,normal,اسم حرف «ح»,b.u11.he_jimi,yes
+aud.letter.he_jimi.sound,letter_sound,normal,صدای «ح» (/h/),b.u11.he_jimi,yes
+aud.letter.i_long.name,letter_name,normal,اسم حرف «ای»,b.u05.i_long,yes
+aud.letter.i_long.sound,letter_sound,normal,صدای «ای» (/i/),b.u05.i_long,yes
+aud.letter.jim.name,letter_name,normal,اسم حرف «ج»,b.u09.jim,yes
+aud.letter.jim.sound,letter_sound,normal,صدای «ج» (/j/),b.u09.jim,yes
+aud.letter.kaf.name,letter_name,normal,اسم حرف «ک»,b.u06.kaf,yes
+aud.letter.kaf.sound,letter_sound,normal,صدای «ک» (/k/),b.u06.kaf,yes
+aud.letter.khaa.name,letter_name,normal,اسم حرف «خوا»,b.u10.khaa,yes
+aud.letter.khaa.sound,letter_sound,normal,صدای «خوا» (/khā/),b.u10.khaa,yes
+aud.letter.khe.name,letter_name,normal,اسم حرف «خ»,b.u07.khe,yes
+aud.letter.khe.sound,letter_sound,normal,صدای «خ» (/kh/),b.u07.khe,yes
+aud.letter.lam.name,letter_name,normal,اسم حرف «ل»,b.u09.lam,yes
+aud.letter.lam.sound,letter_sound,normal,صدای «ل» (/l/),b.u09.lam,yes
+aud.letter.mim.name,letter_name,normal,اسم حرف «م»,b.u02.mim,yes
+aud.letter.mim.sound,letter_sound,normal,صدای «م» (/m/),b.u02.mim,yes
+aud.letter.nun.name,letter_name,normal,اسم حرف «ن»,b.u03.nun,yes
+aud.letter.nun.sound,letter_sound,normal,صدای «ن» (/n/),b.u03.nun,yes
+aud.letter.o_short.name,letter_name,normal,اسم حرف «اُ»,b.u06.o_short,yes
+aud.letter.o_short.sound,letter_sound,normal,صدای «اُ» (/o/),b.u06.o_short,yes
+aud.letter.pe.name,letter_name,normal,اسم حرف «پ»,b.u07.pe,yes
+aud.letter.pe.sound,letter_sound,normal,صدای «پ» (/p/),b.u07.pe,yes
+aud.letter.qaf.name,letter_name,normal,اسم حرف «ق»,b.u09.qaf,yes
+aud.letter.qaf.sound,letter_sound,normal,صدای «ق» (/gh/),b.u09.qaf,yes
+aud.letter.re.name,letter_name,normal,اسم حرف «ر»,b.u03.re,yes
+aud.letter.re.sound,letter_sound,normal,صدای «ر» (/r/),b.u03.re,yes
+aud.letter.sad.name,letter_name,normal,اسم حرف «ص»,b.u11.sad,yes
+aud.letter.sad.sound,letter_sound,normal,صدای «ص» (/s/),b.u11.sad,yes
+aud.letter.se.name,letter_name,normal,اسم حرف «ث»,b.u13.se,yes
+aud.letter.se.sound,letter_sound,normal,صدای «ث» (/s/),b.u13.se,yes
+aud.letter.shin.name,letter_name,normal,اسم حرف «ش»,b.u05.shin,yes
+aud.letter.shin.sound,letter_sound,normal,صدای «ش» (/sh/),b.u05.shin,yes
+aud.letter.sin.name,letter_name,normal,اسم حرف «س»,b.u02.sin,yes
+aud.letter.sin.sound,letter_sound,normal,صدای «س» (/s/),b.u02.sin,yes
+aud.letter.ta.name,letter_name,normal,اسم حرف «ط»,b.u11.ta,yes
+aud.letter.ta.sound,letter_sound,normal,صدای «ط» (/t/),b.u11.ta,yes
+aud.letter.tashdid.name,letter_name,normal,اسم حرف «ـّ»,b.u13.tashdid,yes
+aud.letter.tashdid.sound,letter_sound,normal,صدای «ـّ» (/double/),b.u13.tashdid,yes
+aud.letter.te.name,letter_name,normal,اسم حرف «ت»,b.u03.te,yes
+aud.letter.te.sound,letter_sound,normal,صدای «ت» (/t/),b.u03.te,yes
+aud.letter.u_long.name,letter_name,normal,اسم حرف «او»,b.u03.u_long,yes
+aud.letter.u_long.sound,letter_sound,normal,صدای «او» (/u/),b.u03.u_long,yes
+aud.letter.vav.name,letter_name,normal,اسم حرف «و»,b.u06.vav,yes
+aud.letter.vav.sound,letter_sound,normal,صدای «و» (/v/),b.u06.vav,yes
+aud.letter.vav_o.name,letter_name,normal,اسم حرف «و»,b.u09.vav_o,yes
+aud.letter.vav_o.sound,letter_sound,normal,صدای «و» (/o/),b.u09.vav_o,yes
+aud.letter.ye.name,letter_name,normal,اسم حرف «ی»,b.u06.ye,yes
+aud.letter.ye.sound,letter_sound,normal,صدای «ی» (/y/),b.u06.ye,yes
+aud.letter.za.name,letter_name,normal,اسم حرف «ظ»,b.u14.za,yes
+aud.letter.za.sound,letter_sound,normal,صدای «ظ» (/z/),b.u14.za,yes
+aud.letter.zad.name,letter_name,normal,اسم حرف «ض»,b.u14.zad,yes
+aud.letter.zad.sound,letter_sound,normal,صدای «ض» (/z/),b.u14.zad,yes
+aud.letter.zal.name,letter_name,normal,اسم حرف «ذ»,b.u13.zal,yes
+aud.letter.zal.sound,letter_sound,normal,صدای «ذ» (/z/),b.u13.zal,yes
+aud.letter.ze.name,letter_name,normal,اسم حرف «ز»,b.u05.ze,yes
+aud.letter.ze.sound,letter_sound,normal,صدای «ز» (/z/),b.u05.ze,yes
+aud.letter.zhe.name,letter_name,normal,اسم حرف «ژ»,b.u10.zhe,yes
+aud.letter.zhe.sound,letter_sound,normal,صدای «ژ» (/zh/),b.u10.zhe,yes
+aud.narr.s07.u00,narration,normal,گوش کن! هر چیزی یک صدا دارد.,u00,yes
+aud.narr.s07.u01,narration,normal,توی این ایستگاه با «آ»، «ب» آشنا می‌شی!,u01,yes
+aud.narr.s07.u02,narration,normal,توی این ایستگاه با «اَ»، «د»، «م»، «س» آشنا می‌شی!,u02,yes
+aud.narr.s07.u03,narration,normal,توی این ایستگاه با «او»، «ت»، «ر»، «ن» آشنا می‌شی!,u03,yes
+aud.narr.s07.u04,narration,normal,بیا هرچی یاد گرفتی رو با هم بازی کنیم!,u04,yes
+aud.narr.s07.u05,narration,normal,توی این ایستگاه با «ای»، «ز»، «اِ»، «ش» آشنا می‌شی!,u05,yes
+aud.narr.s07.u06,narration,normal,توی این ایستگاه با «ی»، «اُ»، «ک»، «و» آشنا می‌شی!,u06,yes
+aud.narr.s07.u07,narration,normal,توی این ایستگاه با «پ»، «گ»، «ف»، «خ» آشنا می‌شی!,u07,yes
+aud.narr.s07.u08,narration,normal,بیا هرچی یاد گرفتی رو با هم بازی کنیم!,u08,yes
+aud.narr.s07.u09,narration,normal,توی این ایستگاه با «ق»، «ل»، «ج»، «و» آشنا می‌شی!,u09,yes
+aud.narr.s07.u10,narration,normal,توی این ایستگاه با «ه»، «چ»، «ژ»، «خوا» آشنا می‌شی!,u10,yes
+aud.narr.s07.u11,narration,normal,توی این ایستگاه با «ص»، «ع»، «ح»، «ط» آشنا می‌شی!,u11,yes
+aud.narr.s07.u12,narration,normal,بیا هرچی یاد گرفتی رو با هم بازی کنیم!,u12,yes
+aud.narr.s07.u13,narration,normal,توی این ایستگاه با «غ»، «ذ»، «ـّ»، «ث» آشنا می‌شی!,u13,yes
+aud.narr.s07.u14,narration,normal,توی این ایستگاه با «ض»، «ظ»، «ء» آشنا می‌شی!,u14,yes
+aud.narr.s07.u15,narration,normal,حالا خودت می‌تونی بخونی!,u15,yes
+aud.poem.p01.l1,poem,normal,باران میاد شُر شُر شُر,G6,yes
+aud.poem.p01.l2,poem,normal,باغچه می‌شه از گل پُر,G6,yes
+aud.poem.p01.l3,poem,normal,ابرِ سفید، ابرِ سیاه,G6,yes
+aud.poem.p01.l4,poem,normal,رنگین‌کمون اومد تو راه,G6,yes
+aud.poem.p02.l1,poem,normal,ماهِ قشنگ، ماهِ بلند,G6,yes
+aud.poem.p02.l2,poem,normal,تو آسمون زد لبخند,G6,yes
+aud.poem.p02.l3,poem,normal,ستاره‌ها چشمک زدن,G6,yes
+aud.poem.p02.l4,poem,normal,دورِ ماه رقصیدن,G6,yes
+aud.poem.p03.l1,poem,normal,خرگوشِ ناز، گوش‌دراز,G6,yes
+aud.poem.p03.l2,poem,normal,می‌پره بالا، باز و باز,G6,yes
+aud.poem.p03.l3,poem,normal,تو باغ داره یه خونه,G6,yes
+aud.poem.p03.l4,poem,normal,هویج می‌خوره دونه‌دونه,G6,yes
+aud.poem.p04.l1,poem,normal,اردک تو آب، شَلپ شُلوپ,G6,yes
+aud.poem.p04.l2,poem,normal,شنا می‌کنه با یه توپ,G6,yes
+aud.poem.p04.l3,poem,normal,پاهاش نارنجی، پَرهاش نرم,G6,yes
+aud.poem.p04.l4,poem,normal,آبِ برکه شده گرم,G6,yes
+aud.poem.p05.l1,poem,normal,یه کتاب دارم رنگارنگ,G6,yes
+aud.poem.p05.l2,poem,normal,پر از قصه‌های قشنگ,G6,yes
+aud.poem.p05.l3,poem,normal,ورق می‌زنم آهسته,G6,yes
+aud.poem.p05.l4,poem,normal,تا قصه نشه خسته,G6,yes
+aud.poem.p06.l1,poem,normal,سیبِ قرمز، سیبِ گرد,G6,yes
+aud.poem.p06.l2,poem,normal,باد اومد و اونو برد,G6,yes
+aud.poem.p06.l3,poem,normal,افتاد تو حوض، تاب‌تاب,G6,yes
+aud.poem.p06.l4,poem,normal,ماهی گفت: سلام! تو آب,G6,yes
+aud.story.u01.p1,story,normal,بابا,b.u01.story,yes
+aud.story.u01.p2,story,normal,آب,b.u01.story,yes
+aud.story.u01.p3,story,normal,بابا، آب!,b.u01.story,yes
+aud.story.u01.p4,story,normal,آب، آب، آب!,b.u01.story,yes
+aud.story.u01.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u01.story,yes
+aud.story.u02.p1,story,normal,باد آمَد.,b.u02.story,yes
+aud.story.u02.p2,story,normal,بابا آمَد.,b.u02.story,yes
+aud.story.u02.p3,story,normal,بابا سَبَد داد.,b.u02.story,yes
+aud.story.u02.p4,story,normal,بابا بادام داد.,b.u02.story,yes
+aud.story.u02.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u02.story,yes
+aud.story.u03.p1,story,normal,باران آمَد.,b.u03.story,yes
+aud.story.u03.p2,story,normal,مادَر نان دارَد.,b.u03.story,yes
+aud.story.u03.p3,story,normal,بابا توت دارَد.,b.u03.story,yes
+aud.story.u03.p4,story,normal,توت دَر سَبَد اَست.,b.u03.story,yes
+aud.story.u03.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u03.story,yes
+aud.story.u04.p1,story,normal,باد آمَد، باران آمَد.,b.u04.story,yes
+aud.story.u04.p2,story,normal,بابا دَر را بَست.,b.u04.story,yes
+aud.story.u04.p3,story,normal,مادَر نان داد.,b.u04.story,yes
+aud.story.u04.p4,story,normal,نان، توت، اَنار!,b.u04.story,yes
+aud.story.u04.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u04.story,yes
+aud.story.u05.p1,story,normal,این سیب اَست.,b.u05.story,yes
+aud.story.u05.p2,story,normal,سیب سَرِ میز اَست.,b.u05.story,yes
+aud.story.u05.p3,story,normal,موش سیب را دید.,b.u05.story,yes
+aud.story.u05.p4,story,normal,موش به سیب رِسید!,b.u05.story,yes
+aud.story.u05.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u05.story,yes
+aud.story.u06.p1,story,normal,اُردَک دَر آب اَست.,b.u06.story,yes
+aud.story.u06.p2,story,normal,بُز کِنارِ آب اَست.,b.u06.story,yes
+aud.story.u06.p3,story,normal,اُردَک با بُز بازی کَرد.,b.u06.story,yes
+aud.story.u06.p4,story,normal,اُردَک شاد اَست.,b.u06.story,yes
+aud.story.u06.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u06.story,yes
+aud.story.u07.p1,story,normal,خَرگوش دَر خانه اَست.,b.u07.story,yes
+aud.story.u07.p2,story,normal,بَرف آمَد.,b.u07.story,yes
+aud.story.u07.p3,story,normal,خَرگوش کَفش پوشید.,b.u07.story,yes
+aud.story.u07.p4,story,normal,خَرگوش دَر بَرف بازی کَرد.,b.u07.story,yes
+aud.story.u07.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u07.story,yes
+aud.story.u08.p1,story,normal,سَگ دَر خانه اَست.,b.u08.story,yes
+aud.story.u08.p2,story,normal,گُربه پیشِ سَگ آمَد.,b.u08.story,yes
+aud.story.u08.p3,story,normal,سَگ با گُربه توپ بازی کَرد.,b.u08.story,yes
+aud.story.u08.p4,story,normal,گُربه خَسته شُد.,b.u08.story,yes
+aud.story.u08.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u08.story,yes
+aud.story.u09.p1,story,normal,جوجه گُل دید.,b.u09.story,yes
+aud.story.u09.p2,story,normal,گُل زَرد بود.,b.u09.story,yes
+aud.story.u09.p3,story,normal,جوجه پیشِ گُل رَفت.,b.u09.story,yes
+aud.story.u09.p4,story,normal,دو جوجه کِنارِ گُل نِشَستَند.,b.u09.story,yes
+aud.story.u09.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u09.story,yes
+aud.story.u10.p1,story,normal,شَب اَست. ماه دَر آسمان اَست.,b.u10.story,yes
+aud.story.u10.p2,story,normal,ماهی دَر آب اَست.,b.u10.story,yes
+aud.story.u10.p3,story,normal,خواهَرَم ژاکَت پوشید.,b.u10.story,yes
+aud.story.u10.p4,story,normal,او به خواب رَفت.,b.u10.story,yes
+aud.story.u10.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u10.story,yes
+aud.story.u11.p1,story,normal,طوطی سَرِ صَندَلی اَست.,b.u11.story,yes
+aud.story.u11.p2,story,normal,او عَسَل دید.,b.u11.story,yes
+aud.story.u11.p3,story,normal,حَلَزون هَم آمَد.,b.u11.story,yes
+aud.story.u11.p4,story,normal,طوطی و حَلَزون عَسَل خوردَند.,b.u11.story,yes
+aud.story.u11.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u11.story,yes
+aud.story.u12.p1,story,normal,صُبح اَست.,b.u12.story,yes
+aud.story.u12.p2,story,normal,طاووس دَر حَیاط اَست.,b.u12.story,yes
+aud.story.u12.p3,story,normal,پَرِ او رَنگی اَست.,b.u12.story,yes
+aud.story.u12.p4,story,normal,طاووس با جوجه بازی کَرد.,b.u12.story,yes
+aud.story.u12.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u12.story,yes
+aud.story.u13.p1,story,normal,قورباغه دَر باغ اَست.,b.u13.story,yes
+aud.story.u13.p2,story,normal,بَچّه‌ها آمَدَند.,b.u13.story,yes
+aud.story.u13.p3,story,normal,آن‌ها کاغَذ و مِداد آوَردَند.,b.u13.story,yes
+aud.story.u13.p4,story,normal,بَچّه‌ها قورباغه کِشیدَند.,b.u13.story,yes
+aud.story.u13.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u13.story,yes
+aud.story.u14.p1,story,normal,ظُهر اَست.,b.u14.story,yes
+aud.story.u14.p2,story,normal,پِنگوئَن کِنارِ حوض اَست.,b.u14.story,yes
+aud.story.u14.p3,story,normal,او ظَرفِ ماهی دارَد.,b.u14.story,yes
+aud.story.u14.p4,story,normal,پِنگوئَن شاد اَست!,b.u14.story,yes
+aud.story.u14.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u14.story,yes
+aud.story.u15.p1,story,normal,آوا یِک کِتاب دارَد.,b.u15.story,yes
+aud.story.u15.p2,story,normal,دَر کِتاب یِک باغ اَست.,b.u15.story,yes
+aud.story.u15.p3,story,normal,دَر باغ دِرَخت و گُل هَست.,b.u15.story,yes
+aud.story.u15.p4,story,normal,پَرَنده‌ها روی دِرَخت آواز می‌خوانَند.,b.u15.story,yes
+aud.story.u15.p5,story,normal,آوا با کِتاب به باغ می‌رَوَد.,b.u15.story,yes
+aud.story.u15.p6,story,normal,آوا شاد اَست!,b.u15.story,yes
+aud.story.u15.q1,instruction,normal,کدوم عکس توی قصه بود؟,b.u15.story,yes
+aud.word.ab.say,word,normal,آب,b.u01.alef b.u01.l01.w b.u02.l02.w,yes
+aud.word.abr.say,word,normal,اَبر,b.u02.a_short,yes
+aud.word.anar.say,word,normal,اَنار,b.u02.a_short b.u03.l05.w b.u04.r2 b.u05.l06.w,yes
+aud.word.angur.say,word,normal,اَنگور,b.u02.a_short b.u07.l10.w,yes
+aud.word.arre.say,word,normal,اَرّه,b.u13.l19.w b.u13.tashdid,yes
+aud.word.asal.say,word,normal,عَسَل,b.u11.eyn b.u11.l16.w,yes
+aud.word.asb.say,word,normal,اِسب,b.u05.e_short b.u05.l07.w,yes
+aud.word.aseman.say,word,normal,آسمان,b.u01.alef b.u03.l05.w b.u04.r2,yes
+aud.word.ash.say,word,normal,آش,b.u05.l07.w,yes
+aud.word.atash.say,word,normal,آتَش,b.u01.alef,yes
+aud.word.baba.say,word,normal,بابا,b.u01.ba b.u01.l01.w b.u02.l02.w b.u02.l03.w b.u03.l04.w,yes
+aud.word.bachche.say,word,normal,بَچّه,b.u13.l19.w,yes
+aud.word.bad.say,word,normal,باد,b.u01.ba b.u02.l02.w b.u02.l03.w,yes
+aud.word.badam.say,word,normal,بادام,b.u01.ba b.u02.l03.w b.u03.l04.w,yes
+aud.word.badban.say,word,normal,بادبان,b.u03.l05.w b.u04.r2,yes
+aud.word.bagh.say,word,normal,باغ,b.u13.l18.w,yes
+aud.word.balesh.say,word,normal,بالِش,b.u09.l12.w,yes
+aud.word.baran.say,word,normal,باران,b.u04.r2,yes
+aud.word.barf.say,word,normal,بَرف,b.u07.l11.w b.u08.r2,yes
+aud.word.bolbol.say,word,normal,بُلبُل,b.u09.l12.w,yes
+aud.word.boz.say,word,normal,بُز,b.u06.l08.w,yes
+aud.word.chatr.say,word,normal,چَتر,b.u10.che b.u10.l14.w b.u10.l15.w,yes
+aud.word.chay.say,word,normal,چای,b.u10.che b.u10.l14.w,yes
+aud.word.cheragh.say,word,normal,چِراغ,b.u13.l18.w b.u13.l19.w b.u14.l20.w b.u14.l21.w,yes
+aud.word.cheshm.say,word,normal,چِشم,b.u10.l14.w,yes
+aud.word.chub.say,word,normal,چوب,b.u10.che,yes
+aud.word.dandan.say,word,normal,دَندان,b.u02.dal,yes
+aud.word.dar.say,word,normal,دَر,b.u02.dal b.u03.l05.w,yes
+aud.word.dasht.say,word,normal,دَست,b.u02.dal,yes
+aud.word.derakht.say,word,normal,دِرَخت,b.u07.l11.w b.u08.r2,yes
+aud.word.divar.say,word,normal,دیوار,b.u06.l09.w b.u07.l10.w,yes
+aud.word.do.say,word,normal,دو,b.u09.l13.w b.u09.vav_o,yes
+aud.word.dom.say,word,normal,دُم,b.u06.l08.w,yes
+aud.word.esfanj.say,word,normal,اِسفَنج,b.u05.e_short,yes
+aud.word.estekan.say,word,normal,اِستِکان,b.u05.e_short,yes
+aud.word.fanus.say,word,normal,فانوس,b.u07.fe,yes
+aud.word.farsh.say,word,normal,فَرش,b.u07.fe b.u07.l11.w b.u08.r2,yes
+aud.word.fil.say,word,normal,فیل,b.u07.fe b.u09.l12.w,yes
+aud.word.gav.say,word,normal,گاو,b.u07.gaf b.u07.l10.w,yes
+aud.word.ghaz.say,word,normal,غاز,b.u13.gheyn b.u13.l18.w,yes
+aud.word.gol.say,word,normal,گُل,b.u09.l12.w,yes
+aud.word.gorbe.say,word,normal,گُربه,b.u07.gaf b.u07.l10.w,yes
+aud.word.gorg.say,word,normal,گُرگ,b.u07.gaf b.u07.l10.w,yes
+aud.word.halazun.say,word,normal,حَلَزون,b.u11.he_jimi b.u11.l17.w b.u12.r2,yes
+aud.word.havapeyma.say,word,normal,هَواپِیما,b.u10.he,yes
+aud.word.havij.say,word,normal,هَویج,b.u10.he b.u10.l14.w,yes
+aud.word.hendevane.say,word,normal,هِندِوانه,b.u10.he,yes
+aud.word.hodhod.say,word,normal,هُدهُد,b.u10.he,yes
+aud.word.hole.say,word,normal,حوله,b.u11.l17.w b.u12.r2 b.u13.l18.w b.u13.l19.w,yes
+aud.word.hoz.say,word,normal,حوض,b.u14.l20.w b.u14.l21.w b.u14.zad,yes
+aud.word.jangal.say,word,normal,جَنگَل,b.u09.jim,yes
+aud.word.jaru.say,word,normal,جارو,b.u09.jim b.u09.l13.w b.u10.l14.w,yes
+aud.word.juje.say,word,normal,جوجه,b.u09.jim b.u09.l13.w,yes
+aud.word.jurab.say,word,normal,جوراب,b.u09.l13.w,yes
+aud.word.kabutar.say,word,normal,کَبوتَر,b.u06.kaf b.u06.l09.w,yes
+aud.word.kafsh.say,word,normal,کَفش,b.u08.r2,yes
+aud.word.kaghaz.say,word,normal,کاغَذ,b.u13.l18.w b.u13.l19.w b.u14.l20.w b.u14.l21.w,yes
+aud.word.kaj.say,word,normal,کاج,b.u09.l13.w,yes
+aud.word.kase.say,word,normal,کاسه,b.u06.kaf b.u06.l09.w,yes
+aud.word.ketab.say,word,normal,کِتاب,b.u06.kaf b.u06.l09.w,yes
+aud.word.khab.say,word,normal,خواب,b.u10.khaa,yes
+aud.word.khahar.say,word,normal,خواهَر,b.u10.l15.w,yes
+aud.word.khane.say,word,normal,خانه,b.u07.khe b.u07.l11.w,yes
+aud.word.khargush.say,word,normal,خَرگوش,b.u07.khe b.u07.l11.w,yes
+aud.word.khiar.say,word,normal,خیار,b.u07.khe,yes
+aud.word.lak.say,word,normal,لاک,b.u09.lam,yes
+aud.word.lakposht.say,word,normal,لاک‌پُشت,b.u09.l12.w b.u09.lam,yes
+aud.word.livan.say,word,normal,لیوان,b.u09.lam,yes
+aud.word.madar.say,word,normal,مادَر,b.u02.mim,yes
+aud.word.mahi.say,word,normal,ماهی,b.u10.l14.w,yes
+aud.word.mar.say,word,normal,مار,b.u02.mim b.u03.l05.w,yes
+aud.word.medad.say,word,normal,مِداد,b.u05.l07.w b.u06.l08.w,yes
+aud.word.miz.say,word,normal,میز,b.u05.i_long b.u05.l06.w,yes
+aud.word.mosallas.say,word,normal,مُثَلَّث,b.u13.l19.w b.u13.se,yes
+aud.word.moz.say,word,normal,موز,b.u02.mim,yes
+aud.word.mozhe.say,word,normal,مُژه,b.u10.l15.w,yes
+aud.word.najjar.say,word,normal,نَجّار,b.u03.nun,yes
+aud.word.nan.say,word,normal,نان,b.u03.nun,yes
+aud.word.nardeban.say,word,normal,نَردِبان,b.u03.nun,yes
+aud.word.ordak.say,word,normal,اُردَک,b.u06.o_short,yes
+aud.word.otobus.say,word,normal,اُتوبوس,b.u06.o_short,yes
+aud.word.otu.say,word,normal,اُتو,b.u06.l08.w b.u06.o_short,yes
+aud.word.pa.say,word,normal,پا,b.u07.pe,yes
+aud.word.par.say,word,normal,پَر,b.u07.pe,yes
+aud.word.penguen.say,word,normal,پِنگوئَن,b.u14.hamze b.u14.l21.w,yes
+aud.word.pishi.say,word,normal,پیشی,b.u07.pe,yes
+aud.word.qand.say,word,normal,قَند,b.u09.qaf,yes
+aud.word.qashoq.say,word,normal,قاشُق,b.u09.qaf,yes
+aud.word.qayeq.say,word,normal,قایِق,b.u09.qaf,yes
+aud.word.qazi.say,word,normal,قاضی,b.u14.l20.w b.u14.l21.w,yes
+aud.word.rangin.say,word,normal,رَنگین‌کَمان,b.u03.re,yes
+aud.word.rubah.say,word,normal,روباه,b.u03.re,yes
+aud.word.rud.say,word,normal,رود,b.u03.re,yes
+aud.word.saat.say,word,normal,ساعَت,b.u11.l16.w,yes
+aud.word.sabad.say,word,normal,سَبَد,b.u02.l03.w b.u02.sin b.u03.l04.w,yes
+aud.word.sabun.say,word,normal,صابون,b.u11.l16.w b.u11.sad,yes
+aud.word.sabze.say,word,normal,سَبزه,b.u05.l07.w,yes
+aud.word.sadaf.say,word,normal,صَدَف,b.u11.l16.w,yes
+aud.word.shane.say,word,normal,شانه,b.u05.l07.w b.u05.shin,yes
+aud.word.shir.say,word,normal,شیر,b.u05.shin,yes
+aud.word.shishe.say,word,normal,شیشه,b.u05.shin,yes
+aud.word.sib.say,word,normal,سیب,b.u02.sin b.u05.l06.w,yes
+aud.word.sir.say,word,normal,سیر,b.u05.l06.w,yes
+aud.word.sut.say,word,normal,سوت,b.u02.sin b.u03.l04.w b.u03.u_long,yes
+aud.word.tab.say,word,normal,تاب,b.u03.l04.w b.u03.te,yes
+aud.word.tanab.say,word,normal,طَناب,b.u11.l17.w b.u11.ta b.u12.r2,yes
+aud.word.tas.say,word,normal,تاس,b.u03.l04.w b.u03.te,yes
+aud.word.tavus.say,word,normal,طاووس,b.u11.l17.w b.u12.r2,yes
+aud.word.tut.say,word,normal,توت,b.u03.te,yes
+aud.word.val.say,word,normal,وال,b.u06.vav,yes
+aud.word.van.say,word,normal,وان,b.u06.l09.w b.u06.vav,yes
+aud.word.vazne.say,word,normal,وَزنه,b.u06.vav,yes
+aud.word.yakh.say,word,normal,یَخ,b.u06.ye,yes
+aud.word.yas.say,word,normal,یاس,b.u06.ye,yes
+aud.word.yek.say,word,normal,یِک,b.u06.l09.w b.u06.ye,yes
+aud.word.zamin.say,word,normal,زَمین,b.u05.l06.w b.u05.ze,yes
+aud.word.zanbur.say,word,normal,زَنبور,b.u05.l06.w b.u05.ze,yes
+aud.word.zarf.say,word,normal,ظَرف,b.u14.l20.w b.u14.za,yes
+aud.word.zeytun.say,word,normal,زِیتون,b.u05.ze b.u06.l08.w,yes
+aud.word.zhaket.say,word,normal,ژاکَت,b.u10.l15.w b.u10.zhe,yes
+aud.word.zhele.say,word,normal,ژِله,b.u10.zhe,yes
+aud.word.zhimnastik.say,word,normal,ژیمناستیک,b.u10.zhe,yes
+aud.word.zorrat.say,word,normal,ذُرَّت,b.u13.zal,yes

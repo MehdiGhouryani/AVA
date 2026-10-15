@@ -1,0 +1,376 @@
+درخت فایل‌های بستهٔ AVA — ساختار بازبینی‌شده پس از ممیزی منسوخ‌سازی
+
+مسیرها نسبت به ریشهٔ `AVA/` هستند. منابع `docs/spec_sources_v1_8/` و `packages/ava_ui_assets/legacy/character_pipeline/` تاریخی‌اند؛ از آن‌ها به‌عنوان مسیر/کد فعال استفاده نکنید.
+
+AVA/
+├── ai/
+│   └── phases/
+│       ├── P0_prep_style_gate.md
+│       ├── P10_post_v1_backlog.md
+│       ├── P1_design_system_foundation.md
+│       ├── P2_app_shell_auth_local.md
+│       ├── P3_backend_admin.md
+│       ├── P4_learning_engine_path.md
+│       ├── P5_activities_games.md
+│       ├── P6_characters_avatar.md
+│       ├── P7_parent_billing_legal.md
+│       ├── P8_content_production.md
+│       ├── P9_hardening_pilot_release.md
+│       └── README.md
+├── apps/
+│   ├── admin/
+│   │   └── README.md
+│   └── mobile/
+│       └── README.md
+├── data/
+│   ├── baseline/
+│   │   └── b/
+│   │       ├── stations/
+│   │       │   ├── st.u01.json
+│   │       │   ├── st.u02.json
+│   │       │   ├── st.u03.json
+│   │       │   ├── st.u04.json
+│   │       │   ├── st.u05.json
+│   │       │   ├── st.u06.json
+│   │       │   ├── st.u07.json
+│   │       │   ├── st.u08.json
+│   │       │   ├── st.u09.json
+│   │       │   ├── st.u10.json
+│   │       │   ├── st.u11.json
+│   │       │   ├── st.u12.json
+│   │       │   ├── st.u13.json
+│   │       │   ├── st.u14.json
+│   │       │   ├── st.u15.json
+│   │       │   ├── u00.json
+│   │       │   ├── u01.json
+│   │       │   ├── u02.json
+│   │       │   ├── u03.json
+│   │       │   ├── u04.json
+│   │       │   ├── u05.json
+│   │       │   ├── u06.json
+│   │       │   ├── u07.json
+│   │       │   ├── u08.json
+│   │       │   ├── u09.json
+│   │       │   ├── u10.json
+│   │       │   ├── u11.json
+│   │       │   ├── u12.json
+│   │       │   ├── u13.json
+│   │       │   ├── u14.json
+│   │       │   └── u15.json
+│   │       ├── audio_slots.csv
+│   │       ├── copy_fa.json
+│   │       ├── copy_fa_meta.json
+│   │       ├── curriculum.json
+│   │       ├── placement.json
+│   │       ├── poems.json
+│   │       ├── symbols.json
+│   │       └── words.json
+│   ├── curriculum/
+│   │   └── README.md
+│   ├── screens_v18.json
+│   ├── state_contracts_v18.json
+│   └── ui_layout.json
+├── docs/
+│   ├── legal/
+│   │   └── LEGAL_BRIEF_FA.md
+│   ├── maintenance/
+│   │   ├── FILE_DEPRECATION_AUDIT_FA.md
+│   │   ├── ORGANIZATION_CHANGELOG_FA.md
+│   │   ├── PROJECT_FILE_TREE_FA.txt
+│   │   └── STRUCTURE_VALIDATION_FA.md
+│   ├── pedagogy/
+│   │   ├── 01_master_educational_spec_v2.md
+│   │   ├── 02_stage_content_design_guide_fa_v2.md
+│   │   └── README.md
+│   ├── qa/
+│   │   └── QA_DISPOSITION_FA.md
+│   ├── research/
+│   │   ├── DUOLINGO_RESEARCH_FA.md
+│   │   └── START_CURRENT_FA.md
+│   ├── spec/
+│   │   └── README.md
+│   ├── spec_sources_v1_8/
+│   │   ├── 00_HISTORICAL_PATHS_NOTICE_FA.md
+│   │   ├── 00_START_HERE_FA.md
+│   │   ├── 01_PRODUCT_AND_FLOWS_FA.md
+│   │   ├── 02_DESIGN_SYSTEM_FA.md
+│   │   ├── 03_BRAND_CHARACTERS_AND_AVATAR_FA.md
+│   │   ├── 04_STATE_BEHAVIOR_AND_CONTENT_FA.md
+│   │   ├── 05_IMPLEMENTATION_HANDOFF_FA.md
+│   │   ├── 06_QA_AND_OPEN_GATES_FA.md
+│   │   ├── 07_SCREEN_BY_SCREEN_FA.md
+│   │   ├── 08_DECISIONS_AND_CHANGELOG_FA.md
+│   │   └── README_v1_8_FA.md
+│   └── PROJECT_STRUCTURE_FA.md
+├── packages/
+│   └── ava_ui_assets/
+│       ├── assets/
+│       │   ├── characters/
+│       │   │   ├── ava/
+│       │   │   │   ├── head/
+│       │   │   │   │   ├── excited.webp
+│       │   │   │   │   ├── happy.webp
+│       │   │   │   │   ├── laughing.webp
+│       │   │   │   │   ├── sleepy.webp
+│       │   │   │   │   └── thinking.webp
+│       │   │   │   ├── ava_thinking.webp
+│       │   │   │   ├── ava_wave_book_stars.webp
+│       │   │   │   ├── cheering.webp
+│       │   │   │   ├── jumping.webp
+│       │   │   │   ├── peek.webp
+│       │   │   │   ├── reading.webp
+│       │   │   │   ├── running.webp
+│       │   │   │   ├── sleeping.webp
+│       │   │   │   ├── standing.webp
+│       │   │   │   └── waving.webp
+│       │   │   ├── Fandogh/
+│       │   │   │   ├── Fandogh_01_front_app_800.webp
+│       │   │   │   ├── Fandogh_02_side_left_app_800.webp
+│       │   │   │   ├── Fandogh_03_back_app_800.webp
+│       │   │   │   ├── Fandogh_04_side_right_app_800.webp
+│       │   │   │   ├── Fandogh_05_expression_happy_app_800.webp
+│       │   │   │   ├── Fandogh_06_expression_excited_app_800.webp
+│       │   │   │   ├── Fandogh_07_expression_thinking_app_800.webp
+│       │   │   │   ├── Fandogh_08_expression_sad_app_800.webp
+│       │   │   │   ├── Fandogh_09_expression_sleeping_app_800.webp
+│       │   │   │   ├── Fandogh_10_pose_wave_app_800.webp
+│       │   │   │   ├── Fandogh_11_pose_cheer_app_800.webp
+│       │   │   │   ├── Fandogh_12_state_celebrate_app_800.webp
+│       │   │   │   ├── Fandogh_13_state_worried_app_800.webp
+│       │   │   │   ├── Fandogh_14_expression_surprised_app_800.webp
+│       │   │   │   ├── Fandogh_15_pose_determined_app_800.webp
+│       │   │   │   ├── Fandogh_16_pose_listening_app_800.webp
+│       │   │   │   ├── Fandogh_17_pose_pointing_app_800.webp
+│       │   │   │   └── Fandogh_18_pose_thumbs_up_app_800.webp
+│       │   │   └── Roka/
+│       │   │       ├── Roka_01_front_app_800.webp
+│       │   │       ├── Roka_02_side_left_app_800.webp
+│       │   │       ├── Roka_03_back_app_800.webp
+│       │   │       ├── Roka_04_side_right_app_800.webp
+│       │   │       ├── Roka_05_expression_happy_app_800.webp
+│       │   │       ├── Roka_06_expression_excited_app_800.webp
+│       │   │       ├── Roka_07_expression_thinking_app_800.webp
+│       │   │       ├── Roka_08_expression_sad_app_800.webp
+│       │   │       ├── Roka_09_expression_sleeping_app_800.webp
+│       │   │       ├── Roka_10_pose_wave_app_800.webp
+│       │   │       ├── Roka_11_pose_cheer_app_800.webp
+│       │   │       ├── Roka_12_state_celebrate_app_800.webp
+│       │   │       ├── Roka_13_state_worried_app_800.webp
+│       │   │       ├── Roka_14_expression_surprised_app_800.webp
+│       │   │       ├── Roka_15_pose_determined_app_800.webp
+│       │   │       ├── Roka_16_pose_listening_app_800.webp
+│       │   │       ├── Roka_17_pose_pointing_app_800.webp
+│       │   │       └── Roka_18_pose_thumbs_up_app_800.webp
+│       │   ├── icons/
+│       │   │   └── ui/
+│       │   │       ├── back.png
+│       │   │       ├── back.svg
+│       │   │       ├── book.png
+│       │   │       ├── book.svg
+│       │   │       ├── chart.png
+│       │   │       ├── chart.svg
+│       │   │       ├── check.png
+│       │   │       ├── check.svg
+│       │   │       ├── close.png
+│       │   │       ├── close.svg
+│       │   │       ├── ear.png
+│       │   │       ├── ear.svg
+│       │   │       ├── flower.png
+│       │   │       ├── flower.svg
+│       │   │       ├── game.png
+│       │   │       ├── game.svg
+│       │   │       ├── gift.png
+│       │   │       ├── gift.svg
+│       │   │       ├── hat.png
+│       │   │       ├── hat.svg
+│       │   │       ├── info.png
+│       │   │       ├── info.svg
+│       │   │       ├── leaf.png
+│       │   │       ├── leaf.svg
+│       │   │       ├── next.png
+│       │   │       ├── next.svg
+│       │   │       ├── plus.png
+│       │   │       ├── plus.svg
+│       │   │       ├── replay.png
+│       │   │       ├── replay.svg
+│       │   │       ├── shield.png
+│       │   │       ├── shield.svg
+│       │   │       ├── sound.png
+│       │   │       └── sound.svg
+│       │   ├── illustrations/
+│       │   │   ├── apple.png
+│       │   │   ├── apple.svg
+│       │   │   ├── bee.png
+│       │   │   ├── bee.svg
+│       │   │   ├── bird.png
+│       │   │   ├── bird.svg
+│       │   │   ├── bucket.png
+│       │   │   ├── bucket.svg
+│       │   │   ├── chest.png
+│       │   │   ├── chest.svg
+│       │   │   ├── flower.png
+│       │   │   ├── flower.svg
+│       │   │   ├── garden-background.png
+│       │   │   ├── tree.png
+│       │   │   ├── tree.svg
+│       │   │   ├── water.png
+│       │   │   ├── water.svg
+│       │   │   ├── watering-can.png
+│       │   │   ├── watering-can.svg
+│       │   │   ├── wind.png
+│       │   │   └── wind.svg
+│       │   └── review/
+│       │       ├── candidates/
+│       │       │   ├── page2-1/
+│       │       │   │   ├── background_library.webp
+│       │       │   │   ├── character_ava_reading.webp
+│       │       │   │   ├── decoration_story_tree.webp
+│       │       │   │   └── prop_magic_book.webp
+│       │       │   ├── page2-2/
+│       │       │   │   ├── ava_fairytale_garden_background.webp
+│       │       │   │   ├── ava_main_mascot_waving.webp
+│       │       │   │   ├── forest_bunny_star_wand.webp
+│       │       │   │   ├── forest_fox_laughing.webp
+│       │       │   │   ├── forest_squirrel_waving.webp
+│       │       │   │   └── SOURCE_README_FA.txt
+│       │       │   └── s03a-login/
+│       │       │       ├── background_login_garden.webp
+│       │       │       ├── decoration_bottom_left_garden.webp
+│       │       │       ├── decoration_bottom_right_flowers.webp
+│       │       │       ├── decoration_top_left_leaves.webp
+│       │       │       └── README.txt
+│       │       ├── screenshots/
+│       │       │   ├── page1-splash/
+│       │       │   │   └── page1.png
+│       │       │   ├── page2-1/
+│       │       │   │   └── PAGE2-1.png
+│       │       │   ├── page2-2/
+│       │       │   │   └── PAGE2-2.png
+│       │       │   └── page3/
+│       │       │       ├── S03a-V1.png
+│       │       │       ├── S03b-P.png
+│       │       │       └── S03b-V1.png
+│       │       ├── source_alternates/
+│       │       │   └── ava_head_happy_alt_bigeyes.webp
+│       │       └── README_FA.md
+│       ├── legacy/
+│       │   └── character_pipeline/
+│       │       ├── integration/
+│       │       │   └── flutter/
+│       │       │       └── pubspec_assets_snippet.yaml
+│       │       ├── lib/
+│       │       │   └── characters/
+│       │       │       ├── character_models.dart
+│       │       │       ├── characters.dart
+│       │       │       ├── companion_view.dart
+│       │       │       ├── friend_view.dart
+│       │       │       └── loading_ava.dart
+│       │       ├── metadata/
+│       │       │   ├── asset_notes.json
+│       │       │   └── characters.json
+│       │       ├── test/
+│       │       │   └── characters_test.dart
+│       │       ├── tools/
+│       │       │   ├── build_manifest.py
+│       │       │   ├── character_check.py
+│       │       │   ├── import_art.py
+│       │       │   └── validate_package.py
+│       │       └── README_FA.md
+│       ├── preview/
+│       │   ├── ava_assets_now.png
+│       │   ├── s22_minimal_loading.gif
+│       │   └── s22_minimal_loading_still.png
+│       ├── manifest.json
+│       └── README.md
+├── prototypes/
+│   └── ux_react/
+│       ├── src/
+│       │   ├── assets/
+│       │   │   └── Vazirmatn.ttf
+│       │   ├── generated/
+│       │   │   └── screens.json
+│       │   ├── App.jsx
+│       │   ├── Art.jsx
+│       │   ├── CMSWorkspace.jsx
+│       │   ├── contracts.js
+│       │   └── style.css
+│       ├── tests/
+│       │   ├── artifact.spec.js
+│       │   └── ava.spec.js
+│       ├── tools/
+│       │   └── sync_registry.py
+│       ├── vendor/
+│       │   └── shadcn/
+│       │       ├── docs/
+│       │       │   └── components.md
+│       │       ├── src/
+│       │       │   ├── accordion.jsx
+│       │       │   ├── alert-dialog.jsx
+│       │       │   ├── alert.jsx
+│       │       │   ├── aspect-ratio.jsx
+│       │       │   ├── avatar.jsx
+│       │       │   ├── badge.jsx
+│       │       │   ├── breadcrumb.jsx
+│       │       │   ├── button-group.jsx
+│       │       │   ├── button.jsx
+│       │       │   ├── calendar.jsx
+│       │       │   ├── card.jsx
+│       │       │   ├── carousel.jsx
+│       │       │   ├── chart.jsx
+│       │       │   ├── checkbox.jsx
+│       │       │   ├── collapsible.jsx
+│       │       │   ├── command.jsx
+│       │       │   ├── context-menu.jsx
+│       │       │   ├── dialog.jsx
+│       │       │   ├── drawer.jsx
+│       │       │   ├── dropdown-menu.jsx
+│       │       │   ├── empty.jsx
+│       │       │   ├── field.jsx
+│       │       │   ├── form.jsx
+│       │       │   ├── hover-card.jsx
+│       │       │   ├── input-group.jsx
+│       │       │   ├── input-otp.jsx
+│       │       │   ├── input.jsx
+│       │       │   ├── item.jsx
+│       │       │   ├── kbd.jsx
+│       │       │   ├── Kit.jsx
+│       │       │   ├── label.jsx
+│       │       │   ├── menubar.jsx
+│       │       │   ├── navigation-menu.jsx
+│       │       │   ├── pagination.jsx
+│       │       │   ├── popover.jsx
+│       │       │   ├── progress.jsx
+│       │       │   ├── radio-group.jsx
+│       │       │   ├── resizable.jsx
+│       │       │   ├── scroll-area.jsx
+│       │       │   ├── select.jsx
+│       │       │   ├── separator.jsx
+│       │       │   ├── sheet.jsx
+│       │       │   ├── sidebar.jsx
+│       │       │   ├── skeleton.jsx
+│       │       │   ├── slider.jsx
+│       │       │   ├── sonner.jsx
+│       │       │   ├── spinner.jsx
+│       │       │   ├── switch.jsx
+│       │       │   ├── table.jsx
+│       │       │   ├── tabs.jsx
+│       │       │   ├── textarea.jsx
+│       │       │   ├── theme.css
+│       │       │   ├── toggle-group.jsx
+│       │       │   ├── toggle.jsx
+│       │       │   ├── tooltip.jsx
+│       │       │   ├── use-mobile.jsx
+│       │       │   └── utils.js
+│       │       ├── package.json
+│       │       └── README.md
+│       └── README_FA.md
+├── services/
+│   └── api/
+│       └── README.md
+├── .cursorrules
+├── .gitignore
+├── AGENTS.md
+├── AI_START_HERE.md
+├── CLAUDE.md
+├── GEMINI.md
+└── README_FA.md

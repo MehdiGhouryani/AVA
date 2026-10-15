@@ -1,0 +1,72 @@
+{
+ "schema": 1,
+ "story_id": "st.u02",
+ "unit": "u02",
+ "title_key": "copy.st.u02.title",
+ "pages": [
+  {
+   "page": 1,
+   "image": "img.story.u02.p1",
+   "sentence": {
+    "text": "باد آمَد.",
+    "words": [
+     "w_bad",
+     "w_amad"
+    ],
+    "audio": "aud.story.u02.p1"
+   },
+   "allowed_max_lesson": 3
+  },
+  {
+   "page": 2,
+   "image": "img.story.u02.p2",
+   "sentence": {
+    "text": "بابا آمَد.",
+    "words": [
+     "w_baba",
+     "w_amad"
+    ],
+    "audio": "aud.story.u02.p2"
+   },
+   "allowed_max_lesson": 3
+  },
+  {
+   "page": 3,
+   "image": "img.story.u02.p3",
+   "sentence": {
+    "text": "بابا سَبَد داد.",
+    "words": [
+     "w_baba",
+     "w_sabad",
+     "w_dad"
+    ],
+    "audio": "aud.story.u02.p3"
+   },
+   "allowed_max_lesson": 3
+  },
+  {
+   "page": 4,
+   "image": "img.story.u02.p4",
+   "sentence": {
+    "text": "بابا بادام داد.",
+    "words": [
+     "w_baba",
+     "w_badam",
+     "w_dad"
+    ],
+    "audio": "aud.story.u02.p4"
+   },
+   "allowed_max_lesson": 3
+  }
+ ],
+ "questions": [
+  {
+   "type": "picture_choice",
+   "audio": "aud.story.u02.q1",
+   "answer": "img.word.sabad",
+   "distractors": [
+    "img.word.bad"
+   ]
+  }
+ ]
+}

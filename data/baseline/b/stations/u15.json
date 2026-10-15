@@ -1,0 +1,317 @@
+{
+ "schema": 1,
+ "provisional": true,
+ "station_id": "u15",
+ "station_type": "reading",
+ "order": 15,
+ "theme_color": "saffron",
+ "title_key": "copy.u15.title",
+ "goal_key": "copy.u15.goal",
+ "narration_audio": "aud.narr.s07.u15",
+ "lessons": [],
+ "new_symbols": [],
+ "review_symbols": [
+  "sym_zal",
+  "sym_tashdid",
+  "sym_se",
+  "sym_zad",
+  "sym_za",
+  "sym_hamze"
+ ],
+ "target_words": [
+  "w_arre",
+  "w_bachche",
+  "w_bagh",
+  "w_cheragh",
+  "w_ghaz",
+  "w_halazun",
+  "w_hole",
+  "w_hoz",
+  "w_kaghaz",
+  "w_mosallas",
+  "w_najjar",
+  "w_penguen",
+  "w_qazi",
+  "w_qurbaghe",
+  "w_tanab",
+  "w_tavus",
+  "w_zarf",
+  "w_zorrat"
+ ],
+ "exit_criteria": {
+  "all_steps_completed": true,
+  "challenge_completed": true
+ },
+ "steps": [
+  {
+   "step_id": "b.u15.rd1",
+   "type": "reading",
+   "title_key": "copy.b.u15.rd1.title",
+   "est_min": 5,
+   "objective": "خواندن مستقل واژه/هجا با همه‌ی نشانه‌های آموخته‌شده.",
+   "activities": [
+    {
+     "activity": "S10b",
+     "kind": "word_to_picture",
+     "rounds": 4,
+     "words": [
+      "w_penguen",
+      "w_hoz",
+      "w_qazi",
+      "w_zarf"
+     ],
+     "choices": 3,
+     "spoken_instruction": "aud.instr.word_pick"
+    },
+    {
+     "activity": "S12",
+     "game": "G5",
+     "rounds": 3,
+     "words": [
+      "w_penguen",
+      "w_qazi",
+      "w_cheragh"
+     ],
+     "spoken_instruction": "aud.instr.syllable_bridge"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5
+    }
+   }
+  },
+  {
+   "step_id": "b.u15.rd2",
+   "type": "reading",
+   "title_key": "copy.b.u15.rd2.title",
+   "est_min": 5,
+   "objective": "خواندن مستقل واژه/هجا با همه‌ی نشانه‌های آموخته‌شده.",
+   "activities": [
+    {
+     "activity": "S10b",
+     "kind": "word_to_picture",
+     "rounds": 4,
+     "words": [
+      "w_arre",
+      "w_bachche",
+      "w_mosallas",
+      "w_najjar"
+     ],
+     "choices": 3,
+     "spoken_instruction": "aud.instr.word_pick"
+    },
+    {
+     "activity": "S12",
+     "game": "G5",
+     "rounds": 3,
+     "words": [
+      "w_kaghaz",
+      "w_qurbaghe",
+      "w_halazun"
+     ],
+     "spoken_instruction": "aud.instr.syllable_bridge"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5
+    }
+   }
+  },
+  {
+   "step_id": "b.u15.rd3",
+   "type": "reading",
+   "title_key": "copy.b.u15.rd3.title",
+   "est_min": 5,
+   "objective": "خواندن مستقل واژه/هجا با همه‌ی نشانه‌های آموخته‌شده.",
+   "activities": [
+    {
+     "activity": "S10b",
+     "kind": "word_to_picture",
+     "rounds": 4,
+     "words": [
+      "w_zorrat",
+      "w_bagh",
+      "w_cheragh",
+      "w_ghaz"
+     ],
+     "choices": 3,
+     "spoken_instruction": "aud.instr.word_pick"
+    },
+    {
+     "activity": "S12",
+     "game": "G5",
+     "rounds": 3,
+     "words": [
+      "w_hole",
+      "w_tanab",
+      "w_tavus"
+     ],
+     "spoken_instruction": "aud.instr.syllable_bridge"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 5
+    }
+   }
+  },
+  {
+   "step_id": "b.u15.story",
+   "type": "story",
+   "title_key": "copy.b.u15.story.title",
+   "est_min": 6,
+   "objective": "کودک قصه‌ی 6 صفحه‌ای «کتابِ آوا» را می‌شنود/با هم می‌خواند و به یک پرسش تصویری پاسخ می‌دهد.",
+   "activities": [
+    {
+     "activity": "S14",
+     "story": "st.u15",
+     "pages": 6,
+     "modes": [
+      "listen",
+      "read_with_me"
+     ],
+     "spoken_instruction": "aud.instr.story_listen"
+    },
+    {
+     "activity": "S10b",
+     "kind": "picture_question",
+     "rounds": 1,
+     "choices": 2,
+     "question": "st.u15.q1",
+     "spoken_instruction": "aud.instr.story_question"
+    },
+    {
+     "activity": "S13",
+     "variant": "node"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 8,
+     "album_card": "card.st.u15"
+    }
+   }
+  },
+  {
+   "step_id": "b.u15.challenge",
+   "type": "challenge",
+   "title_key": "copy.b.u15.challenge.title",
+   "est_min": 5,
+   "objective": "سنجش بدون راهنمای پیش‌فرض: صدا↔حرف و واژه↔تصویر برای نشانه‌های ایستگاه.",
+   "activities": [
+    {
+     "activity": "S10",
+     "rounds": 3,
+     "choices": 4,
+     "targets": [
+      "sym_se",
+      "sym_za",
+      "sym_hamze"
+     ],
+     "hints": "after_second_miss",
+     "cue": "sound_plus_keyword",
+     "distractors": {
+      "policy": "learned_D1",
+      "exclude": "same_sound"
+     },
+     "spoken_instruction": "aud.instr.listen_pick"
+    },
+    {
+     "activity": "S10b",
+     "kind": "word_to_picture",
+     "rounds": 3,
+     "words": [
+      "w_penguen",
+      "w_hoz",
+      "w_qazi"
+     ],
+     "choices": 3,
+     "hints": "after_second_miss",
+     "spoken_instruction": "aud.instr.word_pick"
+    },
+    {
+     "activity": "S13",
+     "variant": "station"
+    }
+   ],
+   "success": "همه‌ی آیتم‌ها تا انتها؛ نتیجه‌ی هر آیتم ∈ {first_try, retry, assisted}",
+   "help_route": "retry_machine(B)",
+   "idle_route": "14 §5.1",
+   "logging": [
+    "ev.node.start",
+    "ev.node.step",
+    "ev.node.complete"
+   ],
+   "reward": {
+    "node": {
+     "coins": 15
+    },
+    "station": {
+     "coins": 20,
+     "item": "reward.u15",
+     "album_card": "card.station.u15"
+    }
+   }
+  }
+ ],
+ "station_audio": [
+  "aud.instr.listen_pick",
+  "aud.instr.story_listen",
+  "aud.instr.story_question",
+  "aud.instr.syllable_bridge",
+  "aud.instr.word_pick",
+  "aud.narr.s07.u15"
+ ],
+ "station_assets": [],
+ "learn_items": [
+  "simple_words",
+  "stories"
+ ],
+ "risk_notes": []
+}

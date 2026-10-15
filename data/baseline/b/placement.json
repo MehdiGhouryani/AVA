@@ -1,0 +1,85 @@
+{
+ "schema": 2,
+ "track": "B",
+ "items": [
+  {
+   "i": 1,
+   "kind": "sound_to_letter",
+   "on_wrong_start": "u00",
+   "choices": 3,
+   "distractor": "D0",
+   "exclude": "same_sound",
+   "target": "sym_ba"
+  },
+  {
+   "i": 2,
+   "kind": "sound_to_letter",
+   "on_wrong_start": "u02",
+   "choices": 3,
+   "distractor": "D0",
+   "exclude": "same_sound",
+   "target": "sym_sin"
+  },
+  {
+   "i": 3,
+   "kind": "first_sound",
+   "on_wrong_start": "u03",
+   "choices": 3,
+   "distractor": "D0",
+   "exclude": "same_sound",
+   "word": "w_nan"
+  },
+  {
+   "i": 4,
+   "kind": "sound_to_letter",
+   "on_wrong_start": "u05",
+   "choices": 3,
+   "distractor": "D0",
+   "exclude": "same_sound",
+   "target": "sym_shin"
+  },
+  {
+   "i": 5,
+   "kind": "sound_to_letter",
+   "on_wrong_start": "u06",
+   "choices": 3,
+   "distractor": "D0",
+   "exclude": "same_sound",
+   "target": "sym_kaf"
+  },
+  {
+   "i": 6,
+   "kind": "sound_to_letter",
+   "on_wrong_start": "u07",
+   "choices": 3,
+   "distractor": "D0",
+   "exclude": "same_sound",
+   "target": "sym_khe"
+  },
+  {
+   "i": 7,
+   "kind": "word_to_picture",
+   "on_wrong_start": "u04",
+   "choices": 3,
+   "distractor": "D0",
+   "exclude": "same_sound",
+   "word": "w_sib"
+  },
+  {
+   "i": 8,
+   "kind": "word_to_picture",
+   "on_wrong_start": "u08",
+   "choices": 3,
+   "distractor": "D0",
+   "exclude": "same_sound",
+   "word": "w_khargush"
+  }
+ ],
+ "all_correct_start": "u09",
+ "policy": {
+  "early_stop_after_consecutive_wrong": 2,
+  "max_seconds": 120,
+  "skipped_counts_as_wrong": true,
+  "k_eff": "min(K, free_until_station)"
+ }
+}
