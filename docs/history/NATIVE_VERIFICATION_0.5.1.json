@@ -1,0 +1,131 @@
+{
+  "versionName": "0.5.1",
+  "versionCode": 14,
+  "date": "2026-10-28",
+  "delivery": "source-only increment",
+  "provenance": "Continued from AVA 0.5.0 source; 0.5.0 progress and verification preserved in docs/history.",
+  "latestCommand": "migrate/contract/audio validation; deterministic bundle compile/verify/tamper test; resource sync; project audit; Python/JSON/whitespace checks; production Catalog-read audit; ./gradlew testDebugUnitTest --no-daemon --stacktrace",
+  "latestResult": "All deterministic content, bundle, tamper, resource, project, Python, JSON and whitespace checks passed. Production screens have zero direct Catalog reads. Native tests did not start because Gradle download failed with Network is unreachable and Android SDK is absent.",
+  "nativeTestCount": 94,
+  "nativeTestsExecuted": false,
+  "nativeTestSources": [
+    {
+      "name": "AuthRepositoryTest",
+      "tests": 5,
+      "execution": "not run in 0.5.1 environment"
+    },
+    {
+      "name": "AvaViewModelTest",
+      "tests": 26,
+      "execution": "not run in 0.5.1 environment"
+    },
+    {
+      "name": "ContentRepositoryTest",
+      "tests": 5,
+      "execution": "not run in 0.5.1 environment"
+    },
+    {
+      "name": "LearnerPersistenceTest",
+      "tests": 4,
+      "execution": "not run in 0.5.1 environment"
+    },
+    {
+      "name": "ModelTest",
+      "tests": 15,
+      "execution": "not run in 0.5.1 environment"
+    },
+    {
+      "name": "NativeUiTest",
+      "tests": 39,
+      "execution": "not run in 0.5.1 environment"
+    }
+  ],
+  "checks": {
+    "contentContracts": "passed: v2 migration, v3 schema/release hashes and audio refs",
+    "bundleCompiler": "passed: deterministic byte-identical compile, valid verify and tamper rejection",
+    "localRepository": "source tests added for bundled fallback, staged activation, rejection, rollback and published guard",
+    "uiContentBoundary": "passed static audit: zero direct Catalog reads in production screens",
+    "resourceSync": "passed: generated resources match canonical sources",
+    "projectAudit": "passed with deterministic bundle/tamper checks",
+    "pythonAndJson": "passed: 67 JSON files and Python compile validation",
+    "whitespace": "passed for changed files",
+    "nativeUnitAndCompose": "blocked before execution: Gradle 8.11.1 download failed with Network is unreachable; Android SDK not installed",
+    "manifestPermissions": "passed: no INTERNET or RECORD_AUDIO permission",
+    "installPackages": "none: source-only increment; no APK/AAB output"
+  },
+  "phase051": {
+    "evidenceUnitsCompleted": 9,
+    "totalUnits": 10,
+    "completed": [
+      "BundledContentSource",
+      "PublishedLocalSource",
+      "candidate validation",
+      "staging and mutex commit",
+      "previous snapshot rollback",
+      "deterministic bundle compiler",
+      "tamper rejection",
+      "ViewModel active snapshot loading",
+      "production screen state-only content reads"
+    ],
+    "open": [
+      "execute and compile the 94 Native/Compose tests in a complete toolchain"
+    ]
+  },
+  "runtime": {
+    "appVersion": "0.5.1",
+    "activeReadPath": "AvaState.content loaded by LocalContentRepository",
+    "bundledFallback": true,
+    "publishedLocalFixture": true,
+    "storePersistence": "memory fixture only",
+    "stagingRevalidation": true,
+    "atomicity": "mutex guarded in-process commit",
+    "rollback": true,
+    "processDeathRecovery": false,
+    "remoteSync": false,
+    "directScreenCatalogReads": 0
+  },
+  "bundle": {
+    "formatVersion": 1,
+    "entries": [
+      "manifest.json",
+      "content.json",
+      "audio-inventory.json",
+      "bundle-index.json"
+    ],
+    "deterministic": true,
+    "sha256Indexed": true,
+    "tamperRejected": true,
+    "pathAllowlist": true
+  },
+  "sourceSha256": {
+    "android/app/build.gradle.kts": "fbf46d8e2b2e64ac13ed744fa8cb83fd5fab808dd7f31ca8515aba1b5975d422",
+    "android/app/src/main/AndroidManifest.xml": "a110e94402a986a25ebdf88b724e3c44061c42139a2d40cc1699ad6f50578124",
+    "android/app/src/main/java/com/ava/reading/content/ContentContract.kt": "3f51578c3ef0c0e11860362c690863cf68015a5d234f4fc7dfb9c084b8d00b0d",
+    "android/app/src/main/java/com/ava/reading/content/LocalContentRepository.kt": "a9861192c5c3bcc92594b322fee442896ddad69d608f66840dc164f25e885536",
+    "android/app/src/main/java/com/ava/reading/content/Models.kt": "8d5021d26ee9225710455b91987fc56601a0a49f9f1a34913c313cdf8eaae2f0",
+    "android/app/src/main/java/com/ava/reading/ui/AvaViewModel.kt": "4faa4d0075da1944cebf7b221cc4808530e6fad3744a7ccb322d0029586b5a04",
+    "android/app/src/main/java/com/ava/reading/ui/screens/HomeScreen.kt": "e0d9b9b41fec569c600b054aa7665264e18a6aa63903b0e7c0a7dea8401793af",
+    "android/app/src/main/java/com/ava/reading/ui/screens/LessonScreens.kt": "dba185ea3c1be816d37005ec16a2b503aa4dfe877235804e85aa6f66a347384f",
+    "android/app/src/main/java/com/ava/reading/ui/screens/StoryScreens.kt": "468df33eeb973daf0765bc8935ba26c46c1c9afde5ebd3a937823582761a5790",
+    "android/app/src/main/java/com/ava/reading/ui/screens/PracticeScreen.kt": "c450ff707639413c495fe47654509088e7b54744bebe7e7e86970e0305ff7703",
+    "android/app/src/main/java/com/ava/reading/ui/screens/ProfileScreens.kt": "5642862d3f5b068f4c764bae48c53d1cb687b088363444c592a7704067d6546e",
+    "android/app/src/main/java/com/ava/reading/ui/screens/SettingsScreens.kt": "6b6db8c2c5063bef34e7df6c9a33f5bcee60a79d71fd07662e26db2327911399",
+    "android/app/src/test/java/com/ava/reading/ContentRepositoryTest.kt": "8f606be7034c245f663ff465c92669d5004412a1764cb9f6a8633c5adf5fcd15",
+    "android/app/src/test/java/com/ava/reading/AvaViewModelTest.kt": "4558f06f5f5bed4f6a771da8cc351d52b0548df43cc212123dc74f884b583782",
+    "scripts/compile-content-bundle.py": "07662a7e8370e1b75ebe9c7634161e27957b173bfbd8c39edc08dd105b00683f",
+    "scripts/test-content-bundle.py": "9e0bc75abb1c4c59d2628792281a4256ab4e705c2fd312e6876b3c2a327adf78",
+    "scripts/audit-project.py": "ad3e08085d6f198ec2197879d356ed25039b004e4b997a62b71e0ce843c6e40e",
+    "docs/LOCAL_CONTENT_RUNTIME_FA.md": "e4ea7e5ca35543d984f03d4ae039c77090812314ad931337fe9b118108115665",
+    "docs/PROGRESS_FA.md": "dd153a452953b9162f578f25b95b505a32236ea479c715b16b6aa801db304fed",
+    "docs/AVA_MASTER_ROADMAP_FA.md": "f822ffe4adeb7b1f5f2965cf7a08ed236e2e62857c14f6ce0d1d39bc7c5f4dbd"
+  },
+  "deviceRun": "not verified",
+  "releaseGates": [
+    "provide Gradle 8.11.1, Android SDK 35 and dependency cache; execute 94 tests and lint",
+    "add process-persistent file store, decoder and process-death recovery before remote sync",
+    "render and inspect Practice at compact and large text",
+    "physical-device TalkBack/TTS/lifecycle/font QA",
+    "educator review and production release signature remain required"
+  ],
+  "nextIncrement": "implement 0.6.0 activity registry/session reducer/renderers with injectable audio playback and no CMS/URL dependency"
+}

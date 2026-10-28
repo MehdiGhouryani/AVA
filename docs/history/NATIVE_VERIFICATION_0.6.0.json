@@ -1,0 +1,109 @@
+{
+  "versionName": "0.6.0",
+  "versionCode": 15,
+  "date": "2026-10-28",
+  "delivery": "source-only increment",
+  "provenance": "Continued from AVA 0.5.1; prior progress and verification preserved under docs/history.",
+  "latestCommand": "project audit; Python/JSON checks; static Catalog/permission audit; ./gradlew testDebugUnitTest --no-daemon --stacktrace",
+  "latestResult": "All deterministic content, migration, release-hash, audio-inventory, bundle, tamper, resource, project, Python and JSON checks passed. Gradle stopped before configuration/test execution because the pinned 8.11.1 distribution could not be downloaded: Network is unreachable.",
+  "nativeTestCount": 103,
+  "nativeTestsExecuted": false,
+  "nativeTestSources": [
+    {"name": "ActivityEngineTest", "tests": 7, "execution": "not run in 0.6.0 environment"},
+    {"name": "AuthRepositoryTest", "tests": 5, "execution": "not run in 0.6.0 environment"},
+    {"name": "AvaViewModelTest", "tests": 27, "execution": "not run in 0.6.0 environment"},
+    {"name": "ContentRepositoryTest", "tests": 5, "execution": "not run in 0.6.0 environment"},
+    {"name": "LearnerPersistenceTest", "tests": 4, "execution": "not run in 0.6.0 environment"},
+    {"name": "ModelTest", "tests": 15, "execution": "not run in 0.6.0 environment"},
+    {"name": "NativeUiTest", "tests": 40, "execution": "not run in 0.6.0 environment"}
+  ],
+  "checks": {
+    "activityRegistry": "source complete: all 9 TaskKind values map exhaustively to family, interaction, hint and audio capabilities",
+    "sessionReducer": "source complete: versioned snapshot, safe decode/clamp/filter/recompute and SavedStateHandle ownership for lessons/reviews",
+    "audioBoundary": "source complete: stable AudioRequest/AudioPlayback interface, fake test double and offline TTS fallback; human bundle resolver not implemented",
+    "rendererBoundary": "passed static design audit: capability-driven renderer and zero direct Catalog reads in production screens",
+    "contentContracts": "passed: v2 migration, v3 schema/release hashes and audio refs including 9 activity kinds",
+    "bundleCompiler": "passed: deterministic byte-identical compile, valid verify and tamper rejection",
+    "resourceSync": "passed: generated resources match canonical sources",
+    "projectAudit": "passed with deterministic bundle/tamper checks",
+    "pythonAndJson": "passed: 68 JSON files and Python compile validation",
+    "nativeUnitAndCompose": "blocked before configuration: Gradle 8.11.1 download failed with Network is unreachable; no test was executed",
+    "manifestPermissions": "passed: no INTERNET or RECORD_AUDIO permission",
+    "installPackages": "none: source-only increment; no APK/AAB output"
+  },
+  "roadmapScore": {
+    "totalCompleted": 37,
+    "totalPlanned": 100,
+    "throughCurrentScopeCompleted": 37,
+    "throughCurrentScopePlanned": 45,
+    "interpretation": "engineering evidence score, not release-readiness or educational efficacy"
+  },
+  "phase060": {
+    "evidenceUnitsCompleted": 13,
+    "totalUnits": 15,
+    "completed": [
+      "9-kind activity registry",
+      "choice and token interaction definitions",
+      "shared reducer for all families",
+      "capability-driven lesson renderer",
+      "family-driven review diversity",
+      "versioned session snapshot",
+      "stale/corrupt snapshot filtering",
+      "SavedStateHandle lesson ownership",
+      "SavedStateHandle review ownership",
+      "resume active-index correction",
+      "injectable structured audio request",
+      "schema/generator/validator extension",
+      "new unit/ViewModel/Compose test sources"
+    ],
+    "open": [
+      "compile and execute all 103 Native/Compose tests in a complete toolchain",
+      "render and inspect representative new kinds plus recreation/audio lifecycle on emulator and physical device"
+    ]
+  },
+  "runtime": {
+    "appVersion": "0.6.0",
+    "canonicalTaskKindsInUse": ["Recognize", "Listen", "BuildWord"],
+    "supportedTaskKinds": ["Recognize", "Listen", "BuildWord", "DotFamily", "PositionalForm", "InitialSound", "FinalSound", "Segment", "Blend"],
+    "activityFamilies": ["Visual", "Listening", "WordConstruction"],
+    "sessionSnapshotVersion": 1,
+    "audioPlayback": "injectable interface with offline Persian TTS fallback",
+    "humanAudioBundleResolver": false,
+    "remoteSync": false,
+    "directScreenCatalogReads": 0
+  },
+  "sourceSha256": {
+    "android/app/build.gradle.kts": "aedf8d8bfc578838b12adb58786b79bf7290d1c658914119b2fb56d11af133c7",
+    "android/app/src/main/AndroidManifest.xml": "a110e94402a986a25ebdf88b724e3c44061c42139a2d40cc1699ad6f50578124",
+    "android/app/src/main/java/com/ava/reading/content/Models.kt": "e99a86faceb001f9e0a4a84bc76a13ed7588cb8d1581deec5022d9616fc5348d",
+    "android/app/src/main/java/com/ava/reading/content/ActivityRegistry.kt": "c9e277fded9ac4127e69e4fb39763c7fd519afc1663ef30becc80b72d150be5b",
+    "android/app/src/main/java/com/ava/reading/content/AudioPlayback.kt": "58a4c6beaf22df754f5f1351aa9e0297ff4a99c142b2c9c2dc667e1ed646c265",
+    "android/app/src/main/java/com/ava/reading/content/Exercise.kt": "c258e7247c3f99f72ebe70e56ced942ad1609490ed075b5218c2cfea2cf80af9",
+    "android/app/src/main/java/com/ava/reading/platform/AndroidNarrator.kt": "91596bc3f9855b52dcbed5bc065bc864c37041fe5d979ce996e9bcb63f5df07c",
+    "android/app/src/main/java/com/ava/reading/ui/AvaActions.kt": "fd1f62ceede5e3f67f198c55f689223099b050c35a71285cb8230cf94323737a",
+    "android/app/src/main/java/com/ava/reading/ui/AvaViewModel.kt": "3228971040de9803e0aa82e63b43d48b932e158f365f83b5ef9de60279aaecfb",
+    "android/app/src/main/java/com/ava/reading/ui/screens/LessonScreens.kt": "f7a2e35959b7040460dbfa343ff8b0eb4298b50993f666ecd676961faddbc601",
+    "android/app/src/main/java/com/ava/reading/ui/screens/PracticeScreen.kt": "69ca988a0bd8ef38098d6d4828b5055d2ad4095c152d1960ce6dd315f635204e",
+    "android/app/src/main/java/com/ava/reading/ui/screens/StoryScreens.kt": "843f3b25385bd49ba7f1dcc81a372ff117e52ae00d51965fc5646f8fd0589bb8",
+    "android/app/src/test/java/com/ava/reading/ActivityEngineTest.kt": "a2ce0ac53bdc2d347bbcf602c6df73c6b2f08714f0c08534753fe752f0feb892",
+    "android/app/src/test/java/com/ava/reading/AvaViewModelTest.kt": "42a3f2c2730bc931be8894b8958fc1aef0d17ce7595de3ada3ced842a36254a1",
+    "android/app/src/test/java/com/ava/reading/ModelTest.kt": "a0c1560170b4c219a6eb0c8093410bce5df934a3cf203247757a28ce209ddbef",
+    "android/app/src/test/java/com/ava/reading/NativeUiTest.kt": "856c1247f9b3710cb67aaf591785cb185d5a13c2dd8fc74bb3eb75fb75795eb6",
+    "design/content.schema.json": "5bbcdbc61fdaa942aadeaf853579b71b0840d67579095671b4e41400d325824e",
+    "scripts/sync-android-resources.py": "1e25668ac3aa7472a6104b56c0f6367d6507524741eb52d28b9fa67c723deb6a",
+    "scripts/validate-content-contract.py": "5a98f4a5b3392efa351b0c213dab1f3d4d75431a2f6bf316267aeb2f521f0501",
+    "docs/ACTIVITY_ENGINE_FA.md": "9564eecd3e213f5f8512290c531f233f512b42da8df0db9f87321fa2e736abd1",
+    "docs/PROGRESS_FA.md": "a3c4c8faabab31558afb8aa38f498524f3883f25f2cb63399346ec528a803381",
+    "docs/AVA_MASTER_ROADMAP_FA.md": "a9cddf2e135c4f7e9b8b65f5d81b67ef2bed6ee2d8d3af94e0a529cfb720e045"
+  },
+  "deviceRun": "not verified",
+  "releaseGates": [
+    "provide Gradle 8.11.1, JDK 17, Android SDK 35 and dependency cache; execute 103 tests and lint",
+    "add process-persistent local bundle store, decoder, atomic write and process-death recovery before remote sync",
+    "render representative new activity kinds at compact and large text",
+    "physical-device TalkBack/TTS/lifecycle/font/performance QA",
+    "educator review of level-1 sequence, scripts, pronunciation and human recordings",
+    "production release signature, legal review and real account/SMS remain required"
+  ],
+  "nextIncrement": "after toolchain gate, begin 0.6.1 with a small educator-reviewable level-1 content slice and a Strapi/Payload prototype ADR; do not connect UI directly to CMS"
+}

@@ -1,0 +1,22 @@
+{
+  "skills": [
+    {
+      "name": "ui-ux-pro-max",
+      "source": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "revision": "28b3b8dee8c976df4fa3e94aed4e092ad43fcb03",
+      "skillSha256": "ea087c341bfb5b23195c7302027268ede86da802554c18a5c4896a6017b439f9"
+    },
+    {
+      "name": "claymorphism",
+      "source": "https://github.com/bergside/awesome-design-skills",
+      "revision": "f631a09b4fcc0166f2e2c1a8c81906ef680c57e8",
+      "skillSha256": "4eca069658e2615d3afd7e2bc9844f25fc917d037b6c70cab35a71deda0288c8"
+    },
+    {
+      "name": "ava-duolingo-learning",
+      "source": "project-owned",
+      "revision": "native-0.4.1",
+      "skillSha256": "d7d833d8005510d260e0ebd7ad903971d3c82a896ab6215ae4845fb9829d860c"
+    }
+  ]
+}

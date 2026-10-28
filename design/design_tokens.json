@@ -1,0 +1,238 @@
+{
+  "_meta": {
+    "purpose": "AVA visual source of truth for Native Kotlin/Compose; original web is historical.",
+    "provenance_legend": {
+      "repo": "value taken from docs/spec_sources_v1_8/02_DESIGN_SYSTEM_FA.md (historical spec)",
+      "sampled": "pixel-sampled from the approved screenshots (anti-aliasing means +-8% error)",
+      "approximated": "approximated between several sampled pixels",
+      "proposed": "chosen by the supervisor to satisfy contrast; not in any source",
+      "constant": "fixed"
+    },
+    "color_provenance": {
+      "paper": "repo",
+      "paperLogin": "sampled",
+      "surface": "repo",
+      "cream": "sampled",
+      "creamBox": "sampled",
+      "fieldBg": "sampled",
+      "ink": "repo",
+      "evergreen": "repo",
+      "evergreenDeep": "approximated",
+      "plum": "repo",
+      "apricot": "repo",
+      "amber": "sampled",
+      "amberText": "sampled",
+      "amberTint": "sampled",
+      "bannerBg": "sampled",
+      "berry": "sampled",
+      "muted": "repo",
+      "textSoft": "sampled",
+      "line": "repo",
+      "disabledBg": "sampled",
+      "disabledText": "proposed",
+      "dotIdle": "sampled",
+      "white": "constant"
+    },
+    "contrast_computed_WCAG_2_1": [
+      {
+        "fg": "white",
+        "bg": "evergreen",
+        "use": "CTA label",
+        "ratio": 5.48,
+        "meets_AA_4_5": true
+      },
+      {
+        "fg": "evergreenDeep",
+        "bg": "cream",
+        "use": "titles on OTP sheet",
+        "ratio": 7.34,
+        "meets_AA_4_5": true
+      },
+      {
+        "fg": "evergreenDeep",
+        "bg": "paperLogin",
+        "use": "titles on phone page",
+        "ratio": 7.23,
+        "meets_AA_4_5": true
+      },
+      {
+        "fg": "ink",
+        "bg": "paper",
+        "use": "body text",
+        "ratio": 10.42,
+        "meets_AA_4_5": true
+      },
+      {
+        "fg": "textSoft",
+        "bg": "cream",
+        "use": "onboarding subtitle / OTP subtitle (approx. on pale scene)",
+        "ratio": 7.03,
+        "meets_AA_4_5": true
+      },
+      {
+        "fg": "muted",
+        "bg": "paper",
+        "use": "skip link, helper text",
+        "ratio": 5.09,
+        "meets_AA_4_5": true
+      },
+      {
+        "fg": "berry",
+        "bg": "cream",
+        "use": "phone number and timer highlight",
+        "ratio": 7.89,
+        "meets_AA_4_5": true
+      },
+      {
+        "fg": "amberText",
+        "bg": "cream",
+        "use": "error text on OTP sheet",
+        "ratio": 6.13,
+        "meets_AA_4_5": true
+      },
+      {
+        "fg": "amberText",
+        "bg": "paperLogin",
+        "use": "error text on phone page",
+        "ratio": 6.04,
+        "meets_AA_4_5": true
+      },
+      {
+        "fg": "amberText",
+        "bg": "bannerBg",
+        "use": "offline banner text",
+        "ratio": 5.5,
+        "meets_AA_4_5": true
+      },
+      {
+        "fg": "amberText",
+        "bg": "amberTint",
+        "use": "error text on tinted OTP boxes",
+        "ratio": 5.7,
+        "meets_AA_4_5": true
+      },
+      {
+        "fg": "evergreen",
+        "bg": "paperLogin",
+        "use": "links",
+        "ratio": 5.05,
+        "meets_AA_4_5": true
+      },
+      {
+        "fg": "disabledText",
+        "bg": "disabledBg",
+        "use": "disabled CTA label (WCAG exempts disabled controls)",
+        "ratio": 4.77,
+        "meets_AA_4_5": true
+      }
+    ]
+  },
+  "color": {
+    "paper": "#EDF6F2",
+    "paperLogin": "#F1F7F2",
+    "surface": "#FBFDF8",
+    "cream": "#FEF7E1",
+    "creamBox": "#FDF7E2",
+    "fieldBg": "#FCF9F1",
+    "ink": "#233D47",
+    "evergreen": "#14766A",
+    "evergreenDeep": "#0A5C54",
+    "plum": "#7954B5",
+    "apricot": "#FFBD59",
+    "amber": "#E3900F",
+    "amberText": "#8A4F00",
+    "amberTint": "#FDEEC9",
+    "bannerBg": "#FDE9C1",
+    "berry": "#7C3457",
+    "muted": "#526C71",
+    "textSoft": "#395965",
+    "line": "#C7DDD2",
+    "disabledBg": "#E3DECF",
+    "disabledText": "#625F50",
+    "dotIdle": "#CCD9B9",
+    "white": "#FFFFFF"
+  },
+  "font": {
+    "family": "Vazirmatn",
+    "file": "/fonts/Vazirmatn.ttf",
+    "weights": {
+      "title": 800,
+      "label": 600,
+      "ui": 500
+    },
+    "size_px": {
+      "title": 28,
+      "titleLarge": 32,
+      "body": 17,
+      "label": 16,
+      "helper": 14,
+      "cta": 18,
+      "otpDigit": 28
+    },
+    "line_height": {
+      "title": 1.5,
+      "body": 1.9
+    },
+    "note": "Sizes follow the old spec ranges (child text 17-20, titles 27-34). Do NOT scale them to match screenshot pixels."
+  },
+  "space_px": [
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    32,
+    40
+  ],
+  "radius_px": {
+    "field": 20,
+    "pill": 999,
+    "sheetTop": 40,
+    "otpBox": 18,
+    "checkbox": 8,
+    "chip": 24,
+    "frame": 32
+  },
+  "size_px": {
+    "frameWidth": 390,
+    "frameHeight": 844,
+    "frameMaxWidth": 430,
+    "ctaHeightOnboarding": 64,
+    "ctaHeightForm": 60,
+    "minTouch": 48,
+    "fieldHeight": 60,
+    "otpBoxW": 52,
+    "otpBoxH": 64,
+    "otpGap": 10,
+    "checkbox": 28,
+    "logoHeightSplash": 120,
+    "logoHeightOnboarding": 80,
+    "logoHeightForm": 104,
+    "logoHeightOtp": 88,
+    "_logoNote": "Logo is TALL (aspect 328x486 = 1:1.48). Always size it by HEIGHT, let width follow."
+  },
+  "shadow": {
+    "cta": "0 8px 18px rgba(20,118,106,0.28)",
+    "sheet": "0 -6px 24px rgba(20,60,50,0.10)",
+    "box": "0 3px 8px rgba(120,95,30,0.10)",
+    "frame": "0 24px 60px rgba(20,40,40,0.25)"
+  },
+  "motion": {
+    "enterMs": 450,
+    "pressMs": 150,
+    "shakeMs": 350,
+    "floatS": 4,
+    "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "splashMinMs": 1800,
+    "reducedMotion": "disable all transforms/animations, keep final state"
+  },
+  "auth_mock": {
+    "otpLength": 6,
+    "resendSeconds": 90,
+    "expirySeconds": 300,
+    "maxWrongAttempts": 5,
+    "lockSeconds": 120,
+    "debugValidCode": "123456"
+  }
+}

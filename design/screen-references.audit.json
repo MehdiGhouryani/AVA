@@ -1,0 +1,112 @@
+{
+  "reviewedVersion": "0.3.2",
+  "reviewedDate": "2026-10-28",
+  "method": "Enumerated repository image locations including AI Studio artifacts; opened all 6 additional files as a contact sheet; original 6 references and owner Home already reviewed",
+  "scopeExcludes": "Art assets and generated UI test previews are not independent original screen designs",
+  "files": [
+    {
+      "path": "reference/home_03_user.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "5239df8b5599667378c9e9504ce42555d2e0ccb8500a24357f46f23d4ee868f4",
+      "role": "Owner-supplied Home reference",
+      "byteIdenticalReference": "home_03_user.png"
+    },
+    {
+      "path": "reference/ref_1_splash.jpg",
+      "width": 900,
+      "height": 1601,
+      "sha256": "b63cb3e7f992f2d21640dd7d04294bba44dae5c4a9eb2d48ff80bc13241137e4",
+      "role": "Original entry/onboarding reference",
+      "byteIdenticalReference": "ref_1_splash.jpg"
+    },
+    {
+      "path": "reference/ref_2_onboarding1.jpg",
+      "width": 900,
+      "height": 1350,
+      "sha256": "cb6276b09f7d3987f01990b09472c43045a6d9d3175a4033c27cd6adba3b5625",
+      "role": "Original entry/onboarding reference",
+      "byteIdenticalReference": "ref_2_onboarding1.jpg"
+    },
+    {
+      "path": "reference/ref_3_onboarding2.jpg",
+      "width": 900,
+      "height": 1350,
+      "sha256": "fa2bd0e49316f6081a5ffc127260a3c22f102b27698db25bece0c71604edc49f",
+      "role": "Original entry/onboarding reference",
+      "byteIdenticalReference": "ref_3_onboarding2.jpg"
+    },
+    {
+      "path": "reference/ref_4a_phone.jpg",
+      "width": 841,
+      "height": 1870,
+      "sha256": "300265f307ca7e15ed30aafe68d966984af54d36aee48ebe176ce3c5e54ebbe2",
+      "role": "Original entry/onboarding reference",
+      "byteIdenticalReference": "ref_4a_phone.jpg"
+    },
+    {
+      "path": "reference/ref_4b_otp_CHOSEN.jpg",
+      "width": 851,
+      "height": 1847,
+      "sha256": "8d30e5470f6e7ec46ef0cfb26cb395f1d023db8a196789cee55822db820de61e",
+      "role": "Original entry/onboarding reference",
+      "byteIdenticalReference": "ref_4b_otp_CHOSEN.jpg"
+    },
+    {
+      "path": "reference/ref_4b_otp_alt_not_chosen.jpg",
+      "width": 841,
+      "height": 1870,
+      "sha256": "2b5df104761eb4f0077f4b4bc761e000494d1fdf8edbb0b8f2abe192925c5f00",
+      "role": "Original entry/onboarding reference",
+      "byteIdenticalReference": "ref_4b_otp_alt_not_chosen.jpg"
+    },
+    {
+      "path": "public/assets/aistudio/image_6d57375c.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "6d57375c60828030c517e42fbde1dc0b0a3f93c06ee61c8c6d960176049c919b",
+      "role": "Web-development browser screenshot of onboarding; not a new product page design",
+      "byteIdenticalReference": null
+    },
+    {
+      "path": "public/assets/aistudio/image_d0b83b38.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "d0b83b385a5dceccd7aa247444c8df9d3fb27fd95cd70300e44ff144646ecd76",
+      "role": "Web-development browser screenshot of onboarding; not a new product page design",
+      "byteIdenticalReference": null
+    },
+    {
+      "path": "public/assets/aistudio/image_f907e9b9.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "f907e9b9bdc77cb7cb963a31aa39d0b7a8171b5770a95b770b584632a536d026",
+      "role": "Web-development browser screenshot of onboarding; not a new product page design",
+      "byteIdenticalReference": null
+    },
+    {
+      "path": ".aistudio/artifacts/brain/b8c12ac9-1f1e-43f2-be65-1c5375108120/.tempmediaStorage/media_1792505121519_e8d4095b.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "f907e9b9bdc77cb7cb963a31aa39d0b7a8171b5770a95b770b584632a536d026",
+      "role": "Web-development browser screenshot of onboarding; not a new product page design",
+      "byteIdenticalReference": null
+    },
+    {
+      "path": ".aistudio/artifacts/brain/b8c12ac9-1f1e-43f2-be65-1c5375108120/.tempmediaStorage/media_1792504987090_a9bc8ca6.jpg",
+      "width": 900,
+      "height": 1350,
+      "sha256": "fa2bd0e49316f6081a5ffc127260a3c22f102b27698db25bece0c71604edc49f",
+      "role": "Additional onboarding or OTP reference; visually inspected",
+      "byteIdenticalReference": "ref_3_onboarding2.jpg"
+    },
+    {
+      "path": ".aistudio/artifacts/brain/b8c12ac9-1f1e-43f2-be65-1c5375108120/.tempmediaStorage/media_1792505446453_d07badf2.jpg",
+      "width": 851,
+      "height": 1847,
+      "sha256": "8d30e5470f6e7ec46ef0cfb26cb395f1d023db8a196789cee55822db820de61e",
+      "role": "Additional onboarding or OTP reference; visually inspected",
+      "byteIdenticalReference": "ref_4b_otp_CHOSEN.jpg"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ava.local/schema/harness-roadmap-v1.json",
+  "title": "AVA coding-agent harness roadmap",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "project",
+    "baselineVersion",
+    "baselineCompleted",
+    "globalInvariants",
+    "forbiddenActions",
+    "phases"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "project": { "const": "AVA" },
+    "baselineVersion": { "type": "string", "minLength": 1 },
+    "baselineCompleted": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "globalInvariants": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "forbiddenActions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "phases": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/phase" }
+    }
+  },
+  "$defs": {
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cwd", "command"],
+      "properties": {
+        "cwd": { "type": "string", "minLength": 1 },
+        "command": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "titleFa",
+        "priority",
+        "status",
+        "automationAllowed",
+        "dependsOn",
+        "readFirst",
+        "allowedPaths",
+        "acceptance",
+        "evidenceFiles",
+        "gates"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[0-9]{3}-[a-z0-9-]+$" },
+        "titleFa": { "type": "string", "minLength": 3 },
+        "priority": { "enum": ["P0", "P1", "P2"] },
+        "status": { "enum": ["ready", "blocked", "human_gate", "in_progress", "completed"] },
+        "automationAllowed": { "type": "boolean" },
+        "dependsOn": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "readFirst": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
+        "allowedPaths": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
+        "acceptance": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "evidenceFiles": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
+        "gates": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/gate" } }
+      }
+    },
+    "phase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "titleFa", "playbook", "exitGate", "tasks"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[0-9]{3}$" },
+        "titleFa": { "type": "string", "minLength": 3 },
+        "playbook": { "type": "string", "minLength": 1 },
+        "exitGate": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "tasks": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/task" } }
+      }
+    }
+  }
+}

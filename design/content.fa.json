@@ -1,0 +1,482 @@
+{
+  "schemaVersion": 3,
+  "contentVersion": "0.6.1-dev.1",
+  "locale": "fa-IR",
+  "approvedForRelease": false,
+  "scope": "Original development multi-activity literacy content; educator and Persian TTS review required",
+  "skills": [
+    {
+      "id": "grapheme_recognition",
+      "title": "شناخت نشانه",
+      "description": "تشخیص دیداری نشانه‌های فارسی"
+    },
+    {
+      "id": "phoneme_awareness",
+      "title": "آگاهی واجی",
+      "description": "توجه به صدای هدف با راهنمای نوشتاری"
+    },
+    {
+      "id": "word_recognition",
+      "title": "شناخت واژه",
+      "description": "پیداکردن واژه آشنا در میان گزینه‌ها"
+    },
+    {
+      "id": "word_building",
+      "title": "ساخت واژه",
+      "description": "چیدن نشانه‌ها برای ساخت واژه"
+    },
+    {
+      "id": "guided_review",
+      "title": "مرور هدایت‌شده",
+      "description": "بازتمرین مهارت معرفی‌شده بدون ادعای تسلط"
+    }
+  ],
+  "levels": [
+    {
+      "id": "level_1",
+      "title": "شروع خواندن",
+      "order": 1,
+      "units": [
+        {
+          "id": "unit_signs",
+          "title": "نشانه‌ها و صداها",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "visual_shapes_01",
+              "title": "دوستی با نشانه‌ها",
+              "goal": "شکل و صدای چند نشانه را ببین و پیدا کن.",
+              "order": 1,
+              "tasks": [
+                {
+                  "id": "shape_aa",
+                  "kind": "recognize",
+                  "target": "آ",
+                  "skillIds": [
+                    "grapheme_recognition"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": "task.shape_aa.prompt",
+                  "audioRequiredForPublication": false,
+                  "writtenFallback": "آ",
+                  "choices": [
+                    "آ",
+                    "ا",
+                    "د"
+                  ]
+                },
+                {
+                  "id": "sound_be",
+                  "kind": "listen",
+                  "target": "ب",
+                  "skillIds": [
+                    "phoneme_awareness"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": "task.sound_be.prompt",
+                  "audioRequiredForPublication": true,
+                  "writtenFallback": "ب",
+                  "choices": [
+                    "پ",
+                    "ب",
+                    "ت"
+                  ]
+                },
+                {
+                  "id": "shape_mim",
+                  "kind": "recognize",
+                  "target": "م",
+                  "skillIds": [
+                    "grapheme_recognition"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": "task.shape_mim.prompt",
+                  "audioRequiredForPublication": false,
+                  "writtenFallback": "م",
+                  "choices": [
+                    "ن",
+                    "م",
+                    "و"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "dots_02",
+              "title": "راز نقطه‌ها",
+              "goal": "به نقطه‌ها دقت کن و صدای نشانه را هم بشنو.",
+              "order": 2,
+              "tasks": [
+                {
+                  "id": "dots_pe",
+                  "kind": "dot_family",
+                  "target": "پ",
+                  "skillIds": [
+                    "grapheme_recognition"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": "task.dots_pe.prompt",
+                  "audioRequiredForPublication": false,
+                  "writtenFallback": "پ",
+                  "choices": [
+                    "ب",
+                    "پ",
+                    "ت"
+                  ]
+                },
+                {
+                  "id": "sound_te",
+                  "kind": "listen",
+                  "target": "ت",
+                  "skillIds": [
+                    "phoneme_awareness"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": "task.sound_te.prompt",
+                  "audioRequiredForPublication": true,
+                  "writtenFallback": "ت",
+                  "choices": [
+                    "ن",
+                    "ب",
+                    "ت"
+                  ]
+                },
+                {
+                  "id": "dots_nun",
+                  "kind": "dot_family",
+                  "target": "ن",
+                  "skillIds": [
+                    "grapheme_recognition"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": "task.dots_nun.prompt",
+                  "audioRequiredForPublication": false,
+                  "writtenFallback": "ن",
+                  "choices": [
+                    "ن",
+                    "ی",
+                    "ب"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "unit_sounds",
+          "title": "صداهای واژه",
+          "order": 2,
+          "lessons": [
+            {
+              "id": "edge_sounds_03",
+              "title": "اول و آخر واژه",
+              "goal": "صدای آغاز و پایان چند واژهٔ آشنا را پیدا کن.",
+              "order": 1,
+              "tasks": [
+                {
+                  "id": "initial_baba",
+                  "kind": "initial_sound",
+                  "target": "ب",
+                  "skillIds": [
+                    "phoneme_awareness"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": "task.initial_baba.prompt",
+                  "audioRequiredForPublication": true,
+                  "writtenFallback": "بابا",
+                  "choices": [
+                    "ب",
+                    "م",
+                    "ن"
+                  ]
+                },
+                {
+                  "id": "initial_madar",
+                  "kind": "initial_sound",
+                  "target": "م",
+                  "skillIds": [
+                    "phoneme_awareness"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": "task.initial_madar.prompt",
+                  "audioRequiredForPublication": true,
+                  "writtenFallback": "مادر",
+                  "choices": [
+                    "ن",
+                    "م",
+                    "ب"
+                  ]
+                },
+                {
+                  "id": "final_ab",
+                  "kind": "final_sound",
+                  "target": "ب",
+                  "skillIds": [
+                    "phoneme_awareness"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": "task.final_ab.prompt",
+                  "audioRequiredForPublication": true,
+                  "writtenFallback": "آب",
+                  "choices": [
+                    "ب",
+                    "د",
+                    "م"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "blend_words_04",
+              "title": "صداها کنار هم",
+              "goal": "نشانه‌ها را به ترتیب بچین و واژهٔ آشنا بساز.",
+              "order": 2,
+              "tasks": [
+                {
+                  "id": "blend_ab",
+                  "kind": "blend",
+                  "target": "آب",
+                  "skillIds": [
+                    "word_building"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": null,
+                  "audioRequiredForPublication": false,
+                  "writtenFallback": null,
+                  "tokens": [
+                    "ب",
+                    "آ"
+                  ]
+                },
+                {
+                  "id": "blend_bad",
+                  "kind": "blend",
+                  "target": "باد",
+                  "skillIds": [
+                    "word_building"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": null,
+                  "audioRequiredForPublication": false,
+                  "writtenFallback": null,
+                  "tokens": [
+                    "د",
+                    "ب",
+                    "ا"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "unit_words",
+          "title": "واژه‌های نخست",
+          "order": 3,
+          "lessons": [
+            {
+              "id": "words_03",
+              "title": "کلمه‌های کوچک",
+              "goal": "با نشانه‌ها کلمه بساز و کلمهٔ آشنا را پیدا کن.",
+              "order": 1,
+              "tasks": [
+                {
+                  "id": "build_ab",
+                  "kind": "build_word",
+                  "target": "آب",
+                  "skillIds": [
+                    "word_building"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": null,
+                  "audioRequiredForPublication": false,
+                  "writtenFallback": null,
+                  "tokens": [
+                    "ب",
+                    "آ"
+                  ]
+                },
+                {
+                  "id": "word_baba",
+                  "kind": "recognize",
+                  "target": "بابا",
+                  "skillIds": [
+                    "word_recognition"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": "task.word_baba.prompt",
+                  "audioRequiredForPublication": false,
+                  "writtenFallback": "بابا",
+                  "choices": [
+                    "باد",
+                    "آب",
+                    "بابا"
+                  ]
+                },
+                {
+                  "id": "build_bad",
+                  "kind": "build_word",
+                  "target": "باد",
+                  "skillIds": [
+                    "word_building"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": null,
+                  "audioRequiredForPublication": false,
+                  "writtenFallback": null,
+                  "tokens": [
+                    "د",
+                    "ب",
+                    "ا"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "garden_04",
+              "title": "جشن باغ نشانه‌ها",
+              "goal": "با دیدن، شنیدن و ساختن، آموخته‌ها را مرور کن.",
+              "order": 2,
+              "tasks": [
+                {
+                  "id": "sound_mim",
+                  "kind": "listen",
+                  "target": "م",
+                  "skillIds": [
+                    "phoneme_awareness",
+                    "guided_review"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": "task.sound_mim.prompt",
+                  "audioRequiredForPublication": true,
+                  "writtenFallback": "م",
+                  "choices": [
+                    "م",
+                    "ن",
+                    "و"
+                  ]
+                },
+                {
+                  "id": "sound_pe",
+                  "kind": "listen",
+                  "target": "پ",
+                  "skillIds": [
+                    "phoneme_awareness",
+                    "guided_review"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": "task.sound_pe.prompt",
+                  "audioRequiredForPublication": true,
+                  "writtenFallback": "پ",
+                  "choices": [
+                    "ب",
+                    "ت",
+                    "پ"
+                  ]
+                },
+                {
+                  "id": "build_ab_review",
+                  "kind": "build_word",
+                  "target": "آب",
+                  "skillIds": [
+                    "word_building",
+                    "guided_review"
+                  ],
+                  "assetRefs": [],
+                  "audioRef": null,
+                  "audioRequiredForPublication": false,
+                  "writtenFallback": null,
+                  "tokens": [
+                    "آ",
+                    "ب"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "stories": [
+    {
+      "id": "little_seed",
+      "unitId": "unit_words",
+      "title": "دانهٔ کوچک",
+      "subtitle": "یک قصه دربارهٔ صبر و مراقبت",
+      "order": 1,
+      "artRef": "decor.tree",
+      "pages": [
+        {
+          "id": "little_seed_page_01",
+          "text": "آوا گفت: «بیا برای دانه یک خانه بسازیم!» او دانه را آرام در خاک گذاشت.",
+          "audioRef": "story.little_seed.page_01"
+        },
+        {
+          "id": "little_seed_page_02",
+          "text": "دانه زیر خاک خوابید. آوا برایش کمی آب آورد.",
+          "audioRef": "story.little_seed.page_02"
+        },
+        {
+          "id": "little_seed_page_03",
+          "text": "هر روز آوا به باغ سر زد. خورشید گرم می‌تابید و دانه آرام رشد می‌کرد.",
+          "audioRef": "story.little_seed.page_03"
+        },
+        {
+          "id": "little_seed_page_04",
+          "text": "یک صبح، جوانه‌ای کوچک از خاک بیرون آمد. آوا لبخند زد.",
+          "audioRef": "story.little_seed.page_04"
+        },
+        {
+          "id": "little_seed_page_05",
+          "text": "آوا گفت: «با کمی صبر و مراقبت، چیزهای کوچک هم بزرگ می‌شوند.»",
+          "audioRef": "story.little_seed.page_05"
+        }
+      ],
+      "question": "آوا برای دانه چه آورد؟",
+      "choices": [
+        "آب",
+        "توپ",
+        "کفش"
+      ],
+      "answer": "آب"
+    },
+    {
+      "id": "friends_book",
+      "unitId": "unit_words",
+      "title": "کتابِ دوستان",
+      "subtitle": "یک کتاب و چند دوست مهربان",
+      "order": 2,
+      "artRef": "decor.magic_book",
+      "pages": [
+        {
+          "id": "friends_book_page_01",
+          "text": "آوا یک کتاب تازه پیدا کرد. روی جلدش یک ستاره بود.",
+          "audioRef": "story.friends_book.page_01"
+        },
+        {
+          "id": "friends_book_page_02",
+          "text": "خرگوش و روباه آمدند. سنجاب هم کنارشان نشست.",
+          "audioRef": "story.friends_book.page_02"
+        },
+        {
+          "id": "friends_book_page_03",
+          "text": "آوا کتاب را باز کرد. هر دوست یک تصویر تازه در آن پیدا کرد.",
+          "audioRef": "story.friends_book.page_03"
+        },
+        {
+          "id": "friends_book_page_04",
+          "text": "دوستان گفتند: «خواندن کنار هم چه لذتی دارد!» کتاب دوباره در باغ باز شد.",
+          "audioRef": "story.friends_book.page_04"
+        }
+      ],
+      "question": "دوستان با هم چه خواندند؟",
+      "choices": [
+        "کفش",
+        "کتاب",
+        "توپ"
+      ],
+      "answer": "کتاب"
+    }
+  ]
+}

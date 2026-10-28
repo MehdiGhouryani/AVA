@@ -1,0 +1,47 @@
+{
+  "exportVersion": 1,
+  "provider": "payload",
+  "candidateId": "level1-sound-slice-review-1",
+  "status": "educational_review",
+  "contentVersion": "0.6.1-dev.1",
+  "scope": "partial_spike",
+  "requestedBy": "author.demo",
+  "audioAssets": [
+    {
+      "id": "task.initial_baba.prompt",
+      "recordingText": "بابا",
+      "status": "needs_script",
+      "uploadedBy": null,
+      "educationalReviewer": null,
+      "technicalReviewer": null,
+      "masterAssetKey": null,
+      "deliveryAssetKey": null,
+      "sha256": null,
+      "licenseConsentRef": null
+    },
+    {
+      "id": "task.initial_madar.prompt",
+      "recordingText": "مادر",
+      "status": "needs_script",
+      "uploadedBy": null,
+      "educationalReviewer": null,
+      "technicalReviewer": null,
+      "masterAssetKey": null,
+      "deliveryAssetKey": null,
+      "sha256": null,
+      "licenseConsentRef": null
+    },
+    {
+      "id": "task.final_ab.prompt",
+      "recordingText": "آب",
+      "status": "needs_script",
+      "uploadedBy": null,
+      "educationalReviewer": null,
+      "technicalReviewer": null,
+      "masterAssetKey": null,
+      "deliveryAssetKey": null,
+      "sha256": null,
+      "licenseConsentRef": null
+    }
+  ]
+}

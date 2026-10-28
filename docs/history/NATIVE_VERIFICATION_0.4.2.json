@@ -1,0 +1,117 @@
+{
+  "versionName": "0.4.2",
+  "versionCode": 12,
+  "date": "2026-10-28",
+  "delivery": "source-only increment",
+  "provenance": "Continued from AVA 0.4.1 extracted source; previous progress and verification preserved in docs/history.",
+  "latestCommand": "validate-audio-inventory.py; sync-android-resources.py --check; audit-project.py; Python/JSON/whitespace validation; ./gradlew testDebugUnitTest --no-daemon --stacktrace",
+  "latestResult": "Deterministic source, content, audio inventory, asset, skill-lock, reference, Python and JSON checks passed. Native tests did not start because Gradle 8.11.1 could not be downloaded (Network is unreachable) and Android SDK is absent.",
+  "nativeTestCount": 83,
+  "nativeTestsExecuted": false,
+  "nativeTestSources": [
+    {
+      "name": "AuthRepositoryTest",
+      "tests": 5,
+      "execution": "not run in 0.4.2 environment"
+    },
+    {
+      "name": "AvaViewModelTest",
+      "tests": 24,
+      "execution": "not run in 0.4.2 environment"
+    },
+    {
+      "name": "LearnerPersistenceTest",
+      "tests": 2,
+      "execution": "not run in 0.4.2 environment"
+    },
+    {
+      "name": "ModelTest",
+      "tests": 13,
+      "execution": "not run in 0.4.2 environment"
+    },
+    {
+      "name": "NativeUiTest",
+      "tests": 39,
+      "execution": "not run in 0.4.2 environment"
+    }
+  ],
+  "checks": {
+    "resourceSync": "passed: 16 images, 263 strings, font, palette, 4 lessons, 12 activities and 2 stories",
+    "audioInventory": "passed: 19 assets, 9 task prompts, 9 story pages; refs and policies match content v2",
+    "projectAudit": "passed: content/audio schemas, asset dimensions, 3 skill hashes, 13 design reference hashes, font and generated native resources",
+    "pythonAndJson": "passed",
+    "whitespace": "passed after removing trailing whitespace from new files",
+    "nativeUnitAndCompose": "blocked before execution: Gradle 8.11.1 download failed with Network is unreachable; Android SDK not installed",
+    "manifestPermissions": "passed: no INTERNET or RECORD_AUDIO permission",
+    "installPackages": "none: source-only increment; no APK/AAB output"
+  },
+  "phase0": {
+    "evidenceUnitsCompleted": 6,
+    "totalUnits": 10,
+    "completed": [
+      "resource baseline",
+      "CMS/mobile boundary ADR",
+      "audio policy ADR",
+      "machine-readable audio inventory",
+      "inventory validator integrated into audit",
+      "test strategy"
+    ],
+    "open": [
+      "execute 83 Native tests",
+      "compile/lint in SDK environment",
+      "render Practice compact/large text",
+      "physical-device TalkBack/TTS/lifecycle QA"
+    ]
+  },
+  "contentPlatform": {
+    "mobileReads": "future PublishedLocalSource only",
+    "directCmsAccess": false,
+    "networkAdded": false,
+    "releaseFlow": "private CMS -> compiler/validator -> immutable ContentRelease -> staged verification -> atomic local activation",
+    "cmsSelection": "deferred to Strapi/Payload spike in 0.6.1"
+  },
+  "audio": {
+    "finalVoice": "human-reviewed",
+    "ttsFallback": "installed offline Persian voice only",
+    "inventoryAssets": 19,
+    "requiredListeningPrompts": 4,
+    "taskPrompts": 9,
+    "storyPages": 9,
+    "approvedAssets": 0,
+    "educatorReviewRequired": true
+  },
+  "sourceSha256": {
+    "android/app/build.gradle.kts": "8e6f535ded0c8667eaad7da0b2134ece47ed93e2635a5ec212b9ef5e4a6d66a2",
+    "android/app/src/main/AndroidManifest.xml": "a110e94402a986a25ebdf88b724e3c44061c42139a2d40cc1699ad6f50578124",
+    "design/content.fa.json": "77c9d9c70a90f9ce91a5acafa09f655d7e45b823daba2b396ac8812dd3634032",
+    "design/audio.inventory.json": "675109f0e3cc7582990a026d0b08867ce57dfc182ae35c03a2554eb09e9f4686",
+    "design/audio.inventory.schema.json": "025a9bde29b5703b202e94db99b6fcccd76aa0c093682dc01f76f472c15aadb2",
+    "scripts/validate-audio-inventory.py": "6128c50a7571d7c7bb448f77a15e2771231797732fa44881d60875f87ed45421",
+    "scripts/audit-project.py": "e231e506cc0662619292776b67706e6338857216ded25b18a3bf8056e175d031",
+    "docs/adr/0001-content-platform-boundary-fa.md": "470c6ebf5fcc24ec6307f948e1b40b59f167e84d1913812fadfaa552bb55a394",
+    "docs/adr/0002-audio-policy-and-workflow-fa.md": "e63e9521b5e0628143dce91f004e9eebb11b32f47f972bd590eac4e03bac84fe",
+    "docs/AUDIO_INVENTORY_FA.md": "487830676a2ec50243148700ab8d0bd08cf67ab4d554d612146645e509be80d3",
+    "docs/TEST_STRATEGY_FA.md": "49b091d55057c0bcbd425ec387555485ff86e0b6f0c06013d63f7ad3e7454922",
+    "docs/PROGRESS_FA.md": "602524c3dcc781907a9bf80ec2b08471b2c446f8baeee153d8a23b60944e371e",
+    "docs/AVA_MASTER_ROADMAP_FA.md": "285aa1cc9cb918da4edc4283481cac92e788c5cc8b4ff152053c901cf749fa10"
+  },
+  "scope": {
+    "nativeDestinations": 22,
+    "lessons": 4,
+    "activities": 12,
+    "originalStories": 2,
+    "storyPages": 9,
+    "storage": "Preferences DataStore",
+    "auth": "local development mock; code 123456; no SMS/backend"
+  },
+  "deviceRun": "not verified",
+  "releaseGates": [
+    "provide Gradle 8.11.1, Android SDK 35 and dependency cache; execute 83 tests and lint",
+    "render and inspect Practice at 320x560 with fontScale 1.3 and 1.5",
+    "physical-device TalkBack/TTS/lifecycle/font QA",
+    "educator review of grapheme/phoneme recording scripts and Persian pronunciation",
+    "implement signed ContentRelease sync only after local contracts and rollback pass",
+    "real account services and release signing/policy review"
+  ],
+  "nextIncrement": "close the 0.4.2 test/render gate when toolchain is available, then implement 0.5.0 content schema v3, AssetRef/AudioRef, ContentRelease and migration without networking"
+}

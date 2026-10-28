@@ -1,0 +1,138 @@
+{
+  "versionName": "0.5.0",
+  "versionCode": 13,
+  "date": "2026-10-28",
+  "delivery": "source-only increment",
+  "provenance": "Continued from AVA 0.4.2 source; 0.4.2 progress and verification preserved in docs/history.",
+  "latestCommand": "migrate-content-v2-to-v3.py --check; validate-content-contract.py; validate-audio-inventory.py; sync-android-resources.py --check; audit-project.py; Python/JSON/whitespace validation; ./gradlew testDebugUnitTest --no-daemon --stacktrace",
+  "latestResult": "All deterministic content v3, migration, release hash, audio, resource, project, Python, JSON and whitespace checks passed. Native tests did not start because Gradle 8.11.1 download failed with Network is unreachable and Android SDK is absent.",
+  "nativeTestCount": 88,
+  "nativeTestsExecuted": false,
+  "nativeTestSources": [
+    {
+      "name": "AuthRepositoryTest",
+      "tests": 5,
+      "execution": "not run in 0.5.0 environment"
+    },
+    {
+      "name": "AvaViewModelTest",
+      "tests": 25,
+      "execution": "not run in 0.5.0 environment"
+    },
+    {
+      "name": "LearnerPersistenceTest",
+      "tests": 4,
+      "execution": "not run in 0.5.0 environment"
+    },
+    {
+      "name": "ModelTest",
+      "tests": 15,
+      "execution": "not run in 0.5.0 environment"
+    },
+    {
+      "name": "NativeUiTest",
+      "tests": 39,
+      "execution": "not run in 0.5.0 environment"
+    }
+  ],
+  "checks": {
+    "contentMigration": "passed: canonical v3 equals deterministic v2 fixture migration; v3 is idempotent",
+    "contentContract": "passed: schema v3, 1 level, 2 units, 5 skills, 12 tasks, 9 story pages and release hashes",
+    "audioInventory": "passed: 19 assets, 9 task prompts and 9 story pages; content AudioRefs match inventory",
+    "resourceSync": "passed: 16 images, 263 strings, font, palette, hierarchy and generated Native catalog",
+    "projectAudit": "passed: content v3/release/audio contracts, migration, asset dimensions, skill locks, design references and font",
+    "pythonAndJson": "passed: 66 JSON files and Python compile validation",
+    "whitespace": "passed for changed files",
+    "nativeUnitAndCompose": "blocked before execution: Gradle 8.11.1 download failed with Network is unreachable; Android SDK not installed",
+    "manifestPermissions": "passed: no INTERNET or RECORD_AUDIO permission",
+    "installPackages": "none: source-only increment; no APK/AAB output"
+  },
+  "phase050": {
+    "evidenceUnitsCompleted": 9,
+    "totalUnits": 10,
+    "completed": [
+      "content schema v3 hierarchy",
+      "v2 migration fixture and idempotency",
+      "AssetRef and AudioRef",
+      "ContentRelease manifest and compatibility",
+      "source/repository contracts",
+      "versioned TaskProgress",
+      "injectable progress clock",
+      "validators and deterministic Catalog generation",
+      "legacy IDs preserved"
+    ],
+    "open": [
+      "execute and compile the 88 Native/Compose tests in a complete toolchain"
+    ]
+  },
+  "content": {
+    "schemaVersion": 3,
+    "contentVersion": "0.5.0-dev.1",
+    "levels": 1,
+    "units": 2,
+    "skills": 5,
+    "lessons": 4,
+    "tasks": 12,
+    "stories": 2,
+    "storyPages": 9,
+    "approvedForRelease": false
+  },
+  "release": {
+    "releaseId": "seed-fa-0.5.0-dev.1",
+    "status": "development",
+    "minAppVersion": "0.5.0",
+    "signed": false,
+    "publishable": false,
+    "directCmsAccess": false,
+    "networkAdded": false
+  },
+  "taskProgress": {
+    "schemaVersion": 1,
+    "fields": [
+      "attempts",
+      "correct",
+      "hints",
+      "lastSeenEpochMillis"
+    ],
+    "clock": "injectable wall clock",
+    "usedForSpacedRepetition": false,
+    "unknownFutureSchema": "fails visibly instead of dropping data"
+  },
+  "sourceSha256": {
+    "android/app/build.gradle.kts": "8b9c9b6e8fe1df3a678684f9065a257a74a8e8f5f39317a3fdb28e149643cde8",
+    "android/app/src/main/AndroidManifest.xml": "a110e94402a986a25ebdf88b724e3c44061c42139a2d40cc1699ad6f50578124",
+    "android/app/src/main/java/com/ava/reading/content/Models.kt": "31421b3d6c8cc186d71abcca7915f216aeccbce4503cf35942e7fd1288e21f0d",
+    "android/app/src/main/java/com/ava/reading/content/ContentContract.kt": "cdd215c8e00d860c28303f27f471e7a238e032faed61be2b1f8414fc3905c27f",
+    "android/app/src/main/java/com/ava/reading/content/Catalog.kt": "d66f1c81731bd07f156712e027773ea8c10e90b3acdaf1299d3818922ece5a0c",
+    "android/app/src/main/java/com/ava/reading/storage/LearnerRepository.kt": "c72584e595356917d45d2cb0a44dfd454c097d5ffe344b724f8baaa490c4a389",
+    "android/app/src/main/java/com/ava/reading/ui/AvaViewModel.kt": "339dd21ab3679758f3c785592020fb95a654d3c3e12151161a9c034bf9aa7214",
+    "design/content.fa.json": "152c064df7bb7fa03e3a8af089a7529d6237dfc0b6ede0e79e27b3d1b60503d5",
+    "design/content.schema.json": "96637e20e1a989f6a4db3b69241728901f9c0fbb31a3a2001bb4633f39527794",
+    "design/content.release.json": "1248646ff3c619e4cf6e7cd778973f88ec604bb9ea0364a8d719dd456e9ad828",
+    "design/content.release.schema.json": "29676969180efcbfc0b9bcd29639ec99d8f693942f42930ace43d4dc6832319a",
+    "design/audio.inventory.json": "b529d0a6cce1d6621c0c71893f0e42e9f798ebe200de5cadf3afd67c96f74794",
+    "scripts/migrate-content-v2-to-v3.py": "26c111542e084eee2ecb30bb700773cee13d55f04ef856c41c019ef7d4f5e919",
+    "scripts/validate-content-contract.py": "f07d6d386933fc567e7b6ddfe04c2d314b7319ebe9e7859e62d9b6f7c6579d44",
+    "scripts/validate-audio-inventory.py": "da01f7d58806c195d180af373b5fee5bfb73d834dea162a2921dafd219c2a359",
+    "scripts/sync-android-resources.py": "aac1cebd3ff9003dbe716bc1f6bb2bc996200f3e0b0b5a3251ff84bfb887da1d",
+    "scripts/audit-project.py": "2d1d8ddfece2af1b2d749dcd687f90156c08da5424635eafabba41bd588aba15",
+    "docs/CONTENT_CONTRACT_FA.md": "0ea2eccab0db1dfc70ac0e0a06aae9415c8faa769b8f1ec395b1b2a4b3511bd1",
+    "docs/PROGRESS_FA.md": "22e3f4137d409f2297f140f559ccc0b61e7b6272e900b2b5c545911e7eb752b5",
+    "docs/AVA_MASTER_ROADMAP_FA.md": "a451d02cadf2d654928bb983d13fadf5991b5db3d5ebc9f6531bd6f8898c54b0"
+  },
+  "scope": {
+    "nativeDestinations": 22,
+    "storage": "Preferences DataStore plus versioned per-task progress",
+    "auth": "local development mock; code 123456; no SMS/backend"
+  },
+  "deviceRun": "not verified",
+  "releaseGates": [
+    "provide Gradle 8.11.1, Android SDK 35 and dependency cache; execute 88 tests and lint",
+    "render and inspect Practice at compact and large text",
+    "physical-device TalkBack/TTS/lifecycle/font QA",
+    "educator review of skill mapping, unit order, grapheme/phoneme scripts and Persian pronunciation",
+    "implement PublishedLocalSource activation and rollback before remote sync",
+    "production ContentRelease requires approval, signature and publish timestamp"
+  ],
+  "nextIncrement": "implement 0.5.1 BundledContentSource, PublishedLocalSource, local bundle compiler, staging verification, atomic activation and rollback fixtures without networking"
+}

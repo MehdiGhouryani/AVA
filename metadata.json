@@ -1,0 +1,8 @@
+{
+  "name": "آوا | اپلیکیشن قصه و آموزش کودکان",
+  "description": "اپلیکیشن داستان‌خوانی و یادگیری زودهنگام فارسی ویژه کودکان ۴ تا ۷ سال با فضایی دلنشین و تعاملی",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ],
+  "permissions": []
+}

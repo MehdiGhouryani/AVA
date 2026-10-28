@@ -1,0 +1,270 @@
+{
+  "package": "ava-ui-assets",
+  "version": "0.2-clean",
+  "rule": "UI code may reference images ONLY through these ids. Never hard-code paths in screens.",
+  "font": {
+    "family": "Vazirmatn",
+    "src": "/fonts/Vazirmatn.ttf"
+  },
+  "assets": [
+    {
+      "id": "bg.splash",
+      "src": "/ava-assets/bg/splash_scene.webp",
+      "kind": "background",
+      "width": 940,
+      "height": 1672,
+      "hasAlpha": false,
+      "sizeKB": 26.0,
+      "usedIn": [
+        "splash"
+      ],
+      "notes": "Pale mint hill scene with Ava peeking (Ava is BAKED into this image, cannot be animated separately). No text/UI. Anchor to bottom (object-position 50% 100%).",
+      "knownIssues": []
+    },
+    {
+      "id": "bg.onboarding1",
+      "src": "/ava-assets/bg/onboarding1_library.webp",
+      "kind": "background",
+      "width": 1024,
+      "height": 1536,
+      "hasAlpha": false,
+      "sizeKB": 94.1,
+      "usedIn": [
+        "onboarding1"
+      ],
+      "notes": "Library room: arched window, shelves, round rug. Pale area top-centre for text. object-position ~50% 30%.",
+      "knownIssues": []
+    },
+    {
+      "id": "bg.garden",
+      "src": "/ava-assets/bg/garden_scene.webp",
+      "kind": "background",
+      "width": 852,
+      "height": 1846,
+      "hasAlpha": false,
+      "sizeKB": 109.0,
+      "usedIn": [
+        "onboarding2",
+        "otp(top scene)",
+        "home"
+      ],
+      "notes": "Watercolor garden: tree-house door left, balloon top-right, castle right (y 24-38%), path bottom. Aspect ratio ~ phone. Pale centre for text. NOTE: differs slightly from the onboarding2 screenshot art (hand-checked visually).",
+      "knownIssues": [
+        "Not identical to the screenshot scene"
+      ]
+    },
+    {
+      "id": "bg.login",
+      "src": "/ava-assets/bg/login_garden.webp",
+      "kind": "background",
+      "width": 941,
+      "height": 1672,
+      "hasAlpha": false,
+      "sizeKB": 23.8,
+      "usedIn": [
+        "phone"
+      ],
+      "notes": "Cream vertical garden: pale centre, stepping-stone path at the bottom. Re-encoded lossy from a 977 KB lossless file.",
+      "knownIssues": []
+    },
+    {
+      "id": "brand.logo",
+      "src": "/ava-assets/brand/logo_ava.png",
+      "kind": "logo",
+      "width": 328,
+      "height": 486,
+      "hasAlpha": true,
+      "sizeKB": 118.9,
+      "usedIn": [
+        "splash",
+        "onboarding1",
+        "onboarding2",
+        "phone",
+        "otp",
+        "home"
+      ],
+      "notes": "Matted out of the S03a-V1 screenshot (transparent PNG).",
+      "knownIssues": [
+        "True source resolution is only ~165x243 px (upscaled 2x): size by HEIGHT <= 120px css (width <= ~81px); sharp at DPR 2, slightly soft at DPR 3",
+        "Wordmark reads 'اوا' (no madda) while the product name in docs is 'آوا': branding decision OPEN",
+        "Soft edge halo possible on dark backgrounds (checked on dark and white only)"
+      ]
+    },
+    {
+      "id": "char.ava.head_happy",
+      "src": "/ava-assets/characters/ava_head_happy.webp",
+      "kind": "character",
+      "width": 603,
+      "height": 674,
+      "hasAlpha": true,
+      "sizeKB": 26.3,
+      "usedIn": [
+        "spare"
+      ],
+      "notes": "Ava head, happy. Spare/fallback (e.g. if the baked splash scene is replaced).",
+      "knownIssues": []
+    },
+    {
+      "id": "char.ava.reading",
+      "src": "/ava-assets/characters/ava_reading.webp",
+      "kind": "character",
+      "width": 908,
+      "height": 1012,
+      "hasAlpha": true,
+      "sizeKB": 72.5,
+      "usedIn": [
+        "onboarding1"
+      ],
+      "notes": "Ava sitting, reading the purple magic book. Eye whites were transparent in the source; filled. Base shadow removed. Anchor bottom-left.",
+      "knownIssues": [
+        "Differs from screenshot (screenshot has a bigger book in front and a backpack on the left)"
+      ]
+    },
+    {
+      "id": "char.ava.wave_book",
+      "src": "/ava-assets/characters/ava_wave_book.webp",
+      "kind": "character",
+      "width": 873,
+      "height": 1152,
+      "hasAlpha": true,
+      "sizeKB": 74.6,
+      "usedIn": [
+        "onboarding2",
+        "home"
+      ],
+      "notes": "Ava standing, waving with the book and sparkle stars (stars are baked in).",
+      "knownIssues": []
+    },
+    {
+      "id": "char.friend.bunny",
+      "src": "/ava-assets/characters/friend_bunny.webp",
+      "kind": "character",
+      "width": 989,
+      "height": 1493,
+      "hasAlpha": true,
+      "sizeKB": 144.5,
+      "usedIn": [
+        "onboarding2"
+      ],
+      "notes": "Bunny with star wand, leaf vest, boots.",
+      "knownIssues": [
+        "Outfit differs from screenshot (green backpack, no vest)"
+      ]
+    },
+    {
+      "id": "char.friend.squirrel",
+      "src": "/ava-assets/characters/friend_squirrel.webp",
+      "kind": "character",
+      "width": 1037,
+      "height": 1195,
+      "hasAlpha": true,
+      "sizeKB": 160.6,
+      "usedIn": [
+        "onboarding2"
+      ],
+      "notes": "Squirrel waving, leaf vest, boots. Faint light fringe along fur edges possible.",
+      "knownIssues": [
+        "Outfit differs from screenshot (green hoodie)"
+      ]
+    },
+    {
+      "id": "char.friend.fox",
+      "src": "/ava-assets/characters/friend_fox.webp",
+      "kind": "character",
+      "width": 914,
+      "height": 1340,
+      "hasAlpha": true,
+      "sizeKB": 175.2,
+      "usedIn": [
+        "onboarding2"
+      ],
+      "notes": "Fox laughing, leaf vest, boots.",
+      "knownIssues": [
+        "Outfit differs from screenshot (scarf, scroll)"
+      ]
+    },
+    {
+      "id": "decor.login.top_left",
+      "src": "/ava-assets/decor/login_top_left_leaves.webp",
+      "kind": "decoration",
+      "width": 900,
+      "height": 675,
+      "hasAlpha": true,
+      "sizeKB": 139.6,
+      "usedIn": [
+        "phone"
+      ],
+      "notes": "Leaves cluster for the top-left corner (flip not needed). Re-encoded to <=900px.",
+      "knownIssues": [
+        "Soft grey halo around the leaves in the source; may show on non-cream backgrounds"
+      ]
+    },
+    {
+      "id": "decor.login.bottom_left",
+      "src": "/ava-assets/decor/login_bottom_left.webp",
+      "kind": "decoration",
+      "width": 750,
+      "height": 900,
+      "hasAlpha": true,
+      "sizeKB": 111.8,
+      "usedIn": [
+        "phone"
+      ],
+      "notes": "Bush with a star-marked stone; bottom-left corner.",
+      "knownIssues": []
+    },
+    {
+      "id": "decor.login.bottom_right",
+      "src": "/ava-assets/decor/login_bottom_right.webp",
+      "kind": "decoration",
+      "width": 600,
+      "height": 900,
+      "hasAlpha": true,
+      "sizeKB": 59.3,
+      "usedIn": [
+        "phone"
+      ],
+      "notes": "Flowers bush; bottom-right corner.",
+      "knownIssues": []
+    },
+    {
+      "id": "decor.tree",
+      "src": "/ava-assets/decor/story_tree.webp",
+      "kind": "decoration",
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true,
+      "sizeKB": 130.7,
+      "usedIn": [
+        "onboarding1 (inside the glow bubble)"
+      ],
+      "notes": "Small green tree; source has small edge artifacts at top-right/bottom-right corners (trim or scale small).",
+      "knownIssues": [
+        "Edge artifacts in source"
+      ]
+    },
+    {
+      "id": "decor.magic_book",
+      "src": "/ava-assets/decor/magic_book.webp",
+      "kind": "decoration",
+      "width": 1192,
+      "height": 771,
+      "hasAlpha": true,
+      "sizeKB": 56.1,
+      "usedIn": [
+        "unused in v1"
+      ],
+      "notes": "Purple open book with gold star. Optional.",
+      "knownIssues": [
+        "Faint residue at top-right page tips"
+      ]
+    }
+  ],
+  "missing_on_purpose": [
+    "Glow bubble content of onboarding1 (castle on clouds, bird, music notes): build with CSS/SVG, simple version",
+    "High-resolution vector logo",
+    "Dedicated OTP top scene (reuse bg.garden)",
+    "Final art for icons: draw simple inline SVG (arrow-left, pencil, refresh, check, info, leaf)"
+  ],
+  "references_not_for_ui": "/reference/*.jpg are full screenshots with text and UI baked in. Visual comparison ONLY. Never render them in the app."
+}

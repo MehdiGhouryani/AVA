@@ -1,0 +1,265 @@
+<resources>
+    <string name="brand_name" formatted="false">آوا</string>
+    <string name="brand_tagline" formatted="false">دنیای قصه‌های توی باغ کتاب</string>
+    <string name="splash_loading" formatted="false">داریم کتابت را باز می‌کنیم</string>
+    <string name="splash_a11y_loading" formatted="false">در حال آماده‌سازی</string>
+    <string name="onboarding_next" formatted="false">ادامه</string>
+    <string name="onboarding_skip" formatted="false">رد کردن</string>
+    <string name="onboarding_step1_title" formatted="false">به دنیای کتاب‌های جادویی قدم بگذار!</string>
+    <string name="onboarding_step1_body" formatted="false">اینجا با صداها، تصویرها و قصه‌ها یاد می‌گیری و رشد می‌کنی.</string>
+    <string name="onboarding_step2_title" formatted="false">دوست‌های مهربونت منتظرن!</string>
+    <string name="onboarding_step2_body" formatted="false">با هم یاد می‌گیریم، بازی می‌کنیم و دنیای قشنگ فارسی رو کشف می‌کنیم.</string>
+    <string name="onboarding_a11y_dots" formatted="false">صفحه {current} از {total}</string>
+    <string name="phone_title" formatted="false">ورود یا ساخت حساب</string>
+    <string name="phone_label" formatted="false">شمارهٔ موبایل</string>
+    <string name="phone_placeholder" formatted="false">۰۹۱۲ ۳۴۵ ۶۷۸۹</string>
+    <string name="phone_error_invalid" formatted="false">شماره درست نیست</string>
+    <string name="phone_consent" formatted="false">حریم خصوصی و قوانین را می‌پذیرم</string>
+    <string name="phone_consent_hint" formatted="false">برای ادامه، تیک قوانین را بزن</string>
+    <string name="phone_link_privacy" formatted="false">حریم خصوصی</string>
+    <string name="phone_link_terms" formatted="false">قوانین و مقررات</string>
+    <string name="phone_cta" formatted="false">دریافت کد</string>
+    <string name="phone_sending" formatted="false">در حال ارسال…</string>
+    <string name="phone_provider_error" formatted="false">کد فرستاده نشد. دوباره تلاش کن.</string>
+    <string name="phone_offline" formatted="false">به اینترنت وصل نیستید. اتصال را بررسی کنید.</string>
+    <string name="phone_legal_placeholder_privacy" formatted="false">متن حریم خصوصی به‌زودی اضافه می‌شود.</string>
+    <string name="phone_legal_placeholder_terms" formatted="false">متن قوانین و مقررات به‌زودی اضافه می‌شود.</string>
+    <string name="phone_close" formatted="false">بستن</string>
+    <string name="otp_title" formatted="false">کد تأیید را وارد کنید</string>
+    <string name="otp_subtitle" formatted="false">کد ۶ رقمی به شمارهٔ {phone} ارسال شد</string>
+    <string name="otp_edit_phone" formatted="false">ویرایش شماره</string>
+    <string name="otp_resend_in" formatted="false">ارسال مجدد کد تا {time}</string>
+    <string name="otp_resend" formatted="false">ارسال مجدد کد</string>
+    <string name="otp_resent" formatted="false">کد تازه فرستاده شد</string>
+    <string name="otp_wrong" formatted="false">کد درست نیست، دوباره تلاش کنید</string>
+    <string name="otp_expired" formatted="false">کد منقضی شد. یک کد تازه بگیر.</string>
+    <string name="otp_locked" formatted="false">چند بار اشتباه شد. کمی بعد دوباره امتحان کن.</string>
+    <string name="otp_verifying" formatted="false">در حال بررسی…</string>
+    <string name="otp_success" formatted="false">تأیید شد</string>
+    <string name="otp_cta" formatted="false">ادامه</string>
+    <string name="otp_a11y_box" formatted="false">رقم {index} از ۶</string>
+    <string name="home_title" formatted="false">به باغ آوا خوش آمدی!</string>
+    <string name="home_placeholder_note" formatted="false">(صفحهٔ موقت) ادامهٔ ماجراجویی در مرحلهٔ بعد ساخته می‌شود.</string>
+    <string name="home_restart" formatted="false">شروع دوباره (فقط برای آزمایش)</string>
+    <string name="app_garden" formatted="false">باغ</string>
+    <string name="app_library" formatted="false">قصه‌ها</string>
+    <string name="app_practice" formatted="false">مرور</string>
+    <string name="app_me" formatted="false">من</string>
+    <string name="app_back" formatted="false">برگشت</string>
+    <string name="app_next" formatted="false">ادامه</string>
+    <string name="app_save" formatted="false">ذخیره</string>
+    <string name="app_cancel" formatted="false">فعلاً نه</string>
+    <string name="app_close" formatted="false">بستن</string>
+    <string name="app_yes" formatted="false">بله، ادامه بده</string>
+    <string name="app_retry" formatted="false">دوباره تلاش کن</string>
+    <string name="app_greeting" formatted="false">سلام، {name}!</string>
+    <string name="app_friend" formatted="false">دوست آوا</string>
+    <string name="app_completed_count" formatted="false">{count} از {total} مرحله</string>
+    <string name="app_hero_title" formatted="false">یک قدم کوچک، یک کشف تازه</string>
+    <string name="app_start" formatted="false">شروع تمرین</string>
+    <string name="app_resume" formatted="false">ادامهٔ تمرین</string>
+    <string name="app_all_done" formatted="false">باغ نشانه‌ها را کامل کردی!</string>
+    <string name="app_all_done_body" formatted="false">می‌توانی یک قصه بخوانی یا مرحله‌های قبلی را دوباره تمرین کنی.</string>
+    <string name="app_path_title" formatted="false">مسیر نشانه‌ها</string>
+    <string name="app_path_body" formatted="false">از مرحلهٔ روشن شروع کن؛ هر قدم، راه قدم بعد را باز می‌کند.</string>
+    <string name="app_next_step" formatted="false">قدم بعدی تو</string>
+    <string name="app_locked_step" formatted="false">پس از مرحلهٔ قبل</string>
+    <string name="app_done" formatted="false">انجام شد؛ دوباره بازی کن</string>
+    <string name="app_story_link" formatted="false">یک قصه هم بخوانیم؟</string>
+    <string name="app_story_link_body" formatted="false">دو قصه در باغ کتاب منتظر تو هستند.</string>
+    <string name="app_lesson_details" formatted="false">آشنایی با تمرین</string>
+    <string name="app_activities" formatted="false">{count} بازی کوتاه</string>
+    <string name="app_check" formatted="false">بررسی کن</string>
+    <string name="app_choose" formatted="false">نشانهٔ شبیه نمونه را پیدا کن.</string>
+    <string name="app_target" formatted="false">نمونه</string>
+    <string name="app_word_choose" formatted="false">کلمهٔ شبیه نمونه را پیدا کن.</string>
+    <string name="app_correct" formatted="false">پیدایش کردی!</string>
+    <string name="app_wrong" formatted="false">اشکالی ندارد؛ دوباره به نمونه نگاه کن.</string>
+    <string name="app_lesson_complete" formatted="false">یک قدم تازه برداشتی!</string>
+    <string name="app_lesson_complete_body" formatted="false">این مرحله تمام شد و در باغ تو ماند.</string>
+    <string name="app_next_lesson" formatted="false">مرحلهٔ بعد</string>
+    <string name="app_home" formatted="false">بازگشت به باغ</string>
+    <string name="app_replay" formatted="false">دوباره تمرین کن</string>
+    <string name="app_listen" formatted="false">شنیدن</string>
+    <string name="app_stop" formatted="false">توقف صدا</string>
+    <string name="app_no_voice" formatted="false">صدای فارسیِ آفلاین روی این دستگاه آماده نیست. می‌توانی خواندن را ادامه بدهی.</string>
+    <string name="app_exercise_progress" formatted="false">بازی {current} از {total}</string>
+    <string name="app_library_title" formatted="false">باغ قصه‌ها</string>
+    <string name="app_library_body" formatted="false">یک کتاب بردار و با آوا وارد قصه شو.</string>
+    <string name="app_read_story" formatted="false">باز کردن کتاب</string>
+    <string name="app_continue_story" formatted="false">ادامهٔ قصه</string>
+    <string name="app_reread_story" formatted="false">دوباره خواندن</string>
+    <string name="app_story_pages" formatted="false">{count} صفحهٔ کوتاه</string>
+    <string name="app_story_unread" formatted="false">تازه</string>
+    <string name="app_story_in_progress" formatted="false">در حال خواندن</string>
+    <string name="app_story_read" formatted="false">خوانده‌شده</string>
+    <string name="app_story_read_body" formatted="false">این قصه را خوانده‌ای؛ هر وقت خواستی دوباره ورقش بزن.</string>
+    <string name="app_story_resume_page" formatted="false">ادامه از صفحهٔ {current} از {total}</string>
+    <string name="app_story_question_hint" formatted="false">یک پرسش کوتاه در پایان</string>
+    <string name="app_story_audio_hint" formatted="false">شنیدن متن اختیاری است</string>
+    <string name="app_story_page" formatted="false">صفحهٔ {current} از {total}</string>
+    <string name="app_next_page" formatted="false">صفحهٔ بعد</string>
+    <string name="app_previous_page" formatted="false">صفحهٔ قبل</string>
+    <string name="app_story_to_question" formatted="false">رفتن به پرسش</string>
+    <string name="app_story_audio_off" formatted="false">راهنمای صوتی در تنظیمات خاموش است؛ خواندن بدون صدا ادامه دارد.</string>
+    <string name="app_story_question" formatted="false">یک پرسش از قصه</string>
+    <string name="app_story_question_progress" formatted="false">آخرین قدم قصه</string>
+    <string name="app_story_good" formatted="false">آفرین، یادت مانده!</string>
+    <string name="app_story_retry" formatted="false">یک بار دیگر فکر کن؛ می‌توانی به قصه هم برگردی.</string>
+    <string name="app_back_story" formatted="false">بازگشت به قصه</string>
+    <string name="app_finish_story" formatted="false">پایان قصه</string>
+    <string name="app_story_complete" formatted="false">یک قصهٔ دیگر خواندی!</string>
+    <string name="app_story_complete_body" formatted="false">می‌توانی به کتابخانه برگردی یا قصه را دوباره ببینی.</string>
+    <string name="app_story_completion_summary" formatted="false">{count} صفحه خواندی و پرسش قصه را پاسخ دادی.</string>
+    <string name="app_back_library" formatted="false">برگشت به قصه‌ها</string>
+    <string name="app_practice_title" formatted="false">باغ مرور</string>
+    <string name="app_practice_body" formatted="false">مرور، یک قدم تازه در یادگیری است.</string>
+    <string name="app_mistakes_title" formatted="false">یک بار دیگر با هم</string>
+    <string name="app_mistakes_body" formatted="false">تمرین‌هایی که به نگاه دوباره نیاز داشتند.</string>
+    <string name="app_learned_title" formatted="false">مرور آموخته‌ها</string>
+    <string name="app_learned_body" formatted="false">نشانه‌ها و کلمه‌های مرحله‌های تمام‌شده.</string>
+    <string name="app_empty_practice" formatted="false">بعد از اولین تمرین، اینجا هم بازی خواهیم داشت.</string>
+    <string name="app_review_done" formatted="false">مرور امروزت تمام شد!</string>
+    <string name="app_review_body" formatted="false">تمرین دوباره هم یک قدم رو به جلوست.</string>
+    <string name="app_review_count" formatted="false">{count} تمرین برای نگاه دوباره</string>
+    <string name="app_profile_title" formatted="false">من</string>
+    <string name="app_profile_progress_summary" formatted="false">{count} از {total} مرحلهٔ باغ کامل شده</string>
+    <string name="app_profile_progress_body" formatted="false">مرحله‌ها، قصه‌ها، مرورها و یادگاری‌های واقعی تو</string>
+    <string name="app_profile_settings_body" formatted="false">صدا، حرکت، دادهٔ محلی و ورود آزمایشی</string>
+    <string name="app_profile_help_body" formatted="false">پاسخ پرسش‌های رایج دربارهٔ تمرین و ذخیره</string>
+    <string name="app_profile_about_body" formatted="false">معرفی نسخهٔ بومی اندروید آوا</string>
+    <string name="app_edit_profile" formatted="false">نام و دوست من</string>
+    <string name="app_name" formatted="false">نام تو</string>
+    <string name="app_choose_avatar" formatted="false">دوستت را انتخاب کن</string>
+    <string name="app_name_counter" formatted="false">{count} از ۲۴ نویسه</string>
+    <string name="app_state_selected" formatted="false">انتخاب‌شده</string>
+    <string name="app_state_not_selected" formatted="false">انتخاب‌نشده</string>
+    <string name="app_progress" formatted="false">پیشرفت من</string>
+    <string name="app_settings" formatted="false">تنظیمات</string>
+    <string name="app_help" formatted="false">راهنما</string>
+    <string name="app_about" formatted="false">دربارهٔ آوا</string>
+    <string name="app_privacy" formatted="false">حریم خصوصی</string>
+    <string name="app_terms" formatted="false">قوانین استفاده</string>
+    <string name="app_lessons_done" formatted="false">مرحله‌های تمام‌شده</string>
+    <string name="app_stories_done" formatted="false">قصه‌های خوانده‌شده</string>
+    <string name="app_reviews_done" formatted="false">مرورهای کامل</string>
+    <string name="app_badges" formatted="false">یادگاری‌های باغ</string>
+    <string name="app_progress_path_title" formatted="false">راهی که آمده‌ای</string>
+    <string name="app_progress_next_step" formatted="false">قدم بعدی در باغ برایت روشن است.</string>
+    <string name="app_progress_all_done" formatted="false">همهٔ مرحله‌های این باغ کامل شده‌اند؛ قصه‌ها منتظرند.</string>
+    <string name="app_continue_path" formatted="false">ادامهٔ مسیر</string>
+    <string name="app_metric_fraction" formatted="false">{count} از {total}</string>
+    <string name="app_badges_summary" formatted="false">{count} از ۴ یادگاری به دست آمده</string>
+    <string name="app_badge_first" formatted="false">اولین قدم</string>
+    <string name="app_badge_first_body" formatted="false">یک مرحله را کامل کن.</string>
+    <string name="app_badge_all" formatted="false">باغبان نشانه‌ها</string>
+    <string name="app_badge_all_body" formatted="false">همهٔ مرحله‌های این باغ را کامل کن.</string>
+    <string name="app_badge_story" formatted="false">دوست قصه‌ها</string>
+    <string name="app_badge_story_body" formatted="false">یک قصه را تا پایان بخوان.</string>
+    <string name="app_badge_review" formatted="false">دوباره و بهتر</string>
+    <string name="app_badge_review_body" formatted="false">یک مرور را کامل کن.</string>
+    <string name="app_badge_wait" formatted="false">هنوز در راه است</string>
+    <string name="app_badge_earned" formatted="false">به دست آمد</string>
+    <string name="app_narration" formatted="false">صدای راهنما</string>
+    <string name="app_narration_body" formatted="false">شنیدن دستورها و قصه با صدای فارسی دستگاه.</string>
+    <string name="app_sounds" formatted="false">صدای تشویق</string>
+    <string name="app_sounds_body" formatted="false">یک صدای کوتاه پس از پاسخ درست.</string>
+    <string name="app_motion" formatted="false">حرکت کمتر</string>
+    <string name="app_motion_body" formatted="false">حرکت‌های تزئینی کمتر می‌شوند.</string>
+    <string name="app_state_on" formatted="false">روشن</string>
+    <string name="app_state_off" formatted="false">خاموش</string>
+    <string name="app_settings_experience" formatted="false">تجربهٔ یادگیری</string>
+    <string name="app_settings_information" formatted="false">اطلاعات برنامه</string>
+    <string name="app_settings_data" formatted="false">داده و ورود</string>
+    <string name="app_privacy_menu_body" formatted="false">چه چیزی روی دستگاه می‌ماند و چه چیزی ارسال نمی‌شود</string>
+    <string name="app_terms_menu_body" formatted="false">دامنهٔ نسخهٔ توسعه و محتوای در حال بررسی</string>
+    <string name="app_reset_menu_body" formatted="false">مرحله‌ها، قصه‌ها و مرورها از نو؛ نام و تنظیمات حفظ می‌شوند</string>
+    <string name="app_logout_menu_body" formatted="false">پیشرفت محلی حفظ می‌شود و ورود آزمایشی پایان می‌یابد</string>
+    <string name="app_reset" formatted="false">شروع دوبارهٔ باغ</string>
+    <string name="app_logout" formatted="false">خروج از حساب</string>
+    <string name="app_exit_title" formatted="false">فعلاً از تمرین بیرون برویم؟</string>
+    <string name="app_exit_body" formatted="false">قدم‌های کامل‌شده حفظ می‌شوند؛ بعداً می‌توانی ادامه بدهی.</string>
+    <string name="app_reset_title" formatted="false">پیشرفت باغ پاک شود؟</string>
+    <string name="app_reset_body" formatted="false">مرحله‌ها، قصه‌ها و مرورها از نو شروع می‌شوند. نام و تنظیماتت می‌مانند.</string>
+    <string name="app_logout_title" formatted="false">از ورود محلی خارج می‌شوی؟</string>
+    <string name="app_logout_body" formatted="false">پیشرفت روی همین دستگاه حفظ می‌شود. برای ورود دوباره کد توسعه را بزن.</string>
+    <string name="app_storage_error" formatted="false">ذخیره یا بازیابی پیشرفت انجام نشد. دوباره تلاش کن.</string>
+    <string name="app_loading" formatted="false">در حال آماده‌سازی باغ…</string>
+    <string name="app_version" formatted="false">نسخهٔ توسعه ۰٫۴٫۱</string>
+    <string name="app_about_body" formatted="false">آوا همراه تو در دنیای نشانه‌ها، کلمه‌ها و قصه‌های فارسی است. با نگاه‌کردن، شنیدن و تلاش دوباره، قدم‌به‌قدم جلو می‌رویم.</string>
+    <string name="app_about_native" formatted="false">این محصول با Kotlin و Jetpack Compose برای Android ساخته می‌شود و دادهٔ یادگیری را محلی نگه می‌دارد.</string>
+    <string name="app_about_content" formatted="false">محتوای فعلی: {lessons} مرحله و {stories} قصهٔ توسعه‌ای.</string>
+    <string name="app_privacy_body" formatted="false">نام انتخابی، تنظیمات و پیشرفت یادگیری روی همین دستگاه ذخیره می‌شوند. از بخش تنظیمات می‌توانی پیشرفت را پاک کنی. این نسخه فایل صوتی تو را ضبط نمی‌کند و دادهٔ یادگیری را به سرور ارسال نمی‌کند. ورود فعلی شبیه‌سازی‌شده است.</string>
+    <string name="app_privacy_local_title" formatted="false">داده‌های محلی</string>
+    <string name="app_privacy_local_body" formatted="false">نام انتخابی، دوست آوا، تنظیمات و پیشرفت در فضای خصوصی همین برنامه روی دستگاه ذخیره می‌شوند.</string>
+    <string name="app_privacy_not_title" formatted="false">چیزی که این نسخه انجام نمی‌دهد</string>
+    <string name="app_privacy_not_body" formatted="false">میکروفن استفاده نمی‌شود، صدای کودک ضبط نمی‌شود و دادهٔ یادگیری به سرور فرستاده نمی‌شود. ورود فعلی آزمایشی است.</string>
+    <string name="app_terms_body" formatted="false">آوا برای تمرین و آشنایی با نشانه‌ها و قصه‌های فارسی ساخته شده است. تمرین‌های این نسخه برای توسعه و ارزیابی هستند؛ محتوای آموزشی نهایی در حال بررسی و گسترش است.</string>
+    <string name="app_terms_scope_title" formatted="false">دامنهٔ استفاده</string>
+    <string name="app_terms_scope_body" formatted="false">این نسخه برای تمرین توسعه‌ای نشانه‌ها، کلمه‌ها و قصه‌های کوتاه فارسی است و جای برنامهٔ درسی تأییدشده را نمی‌گیرد.</string>
+    <string name="app_terms_review_title" formatted="false">پیش از انتشار</string>
+    <string name="app_terms_review_body" formatted="false">محتوای آموزشی، متن حقوقی، حساب واقعی و سیاست‌های انتشار باید جداگانه بررسی و تأیید شوند.</string>
+    <string name="app_legal_development" formatted="false">این متن برای نسخهٔ توسعه است و پیش از انتشار به بازبینی حقوقی نیاز دارد.</string>
+    <string name="app_help_intro" formatted="false">یک پرسش را باز کن؛ پاسخ همان‌جا نمایش داده می‌شود.</string>
+    <string name="app_faq_expanded" formatted="false">باز</string>
+    <string name="app_faq_collapsed" formatted="false">بسته</string>
+    <string name="app_faq_start" formatted="false">از کجا شروع کنم؟</string>
+    <string name="app_faq_start_body" formatted="false">در باغ، دکمهٔ شروع تمرین یا مرحلهٔ روشن را بزن.</string>
+    <string name="app_faq_wrong" formatted="false">اگر اشتباه انتخاب کرده باشم چه؟</string>
+    <string name="app_faq_wrong_body" formatted="false">دوباره به نمونه نگاه کن و یک پاسخ دیگر انتخاب کن. می‌توانی اشتباه‌ها را در بخش مرور هم تمرین کنی.</string>
+    <string name="app_faq_audio" formatted="false">چرا صدا ندارم؟</string>
+    <string name="app_faq_audio_body" formatted="false">شنیدن به صدای فارسی آفلاینِ نصب‌شده روی دستگاه نیاز دارد. تنظیم صدای راهنما و صدای دستگاه را هم بررسی کن.</string>
+    <string name="app_faq_save" formatted="false">پیشرفتم کجا می‌ماند؟</string>
+    <string name="app_faq_save_body" formatted="false">پیشرفت روی همین دستگاه ذخیره می‌شود. پاک‌کردن دادهٔ برنامه یا حذف آن می‌تواند پیشرفت را پاک کند.</string>
+    <string name="app_otp_network" formatted="false">بررسی انجام نشد. دوباره تلاش کن.</string>
+    <string name="app_mock_hint" formatted="false">ورود آزمایشی: کد ۱۲۳۴۵۶؛ پیامک واقعی ارسال نمی‌شود.</string>
+    <string name="app_otp_label" formatted="false">کد شش‌رقمی</string>
+    <string name="app_lock_timer" formatted="false">تلاش دوباره تا {time}</string>
+    <string name="app_avatar_ava" formatted="false">آوا</string>
+    <string name="app_avatar_bunny" formatted="false">خرگوش</string>
+    <string name="app_avatar_fox" formatted="false">روباه</string>
+    <string name="app_avatar_squirrel" formatted="false">سنجاب</string>
+    <string name="app_edit_name_hint" formatted="false">تا ۲۴ نویسه</string>
+    <string name="app_path_status" formatted="false">مرحلهٔ {index}، {status}</string>
+    <string name="app_lesson_preview" formatted="false">در این مرحله می‌بینی</string>
+    <string name="app_resume_step" formatted="false">ادامه از بازی {current} از {total}</string>
+    <string name="app_select_hint" formatted="false">یک گزینه را انتخاب کن.</string>
+    <string name="app_selected_hint" formatted="false">حالا انتخابت را بررسی کن.</string>
+    <string name="app_finish_lesson" formatted="false">پایان تمرین</string>
+    <string name="app_completion_summary" formatted="false">{count} بازی را تا پایان انجام دادی.</string>
+    <string name="app_up_next" formatted="false">قدم بعد: {title}</string>
+    <string name="app_review_mistakes_cta" formatted="false">تمرین دوباره</string>
+    <string name="app_review_learned_cta" formatted="false">مرور درس‌ها</string>
+    <string name="app_learned_count" formatted="false">{count} بازی از درس‌های تو</string>
+    <string name="app_consent_accepted" formatted="false">پذیرفته شد</string>
+    <string name="app_consent_not_accepted" formatted="false">پذیرفته نشده</string>
+    <string name="app_activity_recognize" formatted="false">دیدن</string>
+    <string name="app_activity_listen" formatted="false">شنیدن</string>
+    <string name="app_activity_build" formatted="false">ساختن</string>
+    <string name="app_lesson_variety" formatted="false">{recognize} دیداری، {listen} شنیداری و {build} ساخت کلمه</string>
+    <string name="app_listen_choose" formatted="false">گوش کن و نشانه را پیدا کن.</string>
+    <string name="app_listen_instruction" formatted="false">صدای نشانه را بشنو، بعد پاسخ درست را انتخاب کن.</string>
+    <string name="app_listen_again" formatted="false">دوباره بشنو</string>
+    <string name="app_show_hint" formatted="false">نمایش راهنمای نوشتاری</string>
+    <string name="app_listen_hint_label" formatted="false">راهنمای نوشتاری</string>
+    <string name="app_audio_optional" formatted="false">اگر صدا آماده نیست، راهنمای نوشتاری را ببین.</string>
+    <string name="app_build_word" formatted="false">نشانه‌ها را بزن و کلمه را بساز.</string>
+    <string name="app_build_target" formatted="false">کلمهٔ هدف</string>
+    <string name="app_your_word" formatted="false">کلمهٔ تو</string>
+    <string name="app_empty_word" formatted="false">هنوز نشانه‌ای انتخاب نشده</string>
+    <string name="app_undo_token" formatted="false">برداشتن آخرین نشانه</string>
+    <string name="app_token_available" formatted="false">آمادهٔ انتخاب</string>
+    <string name="app_token_used" formatted="false">در پاسخ استفاده شده</string>
+    <string name="app_build_more_hint" formatted="false">همهٔ نشانه‌ها را انتخاب کن.</string>
+    <string name="app_build_ready_hint" formatted="false">حالا کلمه‌ات را بررسی کن.</string>
+    <string name="app_remove_last" formatted="false">آخرین نشانه را بردار</string>
+    <string name="app_answer_empty" formatted="false">جای پاسخ خالی است</string>
+    <string name="app_answer_value" formatted="false">پاسخ ساخته‌شده: {value}</string>
+    <string name="app_wrong_listen" formatted="false">اشکالی ندارد؛ دوباره گوش کن یا راهنما را ببین.</string>
+    <string name="app_wrong_build" formatted="false">اشکالی ندارد؛ یک بار دیگر نشانه‌ها را بچین.</string>
+    <string name="app_quick_review_title" formatted="false">مرور کوتاه امروز</string>
+    <string name="app_quick_review_body" formatted="false">اشتباه‌های واقعی و آموخته‌ها در یک بازی کوتاه کنار هم می‌آیند.</string>
+    <string name="app_quick_review_count" formatted="false">این نوبت {count} بازی دارد.</string>
+    <string name="app_quick_review_cta" formatted="false">شروع مرور کوتاه</string>
+    <string name="app_learned_session_count" formatted="false">این نوبت {session} بازی از {total} بازی آموخته‌شده دارد.</string>
+</resources>

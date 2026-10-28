@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "approvedForRelease": false,
+  "scope": "Original development multi-activity literacy content; educator and Persian TTS review required",
+  "lessons": [
+    {
+      "id": "visual_shapes_01",
+      "title": "دوستی با نشانه‌ها",
+      "goal": "شکل و صدای چند نشانه را ببین و پیدا کن.",
+      "tasks": [
+        {"id": "shape_aa", "kind": "recognize", "target": "آ", "choices": ["آ", "ا", "د"]},
+        {"id": "sound_be", "kind": "listen", "target": "ب", "choices": ["پ", "ب", "ت"]},
+        {"id": "shape_mim", "kind": "recognize", "target": "م", "choices": ["ن", "م", "و"]}
+      ]
+    },
+    {
+      "id": "dots_02",
+      "title": "راز نقطه‌ها",
+      "goal": "به نقطه‌ها دقت کن و صدای نشانه را هم بشنو.",
+      "tasks": [
+        {"id": "dots_pe", "kind": "recognize", "target": "پ", "choices": ["ب", "پ", "ت"]},
+        {"id": "sound_te", "kind": "listen", "target": "ت", "choices": ["ن", "ب", "ت"]},
+        {"id": "dots_nun", "kind": "recognize", "target": "ن", "choices": ["ن", "ی", "ب"]}
+      ]
+    },
+    {
+      "id": "words_03",
+      "title": "کلمه‌های کوچک",
+      "goal": "با نشانه‌ها کلمه بساز و کلمهٔ آشنا را پیدا کن.",
+      "tasks": [
+        {"id": "build_ab", "kind": "build_word", "target": "آب", "tokens": ["ب", "آ"]},
+        {"id": "word_baba", "kind": "recognize", "target": "بابا", "choices": ["باد", "آب", "بابا"]},
+        {"id": "build_bad", "kind": "build_word", "target": "باد", "tokens": ["د", "ب", "ا"]}
+      ]
+    },
+    {
+      "id": "garden_04",
+      "title": "جشن باغ نشانه‌ها",
+      "goal": "با دیدن، شنیدن و ساختن، آموخته‌ها را مرور کن.",
+      "tasks": [
+        {"id": "sound_mim", "kind": "listen", "target": "م", "choices": ["م", "ن", "و"]},
+        {"id": "sound_pe", "kind": "listen", "target": "پ", "choices": ["ب", "ت", "پ"]},
+        {"id": "build_ab_review", "kind": "build_word", "target": "آب", "tokens": ["آ", "ب"]}
+      ]
+    }
+  ],
+  "stories": [
+    {
+      "id": "little_seed",
+      "title": "دانهٔ کوچک",
+      "subtitle": "یک قصه دربارهٔ صبر و مراقبت",
+      "art": "decor.tree",
+      "pages": [
+        "آوا گفت: «بیا برای دانه یک خانه بسازیم!» او دانه را آرام در خاک گذاشت.",
+        "دانه زیر خاک خوابید. آوا برایش کمی آب آورد.",
+        "هر روز آوا به باغ سر زد. خورشید گرم می‌تابید و دانه آرام رشد می‌کرد.",
+        "یک صبح، جوانه‌ای کوچک از خاک بیرون آمد. آوا لبخند زد.",
+        "آوا گفت: «با کمی صبر و مراقبت، چیزهای کوچک هم بزرگ می‌شوند.»"
+      ],
+      "question": "آوا برای دانه چه آورد؟",
+      "choices": ["آب", "توپ", "کفش"],
+      "answer": "آب"
+    },
+    {
+      "id": "friends_book",
+      "title": "کتابِ دوستان",
+      "subtitle": "یک کتاب و چند دوست مهربان",
+      "art": "decor.magic_book",
+      "pages": [
+        "آوا یک کتاب تازه پیدا کرد. روی جلدش یک ستاره بود.",
+        "خرگوش و روباه آمدند. سنجاب هم کنارشان نشست.",
+        "آوا کتاب را باز کرد. هر دوست یک تصویر تازه در آن پیدا کرد.",
+        "دوستان گفتند: «خواندن کنار هم چه لذتی دارد!» کتاب دوباره در باغ باز شد."
+      ],
+      "question": "دوستان با هم چه خواندند؟",
+      "choices": ["کفش", "کتاب", "توپ"],
+      "answer": "کتاب"
+    }
+  ]
+}

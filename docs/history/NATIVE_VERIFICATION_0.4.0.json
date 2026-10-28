@@ -1,0 +1,117 @@
+{
+  "versionName": "0.4.0",
+  "versionCode": 10,
+  "date": "2026-10-28",
+  "delivery": "source-only increment",
+  "provenance": "Recovered from the byte-verified persistent 0.3.6 source package, then changed on recovery/native-0.4.0; Git metadata before recovery was not present in that package.",
+  "latestCommand": "sync-android-resources.py --check; audit-project.py; Python/JSON validation; git diff --check; testDebugUnitTest attempted",
+  "latestResult": "deterministic source/resource checks passed; Gradle tests not executed because the fresh executor had no Gradle/SDK cache and could not reach services.gradle.org",
+  "nativeTests": [
+    {
+      "name": "com.ava.reading.AuthRepositoryTest",
+      "tests": 5,
+      "result": "not_run_in_0.4.0_environment"
+    },
+    {
+      "name": "com.ava.reading.AvaViewModelTest",
+      "tests": 23,
+      "result": "not_run_in_0.4.0_environment"
+    },
+    {
+      "name": "com.ava.reading.LearnerPersistenceTest",
+      "tests": 2,
+      "result": "not_run_in_0.4.0_environment"
+    },
+    {
+      "name": "com.ava.reading.ModelTest",
+      "tests": 12,
+      "result": "not_run_in_0.4.0_environment"
+    },
+    {
+      "name": "com.ava.reading.NativeUiTest",
+      "tests": 39,
+      "result": "not_run_in_0.4.0_environment"
+    }
+  ],
+  "nativeTestCountInSource": 81,
+  "nativeTestExecution": "blocked_before_project_configuration",
+  "packagingRequested": false,
+  "apkBuiltThisIncrement": false,
+  "checks": {
+    "resourceSync": "passed: 16 assets, 258 strings, font, palette, content schema v2, 4 lessons, 12 activities and 2 stories",
+    "projectAudit": "passed: asset dimensions, schema marker, 3 skill hashes and all 13 design reference hashes",
+    "pythonAndJson": "passed",
+    "gitDiffWhitespace": "passed",
+    "nativeUnitAndCompose": "not run: Gradle 8.11.1 distribution unavailable in fresh executor; network to services.gradle.org unreachable",
+    "installPackages": "none: source-only increment; no APK/AAB output"
+  },
+  "activityEngine": {
+    "contentVersion": 2,
+    "recognize": 5,
+    "listen": 4,
+    "buildWord": 3,
+    "stableTaskKeys": true,
+    "legacyNumericKeyRead": true,
+    "audioFallback": "written hint"
+  },
+  "sourceSha256": {
+    ".agents/skills.lock.json": "2f06bce4e37a520893d9b6f21840526149497dfdb92eec0c88cc0773a81fa731",
+    ".agents/skills/ava-duolingo-learning/SKILL.md": "c5f83e530b5bbf055abc0ed67afd6ef474fabfc0b5ae6948e94b640a0562fdee",
+    "android/app/build.gradle.kts": "dfa88697c56e7e7ef7fd5ee2a308cd88b10a3765d2b785a3469caec92972b3aa",
+    "android/app/src/main/AndroidManifest.xml": "a110e94402a986a25ebdf88b724e3c44061c42139a2d40cc1699ad6f50578124",
+    "android/app/src/main/java/com/ava/reading/MainActivity.kt": "053b7dd58ad32f99472d1f0d074ad53a63350b7605a09c12fc83603d0488e451",
+    "android/app/src/main/java/com/ava/reading/content/Art.kt": "a45adf51f2072529d384dd5222b9d065dd118ce6de953343b23c551763ff510d",
+    "android/app/src/main/java/com/ava/reading/content/Catalog.kt": "378be6a9ea12536fd057f455c0c98f98af8d3db3d6010d98507a8ce10d9df127",
+    "android/app/src/main/java/com/ava/reading/content/Exercise.kt": "130e4abe3726668043d7129556d3b5b2dee5219a80398c561b2520ae1c2f843a",
+    "android/app/src/main/java/com/ava/reading/content/Models.kt": "31526ebcfdf11b18e56a008d5fae8357f32cc1d622d2e3916d7258309408e9d1",
+    "android/app/src/main/java/com/ava/reading/content/TextIds.kt": "2d8af56a430bf74c7aba92c798895f9fefe5782eaad816d961df0b96640a874d",
+    "android/app/src/main/java/com/ava/reading/data/AuthRepository.kt": "5158efeff9bfd206283cf03e76409b1640e961889d0586e72b15da71101780f5",
+    "android/app/src/main/java/com/ava/reading/platform/AndroidNarrator.kt": "be8a0ca24efd5f3f391eccba1402298077d46ac44ac76b231c6a859a3e82e2ca",
+    "android/app/src/main/java/com/ava/reading/storage/LearnerRepository.kt": "ec081366f0042746f23294b1762a6a33adfed285bb287f3bcf6626a7d60d184f",
+    "android/app/src/main/java/com/ava/reading/ui/AvaActions.kt": "fc258dc7c0a1bc4f402b7cbd8a64c401ed65561a190eef930a592a7e623f9038",
+    "android/app/src/main/java/com/ava/reading/ui/AvaViewModel.kt": "845ffc678dbb8ec69b91970cc3b84a0ef2db6e148ecc272831e35eafb8841146",
+    "android/app/src/main/java/com/ava/reading/ui/screens/AuthScreens.kt": "8f6c5695d9c85f797d92133e53f1ce0a91a8fc262d595d4119c81828697c051b",
+    "android/app/src/main/java/com/ava/reading/ui/screens/AvaApp.kt": "99a5c6ae56a30f16c1cb45fffb0f63b9f9cd25524cf0b4ab358bfd48ba615cb9",
+    "android/app/src/main/java/com/ava/reading/ui/screens/Components.kt": "ab6fdef895f4f166118c9e9924457f2f61db73e2d64720558b1f00c4de9f7caf",
+    "android/app/src/main/java/com/ava/reading/ui/screens/HomeScreen.kt": "b7b83365d5da5d25d046ceca654df67ea8f4b26dda81f79aaeb20b4c9f79cd24",
+    "android/app/src/main/java/com/ava/reading/ui/screens/LessonScreens.kt": "75f75b7dd04b127accd2ed1d558fad630fecc77793e9772f5ba1771b8322e6a6",
+    "android/app/src/main/java/com/ava/reading/ui/screens/PracticeScreen.kt": "f3275c6cc04b1f8b572af9a59b87b64662a996599614ecedcccf437fb016380d",
+    "android/app/src/main/java/com/ava/reading/ui/screens/ProfileScreens.kt": "8711caf08a9fbb5204ab014b02ebf8e3d82d1b69af4828e105c973955dc3008d",
+    "android/app/src/main/java/com/ava/reading/ui/screens/SettingsScreens.kt": "a91842d2227d9eef85b6ca0a8d109fd197137672455501980d7e1c70793c02de",
+    "android/app/src/main/java/com/ava/reading/ui/screens/StoryScreens.kt": "3119db1736d55aeeff8b28479b6c9b1599c64ac272db816bd3fcdacb64017f75",
+    "android/app/src/main/java/com/ava/reading/ui/theme/AvaTheme.kt": "b40a40f7f81181f617d326bc749c7249c231015e0bd0c3e5d9284a84b06052ca",
+    "android/app/src/main/java/com/ava/reading/ui/theme/DesignTokens.kt": "ea72d9cb538c19432f5fb82eb0ec9f39373870e388bc8fb6adc1bdc0c84b1aaa",
+    "android/app/src/test/java/com/ava/reading/AuthRepositoryTest.kt": "365f588ddcac04b53eb399adbe0862a9043dd12ffc60c85889ee085a741d1294",
+    "android/app/src/test/java/com/ava/reading/AvaViewModelTest.kt": "16f3037e09bf27f47ebfbca2a47bf144fbd389cc7879e2b9d63c85e0fe3125ab",
+    "android/app/src/test/java/com/ava/reading/LearnerPersistenceTest.kt": "3e09b43d7f01174a9c6ace4d61805a63da2cf57615a07a6b82600ea40d9b4da0",
+    "android/app/src/test/java/com/ava/reading/ModelTest.kt": "3073db68dc98c77fd99297f1000e93719e86b84e7d3b7a95d31ab1045346d7d5",
+    "android/app/src/test/java/com/ava/reading/NativeUiTest.kt": "783a4f2709cb356f76a059432d9d862ab3d2db796ce0bedfb572b2f083c61cf7",
+    "design/assets.manifest.json": "c399b9dd4cc94492a7cf37502eff04aa0bb52b2d6d4fc4a2148f76e78cfe2071",
+    "design/content.fa.json": "77c9d9c70a90f9ce91a5acafa09f655d7e45b823daba2b396ac8812dd3634032",
+    "design/content.schema.json": "fbf3e05b3ea5a552ccbd5ca1e5bcc5efc8c949ff75a669877d8694c15b891fa0",
+    "design/design_tokens.json": "9905e9069619c4cb720ea4dbccbb23797ac2531db190e5267ce0eb342dd589de",
+    "design/screen-references.audit.json": "a58e29ab35a637af40b9ce4f78620feeae8cd8da9b5c6420aee82ef9558992a1",
+    "design/strings.fa.json": "cf6f59a4169ff46c76095659c8c102aa02749bab568ba1319d58a10c7eeb0d79",
+    "scripts/audit-project.py": "543915619cd3f6adc3805e7fb239b76a83babf160a416b71965c7063ad90dbe0",
+    "scripts/sync-android-resources.py": "97c96d5dee3c293a483621293b94506fdb545f6ce8c826b3361e8e497473eb58"
+  },
+  "scope": {
+    "nativeDestinations": 22,
+    "lessons": 4,
+    "activities": 12,
+    "originalStories": 2,
+    "storyPages": 9,
+    "storage": "Preferences DataStore",
+    "auth": "local development mock; code 123456; no SMS/backend"
+  },
+  "deviceRun": "not verified",
+  "audio": "installed offline Persian TTS only; written hint prevents activity lock; actual voice availability and pronunciation not device-verified",
+  "releaseGates": [
+    "execute the 81 source tests in a Gradle/Android SDK environment",
+    "physical-device TalkBack/TTS/lifecycle/font QA",
+    "release startup/jank measurement",
+    "educator and legal content approval",
+    "real account services and release signing/policy review"
+  ],
+  "nextIncrement": "verify 0.4.0 tests/renderings, then mixed review sessions and versioned educator-approved local audio/content; source-only by default"
+}

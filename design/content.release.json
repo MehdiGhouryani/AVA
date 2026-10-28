@@ -1,0 +1,18 @@
+{
+  "manifestVersion": 1,
+  "releaseId": "seed-fa-0.6.1-dev.1",
+  "status": "development",
+  "schemaVersion": 3,
+  "contentVersion": "0.6.1-dev.1",
+  "locale": "fa-IR",
+  "minAppVersion": "0.6.1",
+  "maxAppVersion": null,
+  "publishedAt": null,
+  "approvedForRelease": false,
+  "bundlePath": "design/content.fa.json",
+  "bundleSha256": "39a0046db3e2d9c63e9eaabff5e4f7e445edcf789c86ee92e6d27379c5b60926",
+  "audioInventoryPath": "design/audio.inventory.json",
+  "audioInventorySha256": "ff0205afa7d7009cf080f4c919aac74cc1be33472a89195b36d9ac1bd80ef157",
+  "signature": null,
+  "rollbackOf": null
+}

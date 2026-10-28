@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "roles": [
+    {"id": "author", "content": ["create", "update_draft"], "audio": ["request"], "release": []},
+    {"id": "audio_producer", "content": ["read"], "audio": ["upload_quarantine", "update_metadata"], "release": []},
+    {"id": "education_reviewer", "content": ["review_educational"], "audio": ["review_script", "review_pronunciation"], "release": []},
+    {"id": "technical_reviewer", "content": ["read"], "audio": ["review_integrity", "approve_delivery"], "release": ["validate_candidate"]},
+    {"id": "publisher", "content": ["read_approved"], "audio": ["read_approved"], "release": ["create", "publish", "rollback"]},
+    {"id": "qa", "content": ["read"], "audio": ["read"], "release": ["verify", "reject_rollout"]}
+  ],
+  "separationRules": [
+    "uploader_cannot_technical_review_same_asset",
+    "uploader_cannot_educational_review_same_asset",
+    "author_cannot_publish_same_release",
+    "publisher_requires_both_audio_reviews",
+    "qa_cannot_mutate_editorial_content"
+  ]
+}

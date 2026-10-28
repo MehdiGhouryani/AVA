@@ -1,0 +1,1078 @@
+{
+  "_meta": {
+    "language": "fa",
+    "direction": "rtl",
+    "status": "DRAFT copy. 'screenshot' = visible in approved screenshots (typos fixed); 'repo' = microcopy example from spec; 'proposed' = written by supervisor. None is legally/pedagogically approved.",
+    "rules": "No mention of parents/guardians anywhere. Digits shown as Persian numerals. Use zero-width non-joiner (U+200C) in compounds."
+  },
+  "brand": {
+    "name": {
+      "fa": "آوا",
+      "source": "repo"
+    },
+    "tagline": {
+      "fa": "دنیای قصه‌های توی باغ کتاب",
+      "source": "screenshot"
+    }
+  },
+  "splash": {
+    "loading": {
+      "fa": "داریم کتابت را باز می‌کنیم",
+      "source": "repo"
+    },
+    "a11yLoading": {
+      "fa": "در حال آماده‌سازی",
+      "source": "proposed"
+    }
+  },
+  "onboarding": {
+    "next": {
+      "fa": "ادامه",
+      "source": "screenshot"
+    },
+    "skip": {
+      "fa": "رد کردن",
+      "source": "screenshot"
+    },
+    "step1": {
+      "title": {
+        "fa": "به دنیای کتاب‌های جادویی قدم بگذار!",
+        "source": "screenshot"
+      },
+      "body": {
+        "fa": "اینجا با صداها، تصویرها و قصه‌ها یاد می‌گیری و رشد می‌کنی.",
+        "source": "screenshot"
+      }
+    },
+    "step2": {
+      "title": {
+        "fa": "دوست‌های مهربونت منتظرن!",
+        "source": "screenshot"
+      },
+      "body": {
+        "fa": "با هم یاد می‌گیریم، بازی می‌کنیم و دنیای قشنگ فارسی رو کشف می‌کنیم.",
+        "source": "screenshot"
+      }
+    },
+    "a11yDots": {
+      "fa": "صفحه {current} از {total}",
+      "source": "proposed"
+    }
+  },
+  "phone": {
+    "title": {
+      "fa": "ورود یا ساخت حساب",
+      "source": "screenshot"
+    },
+    "label": {
+      "fa": "شمارهٔ موبایل",
+      "source": "screenshot"
+    },
+    "placeholder": {
+      "fa": "۰۹۱۲ ۳۴۵ ۶۷۸۹",
+      "source": "proposed"
+    },
+    "errorInvalid": {
+      "fa": "شماره درست نیست",
+      "source": "screenshot"
+    },
+    "consent": {
+      "fa": "حریم خصوصی و قوانین را می‌پذیرم",
+      "source": "screenshot"
+    },
+    "consentHint": {
+      "fa": "برای ادامه، تیک قوانین را بزن",
+      "source": "proposed"
+    },
+    "linkPrivacy": {
+      "fa": "حریم خصوصی",
+      "source": "screenshot"
+    },
+    "linkTerms": {
+      "fa": "قوانین و مقررات",
+      "source": "screenshot"
+    },
+    "cta": {
+      "fa": "دریافت کد",
+      "source": "screenshot"
+    },
+    "sending": {
+      "fa": "در حال ارسال…",
+      "source": "proposed"
+    },
+    "providerError": {
+      "fa": "کد فرستاده نشد. دوباره تلاش کن.",
+      "source": "proposed"
+    },
+    "offline": {
+      "fa": "به اینترنت وصل نیستید. اتصال را بررسی کنید.",
+      "source": "screenshot"
+    },
+    "legalPlaceholderPrivacy": {
+      "fa": "متن حریم خصوصی به‌زودی اضافه می‌شود.",
+      "source": "proposed"
+    },
+    "legalPlaceholderTerms": {
+      "fa": "متن قوانین و مقررات به‌زودی اضافه می‌شود.",
+      "source": "proposed"
+    },
+    "close": {
+      "fa": "بستن",
+      "source": "proposed"
+    }
+  },
+  "otp": {
+    "title": {
+      "fa": "کد تأیید را وارد کنید",
+      "source": "screenshot"
+    },
+    "subtitle": {
+      "fa": "کد ۶ رقمی به شمارهٔ {phone} ارسال شد",
+      "source": "screenshot"
+    },
+    "editPhone": {
+      "fa": "ویرایش شماره",
+      "source": "screenshot"
+    },
+    "resendIn": {
+      "fa": "ارسال مجدد کد تا {time}",
+      "source": "screenshot"
+    },
+    "resend": {
+      "fa": "ارسال مجدد کد",
+      "source": "proposed"
+    },
+    "resent": {
+      "fa": "کد تازه فرستاده شد",
+      "source": "proposed"
+    },
+    "wrong": {
+      "fa": "کد درست نیست، دوباره تلاش کنید",
+      "source": "screenshot"
+    },
+    "expired": {
+      "fa": "کد منقضی شد. یک کد تازه بگیر.",
+      "source": "proposed"
+    },
+    "locked": {
+      "fa": "چند بار اشتباه شد. کمی بعد دوباره امتحان کن.",
+      "source": "proposed"
+    },
+    "verifying": {
+      "fa": "در حال بررسی…",
+      "source": "proposed"
+    },
+    "success": {
+      "fa": "تأیید شد",
+      "source": "proposed"
+    },
+    "cta": {
+      "fa": "ادامه",
+      "source": "screenshot"
+    },
+    "a11yBox": {
+      "fa": "رقم {index} از ۶",
+      "source": "proposed"
+    }
+  },
+  "home": {
+    "title": {
+      "fa": "به باغ آوا خوش آمدی!",
+      "source": "proposed"
+    },
+    "placeholderNote": {
+      "fa": "(صفحهٔ موقت) ادامهٔ ماجراجویی در مرحلهٔ بعد ساخته می‌شود.",
+      "source": "proposed"
+    },
+    "restart": {
+      "fa": "شروع دوباره (فقط برای آزمایش)",
+      "source": "proposed"
+    }
+  },
+  "app": {
+    "garden": {
+      "fa": "باغ",
+      "source": "reconstructed-original-development"
+    },
+    "library": {
+      "fa": "قصه‌ها",
+      "source": "reconstructed-original-development"
+    },
+    "practice": {
+      "fa": "مرور",
+      "source": "reconstructed-original-development"
+    },
+    "me": {
+      "fa": "من",
+      "source": "reconstructed-original-development"
+    },
+    "back": {
+      "fa": "برگشت",
+      "source": "reconstructed-original-development"
+    },
+    "next": {
+      "fa": "ادامه",
+      "source": "reconstructed-original-development"
+    },
+    "save": {
+      "fa": "ذخیره",
+      "source": "reconstructed-original-development"
+    },
+    "cancel": {
+      "fa": "فعلاً نه",
+      "source": "reconstructed-original-development"
+    },
+    "close": {
+      "fa": "بستن",
+      "source": "reconstructed-original-development"
+    },
+    "yes": {
+      "fa": "بله، ادامه بده",
+      "source": "reconstructed-original-development"
+    },
+    "retry": {
+      "fa": "دوباره تلاش کن",
+      "source": "reconstructed-original-development"
+    },
+    "greeting": {
+      "fa": "سلام، {name}!",
+      "source": "reconstructed-original-development"
+    },
+    "friend": {
+      "fa": "دوست آوا",
+      "source": "reconstructed-original-development"
+    },
+    "completed_count": {
+      "fa": "{count} از {total} مرحله",
+      "source": "reconstructed-original-development"
+    },
+    "hero_title": {
+      "fa": "یک قدم کوچک، یک کشف تازه",
+      "source": "reconstructed-original-development"
+    },
+    "start": {
+      "fa": "شروع تمرین",
+      "source": "reconstructed-original-development"
+    },
+    "resume": {
+      "fa": "ادامهٔ تمرین",
+      "source": "reconstructed-original-development"
+    },
+    "all_done": {
+      "fa": "باغ نشانه‌ها را کامل کردی!",
+      "source": "reconstructed-original-development"
+    },
+    "all_done_body": {
+      "fa": "می‌توانی یک قصه بخوانی یا مرحله‌های قبلی را دوباره تمرین کنی.",
+      "source": "reconstructed-original-development"
+    },
+    "path_title": {
+      "fa": "مسیر نشانه‌ها",
+      "source": "reconstructed-original-development"
+    },
+    "path_body": {
+      "fa": "از مرحلهٔ روشن شروع کن؛ هر قدم، راه قدم بعد را باز می‌کند.",
+      "source": "reconstructed-original-development"
+    },
+    "next_step": {
+      "fa": "قدم بعدی تو",
+      "source": "reconstructed-original-development"
+    },
+    "locked_step": {
+      "fa": "پس از مرحلهٔ قبل",
+      "source": "reconstructed-original-development"
+    },
+    "done": {
+      "fa": "انجام شد؛ دوباره بازی کن",
+      "source": "reconstructed-original-development"
+    },
+    "story_link": {
+      "fa": "یک قصه هم بخوانیم؟",
+      "source": "reconstructed-original-development"
+    },
+    "story_link_body": {
+      "fa": "دو قصه در باغ کتاب منتظر تو هستند.",
+      "source": "reconstructed-original-development"
+    },
+    "lesson_details": {
+      "fa": "آشنایی با تمرین",
+      "source": "reconstructed-original-development"
+    },
+    "activities": {
+      "fa": "{count} بازی کوتاه",
+      "source": "reconstructed-original-development"
+    },
+    "check": {
+      "fa": "بررسی کن",
+      "source": "reconstructed-original-development"
+    },
+    "choose": {
+      "fa": "نشانهٔ شبیه نمونه را پیدا کن.",
+      "source": "reconstructed-original-development"
+    },
+    "target": {
+      "fa": "نمونه",
+      "source": "reconstructed-original-development"
+    },
+    "word_choose": {
+      "fa": "کلمهٔ شبیه نمونه را پیدا کن.",
+      "source": "reconstructed-original-development"
+    },
+    "correct": {
+      "fa": "پیدایش کردی!",
+      "source": "reconstructed-original-development"
+    },
+    "wrong": {
+      "fa": "اشکالی ندارد؛ دوباره به نمونه نگاه کن.",
+      "source": "reconstructed-original-development"
+    },
+    "lesson_complete": {
+      "fa": "یک قدم تازه برداشتی!",
+      "source": "reconstructed-original-development"
+    },
+    "lesson_complete_body": {
+      "fa": "این مرحله تمام شد و در باغ تو ماند.",
+      "source": "reconstructed-original-development"
+    },
+    "next_lesson": {
+      "fa": "مرحلهٔ بعد",
+      "source": "reconstructed-original-development"
+    },
+    "home": {
+      "fa": "بازگشت به باغ",
+      "source": "reconstructed-original-development"
+    },
+    "replay": {
+      "fa": "دوباره تمرین کن",
+      "source": "reconstructed-original-development"
+    },
+    "listen": {
+      "fa": "شنیدن",
+      "source": "reconstructed-original-development"
+    },
+    "stop": {
+      "fa": "توقف صدا",
+      "source": "reconstructed-original-development"
+    },
+    "no_voice": {
+      "fa": "صدای فارسیِ آفلاین روی این دستگاه آماده نیست. می‌توانی خواندن را ادامه بدهی.",
+      "source": "reconstructed-original-development"
+    },
+    "exercise_progress": {
+      "fa": "بازی {current} از {total}",
+      "source": "reconstructed-original-development"
+    },
+    "library_title": {
+      "fa": "باغ قصه‌ها",
+      "source": "reconstructed-original-development"
+    },
+    "library_body": {
+      "fa": "یک کتاب بردار و با آوا وارد قصه شو.",
+      "source": "reconstructed-original-development"
+    },
+    "read_story": {
+      "fa": "باز کردن کتاب",
+      "source": "reconstructed-original-development"
+    },
+    "continue_story": {
+      "fa": "ادامهٔ قصه",
+      "source": "reconstructed-original-development"
+    },
+    "reread_story": {
+      "fa": "دوباره خواندن",
+      "source": "reconstructed-original-development"
+    },
+    "story_pages": {
+      "fa": "{count} صفحهٔ کوتاه",
+      "source": "reconstructed-original-development"
+    },
+    "story_unread": {
+      "fa": "تازه",
+      "source": "original-native-0.3.4"
+    },
+    "story_in_progress": {
+      "fa": "در حال خواندن",
+      "source": "original-native-0.3.4"
+    },
+    "story_read": {
+      "fa": "خوانده‌شده",
+      "source": "original-native-0.3.4"
+    },
+    "story_read_body": {
+      "fa": "این قصه را خوانده‌ای؛ هر وقت خواستی دوباره ورقش بزن.",
+      "source": "original-native-0.3.4"
+    },
+    "story_resume_page": {
+      "fa": "ادامه از صفحهٔ {current} از {total}",
+      "source": "original-native-0.3.4"
+    },
+    "story_question_hint": {
+      "fa": "یک پرسش کوتاه در پایان",
+      "source": "original-native-0.3.4"
+    },
+    "story_audio_hint": {
+      "fa": "شنیدن متن اختیاری است",
+      "source": "original-native-0.3.4"
+    },
+    "story_page": {
+      "fa": "صفحهٔ {current} از {total}",
+      "source": "reconstructed-original-development"
+    },
+    "next_page": {
+      "fa": "صفحهٔ بعد",
+      "source": "reconstructed-original-development"
+    },
+    "previous_page": {
+      "fa": "صفحهٔ قبل",
+      "source": "reconstructed-original-development"
+    },
+    "story_to_question": {
+      "fa": "رفتن به پرسش",
+      "source": "original-native-0.3.4"
+    },
+    "story_audio_off": {
+      "fa": "راهنمای صوتی در تنظیمات خاموش است؛ خواندن بدون صدا ادامه دارد.",
+      "source": "original-native-0.3.4"
+    },
+    "story_question": {
+      "fa": "یک پرسش از قصه",
+      "source": "reconstructed-original-development"
+    },
+    "story_question_progress": {
+      "fa": "آخرین قدم قصه",
+      "source": "original-native-0.3.4"
+    },
+    "story_good": {
+      "fa": "آفرین، یادت مانده!",
+      "source": "reconstructed-original-development"
+    },
+    "story_retry": {
+      "fa": "یک بار دیگر فکر کن؛ می‌توانی به قصه هم برگردی.",
+      "source": "reconstructed-original-development"
+    },
+    "back_story": {
+      "fa": "بازگشت به قصه",
+      "source": "reconstructed-original-development"
+    },
+    "finish_story": {
+      "fa": "پایان قصه",
+      "source": "reconstructed-original-development"
+    },
+    "story_complete": {
+      "fa": "یک قصهٔ دیگر خواندی!",
+      "source": "reconstructed-original-development"
+    },
+    "story_complete_body": {
+      "fa": "می‌توانی به کتابخانه برگردی یا قصه را دوباره ببینی.",
+      "source": "reconstructed-original-development"
+    },
+    "story_completion_summary": {
+      "fa": "{count} صفحه خواندی و پرسش قصه را پاسخ دادی.",
+      "source": "original-native-0.3.4"
+    },
+    "back_library": {
+      "fa": "برگشت به قصه‌ها",
+      "source": "reconstructed-original-development"
+    },
+    "practice_title": {
+      "fa": "باغ مرور",
+      "source": "reconstructed-original-development"
+    },
+    "practice_body": {
+      "fa": "مرور، یک قدم تازه در یادگیری است.",
+      "source": "reconstructed-original-development"
+    },
+    "mistakes_title": {
+      "fa": "یک بار دیگر با هم",
+      "source": "reconstructed-original-development"
+    },
+    "mistakes_body": {
+      "fa": "تمرین‌هایی که به نگاه دوباره نیاز داشتند.",
+      "source": "reconstructed-original-development"
+    },
+    "learned_title": {
+      "fa": "مرور آموخته‌ها",
+      "source": "reconstructed-original-development"
+    },
+    "learned_body": {
+      "fa": "نشانه‌ها و کلمه‌های مرحله‌های تمام‌شده.",
+      "source": "reconstructed-original-development"
+    },
+    "empty_practice": {
+      "fa": "بعد از اولین تمرین، اینجا هم بازی خواهیم داشت.",
+      "source": "reconstructed-original-development"
+    },
+    "review_done": {
+      "fa": "مرور امروزت تمام شد!",
+      "source": "reconstructed-original-development"
+    },
+    "review_body": {
+      "fa": "تمرین دوباره هم یک قدم رو به جلوست.",
+      "source": "reconstructed-original-development"
+    },
+    "review_count": {
+      "fa": "{count} تمرین برای نگاه دوباره",
+      "source": "reconstructed-original-development"
+    },
+    "profile_title": {
+      "fa": "من",
+      "source": "reconstructed-original-development"
+    },
+    "profile_progress_summary": {
+      "fa": "{count} از {total} مرحلهٔ باغ کامل شده",
+      "source": "original-native-0.3.5"
+    },
+    "profile_progress_body": {
+      "fa": "مرحله‌ها، قصه‌ها، مرورها و یادگاری‌های واقعی تو",
+      "source": "original-native-0.3.5"
+    },
+    "profile_settings_body": {
+      "fa": "صدا، حرکت، دادهٔ محلی و ورود آزمایشی",
+      "source": "original-native-0.3.5"
+    },
+    "profile_help_body": {
+      "fa": "پاسخ پرسش‌های رایج دربارهٔ تمرین و ذخیره",
+      "source": "original-native-0.3.5"
+    },
+    "profile_about_body": {
+      "fa": "معرفی نسخهٔ بومی اندروید آوا",
+      "source": "original-native-0.3.5"
+    },
+    "edit_profile": {
+      "fa": "نام و دوست من",
+      "source": "reconstructed-original-development"
+    },
+    "name": {
+      "fa": "نام تو",
+      "source": "reconstructed-original-development"
+    },
+    "choose_avatar": {
+      "fa": "دوستت را انتخاب کن",
+      "source": "reconstructed-original-development"
+    },
+    "name_counter": {
+      "fa": "{count} از ۲۴ نویسه",
+      "source": "original-native-0.3.5"
+    },
+    "state_selected": {
+      "fa": "انتخاب‌شده",
+      "source": "original-native-0.3.5"
+    },
+    "state_not_selected": {
+      "fa": "انتخاب‌نشده",
+      "source": "original-native-0.3.5"
+    },
+    "progress": {
+      "fa": "پیشرفت من",
+      "source": "reconstructed-original-development"
+    },
+    "settings": {
+      "fa": "تنظیمات",
+      "source": "reconstructed-original-development"
+    },
+    "help": {
+      "fa": "راهنما",
+      "source": "reconstructed-original-development"
+    },
+    "about": {
+      "fa": "دربارهٔ آوا",
+      "source": "reconstructed-original-development"
+    },
+    "privacy": {
+      "fa": "حریم خصوصی",
+      "source": "reconstructed-original-development"
+    },
+    "terms": {
+      "fa": "قوانین استفاده",
+      "source": "reconstructed-original-development"
+    },
+    "lessons_done": {
+      "fa": "مرحله‌های تمام‌شده",
+      "source": "reconstructed-original-development"
+    },
+    "stories_done": {
+      "fa": "قصه‌های خوانده‌شده",
+      "source": "reconstructed-original-development"
+    },
+    "reviews_done": {
+      "fa": "مرورهای کامل",
+      "source": "reconstructed-original-development"
+    },
+    "badges": {
+      "fa": "یادگاری‌های باغ",
+      "source": "reconstructed-original-development"
+    },
+    "progress_path_title": {
+      "fa": "راهی که آمده‌ای",
+      "source": "original-native-0.3.5"
+    },
+    "progress_next_step": {
+      "fa": "قدم بعدی در باغ برایت روشن است.",
+      "source": "original-native-0.3.5"
+    },
+    "progress_all_done": {
+      "fa": "همهٔ مرحله‌های این باغ کامل شده‌اند؛ قصه‌ها منتظرند.",
+      "source": "original-native-0.3.5"
+    },
+    "continue_path": {
+      "fa": "ادامهٔ مسیر",
+      "source": "original-native-0.3.5"
+    },
+    "metric_fraction": {
+      "fa": "{count} از {total}",
+      "source": "original-native-0.3.5"
+    },
+    "badges_summary": {
+      "fa": "{count} از ۴ یادگاری به دست آمده",
+      "source": "original-native-0.3.5"
+    },
+    "badge_first": {
+      "fa": "اولین قدم",
+      "source": "reconstructed-original-development"
+    },
+    "badge_first_body": {
+      "fa": "یک مرحله را کامل کن.",
+      "source": "reconstructed-original-development"
+    },
+    "badge_all": {
+      "fa": "باغبان نشانه‌ها",
+      "source": "reconstructed-original-development"
+    },
+    "badge_all_body": {
+      "fa": "همهٔ مرحله‌های این باغ را کامل کن.",
+      "source": "reconstructed-original-development"
+    },
+    "badge_story": {
+      "fa": "دوست قصه‌ها",
+      "source": "reconstructed-original-development"
+    },
+    "badge_story_body": {
+      "fa": "یک قصه را تا پایان بخوان.",
+      "source": "reconstructed-original-development"
+    },
+    "badge_review": {
+      "fa": "دوباره و بهتر",
+      "source": "reconstructed-original-development"
+    },
+    "badge_review_body": {
+      "fa": "یک مرور را کامل کن.",
+      "source": "reconstructed-original-development"
+    },
+    "badge_wait": {
+      "fa": "هنوز در راه است",
+      "source": "reconstructed-original-development"
+    },
+    "badge_earned": {
+      "fa": "به دست آمد",
+      "source": "reconstructed-original-development"
+    },
+    "narration": {
+      "fa": "صدای راهنما",
+      "source": "reconstructed-original-development"
+    },
+    "narration_body": {
+      "fa": "شنیدن دستورها و قصه با صدای فارسی دستگاه.",
+      "source": "reconstructed-original-development"
+    },
+    "sounds": {
+      "fa": "صدای تشویق",
+      "source": "reconstructed-original-development"
+    },
+    "sounds_body": {
+      "fa": "یک صدای کوتاه پس از پاسخ درست.",
+      "source": "reconstructed-original-development"
+    },
+    "motion": {
+      "fa": "حرکت کمتر",
+      "source": "reconstructed-original-development"
+    },
+    "motion_body": {
+      "fa": "حرکت‌های تزئینی کمتر می‌شوند.",
+      "source": "reconstructed-original-development"
+    },
+    "state_on": {
+      "fa": "روشن",
+      "source": "original-native-0.3.5"
+    },
+    "state_off": {
+      "fa": "خاموش",
+      "source": "original-native-0.3.5"
+    },
+    "settings_experience": {
+      "fa": "تجربهٔ یادگیری",
+      "source": "original-native-0.3.5"
+    },
+    "settings_information": {
+      "fa": "اطلاعات برنامه",
+      "source": "original-native-0.3.5"
+    },
+    "settings_data": {
+      "fa": "داده و ورود",
+      "source": "original-native-0.3.5"
+    },
+    "privacy_menu_body": {
+      "fa": "چه چیزی روی دستگاه می‌ماند و چه چیزی ارسال نمی‌شود",
+      "source": "original-native-0.3.5"
+    },
+    "terms_menu_body": {
+      "fa": "دامنهٔ نسخهٔ توسعه و محتوای در حال بررسی",
+      "source": "original-native-0.3.5"
+    },
+    "reset_menu_body": {
+      "fa": "مرحله‌ها، قصه‌ها و مرورها از نو؛ نام و تنظیمات حفظ می‌شوند",
+      "source": "original-native-0.3.5"
+    },
+    "logout_menu_body": {
+      "fa": "پیشرفت محلی حفظ می‌شود و ورود آزمایشی پایان می‌یابد",
+      "source": "original-native-0.3.5"
+    },
+    "reset": {
+      "fa": "شروع دوبارهٔ باغ",
+      "source": "reconstructed-original-development"
+    },
+    "logout": {
+      "fa": "خروج از حساب",
+      "source": "reconstructed-original-development"
+    },
+    "exit_title": {
+      "fa": "فعلاً از تمرین بیرون برویم؟",
+      "source": "reconstructed-original-development"
+    },
+    "exit_body": {
+      "fa": "قدم‌های کامل‌شده حفظ می‌شوند؛ بعداً می‌توانی ادامه بدهی.",
+      "source": "reconstructed-original-development"
+    },
+    "reset_title": {
+      "fa": "پیشرفت باغ پاک شود؟",
+      "source": "reconstructed-original-development"
+    },
+    "reset_body": {
+      "fa": "مرحله‌ها، قصه‌ها و مرورها از نو شروع می‌شوند. نام و تنظیماتت می‌مانند.",
+      "source": "reconstructed-original-development"
+    },
+    "logout_title": {
+      "fa": "از ورود محلی خارج می‌شوی؟",
+      "source": "reconstructed-original-development"
+    },
+    "logout_body": {
+      "fa": "پیشرفت روی همین دستگاه حفظ می‌شود. برای ورود دوباره کد توسعه را بزن.",
+      "source": "reconstructed-original-development"
+    },
+    "storage_error": {
+      "fa": "ذخیره یا بازیابی پیشرفت انجام نشد. دوباره تلاش کن.",
+      "source": "reconstructed-original-development"
+    },
+    "loading": {
+      "fa": "در حال آماده‌سازی باغ…",
+      "source": "reconstructed-original-development"
+    },
+    "version": {
+      "fa": "نسخهٔ توسعه ۰٫۴٫۱",
+      "source": "original-native-0.4.1"
+    },
+    "about_body": {
+      "fa": "آوا همراه تو در دنیای نشانه‌ها، کلمه‌ها و قصه‌های فارسی است. با نگاه‌کردن، شنیدن و تلاش دوباره، قدم‌به‌قدم جلو می‌رویم.",
+      "source": "reconstructed-original-development"
+    },
+    "about_native": {
+      "fa": "این محصول با Kotlin و Jetpack Compose برای Android ساخته می‌شود و دادهٔ یادگیری را محلی نگه می‌دارد.",
+      "source": "original-native-0.3.5"
+    },
+    "about_content": {
+      "fa": "محتوای فعلی: {lessons} مرحله و {stories} قصهٔ توسعه‌ای.",
+      "source": "original-native-0.3.5"
+    },
+    "privacy_body": {
+      "fa": "نام انتخابی، تنظیمات و پیشرفت یادگیری روی همین دستگاه ذخیره می‌شوند. از بخش تنظیمات می‌توانی پیشرفت را پاک کنی. این نسخه فایل صوتی تو را ضبط نمی‌کند و دادهٔ یادگیری را به سرور ارسال نمی‌کند. ورود فعلی شبیه‌سازی‌شده است.",
+      "source": "reconstructed-original-development"
+    },
+    "privacy_local_title": {
+      "fa": "داده‌های محلی",
+      "source": "original-native-0.3.5"
+    },
+    "privacy_local_body": {
+      "fa": "نام انتخابی، دوست آوا، تنظیمات و پیشرفت در فضای خصوصی همین برنامه روی دستگاه ذخیره می‌شوند.",
+      "source": "original-native-0.3.5"
+    },
+    "privacy_not_title": {
+      "fa": "چیزی که این نسخه انجام نمی‌دهد",
+      "source": "original-native-0.3.5"
+    },
+    "privacy_not_body": {
+      "fa": "میکروفن استفاده نمی‌شود، صدای کودک ضبط نمی‌شود و دادهٔ یادگیری به سرور فرستاده نمی‌شود. ورود فعلی آزمایشی است.",
+      "source": "original-native-0.3.5"
+    },
+    "terms_body": {
+      "fa": "آوا برای تمرین و آشنایی با نشانه‌ها و قصه‌های فارسی ساخته شده است. تمرین‌های این نسخه برای توسعه و ارزیابی هستند؛ محتوای آموزشی نهایی در حال بررسی و گسترش است.",
+      "source": "reconstructed-original-development"
+    },
+    "terms_scope_title": {
+      "fa": "دامنهٔ استفاده",
+      "source": "original-native-0.3.5"
+    },
+    "terms_scope_body": {
+      "fa": "این نسخه برای تمرین توسعه‌ای نشانه‌ها، کلمه‌ها و قصه‌های کوتاه فارسی است و جای برنامهٔ درسی تأییدشده را نمی‌گیرد.",
+      "source": "original-native-0.3.5"
+    },
+    "terms_review_title": {
+      "fa": "پیش از انتشار",
+      "source": "original-native-0.3.5"
+    },
+    "terms_review_body": {
+      "fa": "محتوای آموزشی، متن حقوقی، حساب واقعی و سیاست‌های انتشار باید جداگانه بررسی و تأیید شوند.",
+      "source": "original-native-0.3.5"
+    },
+    "legal_development": {
+      "fa": "این متن برای نسخهٔ توسعه است و پیش از انتشار به بازبینی حقوقی نیاز دارد.",
+      "source": "original-native-0.3.5"
+    },
+    "help_intro": {
+      "fa": "یک پرسش را باز کن؛ پاسخ همان‌جا نمایش داده می‌شود.",
+      "source": "original-native-0.3.5"
+    },
+    "faq_expanded": {
+      "fa": "باز",
+      "source": "original-native-0.3.5"
+    },
+    "faq_collapsed": {
+      "fa": "بسته",
+      "source": "original-native-0.3.5"
+    },
+    "faq_start": {
+      "fa": "از کجا شروع کنم؟",
+      "source": "reconstructed-original-development"
+    },
+    "faq_start_body": {
+      "fa": "در باغ، دکمهٔ شروع تمرین یا مرحلهٔ روشن را بزن.",
+      "source": "reconstructed-original-development"
+    },
+    "faq_wrong": {
+      "fa": "اگر اشتباه انتخاب کرده باشم چه؟",
+      "source": "reconstructed-original-development"
+    },
+    "faq_wrong_body": {
+      "fa": "دوباره به نمونه نگاه کن و یک پاسخ دیگر انتخاب کن. می‌توانی اشتباه‌ها را در بخش مرور هم تمرین کنی.",
+      "source": "reconstructed-original-development"
+    },
+    "faq_audio": {
+      "fa": "چرا صدا ندارم؟",
+      "source": "reconstructed-original-development"
+    },
+    "faq_audio_body": {
+      "fa": "شنیدن به صدای فارسی آفلاینِ نصب‌شده روی دستگاه نیاز دارد. تنظیم صدای راهنما و صدای دستگاه را هم بررسی کن.",
+      "source": "reconstructed-original-development"
+    },
+    "faq_save": {
+      "fa": "پیشرفتم کجا می‌ماند؟",
+      "source": "reconstructed-original-development"
+    },
+    "faq_save_body": {
+      "fa": "پیشرفت روی همین دستگاه ذخیره می‌شود. پاک‌کردن دادهٔ برنامه یا حذف آن می‌تواند پیشرفت را پاک کند.",
+      "source": "reconstructed-original-development"
+    },
+    "otp_network": {
+      "fa": "بررسی انجام نشد. دوباره تلاش کن.",
+      "source": "reconstructed-original-development"
+    },
+    "mock_hint": {
+      "fa": "ورود آزمایشی: کد ۱۲۳۴۵۶؛ پیامک واقعی ارسال نمی‌شود.",
+      "source": "reconstructed-original-development"
+    },
+    "otp_label": {
+      "fa": "کد شش‌رقمی",
+      "source": "reconstructed-original-development"
+    },
+    "lock_timer": {
+      "fa": "تلاش دوباره تا {time}",
+      "source": "reconstructed-original-development"
+    },
+    "avatar_ava": {
+      "fa": "آوا",
+      "source": "reconstructed-original-development"
+    },
+    "avatar_bunny": {
+      "fa": "خرگوش",
+      "source": "reconstructed-original-development"
+    },
+    "avatar_fox": {
+      "fa": "روباه",
+      "source": "reconstructed-original-development"
+    },
+    "avatar_squirrel": {
+      "fa": "سنجاب",
+      "source": "reconstructed-original-development"
+    },
+    "edit_name_hint": {
+      "fa": "تا ۲۴ نویسه",
+      "source": "reconstructed-original-development"
+    },
+    "path_status": {
+      "fa": "مرحلهٔ {index}، {status}",
+      "source": "reconstructed-original-development"
+    },
+    "lesson_preview": {
+      "fa": "در این مرحله می‌بینی",
+      "source": "original-development-0.3.3"
+    },
+    "resume_step": {
+      "fa": "ادامه از بازی {current} از {total}",
+      "source": "original-development-0.3.3"
+    },
+    "select_hint": {
+      "fa": "یک گزینه را انتخاب کن.",
+      "source": "original-development-0.3.3"
+    },
+    "selected_hint": {
+      "fa": "حالا انتخابت را بررسی کن.",
+      "source": "original-development-0.3.3"
+    },
+    "finish_lesson": {
+      "fa": "پایان تمرین",
+      "source": "original-development-0.3.3"
+    },
+    "completion_summary": {
+      "fa": "{count} بازی را تا پایان انجام دادی.",
+      "source": "original-development-0.3.3"
+    },
+    "up_next": {
+      "fa": "قدم بعد: {title}",
+      "source": "original-development-0.3.3"
+    },
+    "review_mistakes_cta": {
+      "fa": "تمرین دوباره",
+      "source": "original-development-0.3.3"
+    },
+    "review_learned_cta": {
+      "fa": "مرور درس‌ها",
+      "source": "original-development-0.3.3"
+    },
+    "learned_count": {
+      "fa": "{count} بازی از درس‌های تو",
+      "source": "original-development-0.3.3"
+    },
+    "consent_accepted": {
+      "fa": "پذیرفته شد",
+      "source": "original-native-0.3.6"
+    },
+    "consent_not_accepted": {
+      "fa": "پذیرفته نشده",
+      "source": "original-native-0.3.6"
+    },
+    "activity_recognize": {
+      "fa": "دیدن",
+      "source": "original-native-0.4.0"
+    },
+    "activity_listen": {
+      "fa": "شنیدن",
+      "source": "original-native-0.4.0"
+    },
+    "activity_build": {
+      "fa": "ساختن",
+      "source": "original-native-0.4.0"
+    },
+    "lesson_variety": {
+      "fa": "{recognize} دیداری، {listen} شنیداری و {build} ساخت کلمه",
+      "source": "original-native-0.4.0"
+    },
+    "listen_choose": {
+      "fa": "گوش کن و نشانه را پیدا کن.",
+      "source": "original-native-0.4.0"
+    },
+    "listen_instruction": {
+      "fa": "صدای نشانه را بشنو، بعد پاسخ درست را انتخاب کن.",
+      "source": "original-native-0.4.0"
+    },
+    "listen_again": {
+      "fa": "دوباره بشنو",
+      "source": "original-native-0.4.0"
+    },
+    "show_hint": {
+      "fa": "نمایش راهنمای نوشتاری",
+      "source": "original-native-0.4.0"
+    },
+    "listen_hint_label": {
+      "fa": "راهنمای نوشتاری",
+      "source": "original-native-0.4.0"
+    },
+    "audio_optional": {
+      "fa": "اگر صدا آماده نیست، راهنمای نوشتاری را ببین.",
+      "source": "original-native-0.4.0"
+    },
+    "build_word": {
+      "fa": "نشانه‌ها را بزن و کلمه را بساز.",
+      "source": "original-native-0.4.0"
+    },
+    "build_target": {
+      "fa": "کلمهٔ هدف",
+      "source": "original-native-0.4.0"
+    },
+    "your_word": {
+      "fa": "کلمهٔ تو",
+      "source": "original-native-0.4.0"
+    },
+    "empty_word": {
+      "fa": "هنوز نشانه‌ای انتخاب نشده",
+      "source": "original-native-0.4.0"
+    },
+    "undo_token": {
+      "fa": "برداشتن آخرین نشانه",
+      "source": "original-native-0.4.0"
+    },
+    "token_available": {
+      "fa": "آمادهٔ انتخاب",
+      "source": "original-native-0.4.0"
+    },
+    "token_used": {
+      "fa": "در پاسخ استفاده شده",
+      "source": "original-native-0.4.0"
+    },
+    "build_more_hint": {
+      "fa": "همهٔ نشانه‌ها را انتخاب کن.",
+      "source": "original-native-0.4.0"
+    },
+    "build_ready_hint": {
+      "fa": "حالا کلمه‌ات را بررسی کن.",
+      "source": "original-native-0.4.0"
+    },
+    "remove_last": {
+      "fa": "آخرین نشانه را بردار",
+      "source": "original-native-0.4.0"
+    },
+    "answer_empty": {
+      "fa": "جای پاسخ خالی است",
+      "source": "original-native-0.4.0"
+    },
+    "answer_value": {
+      "fa": "پاسخ ساخته‌شده: {value}",
+      "source": "original-native-0.4.0"
+    },
+    "wrong_listen": {
+      "fa": "اشکالی ندارد؛ دوباره گوش کن یا راهنما را ببین.",
+      "source": "original-native-0.4.0"
+    },
+    "wrong_build": {
+      "fa": "اشکالی ندارد؛ یک بار دیگر نشانه‌ها را بچین.",
+      "source": "original-native-0.4.0"
+    },
+    "quick_review_title": {
+      "fa": "مرور کوتاه امروز",
+      "source": "original-native-0.4.1"
+    },
+    "quick_review_body": {
+      "fa": "اشتباه‌های واقعی و آموخته‌ها در یک بازی کوتاه کنار هم می‌آیند.",
+      "source": "original-native-0.4.1"
+    },
+    "quick_review_count": {
+      "fa": "این نوبت {count} بازی دارد.",
+      "source": "original-native-0.4.1"
+    },
+    "quick_review_cta": {
+      "fa": "شروع مرور کوتاه",
+      "source": "original-native-0.4.1"
+    },
+    "learned_session_count": {
+      "fa": "این نوبت {session} بازی از {total} بازی آموخته‌شده دارد.",
+      "source": "original-native-0.4.1"
+    }
+  }
+}

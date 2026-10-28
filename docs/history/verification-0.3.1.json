@@ -1,0 +1,160 @@
+{
+  "versionName": "0.3.1",
+  "versionCode": 4,
+  "date": "2026-10-28",
+  "delivery": "source-only increment",
+  "provenance": "Reconstructed from original GitHub base, visible conversation decisions and supplied Home reference; not a byte recovery of lost 0.3.0",
+  "latestCommand": "testDebugUnitTest",
+  "latestResult": "BUILD SUCCESSFUL; exit 0",
+  "nativeTests": [
+    {
+      "name": "com.ava.reading.AuthRepositoryTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "com.ava.reading.AvaViewModelTest",
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "com.ava.reading.LearnerPersistenceTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "com.ava.reading.ModelTest",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "com.ava.reading.NativeUiTest",
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "nativeTestCount": 41,
+  "localComposeTests": 13,
+  "dataStoreDiskTests": 2,
+  "logicAndStateTests": 26,
+  "packagingRequested": false,
+  "apkBuiltThisIncrement": false,
+  "checks": {
+    "resourceSync": "passed: 16 assets, 174 strings, font, catalog",
+    "projectAudit": "passed: asset dimensions and 3 pinned skill hashes",
+    "referenceWebTypecheckBuild": "passed during rebuild before final native-only visual refinement",
+    "gitDiffWhitespace": "passed"
+  },
+  "lastLint": {
+    "errors": 0,
+    "warnings": 0,
+    "scope": "previous reconstruction full run; not rerun after the final Home background and typography refinement"
+  },
+  "localRendering": {
+    "count": 32,
+    "files": [
+      "home-fresh.png",
+      "lesson-complete.png",
+      "lesson-retry.png",
+      "library.png",
+      "onboarding2-320-large.png",
+      "otp-320.png",
+      "otp.png",
+      "page-about.png",
+      "page-editprofile.png",
+      "page-help.png",
+      "page-home.png",
+      "page-lesson.png",
+      "page-lessondetails.png",
+      "page-library.png",
+      "page-onboarding1.png",
+      "page-onboarding2.png",
+      "page-otp.png",
+      "page-phone.png",
+      "page-practice.png",
+      "page-privacy.png",
+      "page-profile.png",
+      "page-progress.png",
+      "page-settings.png",
+      "page-splash.png",
+      "page-storycomplete.png",
+      "page-storydetails.png",
+      "page-storyquestion.png",
+      "page-storyreader.png",
+      "page-terms.png",
+      "phone.png",
+      "settings-320.png",
+      "story-complete-flow.png"
+    ],
+    "evidence": "Robolectric API35 native graphics, not device screenshots or pixel golden comparison",
+    "includedPreviews": [
+      "docs/preview-0.3.1/home.png",
+      "docs/preview-0.3.1/pages.png"
+    ]
+  },
+  "sourceSha256": {
+    "android/app/build.gradle.kts": "8495dc5497ed82d166251f6be36bddf5fa6184ef25e1e1bea7a3de842b3fbcfc",
+    "android/app/src/main/AndroidManifest.xml": "a110e94402a986a25ebdf88b724e3c44061c42139a2d40cc1699ad6f50578124",
+    "android/app/src/main/java/com/ava/reading/MainActivity.kt": "65196c3b9d4e2d46649662c9d410d9da0f0e3aa1728c99e16de368c7a1d4485f",
+    "android/app/src/main/java/com/ava/reading/content/Art.kt": "a45adf51f2072529d384dd5222b9d065dd118ce6de953343b23c551763ff510d",
+    "android/app/src/main/java/com/ava/reading/content/Catalog.kt": "91aa786af4442775ad74cb7b2986446f0600b747517f8bc3aa0d33ab095f0b5f",
+    "android/app/src/main/java/com/ava/reading/content/Exercise.kt": "172a217090f32f5631e068a67fd10f1b0db44147b6a02112429e61acf5ff26a8",
+    "android/app/src/main/java/com/ava/reading/content/Models.kt": "183f926952faa2098ac10c73da5b07da1b24fab9a4938b21fa543d18017b435c",
+    "android/app/src/main/java/com/ava/reading/content/TextIds.kt": "b352f544d609644ab8f34233dbcd7990bd2d44e89ff8dbb4346a27477a9e5b9d",
+    "android/app/src/main/java/com/ava/reading/data/AuthRepository.kt": "5158efeff9bfd206283cf03e76409b1640e961889d0586e72b15da71101780f5",
+    "android/app/src/main/java/com/ava/reading/platform/AndroidNarrator.kt": "be8a0ca24efd5f3f391eccba1402298077d46ac44ac76b231c6a859a3e82e2ca",
+    "android/app/src/main/java/com/ava/reading/storage/LearnerRepository.kt": "ec081366f0042746f23294b1762a6a33adfed285bb287f3bcf6626a7d60d184f",
+    "android/app/src/main/java/com/ava/reading/ui/AvaActions.kt": "a7af85d9356182e55e8cc8769293bbfede6b16aa5181277100d8145cc194fa4c",
+    "android/app/src/main/java/com/ava/reading/ui/AvaViewModel.kt": "4450bfb493171c2e811f8382d9b93531eb350d11a329b37eb9b5eeab32b295c8",
+    "android/app/src/main/java/com/ava/reading/ui/screens/AuthScreens.kt": "ba8438c940ef4588cb6fe0f80edcea311194f16cff1462f7ef65a8b2eec3d190",
+    "android/app/src/main/java/com/ava/reading/ui/screens/AvaApp.kt": "033495424ab98a5e365ae9783ab950a82705d3c1e8eff16e3735ed4bd4064225",
+    "android/app/src/main/java/com/ava/reading/ui/screens/Components.kt": "cf8ac1054601f6cb88c3db0b74a6280250acc138665b881f6a44e82e564077ea",
+    "android/app/src/main/java/com/ava/reading/ui/screens/LearningScreens.kt": "30db2f3ce8b55af9909d80d0858f2f81b433510ca930205edc5623696ceea1dd",
+    "android/app/src/main/java/com/ava/reading/ui/screens/ProfileScreens.kt": "04caa14682fa93fef60b65ff1c822d1f78348ecac54c359c5232ed0a3ed1fac3",
+    "android/app/src/main/java/com/ava/reading/ui/screens/StoryScreens.kt": "2645e3a1f7bdeb5cf89fcd4fc284d4b76a13c9150206aaa047bfa789875e1adf",
+    "android/app/src/main/java/com/ava/reading/ui/theme/AvaTheme.kt": "b40a40f7f81181f617d326bc749c7249c231015e0bd0c3e5d9284a84b06052ca",
+    "android/app/src/main/java/com/ava/reading/ui/theme/DesignTokens.kt": "ea72d9cb538c19432f5fb82eb0ec9f39373870e388bc8fb6adc1bdc0c84b1aaa",
+    "android/app/src/main/res/values/strings.xml": "0a56d2d82d15ad143b299f7fa50b381684c1140558f293069880ddd015f4c4ea",
+    "android/app/src/main/res/values/styles.xml": "9a0dbbfe973ee311435c2cb02e9e585c76c68eefa76970997cb621493c513a11",
+    "android/app/src/main/res/xml/data_extraction_rules.xml": "7245ca42a510c350250ca8d2356299f4f92d04ff23da9e6fcc7a624c100cd928",
+    "android/app/src/test/java/com/ava/reading/AuthRepositoryTest.kt": "365f588ddcac04b53eb399adbe0862a9043dd12ffc60c85889ee085a741d1294",
+    "android/app/src/test/java/com/ava/reading/AvaViewModelTest.kt": "de69934bd8a26b228bc88d9f588de23809c0f5640db8caf22508e6a5a2ae0277",
+    "android/app/src/test/java/com/ava/reading/LearnerPersistenceTest.kt": "3e09b43d7f01174a9c6ace4d61805a63da2cf57615a07a6b82600ea40d9b4da0",
+    "android/app/src/test/java/com/ava/reading/ModelTest.kt": "d36a678aeff6857cfb14d5a9643e7a2891eba56e8184bf67a36d9a77488e7c6f",
+    "android/app/src/test/java/com/ava/reading/NativeUiTest.kt": "04d41742316ab61c2947c66ab543029f54ec764354f2f72abc2bec3b02df276f",
+    "android/build.gradle.kts": "5ce4d3caa97e818f0e08f487a9cbb3b0a2c0ea0b68b7190dd1cdbe37b37780f0",
+    "android/settings.gradle.kts": "b8035caf870cf8d8969df5d432b8597e530aeb1a24b78e6221149a4de2d877fd",
+    "design/assets.manifest.json": "c399b9dd4cc94492a7cf37502eff04aa0bb52b2d6d4fc4a2148f76e78cfe2071",
+    "design/content.fa.json": "66c7515261be8609d499d8e83617c36c63928a41b661a4fba29b72a5da46e1e8",
+    "design/design_tokens.json": "9905e9069619c4cb720ea4dbccbb23797ac2531db190e5267ce0eb342dd589de",
+    "design/strings.fa.json": "3db0d0e36fa9013f7eb13ab2b841cc7395415adc324d95f4b859eee7c4106ac3"
+  },
+  "scope": {
+    "nativeDestinations": 22,
+    "lessons": 4,
+    "matchingTasks": 12,
+    "originalStories": 2,
+    "storyPages": 9,
+    "storage": "Preferences DataStore",
+    "auth": "local development mock; code 123456; no SMS/backend"
+  },
+  "deviceRun": "not verified",
+  "audio": "installed offline Persian TTS only; actual voice availability, playback and pronunciation not device-verified",
+  "releaseGates": [
+    "physical-device IME/TalkBack/lifecycle and font QA",
+    "release startup/jank measurement",
+    "educator and legal content approval",
+    "real account services and release signing/policy review"
+  ],
+  "nextIncrement": "0.3.2: review compact and large-text Home, story reader and profile, then improve affected navigation/accessibility with focused tests; source-only unless packaging explicitly requested"
+}

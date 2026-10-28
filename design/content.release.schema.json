@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ava.local/schemas/content-release-v1.json",
+  "title": "AVA content release manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifestVersion",
+    "releaseId",
+    "status",
+    "schemaVersion",
+    "contentVersion",
+    "locale",
+    "minAppVersion",
+    "maxAppVersion",
+    "publishedAt",
+    "approvedForRelease",
+    "bundlePath",
+    "bundleSha256",
+    "audioInventoryPath",
+    "audioInventorySha256",
+    "signature",
+    "rollbackOf"
+  ],
+  "properties": {
+    "manifestVersion": {
+      "const": 1
+    },
+    "releaseId": {
+      "type": "string",
+      "pattern": "^[a-z0-9._-]+$"
+    },
+    "status": {
+      "enum": [
+        "development",
+        "staged",
+        "published",
+        "archived",
+        "rolled_back"
+      ]
+    },
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "contentVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "locale": {
+      "type": "string",
+      "pattern": "^[a-z]{2}-[A-Z]{2}$"
+    },
+    "minAppVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "maxAppVersion": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "publishedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "approvedForRelease": {
+      "type": "boolean"
+    },
+    "bundlePath": {
+      "type": "string",
+      "pattern": "^design/[a-z0-9._/-]+$"
+    },
+    "bundleSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "audioInventoryPath": {
+      "type": "string",
+      "pattern": "^design/[a-z0-9._/-]+$"
+    },
+    "audioInventorySha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "signature": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "rollbackOf": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-z0-9._-]+$"
+    }
+  }
+}

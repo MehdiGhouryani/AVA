@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ava.local/schemas/audio-inventory-v1.json",
+  "title": "AVA audio inventory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "contentSchemaVersion", "contentVersion", "locale", "policy", "assets"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "contentSchemaVersion": {"const": 3},
+    "contentVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(-[a-z0-9.]+)?$"},
+    "locale": {"const": "fa-IR"},
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["finalVoice", "ttsFallback", "requiredStatusForPublish"],
+      "properties": {
+        "finalVoice": {"const": "human-reviewed"},
+        "ttsFallback": {"const": "offline-device-only"},
+        "requiredStatusForPublish": {"const": "approved"}
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/asset"}
+    }
+  },
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "category", "recordingText", "pronunciationIntent", "requiredForPublication", "fallback", "status", "contentRefs", "masterAssetKey", "deliveryAssetKey", "sha256"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9._-]+$"},
+        "category": {"enum": ["letter_or_sound", "word", "story_narration", "feedback_effect"]},
+        "recordingText": {"type": "string", "minLength": 1},
+        "pronunciationIntent": {"enum": ["pending_educator_review", "word", "natural_story", "non_speech_effect"]},
+        "requiredForPublication": {"type": "boolean"},
+        "fallback": {"enum": ["written_hint", "visible_text", "silent"]},
+        "status": {"enum": ["needs_educator_script", "needs_recording", "draft", "processing", "review", "approved", "rejected", "archived"]},
+        "contentRefs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+              "type": {"enum": ["task", "story_page", "system"]},
+              "lessonId": {"type": "string"},
+              "taskId": {"type": "string"},
+              "storyId": {"type": "string"},
+              "pageIndex": {"type": "integer", "minimum": 0},
+              "key": {"type": "string"}
+            }
+          }
+        },
+        "masterAssetKey": {"type": ["string", "null"]},
+        "deliveryAssetKey": {"type": ["string", "null"]},
+        "sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

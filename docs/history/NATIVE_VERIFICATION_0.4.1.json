@@ -1,0 +1,118 @@
+{
+  "versionName": "0.4.1",
+  "versionCode": 11,
+  "date": "2026-10-28",
+  "delivery": "source-only increment",
+  "provenance": "Continued from commit de8b15f (persistent 0.4.0 source) on recovery/native-0.4.0; branch name retained to preserve recovery history.",
+  "latestCommand": "sync-android-resources.py --check; audit-project.py; Python/JSON validation; git diff --check",
+  "latestResult": "deterministic resource, schema, skill-lock, reference, Python, JSON and whitespace checks passed; Gradle tests not rerun because the unchanged executor still lacks the Gradle/Android SDK toolchain and cannot download it",
+  "nativeTestSources": [
+    {
+      "name": "AuthRepositoryTest",
+      "tests": 5,
+      "execution": "not run in 0.4.1 environment"
+    },
+    {
+      "name": "AvaViewModelTest",
+      "tests": 24,
+      "execution": "not run in 0.4.1 environment"
+    },
+    {
+      "name": "LearnerPersistenceTest",
+      "tests": 2,
+      "execution": "not run in 0.4.1 environment"
+    },
+    {
+      "name": "ModelTest",
+      "tests": 13,
+      "execution": "not run in 0.4.1 environment"
+    },
+    {
+      "name": "NativeUiTest",
+      "tests": 39,
+      "execution": "not run in 0.4.1 environment"
+    }
+  ],
+  "nativeTestCount": 83,
+  "nativeTestsExecuted": false,
+  "checks": {
+    "resourceSync": "passed: 16 assets, 263 strings, font, palette, 4 lessons, 12 activities and 2 stories",
+    "projectAudit": "passed: content schema, asset dimensions, 3 skill hashes and 13 design reference hashes",
+    "pythonAndJson": "passed",
+    "gitDiffWhitespace": "passed",
+    "nativeUnitAndCompose": "not run: unchanged environment lacks Gradle 8.11.1/Android SDK cache and cannot reach services.gradle.org",
+    "installPackages": "none: source-only increment; no APK/AAB output"
+  },
+  "reviewPlanner": {
+    "modes": [
+      "Mix",
+      "Mistakes",
+      "Learned"
+    ],
+    "maxSessionSize": 5,
+    "mistakesFirst": true,
+    "taskKindDiversity": true,
+    "deterministicRotationSeed": "completed review count",
+    "spacedRepetitionClaim": false
+  },
+  "sourceSha256": {
+    ".agents/skills.lock.json": "a6526ff0cda7f327f97a4a3fc1341018d7e61c27ff0352094558510e9049c0c6",
+    ".agents/skills/ava-duolingo-learning/SKILL.md": "d7d833d8005510d260e0ebd7ad903971d3c82a896ab6215ae4845fb9829d860c",
+    "android/app/build.gradle.kts": "f5b7d89ce550d43972d0cb77a49d8b9f4c7bea7fc52d4b71d43099e8a25850b3",
+    "android/app/src/main/AndroidManifest.xml": "a110e94402a986a25ebdf88b724e3c44061c42139a2d40cc1699ad6f50578124",
+    "android/app/src/main/java/com/ava/reading/MainActivity.kt": "053b7dd58ad32f99472d1f0d074ad53a63350b7605a09c12fc83603d0488e451",
+    "android/app/src/main/java/com/ava/reading/content/Art.kt": "a45adf51f2072529d384dd5222b9d065dd118ce6de953343b23c551763ff510d",
+    "android/app/src/main/java/com/ava/reading/content/Catalog.kt": "378be6a9ea12536fd057f455c0c98f98af8d3db3d6010d98507a8ce10d9df127",
+    "android/app/src/main/java/com/ava/reading/content/Exercise.kt": "130e4abe3726668043d7129556d3b5b2dee5219a80398c561b2520ae1c2f843a",
+    "android/app/src/main/java/com/ava/reading/content/Models.kt": "61ccd6f0764bb54787dd81643174fa103a9af3296d100b4fec8f2f255d9087c9",
+    "android/app/src/main/java/com/ava/reading/content/TextIds.kt": "46c4dfa87b47a1db16effe4a8c7489126b60502700197ec04fc3bcfc24bd0f43",
+    "android/app/src/main/java/com/ava/reading/data/AuthRepository.kt": "5158efeff9bfd206283cf03e76409b1640e961889d0586e72b15da71101780f5",
+    "android/app/src/main/java/com/ava/reading/platform/AndroidNarrator.kt": "be8a0ca24efd5f3f391eccba1402298077d46ac44ac76b231c6a859a3e82e2ca",
+    "android/app/src/main/java/com/ava/reading/storage/LearnerRepository.kt": "ec081366f0042746f23294b1762a6a33adfed285bb287f3bcf6626a7d60d184f",
+    "android/app/src/main/java/com/ava/reading/ui/AvaActions.kt": "9493a5f015be6002909a666a42889de121f167c30bbc0e444a3de83e6e6ce465",
+    "android/app/src/main/java/com/ava/reading/ui/AvaViewModel.kt": "62f5114bcf7633d54e8c5a324accbc145f1bba72c854771dbbe1676f8200231f",
+    "android/app/src/main/java/com/ava/reading/ui/screens/AuthScreens.kt": "8f6c5695d9c85f797d92133e53f1ce0a91a8fc262d595d4119c81828697c051b",
+    "android/app/src/main/java/com/ava/reading/ui/screens/AvaApp.kt": "99a5c6ae56a30f16c1cb45fffb0f63b9f9cd25524cf0b4ab358bfd48ba615cb9",
+    "android/app/src/main/java/com/ava/reading/ui/screens/Components.kt": "ab6fdef895f4f166118c9e9924457f2f61db73e2d64720558b1f00c4de9f7caf",
+    "android/app/src/main/java/com/ava/reading/ui/screens/HomeScreen.kt": "b7b83365d5da5d25d046ceca654df67ea8f4b26dda81f79aaeb20b4c9f79cd24",
+    "android/app/src/main/java/com/ava/reading/ui/screens/LessonScreens.kt": "75f75b7dd04b127accd2ed1d558fad630fecc77793e9772f5ba1771b8322e6a6",
+    "android/app/src/main/java/com/ava/reading/ui/screens/PracticeScreen.kt": "8b9baed25692e73351583d0da756c1c7730b18fe6b4b971353fd682a03d3ff30",
+    "android/app/src/main/java/com/ava/reading/ui/screens/ProfileScreens.kt": "8711caf08a9fbb5204ab014b02ebf8e3d82d1b69af4828e105c973955dc3008d",
+    "android/app/src/main/java/com/ava/reading/ui/screens/SettingsScreens.kt": "a91842d2227d9eef85b6ca0a8d109fd197137672455501980d7e1c70793c02de",
+    "android/app/src/main/java/com/ava/reading/ui/screens/StoryScreens.kt": "3119db1736d55aeeff8b28479b6c9b1599c64ac272db816bd3fcdacb64017f75",
+    "android/app/src/main/java/com/ava/reading/ui/theme/AvaTheme.kt": "b40a40f7f81181f617d326bc749c7249c231015e0bd0c3e5d9284a84b06052ca",
+    "android/app/src/main/java/com/ava/reading/ui/theme/DesignTokens.kt": "ea72d9cb538c19432f5fb82eb0ec9f39373870e388bc8fb6adc1bdc0c84b1aaa",
+    "android/app/src/test/java/com/ava/reading/AuthRepositoryTest.kt": "365f588ddcac04b53eb399adbe0862a9043dd12ffc60c85889ee085a741d1294",
+    "android/app/src/test/java/com/ava/reading/AvaViewModelTest.kt": "bba941fd360a313f6cce021edde55a7817ee45af41b2e002fb1202acc131fec8",
+    "android/app/src/test/java/com/ava/reading/LearnerPersistenceTest.kt": "3e09b43d7f01174a9c6ace4d61805a63da2cf57615a07a6b82600ea40d9b4da0",
+    "android/app/src/test/java/com/ava/reading/ModelTest.kt": "c46fe37a00fbcbbbd7ec8457587caf8231674fbd96a0343b35bd7b9ae4701420",
+    "android/app/src/test/java/com/ava/reading/NativeUiTest.kt": "62c2ac9729e1a1fb94c2aabf7790944ba186249b21f3c89479b4ed61ecb41895",
+    "design/assets.manifest.json": "c399b9dd4cc94492a7cf37502eff04aa0bb52b2d6d4fc4a2148f76e78cfe2071",
+    "design/content.fa.json": "77c9d9c70a90f9ce91a5acafa09f655d7e45b823daba2b396ac8812dd3634032",
+    "design/content.schema.json": "fbf3e05b3ea5a552ccbd5ca1e5bcc5efc8c949ff75a669877d8694c15b891fa0",
+    "design/design_tokens.json": "9905e9069619c4cb720ea4dbccbb23797ac2531db190e5267ce0eb342dd589de",
+    "design/screen-references.audit.json": "a58e29ab35a637af40b9ce4f78620feeae8cd8da9b5c6420aee82ef9558992a1",
+    "design/strings.fa.json": "2f7a5e84ecb28a8100c8584420497808f6a0718fca525a5bb842e6438ecdfeaf",
+    "scripts/audit-project.py": "543915619cd3f6adc3805e7fb239b76a83babf160a416b71965c7063ad90dbe0",
+    "scripts/sync-android-resources.py": "97c96d5dee3c293a483621293b94506fdb545f6ce8c826b3361e8e497473eb58"
+  },
+  "scope": {
+    "nativeDestinations": 22,
+    "lessons": 4,
+    "activities": 12,
+    "originalStories": 2,
+    "storyPages": 9,
+    "storage": "Preferences DataStore",
+    "auth": "local development mock; code 123456; no SMS/backend"
+  },
+  "deviceRun": "not verified",
+  "audio": "installed offline Persian TTS only; actual voice availability and pronunciation not device-verified",
+  "releaseGates": [
+    "execute the 83 source tests in a Gradle/Android SDK environment",
+    "render and device-check Practice at compact/large text",
+    "physical-device TalkBack/TTS/lifecycle/font QA",
+    "educator and legal content approval",
+    "real account services and release signing/policy review"
+  ],
+  "nextIncrement": "add a versioned local per-task attempt model before any time-aware review claim; source-only by default"
+}

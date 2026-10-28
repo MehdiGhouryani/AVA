@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>آوا | اپلیکیشن قصه و آموزش کودکان</title>
+    <meta name="description" content="اپلیکیشن داستان‌خوانی و یادگیری زودهنگام فارسی ویژه کودکان ۴ تا ۷ سال با فضایی دلنشین و تعاملی" />
+    <meta property="og:title" content="آوا | اپلیکیشن قصه و آموزش کودکان" />
+    <meta property="og:description" content="اپلیکیشن داستان‌خوانی و یادگیری زودهنگام فارسی ویژه کودکان ۴ تا ۷ سال با فضایی دلنشین و تعاملی" />
+    <link rel="preload" href="/fonts/Vazirmatn.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="icon" type="image/png" href="/ava-assets/brand/logo_ava.png" />
+    <script>
+      // Suppress unhandled errors from browser extensions (e.g. MetaMask in iframe)
+      window.addEventListener('error', function(event) {
+        if (
+          (event.filename && event.filename.indexOf('chrome-extension://') !== -1) ||
+          (event.message && (event.message.indexOf('MetaMask') !== -1 || event.message.indexOf('ethereum') !== -1))
+        ) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          return true;
+        }
+      }, true);
+
+      window.addEventListener('unhandledrejection', function(event) {
+        var reason = event.reason;
+        var msg = (reason && (reason.message || reason.stack || String(reason))) || '';
+        if (
+          msg.indexOf('MetaMask') !== -1 ||
+          msg.indexOf('ethereum') !== -1 ||
+          msg.indexOf('chrome-extension://') !== -1
+        ) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      }, true);
+    </script>
+  </head>
+  <body style="margin: 0; background-color: #EDF6F2; font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
