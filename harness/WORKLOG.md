@@ -61,3 +61,17 @@ Next action:
 - Blocked by: `061-educator-review` (گیت انسانی) و toolchain Native.
 - Evidence paths: `harness/roadmap.json` (diff در کامیت `chore(P0.4)`)
 - Next action: P1 — اثبات پایه.
+
+## ۲۰۲۶-۱۱-۰۱ — فاز ۱ (پیش‌کار): بررسی جزئی JVM-only
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۱
+- Task ID: `061-native-toolchain` (پیش‌کار؛ وضعیت roadmap تغییر نکرد و task کامل نشد)
+- Agent/tool: Claude، sandbox بدون Android SDK و بدون Gradle؛ `kotlinc` 2.1.20 از GitHub Releases، runtime جاوا ۲۱
+- Baseline source hash/version: شاخهٔ `phase-0-align` + `phase-1-baseline`
+- Files changed: `android/app/src/test/java/com/ava/reading/ModelTest.kt` (یک خط)، `scripts/jvm-core-check.py`، `scripts/jvm-core-check/*.kt`، `PROJECT_STATE.md`، این فایل
+- Commands actually executed: `KOTLINC=… python3 scripts/jvm-core-check.py` (دو بار)
+- Results: لایه‌های `content` و `data` (۱۰ فایل Kotlin) با کامپایلر واقعی بدون خطا کامپایل شدند. پیش از اصلاح: ۲۶ تست پاس، ۱ شکست. شکست: `ModelTest.wordBuilderRequiresEveryTokenAndSupportsUndoAndCorrection` از `Catalog.lessons[2]` (اکنون `edge_sounds_03`، تکلیف‌های انتخابی) انتظار تکلیف ساخت واژه داشت؛ درس ساخت واژه `words_03` است. با انتخاب درس بر اساس شناسه، همان assertionها بدون تضعیف: ۲۷ پاس، ۰ شکست.
+- این نتیجه **Gradle نیست**: JUnit و kotlinx.coroutines با stand-in ساده جایگزین شده‌اند؛ `AvaViewModelTest`، `LearnerPersistenceTest`، `AuthRepositoryTest`، `NativeUiTest` (Compose/Robolectric/DataStore) و lint اجرا نشدند. در `NATIVE_VERIFICATION.json` ثبت نشد.
+- Blocked by: toolchain Native (JDK 17، Android SDK 35، Gradle 8.11.1)
+- Evidence paths: `scripts/jvm-core-check.py`
+- Next action: اجرای `testDebugUnitTest lintDebug` روی ماشین دارای toolchain (P1.2)

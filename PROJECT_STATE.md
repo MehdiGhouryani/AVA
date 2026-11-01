@@ -75,4 +75,4 @@ Candidates from the old playbook (need educator review before they are activitie
 ## 9. Phase 1 pre-work (branch `phase-1-baseline`)
 JVM-only partial check, not Gradle: `scripts/jvm-core-check/` compiles the pure Kotlin layers (`content`, `data`) with kotlinc 2.1.20 and runs ModelTest, ActivityEngineTest and ContentRepositoryTest with small stand-ins for JUnit and coroutines.
 First run found one real defect: `ModelTest.wordBuilderRequiresEveryTokenAndSupportsUndoAndCorrection` took `Catalog.lessons[2]`, which is now `edge_sounds_03` (choice tasks); the word builder is `words_03`. The test now selects the lesson by id.
-Result after the fix: see `harness/WORKLOG.md`. This does not replace `testDebugUnitTest`/`lintDebug`; AvaViewModelTest, LearnerPersistenceTest, AuthRepositoryTest and NativeUiTest are still unrun.
+Result: before the fix 26 passed and 1 failed; after the fix 27 passed and 0 failed (kotlinc 2.1.20, JDK 21 runtime; run with `KOTLINC=<path> python3 scripts/jvm-core-check.py`). This does not replace `testDebugUnitTest`/`lintDebug`; AvaViewModelTest, LearnerPersistenceTest, AuthRepositoryTest and NativeUiTest are still unrun.
