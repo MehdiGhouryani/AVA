@@ -88,3 +88,17 @@ Next action:
 - Blocked by: برش S1 (اندازه‌ها) تا کامپایل Compose در فاز ۱ ادغام نشود.
 - Evidence paths: `docs/UX_CONFORMANCE_FA.md`
 - Next action: P2.3-S2 (رد کردن پس از دو اشتباه، reducer قابل‌اجرا با `jvm-core-check`) و/یا P3.1.
+
+## ۲۰۲۶-۱۱-۰۱ — فاز ۲، برش S2: رد کردن قدم پس از دو پاسخ نادرست (UX-G01)
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۱
+- Task ID: `phase-2-s2-skip` (خارج از roadmap اجرایی؛ P2.3-S2)
+- Agent/tool: Claude، sandbox بدون Android SDK؛ `kotlinc` 2.1.20
+- Baseline source hash/version: شاخهٔ `phase-2-ux-audit` `6bef9ee`
+- Files changed: `content/Exercise.kt` (فیلد `wrongCount`، `canSkip`، `skip`، `check` بدون اثر در بررسی مجدد)، `ui/AvaViewModel.kt` (`skip` و استخراج `finishStep`)، `ui/AvaActions.kt`، `ui/screens/LessonScreens.kt` (یک دکمهٔ ثانویه)، `design/strings.fa.json` (`app.skip_step`، `source: proposed`)، فایل‌های تولیدشدهٔ `strings.xml` و `TextIds.kt`، `ModelTest.kt` (دو تست)، `docs/UX_CONFORMANCE_FA.md`
+- Commands actually executed: `python3 scripts/jvm-core-check.py`، `python3 scripts/sync-android-resources.py` و `--check`، `python3 scripts/harness.py validate`، `python3 scripts/audit-project.py`
+- Results: JVM-only: ۲۹ تست پاس، ۰ شکست (۲۷ قبلی + ۲ تازه). آزمون جهش: با تغییر آستانه از ۲ به ۱ تست تازه شکست خورد و با بازگرداندن دوباره سبز شد. منابع تولیدی ۲۶۴ رشته (یکی بیشتر) و verify پاس شد.
+- **اجرا نشد:** Compose، ViewModel و تست‌های `AvaViewModelTest`/`NativeUiTest`. تغییرات `AvaViewModel.kt`، `AvaActions.kt` و `LessonScreens.kt` فقط `read in code` بازبینی شده‌اند و باید در P1 با Gradle کامپایل شوند. عمداً تست ViewModel/UI اجرا‌نشده اضافه نشد تا خطای کامپایل تست‌ها مانع P1 نشود.
+- Blocked by: toolchain Native
+- Evidence paths: `android/app/src/test/java/com/ava/reading/ModelTest.kt`
+- Next action: P1 (Gradle) سپس S1 اندازه‌ها (UX-G02 تا G05).

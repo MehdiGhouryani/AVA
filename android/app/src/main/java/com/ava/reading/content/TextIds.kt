@@ -72,6 +72,7 @@ object TextIds { val ids = mapOf(
     "app_lesson_details" to R.string.app_lesson_details,
     "app_activities" to R.string.app_activities,
     "app_check" to R.string.app_check,
+    "app_skip_step" to R.string.app_skip_step,
     "app_choose" to R.string.app_choose,
     "app_target" to R.string.app_target,
     "app_word_choose" to R.string.app_word_choose,

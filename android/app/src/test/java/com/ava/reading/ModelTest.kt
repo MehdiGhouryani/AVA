@@ -109,4 +109,22 @@ class ModelTest {
         state=ExerciseReducer.removeToken(state,tasks);state=ExerciseReducer.removeToken(state,tasks);assertTrue(state.selectedTokens.isEmpty())
         state=answer(state,tasks);assertEquals("آب",ExerciseReducer.response(state,tasks));assertTrue(ExerciseReducer.check(state,tasks).correct)
     }
+
+    @Test fun skipIsOfferedOnlyAfterTwoWrongAnswersAndNeverPenalises() {
+        val tasks=Catalog.lessons[0].tasks;val wrong=tasks[0].choices.first {it!=tasks[0].target}
+        var state=ExerciseReducer.check(ExerciseReducer.choose(Exercise(),wrong,tasks),tasks)
+        assertEquals(1,state.wrongCount);assertFalse(ExerciseReducer.canSkip(state,tasks));assertEquals(state,ExerciseReducer.skip(state,tasks))
+        assertEquals(state,ExerciseReducer.check(state,tasks))
+        state=ExerciseReducer.check(ExerciseReducer.choose(state,wrong,tasks),tasks)
+        assertEquals(2,state.wrongCount);assertTrue(ExerciseReducer.canSkip(state,tasks))
+        val next=ExerciseReducer.skip(state,tasks)
+        assertEquals(Exercise(index=1),next);assertFalse(next.complete)
+    }
+
+    @Test fun skippingTheLastTaskCompletesAndACorrectAnswerCannotBeSkipped() {
+        val tasks=Catalog.lessons[0].tasks
+        assertTrue(ExerciseReducer.skip(Exercise(index=tasks.lastIndex,wrongCount=2),tasks).complete)
+        val right=ExerciseReducer.check(ExerciseReducer.choose(Exercise(wrongCount=2),tasks[0].target,tasks),tasks)
+        assertTrue(right.correct);assertFalse(ExerciseReducer.canSkip(right,tasks));assertEquals(right,ExerciseReducer.skip(right,tasks))
+    }
 }

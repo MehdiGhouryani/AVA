@@ -99,6 +99,7 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
             LessonFeedback(task,e,ExerciseReducer.response(e,s.tasks)!=null)
             if(e.checked&&e.correct)Primary(txt(if(e.index==s.tasks.lastIndex)"finish_lesson" else "next"),a.advance)
             else Primary(txt("check"),a.check,enabled=ExerciseReducer.canCheck(e,s.tasks))
+            if(ExerciseReducer.canSkip(e,s.tasks))Secondary(txt("skip_step"),a.skip)
         }
     }
 }

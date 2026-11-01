@@ -10,7 +10,8 @@ data class Exercise(
     val hintVisible: Boolean = false,
     val checked: Boolean = false,
     val correct: Boolean = false,
-    val complete: Boolean = false
+    val complete: Boolean = false,
+    val wrongCount: Int = 0
 )
 data class SessionSnapshot(
     val version: Int=1,
@@ -61,8 +62,17 @@ object ExerciseReducer {
             s.selectedTokens.joinToString("") {task.tokens[it]} else s.selected
     }
     fun canCheck(s: Exercise,tasks: List<Task>)=!s.complete && response(s,tasks)!=null
-    fun check(s: Exercise, tasks: List<Task>): Exercise =
-        if(!canCheck(s,tasks))s else s.copy(checked=true,correct=response(s,tasks)==tasks[s.index].target)
+    fun check(s: Exercise, tasks: List<Task>): Exercise {
+        if(!canCheck(s,tasks) || s.checked)return s
+        val correct=response(s,tasks)==tasks[s.index].target
+        return s.copy(checked=true,correct=correct,wrongCount=s.wrongCount+if(correct)0 else 1)
+    }
+    fun canSkip(s: Exercise, tasks: List<Task>)=!s.complete && task(s,tasks)!=null && s.wrongCount>=2 && !(s.checked&&s.correct)
+    fun skip(s: Exercise, tasks: List<Task>): Exercise = when {
+        !canSkip(s,tasks) -> s
+        s.index==tasks.lastIndex -> s.copy(complete=true)
+        else -> Exercise(index=s.index+1)
+    }
     fun advance(s: Exercise, tasks: List<Task>): Exercise = when {
         s.complete || !s.checked || !s.correct -> s
         s.index==tasks.lastIndex -> s.copy(complete=true)

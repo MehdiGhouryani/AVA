@@ -215,6 +215,15 @@ class AvaViewModel(
         val result=ExerciseReducer.advance(s.exercise,s.tasks);if(result==s.exercise)return
         mutable.update {it.copy(exercise=result)}
         if(s.reviewing && s.exercise.correct)save {it.copy(mistakes=it.mistakes-taskAliases(s.reviewKeys[s.exercise.index],s.lessons))}
+        finishStep(s,result)
+    }
+    fun skip() {
+        val s=mutable.value;if(s.route!=Route.Lesson || s.exercise.complete)return
+        val result=ExerciseReducer.skip(s.exercise,s.tasks);if(result==s.exercise)return
+        mutable.update {it.copy(exercise=result)}
+        finishStep(s,result)
+    }
+    private fun finishStep(s: AvaState,result: Exercise) {
         if(result.complete) {
             if(s.reviewing)save {it.copy(reviews=it.reviews+1)}
             else save {it.copy(completed=it.completed+s.selectedLesson,activeLesson="",activeIndex=0)}

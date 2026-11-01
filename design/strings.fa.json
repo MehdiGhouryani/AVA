@@ -306,6 +306,10 @@
       "fa": "بررسی کن",
       "source": "reconstructed-original-development"
     },
+    "skip_step": {
+      "fa": "رد کردن این قدم",
+      "source": "proposed"
+    },
     "choose": {
       "fa": "نشانهٔ شبیه نمونه را پیدا کن.",
       "source": "reconstructed-original-development"
