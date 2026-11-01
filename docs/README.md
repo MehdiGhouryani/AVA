@@ -22,6 +22,7 @@
 | adr/0001-content-platform-boundary-fa.md | مرز CMS خصوصی، release و منبع محلی اپ |
 | adr/0002-audio-policy-and-workflow-fa.md | سیاست صوت انسانی و workflow آینده ادمین |
 | adr/0003-cms-technology-spike-fa.md | انتخاب مشروط Payload برای prototype و معیار production |
+| adr/0004-content-delivery-v1-bundled-fa.md | پیشنهاد تحویل bundle محتوا و صوت در نسخهٔ ۱؛ منتظر تأیید مالک |
 | ../ZCODE.md | نقطه ورود coding agentها و هارنس ادامه پروژه |
 | ../harness/roadmap.json | ترتیب ماشین‌خوان taskها، dependency، scope و gate |
 | ../harness/ZCODE_SYSTEM_PROMPT_FA.md | دستور ثابت و محدودیت‌های عامل خودکار |
