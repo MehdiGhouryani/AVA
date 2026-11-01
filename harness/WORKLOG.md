@@ -48,3 +48,16 @@ Next action:
 - Blocked by: ADR-0004 پیشنهادی است و تا تأیید مالک روی roadmap اعمال نمی‌شود. تصمیم‌های DG-1 تا DG-4 صریح نگرفته شده‌اند؛ پیش‌فرض‌ها در `PROJECT_STATE.md` بخش ۸ ثبت شده‌اند.
 - Evidence paths: این ورودی، `PROJECT_STATE.md` بخش ۸. `docs/PROGRESS_FA.md` و `docs/NATIVE_VERIFICATION.json` دست نخوردند چون سورس Native تغییر نکرده.
 - Next action: P1 (`061-native-toolchain`) روی ماشین دارای JDK 17، Android SDK 35 و Gradle 8.11.1.
+
+## ۲۰۲۶-۱۱-۰۱ — فاز ۰: ثبت تصمیم‌ها و پذیرش ADR-0004
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۱
+- Task ID: `phase-0-align` (ادامه، خارج از roadmap اجرایی)
+- Agent/tool: Claude، sandbox بدون Android SDK
+- Baseline source hash/version: `main` `cd9c581` + شاخهٔ `phase-0-align`
+- Files changed: `docs/adr/0004-content-delivery-v1-bundled-fa.md`، `PROJECT_STATE.md`، `docs/EXECUTION_PHASES_FA.md`، `harness/roadmap.json` (چهار `dependsOn`)، این فایل
+- Commands actually executed: `python3 scripts/harness.py validate`، `python3 scripts/validate-harness.py`، `python3 scripts/audit-project.py`
+- Results: مالک تصمیم‌های DG-1 تا DG-4 را به Claude واگذار کرد؛ تصمیم‌ها و دلیلشان در `PROJECT_STATE.md` بخش ۸ ثبت شد. ADR-0004 پذیرفته شد و وابستگی `080-content-expansion`، `080-human-audio-rights`، `080-device-accessibility-qa` و `080-account-privacy-operations` تغییر کرد (status هیچ task تغییر نکرد).
+- Blocked by: `061-educator-review` (گیت انسانی) و toolchain Native.
+- Evidence paths: `harness/roadmap.json` (diff در کامیت `chore(P0.4)`)
+- Next action: P1 — اثبات پایه.

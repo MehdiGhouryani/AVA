@@ -1,4 +1,4 @@
-# AVA — project state (knowledge file). Updated 2026-10-31.
+# AVA — project state (knowledge file). Updated 2026-11-01.
 
 Read this first. If the owner's latest message disagrees with it, trust the owner and update the plan.
 This file replaces the earlier version that described the React web line (`AVA-Ui`, phase 2/3).
@@ -50,15 +50,11 @@ The precise plan, with steps, gates and risks, is `docs/EXECUTION_PHASES_FA.md`.
 6. Release: `080-content-expansion`, `080-account-privacy-operations`, `080-device-accessibility-qa`, `080-release-readiness`.
 Candidates from the old playbook (need educator review before they are activities): bubble, match, find, album of discoveries, weekly flowers, companion colours.
 
-## 6. Open decisions for the owner
-- Is `AVA.git` now the only repo? Is `AVA-Ui` retired?
-- Touch size: tokens say `minTouch` 48 and form CTA 60; the old rule says 64 and 72. Pick one for child screens.
-- Phone consent checkbox: confirm the child sees no wording addressed to an adult (SCREEN_MATRIX 0.3.6 mentions "والد").
-- Words بابا/مادر versus the strings rule "no mention of parents": does the rule cover vocabulary?
-- CMS now or later: Payload pipeline versus bundled audio manifest for version 1.
-- Fix for `audit-project.py`: restore the reference images, or update `design/screen-references.audit.json` and the script.
-- Educator decisions listed in section 8 of `docs/CURRICULUM_BLUEPRINT_FA.md`.
-- Legal text, real SMS/account service, logo wordmark: unchanged and still open.
+## 6. Open items that need a human
+- An educator for Persian early reading (gate `061-educator-review`). Nothing in the curriculum can be approved without a person.
+- A machine with JDK 17, Android SDK 35 and Gradle 8.11.1 (or a CI job) for `061-native-toolchain`. This sandbox has none of them.
+- Real SMS/account service, legal text for privacy and terms (needs a lawyer for the target market and child data), logo wordmark "اوا" versus "آوا".
+- Word pictures: no art exists. Version 1 stays text and letter shapes only unless the owner commissions art.
 
 ## 7. Decisions already made (do not reopen without the owner)
 - Native Android is the product. Persian RTL, Vazirmatn, local art.
@@ -66,12 +62,17 @@ Candidates from the old playbook (need educator review before they are activitie
 - Four characters only: Ava, bunny, squirrel, fox.
 - Source-only increments; APK/AAB only on explicit request.
 - Existing lesson and task IDs never change without migration and validator.
+- Decided 2026-11-01 (delegated to Claude; the owner may reverse any of these):
+  - `AVA` is the only repository; `AVA-Ui` is archived (DG-1).
+  - Track B: version 1 bundles content and audio; CMS and sync come after version 1. ADR-0004 is accepted and the four dependencies in `harness/roadmap.json` are changed (DG-2).
+  - Child screens use 64 dp targets and a 72 dp main CTA. Applied in phase 2; no code changed yet (DG-3).
+  - The stale `.aistudio` audit entries moved to `removedEntries` (DG-4).
+  - The "Checkbox والد" note in SCREEN_MATRIX 0.3.6 is a Compose accessibility term (the parent node of one toggleable row). The visible text is "حریم خصوصی و قوانین را می‌پذیرم"; no wording addressed to an adult. Closed.
+  - The vocabulary words بابا and مادر stay. The "no parent" rule covers UI, features and wording aimed at an adult, not everyday words children know. New curriculum avoids extra family words. The educator reviews the list.
+  - Version 1 has no word pictures.
 
-## 8. Phase 0 status (branch `phase-0-align`, from `main` `cd9c581`)
-Decisions DG-1 to DG-4 were not answered one by one. The owner said "we can start", so the recommended defaults are **assumed** and stay revisable:
-- DG-1: `AVA` is the only repository; `AVA-Ui` is archived.
-- DG-2: Track B (bundled content and audio in v1; CMS and sync after v1). **Not applied.** `docs/adr/0004-content-delivery-v1-bundled-fa.md` is *proposed*; the four dependency changes are a separate patch the owner applies only if the ADR is accepted.
-- DG-3: child screens use 64 dp targets and a 72 dp main CTA (used in phase 2; no code changed in phase 0).
-- DG-4: option B. The three stale `.aistudio` entries were moved from `files` to `removedEntries` in `design/screen-references.audit.json`; the audit trail is kept.
-Added: `CLAUDE.md`, this file, the skill `.agents/skills/ava-app-engineering/`, `docs/CURRICULUM_BLUEPRINT_FA.md`, `docs/EXECUTION_PHASES_FA.md`.
-No file under `android/`, `design/content*`, `cms/` or `src/` changed.
+
+## 9. Phase 1 pre-work (branch `phase-1-baseline`)
+JVM-only partial check, not Gradle: `scripts/jvm-core-check/` compiles the pure Kotlin layers (`content`, `data`) with kotlinc 2.1.20 and runs ModelTest, ActivityEngineTest and ContentRepositoryTest with small stand-ins for JUnit and coroutines.
+First run found one real defect: `ModelTest.wordBuilderRequiresEveryTokenAndSupportsUndoAndCorrection` took `Catalog.lessons[2]`, which is now `edge_sounds_03` (choice tasks); the word builder is `words_03`. The test now selects the lesson by id.
+Result after the fix: see `harness/WORKLOG.md`. This does not replace `testDebugUnitTest`/`lintDebug`; AvaViewModelTest, LearnerPersistenceTest, AuthRepositoryTest and NativeUiTest are still unrun.
