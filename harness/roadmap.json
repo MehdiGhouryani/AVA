@@ -283,7 +283,7 @@
           "priority": "P1",
           "status": "blocked",
           "automationAllowed": true,
-          "dependsOn": ["071-activation-recovery", "061-educator-review"],
+          "dependsOn": ["061-educator-review"],
           "readFirst": ["docs/LEVEL1_SEQUENCE_FA.md", "docs/RESEARCH_FA.md", "docs/ACTIVITY_ENGINE_FA.md"],
           "allowedPaths": ["design/**", "android/**", "docs/**", "scripts/**", "harness/**"],
           "acceptance": [
@@ -305,7 +305,7 @@
           "priority": "P0",
           "status": "human_gate",
           "automationAllowed": false,
-          "dependsOn": ["070-workflow-integration"],
+          "dependsOn": ["061-educator-review"],
           "readFirst": ["docs/AUDIO_INVENTORY_FA.md", "docs/adr/0002-audio-policy-and-workflow-fa.md"],
           "allowedPaths": ["design/**", "docs/**", "harness/**"],
           "acceptance": [
@@ -324,7 +324,7 @@
           "priority": "P0",
           "status": "human_gate",
           "automationAllowed": false,
-          "dependsOn": ["071-activation-recovery"],
+          "dependsOn": ["061-native-toolchain"],
           "readFirst": ["docs/DEVICE_QA_FA.md", "docs/TEST_STRATEGY_FA.md", "docs/SCREEN_MATRIX_FA.md"],
           "allowedPaths": ["android/**", "docs/**", "harness/**"],
           "acceptance": [
@@ -344,7 +344,7 @@
           "priority": "P1",
           "status": "blocked",
           "automationAllowed": true,
-          "dependsOn": ["071-activation-recovery"],
+          "dependsOn": ["061-native-toolchain"],
           "readFirst": ["docs/RESEARCH_FA.md", "docs/DEVICE_QA_FA.md", "docs/adr/0001-content-platform-boundary-fa.md"],
           "allowedPaths": ["android/**", "docs/**", "scripts/**", "harness/**"],
           "acceptance": [
