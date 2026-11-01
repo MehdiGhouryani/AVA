@@ -103,7 +103,7 @@ class ModelTest {
         val recognize=Exercise();assertEquals(recognize,ExerciseReducer.revealHint(recognize,tasks))
     }
     @Test fun wordBuilderRequiresEveryTokenAndSupportsUndoAndCorrection() {
-        val tasks=Catalog.lessons[2].tasks;var state=Exercise()
+        val tasks=Catalog.lessons.first {it.id=="words_03"}.tasks;var state=Exercise()
         state=ExerciseReducer.chooseToken(state,0,tasks);assertFalse(ExerciseReducer.canCheck(state,tasks));assertEquals(state,ExerciseReducer.chooseToken(state,0,tasks))
         state=ExerciseReducer.chooseToken(state,1,tasks);assertTrue(ExerciseReducer.canCheck(state,tasks));state=ExerciseReducer.check(state,tasks);assertFalse(state.correct)
         state=ExerciseReducer.removeToken(state,tasks);state=ExerciseReducer.removeToken(state,tasks);assertTrue(state.selectedTokens.isEmpty())
