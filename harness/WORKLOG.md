@@ -75,3 +75,16 @@ Next action:
 - Blocked by: toolchain Native (JDK 17، Android SDK 35، Gradle 8.11.1)
 - Evidence paths: `scripts/jvm-core-check.py`
 - Next action: اجرای `testDebugUnitTest lintDebug` روی ماشین دارای toolchain (P1.2)
+
+## ۲۰۲۶-۱۱-۰۱ — فاز ۲، قدم P2.1: ماتریس انطباق UX کودک
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۱
+- Task ID: `phase-2-ux-audit` (خارج از roadmap اجرایی؛ قدم P2.1 از `docs/EXECUTION_PHASES_FA.md`)
+- Agent/tool: Claude، فقط خواندن کد؛ بدون Gradle، Compose و دستگاه
+- Baseline source hash/version: شاخهٔ `phase-1-baseline` `4bb8deb`
+- Files changed: `docs/UX_CONFORMANCE_FA.md`، `docs/README.md`، این فایل. هیچ فایل کد یا محتوا تغییر نکرد.
+- Commands actually executed: خواندن همهٔ فایل‌های `ui/` و `MainActivity.kt`، شمارش وظایف از `design/content.fa.json`، `python3 scripts/harness.py validate`
+- Results: ۱۲ شکاف ثبت شد (۵ مورد P0). مهم‌ترین‌ها: نبودن «رد کردن پس از دو اشتباه»، کنترل‌های ۴۸dp به‌جای ۶۴، CTA ‏۶۴ به‌جای ۷۲، و درس `blend_words_04` با ۲ فعالیت. بازخورد صوتی پاسخ درست و بازخورد چندکاناله وجود دارند. همهٔ یافته‌ها `read in code` هستند.
+- Blocked by: برش S1 (اندازه‌ها) تا کامپایل Compose در فاز ۱ ادغام نشود.
+- Evidence paths: `docs/UX_CONFORMANCE_FA.md`
+- Next action: P2.3-S2 (رد کردن پس از دو اشتباه، reducer قابل‌اجرا با `jvm-core-check`) و/یا P3.1.
