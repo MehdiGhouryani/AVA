@@ -83,30 +83,27 @@
       "sha256": "f907e9b9bdc77cb7cb963a31aa39d0b7a8171b5770a95b770b584632a536d026",
       "role": "Web-development browser screenshot of onboarding; not a new product page design",
       "byteIdenticalReference": null
-    },
-    {
-      "path": ".aistudio/artifacts/brain/b8c12ac9-1f1e-43f2-be65-1c5375108120/.tempmediaStorage/media_1792505121519_e8d4095b.png",
-      "width": 1920,
-      "height": 1080,
-      "sha256": "f907e9b9bdc77cb7cb963a31aa39d0b7a8171b5770a95b770b584632a536d026",
-      "role": "Web-development browser screenshot of onboarding; not a new product page design",
-      "byteIdenticalReference": null
-    },
-    {
-      "path": ".aistudio/artifacts/brain/b8c12ac9-1f1e-43f2-be65-1c5375108120/.tempmediaStorage/media_1792504987090_a9bc8ca6.jpg",
-      "width": 900,
-      "height": 1350,
-      "sha256": "fa2bd0e49316f6081a5ffc127260a3c22f102b27698db25bece0c71604edc49f",
-      "role": "Additional onboarding or OTP reference; visually inspected",
-      "byteIdenticalReference": "ref_3_onboarding2.jpg"
-    },
-    {
-      "path": ".aistudio/artifacts/brain/b8c12ac9-1f1e-43f2-be65-1c5375108120/.tempmediaStorage/media_1792505446453_d07badf2.jpg",
-      "width": 851,
-      "height": 1847,
-      "sha256": "8d30e5470f6e7ec46ef0cfb26cb395f1d023db8a196789cee55822db820de61e",
-      "role": "Additional onboarding or OTP reference; visually inspected",
-      "byteIdenticalReference": "ref_4b_otp_CHOSEN.jpg"
     }
-  ]
+  ],
+  "removedEntries": {
+    "reason": "Removed from the repository by the clean push (commit cd9c581); files are no longer present.",
+    "removedOnBranch": "phase-0-align",
+    "entries": [
+      {
+        "path": ".aistudio/artifacts/brain/b8c12ac9-1f1e-43f2-be65-1c5375108120/.tempmediaStorage/media_1792505121519_e8d4095b.png",
+        "sha256": "f907e9b9bdc77cb7cb963a31aa39d0b7a8171b5770a95b770b584632a536d026",
+        "role": "Web-development browser screenshot of onboarding; not a new product page design"
+      },
+      {
+        "path": ".aistudio/artifacts/brain/b8c12ac9-1f1e-43f2-be65-1c5375108120/.tempmediaStorage/media_1792504987090_a9bc8ca6.jpg",
+        "sha256": "fa2bd0e49316f6081a5ffc127260a3c22f102b27698db25bece0c71604edc49f",
+        "role": "Additional onboarding or OTP reference; visually inspected"
+      },
+      {
+        "path": ".aistudio/artifacts/brain/b8c12ac9-1f1e-43f2-be65-1c5375108120/.tempmediaStorage/media_1792505446453_d07badf2.jpg",
+        "sha256": "8d30e5470f6e7ec46ef0cfb26cb395f1d023db8a196789cee55822db820de61e",
+        "role": "Additional onboarding or OTP reference; visually inspected"
+      }
+    ]
+  }
 }
