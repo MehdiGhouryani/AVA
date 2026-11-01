@@ -25,6 +25,10 @@
 | ../ZCODE.md | نقطه ورود coding agentها و هارنس ادامه پروژه |
 | ../harness/roadmap.json | ترتیب ماشین‌خوان taskها، dependency، scope و gate |
 | ../harness/ZCODE_SYSTEM_PROMPT_FA.md | دستور ثابت و محدودیت‌های عامل خودکار |
+| EXECUTION_PHASES_FA.md | فازبندی اجرایی با قدم، گیت و ریسک؛ ترتیب کار از پایه تا انتشار |
+| CURRICULUM_BLUEPRINT_FA.md | پیش‌نویس طرح سطح ۱ (۱۰ واحد)، تأییدنشده و در انتظار متخصص |
+| ../PROJECT_STATE.md | وضعیت و تصمیم‌های جاری برای عامل‌های کدنویسی |
+| ../CLAUDE.md | نقطه ورود Claude؛ اشاره به AGENTS.md و هارنس |
 | FINAL_DELIVERY_FA.md | مسیر canonical سورس و فرمان رسمی build/verify APK |
 
 `DESIGN_BRIEF.md` و `README_FA.md` تاریخچه جریان اولیه وب هستند؛ دستور Flutter و Home موقت در آن‌ها مبنای توسعه جاری نیست. `reference/` فقط برای مقایسه است و داخل UI رندر نمی‌شود. محصول Native در `android/` است.
