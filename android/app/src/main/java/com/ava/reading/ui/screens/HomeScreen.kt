@@ -34,7 +34,7 @@ import com.ava.reading.ui.theme.*
                     Text(txt("greeting","name" to s.learner.name.ifBlank {txt("friend")}),style=MaterialTheme.typography.titleMedium,color=AvaColors.deep,maxLines=if(compact)2 else Int.MAX_VALUE,overflow=TextOverflow.Ellipsis)
                     Text(txt("completed_count","count" to fa(completed),"total" to fa(s.lessons.size)),style=MaterialTheme.typography.bodySmall,color=AvaColors.deep)
                 }
-                IconButton({a.navigate(Route.Profile)},Modifier.size(48.dp)) {ArtImage(avatarArt(s.learner.avatar),Modifier.fillMaxSize(),txt("profile_title"))}
+                IconButton({a.navigate(Route.Profile)},Modifier.size(64.dp)) {ArtImage(avatarArt(s.learner.avatar),Modifier.fillMaxSize(),txt("profile_title"))}
             }
             SoftCard(padding=if(compact)16.dp else 20.dp) {
                 // Keep illustration on physical left, matching the supplied reference in RTL.

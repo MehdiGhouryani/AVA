@@ -62,7 +62,7 @@ import com.ava.reading.ui.theme.*
                 Row(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
                     repeat(2) {i->Box(Modifier.size(width=if(i==if(first)0 else 1)24.dp else 10.dp,height=10.dp).background(if(i==if(first)0 else 1)AvaColors.green else AvaColors.line,RoundedCornerShape(100.dp)))}
                 }
-                TextButton({a.navigate(Route.Phone)},Modifier.align(Alignment.End).heightIn(min=48.dp).background(AvaColors.cream.copy(alpha=.94f),RoundedCornerShape(100.dp))) {Text(txt("onboarding_skip"),color=AvaColors.muted)}
+                TextButton({a.navigate(Route.Phone)},Modifier.align(Alignment.End).heightIn(min=64.dp).background(AvaColors.cream.copy(alpha=.94f),RoundedCornerShape(100.dp))) {Text(txt("onboarding_skip"),color=AvaColors.muted)}
             }
         }
     }
@@ -83,14 +83,14 @@ import com.ava.reading.ui.theme.*
                 visualTransformation=PersianDigits,textStyle=MaterialTheme.typography.titleMedium.copy(textDirection=TextDirection.Ltr,textAlign=TextAlign.Right))
             s.message?.let {Feedback(txt(it))}
             val consentState=txt(if(s.consent)"consent_accepted" else "consent_not_accepted")
-            Row(Modifier.fillMaxWidth().heightIn(min=56.dp).semantics(mergeDescendants=true) {stateDescription=consentState}
+            Row(Modifier.fillMaxWidth().heightIn(min=64.dp).semantics(mergeDescendants=true) {stateDescription=consentState}
                 .toggleable(value=s.consent,enabled=!s.busy,role=Role.Checkbox,onValueChange=a.consent),verticalAlignment=Alignment.CenterVertically) {
                 Checkbox(s.consent,onCheckedChange=null,modifier=Modifier.clearAndSetSemantics {});Spacer(Modifier.width(8.dp));Text(txt("phone_consent"),color=AvaColors.deep)
             }
             HorizontalDivider(color=AvaColors.line)
             Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceEvenly,verticalAlignment=Alignment.CenterVertically) {
-                TextButton({a.legal(true)},Modifier.weight(1f)) {Text(txt("phone_link_privacy"),textAlign=TextAlign.Center)}
-                TextButton({a.legal(false)},Modifier.weight(1f)) {Text(txt("phone_link_terms"),textAlign=TextAlign.Center)}
+                TextButton({a.legal(true)},Modifier.weight(1f).heightIn(min=64.dp)) {Text(txt("phone_link_privacy"),textAlign=TextAlign.Center)}
+                TextButton({a.legal(false)},Modifier.weight(1f).heightIn(min=64.dp)) {Text(txt("phone_link_terms"),textAlign=TextAlign.Center)}
             }
             Primary(txt(if(s.busy)"phone_sending" else "phone_cta"),{a.send(false)},enabled=validPhone(s.phone)&&s.consent,busy=s.busy)
             Text(txt("mock_hint"),style=MaterialTheme.typography.bodySmall,color=AvaColors.muted,textAlign=TextAlign.Center)
@@ -114,7 +114,7 @@ private val PersianDigits=VisualTransformation { value -> TransformedText(Annota
                     val seconds=if(s.locked)s.lockSeconds else s.resendSeconds
                     val time=fa("${seconds/60}:${(seconds%60).toString().padStart(2,'0')}")
                     if(s.locked || seconds>0)Text(txt(if(s.locked)"lock_timer" else "otp_resend_in","time" to time),color=AvaColors.deep)
-                    else TextButton({a.send(true)},enabled=!s.busy) {Text(txt("otp_resend"))}
+                    else TextButton({a.send(true)},Modifier.heightIn(min=64.dp),enabled=!s.busy) {Text(txt("otp_resend"))}
                     Primary(txt(if(s.busy)"otp_verifying" else "otp_cta"),a.verify,enabled=s.code.length==6&&!s.locked,busy=s.busy)
                     Text(txt("mock_hint"),style=MaterialTheme.typography.bodySmall,color=AvaColors.muted,textAlign=TextAlign.Center)
                 }

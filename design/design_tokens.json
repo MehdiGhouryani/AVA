@@ -201,6 +201,8 @@
     "ctaHeightOnboarding": 64,
     "ctaHeightForm": 60,
     "minTouch": 48,
+    "touchChild": 64,
+    "ctaChild": 72,
     "fieldHeight": 60,
     "otpBoxW": 52,
     "otpBoxH": 64,

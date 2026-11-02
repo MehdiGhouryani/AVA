@@ -48,7 +48,7 @@ import com.ava.reading.ui.theme.*
 @Composable fun Primary(value: String, action: ()->Unit, modifier: Modifier=Modifier, enabled: Boolean=true, busy: Boolean=false) {
     val source=remember {MutableInteractionSource()};val pressed by source.collectIsPressedAsState()
     val scale by animateFloatAsState(if(pressed && !LocalReducedMotion.current).98f else 1f,animationSpec=tween(if(LocalReducedMotion.current)0 else 150),label="press")
-    Button(action,modifier.fillMaxWidth().heightIn(min=64.dp).graphicsLayer {scaleX=scale;scaleY=scale},enabled=enabled&&!busy,
+    Button(action,modifier.fillMaxWidth().heightIn(min=72.dp).graphicsLayer {scaleX=scale;scaleY=scale},enabled=enabled&&!busy,
         shape=RoundedCornerShape(100.dp),interactionSource=source,
         colors=ButtonDefaults.buttonColors(containerColor=AvaColors.green,contentColor=Color.White,disabledContainerColor=AvaColors.disabled,disabledContentColor=AvaColors.disabledText),
         contentPadding=PaddingValues(horizontal=20.dp,vertical=14.dp)) {
@@ -57,13 +57,13 @@ import com.ava.reading.ui.theme.*
     }
 }
 @Composable fun Secondary(value: String, action: ()->Unit, modifier: Modifier=Modifier, enabled: Boolean=true) {
-    OutlinedButton(action,modifier.fillMaxWidth().heightIn(min=48.dp),enabled=enabled,shape=RoundedCornerShape(24.dp),border=BorderStroke(1.dp,AvaColors.green),contentPadding=PaddingValues(12.dp)) {
+    OutlinedButton(action,modifier.fillMaxWidth().heightIn(min=64.dp),enabled=enabled,shape=RoundedCornerShape(24.dp),border=BorderStroke(1.dp,AvaColors.green),contentPadding=PaddingValues(12.dp)) {
         Text(value,textAlign=TextAlign.Center)
     }
 }
 @Composable fun Header(value: String, back: (() -> Unit)?=null) {
-    Row(Modifier.fillMaxWidth().heightIn(min=56.dp),verticalAlignment=Alignment.CenterVertically) {
-        if(back!=null)IconButton(back) {Icon(Icons.AutoMirrored.Outlined.ArrowBack,txt("back"),tint=AvaColors.green)}
+    Row(Modifier.fillMaxWidth().heightIn(min=64.dp),verticalAlignment=Alignment.CenterVertically) {
+        if(back!=null)IconButton(back,Modifier.size(64.dp)) {Icon(Icons.AutoMirrored.Outlined.ArrowBack,txt("back"),tint=AvaColors.green)}
         Text(value,Modifier.weight(1f).semantics {heading()},style=MaterialTheme.typography.titleLarge,color=AvaColors.deep)
     }
 }

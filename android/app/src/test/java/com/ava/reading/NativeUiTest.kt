@@ -157,7 +157,7 @@ class NativeUiTest {
         val radio=SemanticsMatcher.expectValue(SemanticsProperties.Role,Role.RadioButton)
         ui.onAllNodes(radio).assertCountEquals(3)
         ui.onNodeWithText("بررسی کن").assertIsDisplayed().assertIsNotEnabled()
-        ui.onNodeWithText("آب").performScrollTo().assertHeightIsAtLeast(48.dp).performClick().assertIsSelected()
+        ui.onNodeWithText("آب").performScrollTo().assertHeightIsAtLeast(64.dp).performClick().assertIsSelected()
         snapshot("story-question-320-large")
     }
     @Config(qualifiers="w320dp-h560dp-mdpi")
@@ -343,7 +343,7 @@ class NativeUiTest {
         val a=AvaActions(chooseToken={state=state.copy(exercise=ExerciseReducer.chooseToken(state.exercise,it,state.tasks))},removeToken={state=state.copy(exercise=ExerciseReducer.removeToken(state.exercise,state.tasks))},check={state=state.copy(exercise=ExerciseReducer.check(state.exercise,state.tasks))})
         render({state},a,width=320,height=560,font=1.3f)
         ui.onNodeWithText("بررسی کن").assertIsNotEnabled()
-        ui.onNodeWithText("ب").performScrollTo().assertHeightIsAtLeast(48.dp).assertWidthIsAtLeast(48.dp).performClick()
+        ui.onNodeWithText("ب").performScrollTo().assertHeightIsAtLeast(64.dp).assertWidthIsAtLeast(64.dp).performClick()
         ui.onNodeWithText("آ").performScrollTo().assertHeightIsAtLeast(48.dp).performClick()
         ui.onNodeWithText("بررسی کن").assertIsEnabled().performClick()
         ui.onNodeWithText("اشکالی ندارد؛ یک بار دیگر نشانه‌ها را بچین.").assertIsDisplayed()

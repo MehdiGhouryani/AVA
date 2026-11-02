@@ -24,7 +24,7 @@ private val roots=listOf(Route.Home,Route.Library,Route.Practice,Route.Profile)
             }}) {padding->
             Column(Modifier.fillMaxSize().padding(padding)) {
                 if(s.storageError)Surface(color=AvaColors.amberTint) {
-                    Column(Modifier.fillMaxWidth().padding(12.dp)) {Text(txt("storage_error"),color=AvaColors.amber);TextButton(a.retryStorage) {Text(txt("retry"))}}
+                    Column(Modifier.fillMaxWidth().padding(12.dp)) {Text(txt("storage_error"),color=AvaColors.amber);TextButton(a.retryStorage,Modifier.heightIn(min=64.dp)) {Text(txt("retry"))}}
                 }
                 Box(Modifier.weight(1f)) {
                     if(s.route in roots) rootsState.SaveableStateProvider(s.route.name) {RouteContent(s,a)}

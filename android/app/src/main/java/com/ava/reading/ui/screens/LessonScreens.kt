@@ -114,7 +114,7 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
     SoftCard(Modifier.fillMaxWidth(),padding=if(compact)12.dp else 20.dp,gap=4.dp) {
         Text(txt("target"),Modifier.align(Alignment.CenterHorizontally),style=MaterialTheme.typography.bodySmall)
         Text(target,Modifier.align(Alignment.CenterHorizontally),fontSize=if(target.length>1)48.sp else 76.sp,color=AvaColors.deep,textAlign=TextAlign.Center)
-        if(showListen) TextButton({a.listen(AudioRequest(audioRef,target,AudioPurpose.Prompt))},Modifier.align(Alignment.CenterHorizontally).heightIn(min=48.dp),enabled=narration) {
+        if(showListen) TextButton({a.listen(AudioRequest(audioRef,target,AudioPurpose.Prompt))},Modifier.align(Alignment.CenterHorizontally).heightIn(min=64.dp),enabled=narration) {
             Icon(Icons.AutoMirrored.Outlined.VolumeUp,null);Spacer(Modifier.width(8.dp));Text(txt("listen"))
         }
     }
@@ -131,7 +131,7 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
         if(e.hintVisible) {
             Text(txt("listen_hint_label"),Modifier.align(Alignment.CenterHorizontally),style=MaterialTheme.typography.bodySmall,color=AvaColors.soft)
             Text(fallback,Modifier.align(Alignment.CenterHorizontally).semantics {heading()},fontSize=if(fallback.length>1)48.sp else 64.sp,color=AvaColors.deep,textAlign=TextAlign.Center)
-        } else TextButton(a.revealHint,Modifier.align(Alignment.CenterHorizontally).heightIn(min=48.dp)) {Text(txt("show_hint"))}
+        } else TextButton(a.revealHint,Modifier.align(Alignment.CenterHorizontally).heightIn(min=64.dp)) {Text(txt("show_hint"))}
     }
     ChoiceGroup(task,e,compact,a)
 }
@@ -149,12 +149,12 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
         task.tokens.forEachIndexed {index,value->
             val used=index in e.selectedTokens
             val tokenState=txt(if(used)"token_used" else "token_available")
-            OutlinedButton({a.chooseToken(index)},Modifier.widthIn(min=64.dp).heightIn(min=56.dp).semantics {stateDescription=tokenState},enabled=!used&&!(e.checked&&e.correct),shape=RoundedCornerShape(18.dp),border=BorderStroke(1.dp,if(used)AvaColors.line else AvaColors.green)) {
+            OutlinedButton({a.chooseToken(index)},Modifier.widthIn(min=64.dp).heightIn(min=64.dp).semantics {stateDescription=tokenState},enabled=!used&&!(e.checked&&e.correct),shape=RoundedCornerShape(18.dp),border=BorderStroke(1.dp,if(used)AvaColors.line else AvaColors.green)) {
                 Text(value,fontSize=30.sp,color=if(used)AvaColors.soft else AvaColors.deep)
             }
         }
     }
-    TextButton(a.removeToken,Modifier.fillMaxWidth().heightIn(min=48.dp),enabled=e.selectedTokens.isNotEmpty()&&!(e.checked&&e.correct)) {
+    TextButton(a.removeToken,Modifier.fillMaxWidth().heightIn(min=64.dp),enabled=e.selectedTokens.isNotEmpty()&&!(e.checked&&e.correct)) {
         Icon(Icons.Outlined.Refresh,null);Spacer(Modifier.width(8.dp));Text(txt("remove_last"))
     }
 }
@@ -226,7 +226,7 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
                     else -> Primary(txt("home"),{a.navigate(Route.Home)})
                 }
                 Secondary(txt("home"),{a.navigate(Route.Home)})
-                if(!s.reviewing) TextButton(a.startLesson,Modifier.align(Alignment.CenterHorizontally).heightIn(min=48.dp)) {Text(txt("replay"))}
+                if(!s.reviewing) TextButton(a.startLesson,Modifier.align(Alignment.CenterHorizontally).heightIn(min=64.dp)) {Text(txt("replay"))}
             }
         }
     }

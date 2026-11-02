@@ -102,3 +102,17 @@ Next action:
 - Blocked by: toolchain Native
 - Evidence paths: `android/app/src/test/java/com/ava/reading/ModelTest.kt`
 - Next action: P1 (Gradle) سپس S1 اندازه‌ها (UX-G02 تا G05).
+
+## ۲۰۲۶-۱۱-۰۱ — فاز ۲، برش S1: اندازهٔ لمس ۶۴dp و CTA ‏۷۲dp (UX-G02 تا G05)
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۱
+- Task ID: `phase-2-s1-touch` (خارج از roadmap اجرایی؛ P2.3-S1)
+- Agent/tool: Claude، فقط ویرایش و خواندن کد؛ بدون Gradle و Compose
+- Baseline source hash/version: شاخهٔ `phase-2-s2-skip` `8345ac3`
+- Files changed: `Components.kt` (Primary ۷۲، Secondary ۶۴، Header و دکمهٔ بازگشت ۶۴)، `HomeScreen.kt` (آواتار ۶۴)، `LessonScreens.kt`، `StoryScreens.kt`، `AuthScreens.kt`، `AvaApp.kt` (دکمهٔ تلاش دوباره)، `design/design_tokens.json` (کلیدهای تازهٔ `touchChild` و `ctaChild`، کلیدهای قدیمی دست‌نخورده)، `NativeUiTest.kt` (دو assertion تقویت‌شده: ۴۸ ← ۶۴)
+- Commands actually executed: `python3 scripts/jvm-core-check.py`، `python3 scripts/sync-android-resources.py --check`، `python3 scripts/harness.py validate`، `python3 scripts/audit-project.py`
+- Results: همهٔ کنترل‌های کودک اکنون ≥۶۴dp و CTA ‏≥۷۲dp در کد؛ `grep` دیگر `heightIn(min=4x/5x)` برای دکمه‌ها نشان نمی‌دهد (باقی‌ماندهٔ عمدی: متن پاسخ در `LessonChoice` که با padding به ۶۴ می‌رسد و نمایشگر جواب).
+- **اجرا نشد:** Compose، Robolectric و دستگاه. چیدمان ۳۲۰×۵۶۰ با CTA ‏۷۲dp، دکمهٔ رد کردن و نوار پیشرفت و فونت ۱٫۵ فقط در فاز ۱ و ۷ معلوم می‌شود. دو assertion تقویت‌شده فقط جایی هستند که کد اندازه را تضمین می‌کند.
+- Blocked by: toolchain Native
+- Evidence paths: `docs/UX_CONFORMANCE_FA.md`
+- Next action: P3.1 (بستهٔ بازبینی متخصص)، سپس S3 (دیالوگ‌ها) و S4 (مسیر).

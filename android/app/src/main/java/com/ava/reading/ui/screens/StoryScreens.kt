@@ -122,16 +122,16 @@ import com.ava.reading.ui.theme.*
                     }
                     Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=Alignment.CenterVertically) {
                         val page=s.story.pageItems[s.storyPage]
-                        TextButton({a.listen(AudioRequest(page.audioRef,page.text,AudioPurpose.Story))},enabled=s.learner.narration,modifier=Modifier.heightIn(min=48.dp)) {
+                        TextButton({a.listen(AudioRequest(page.audioRef,page.text,AudioPurpose.Story))},enabled=s.learner.narration,modifier=Modifier.heightIn(min=64.dp)) {
                             Icon(Icons.AutoMirrored.Outlined.VolumeUp,null);Spacer(Modifier.width(8.dp));Text(txt("listen"))
                         }
-                        TextButton(a.stop,enabled=s.learner.narration,modifier=Modifier.heightIn(min=48.dp)) {Icon(Icons.Outlined.Stop,null);Spacer(Modifier.width(6.dp));Text(txt("stop"))}
+                        TextButton(a.stop,enabled=s.learner.narration,modifier=Modifier.heightIn(min=64.dp)) {Icon(Icons.Outlined.Stop,null);Spacer(Modifier.width(6.dp));Text(txt("stop"))}
                     }
                     if(!s.learner.narration) Text(txt("story_audio_off"),Modifier.fillMaxWidth(),style=MaterialTheme.typography.bodySmall,color=AvaColors.soft,textAlign=TextAlign.Center)
                     Spacer(Modifier.height(4.dp))
                 }
                 Primary(txt(if(last)"story_to_question" else "next_page"),{a.page(true)})
-                TextButton({a.page(false)},enabled=s.storyPage>0,modifier=Modifier.align(Alignment.CenterHorizontally).heightIn(min=48.dp)) {Text(txt("previous_page"))}
+                TextButton({a.page(false)},enabled=s.storyPage>0,modifier=Modifier.align(Alignment.CenterHorizontally).heightIn(min=64.dp)) {Text(txt("previous_page"))}
             }
         }
     }
@@ -151,7 +151,7 @@ import com.ava.reading.ui.theme.*
                 Column(Modifier.fillMaxWidth().selectableGroup(),verticalArrangement=Arrangement.spacedBy(10.dp)) {
                     s.story.choices.forEach {value->StoryChoice(value,value==s.storyAnswer,!correct,{a.storyAnswer(value)})}
                 }
-                TextButton(a.startStory,Modifier.align(Alignment.CenterHorizontally).heightIn(min=48.dp)) {Text(txt("back_story"))}
+                TextButton(a.startStory,Modifier.align(Alignment.CenterHorizontally).heightIn(min=64.dp)) {Text(txt("back_story"))}
                 Spacer(Modifier.height(4.dp))
             }
             StoryQuestionFeedback(s.storyChecked,correct,s.storyAnswer!=null)
