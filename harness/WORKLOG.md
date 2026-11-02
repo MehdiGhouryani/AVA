@@ -157,3 +157,17 @@ Next action:
 - Blocked by: —
 - Evidence paths: `android/app/src/test/java/com/ava/reading/ProgressionTest.kt`
 - Next action: ذخیره و ViewModel برای گل‌ها، سپس UI صفحه‌های A تا D.
+
+## ۲۰۲۶-۱۱-۰۳ — صفحه‌های A تا D، گام ۲ب: ذخیرهٔ روزهای فعال برای گل‌ها
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۳
+- Task ID: `phase-2b-flowers-storage` (خارج از roadmap اجرایی؛ `docs/COMPLETION_PLAN_FA.md` گام ۲ب)
+- Agent/tool: Claude، فقط ویرایش و خواندن کد؛ بدون Gradle
+- Baseline source hash/version: شاخهٔ `phase-2b-progression-logic` `02ed739`
+- Files changed: `storage/LearnerRepository.kt` (`Learner.activeDays`، کلید `active_days`)، `ui/AvaViewModel.kt` (ثبت روز هنگام تکمیل درس؛ پاک‌شدن در بازنشانی)، `LearnerPersistenceTest.kt` (یک تست رفت‌وبرگشت)، `docs/COMPLETION_PLAN_FA.md`، `PROJECT_STATE.md`، این فایل
+- Commands actually executed: `harness.py validate`، `audit-project.py`، `jvm-core-check`، `grep` برای مقایسهٔ کل `Learner` در تست‌ها
+- Results: فیلد در انتهای constructor با مقدار پیش‌فرض است، پس سازنده‌های موضعی موجود (از جمله تست رفت‌وبرگشت قبلی) همچنان معتبرند. هیچ تستی کل `Learner` را پس از تکمیل درس مقایسه نمی‌کند. ثبت روز فقط هنگام تکمیل درس است، نه مرور.
+- **اجرا نشد:** DataStore، ViewModel و تست جدید `activeDaysSurviveStoreCloseAndReopen` (نیاز به Gradle). همه `read in code`.
+- Blocked by: toolchain Native
+- Evidence paths: `android/app/src/test/java/com/ava/reading/LearnerPersistenceTest.kt`
+- Next action: UI صفحه‌های A تا D.

@@ -21,6 +21,15 @@ class LearnerPersistenceTest {
         try {val reopened=DataStoreLearnerRepository(PreferenceDataStoreFactory.create(scope=nextScope,produceFile={file}));assertEquals(expected,reopened.data.first())}
         finally {nextScope.coroutineContext.job.cancelAndJoin();directory.deleteRecursively()}
     }
+    @Test fun activeDaysSurviveStoreCloseAndReopen()=runBlocking {
+        val directory=Files.createTempDirectory("ava-active-days").toFile();val file=directory.resolve("learner.preferences_pb")
+        val scope=CoroutineScope(SupervisorJob()+Dispatchers.IO)
+        val repo=DataStoreLearnerRepository(PreferenceDataStoreFactory.create(scope=scope,produceFile={file}))
+        repo.update {it.copy(activeDays=setOf("2026-11-01","2026-11-03"))};scope.coroutineContext.job.cancelAndJoin()
+        val nextScope=CoroutineScope(SupervisorJob()+Dispatchers.IO)
+        try {val reopened=DataStoreLearnerRepository(PreferenceDataStoreFactory.create(scope=nextScope,produceFile={file}));assertEquals(setOf("2026-11-01","2026-11-03"),reopened.data.first().activeDays)}
+        finally {nextScope.coroutineContext.job.cancelAndJoin();directory.deleteRecursively()}
+    }
     @Test fun concurrentEditsDoNotLoseIncrements()=runBlocking {
         val directory=Files.createTempDirectory("ava-parallel").toFile();val scope=CoroutineScope(SupervisorJob()+Dispatchers.IO)
         try {

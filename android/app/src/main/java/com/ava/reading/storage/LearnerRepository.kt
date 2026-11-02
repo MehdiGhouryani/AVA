@@ -29,7 +29,8 @@ data class Learner(
     val mistakes: Set<String> = emptySet(), val reviews: Int = 0,
     val positions: Map<String, Int> = emptyMap(), val activeLesson: String = "", val activeIndex: Int = 0,
     val narration: Boolean = true, val sounds: Boolean = true, val reducedMotion: Boolean = false,
-    val taskProgress: Map<String, TaskProgress> = emptyMap()
+    val taskProgress: Map<String, TaskProgress> = emptyMap(),
+    val activeDays: Set<String> = emptySet()
 )
 interface LearnerRepository {
     val data: Flow<Learner>
@@ -51,6 +52,7 @@ class DataStoreLearnerRepository(private val store: DataStore<Preferences>) : Le
         val positions=stringSetPreferencesKey("positions"); val active=stringPreferencesKey("active_lesson"); val index=intPreferencesKey("active_index")
         val narration=booleanPreferencesKey("narration"); val sounds=booleanPreferencesKey("sounds"); val motion=booleanPreferencesKey("reduced_motion")
         val progressSchema=intPreferencesKey("task_progress_schema");val taskProgress=stringSetPreferencesKey("task_progress_v1")
+        val activeDays=stringSetPreferencesKey("active_days")
     }
     private fun decodeProgress(values: Set<String>)=values.mapNotNull {encoded->
         val parts=encoded.split('|');if(parts.size!=5)return@mapNotNull null
@@ -71,7 +73,7 @@ class DataStoreLearnerRepository(private val store: DataStore<Preferences>) : Le
         p[K.completed].orEmpty(),p[K.stories].orEmpty(),p[K.mistakes].orEmpty(),(p[K.reviews]?:0).coerceAtLeast(0),
         p[K.positions].orEmpty().mapNotNull { v -> v.substringAfterLast(':').toIntOrNull()?.let { v.substringBeforeLast(':') to it.coerceAtLeast(0) } }.toMap(),
         p[K.active].orEmpty(),(p[K.index]?:0).coerceAtLeast(0),p[K.narration]?:true,p[K.sounds]?:true,p[K.motion]?:false,
-        decodeProgress(p[K.taskProgress].orEmpty())
+        decodeProgress(p[K.taskProgress].orEmpty()),p[K.activeDays].orEmpty()
         )
     }
     override val data = store.data.map(::decode)
@@ -82,7 +84,7 @@ class DataStoreLearnerRepository(private val store: DataStore<Preferences>) : Le
             p[K.completed]=v.completed;p[K.stories]=v.stories;p[K.mistakes]=v.mistakes;p[K.reviews]=v.reviews
             p[K.positions]=v.positions.map { "${it.key}:${it.value}" }.toSet();p[K.active]=v.activeLesson;p[K.index]=v.activeIndex
             p[K.narration]=v.narration;p[K.sounds]=v.sounds;p[K.motion]=v.reducedMotion
-            p[K.progressSchema]=1;p[K.taskProgress]=encodeProgress(v.taskProgress)
+            p[K.progressSchema]=1;p[K.taskProgress]=encodeProgress(v.taskProgress);p[K.activeDays]=v.activeDays
         }
     }
 }

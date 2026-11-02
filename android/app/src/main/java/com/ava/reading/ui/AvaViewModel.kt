@@ -226,7 +226,7 @@ class AvaViewModel(
     private fun finishStep(s: AvaState,result: Exercise) {
         if(result.complete) {
             if(s.reviewing)save {it.copy(reviews=it.reviews+1)}
-            else save {it.copy(completed=it.completed+s.selectedLesson,activeLesson="",activeIndex=0)}
+            else save {it.copy(completed=it.completed+s.selectedLesson,activeLesson="",activeIndex=0,activeDays=recordActiveDay(it.activeDays,java.time.LocalDate.now()))}
             clearSession()
         } else {
             persistSession()
@@ -277,7 +277,7 @@ class AvaViewModel(
     fun confirmAction() {
         when(mutable.value.confirmation) {
             Confirmation.ExitLesson -> navigate(if(mutable.value.reviewing)Route.Practice else Route.Home)
-            Confirmation.ResetProgress -> {clearSession();save {it.copy(completed=emptySet(),stories=emptySet(),mistakes=emptySet(),reviews=0,positions=emptyMap(),activeLesson="",activeIndex=0,taskProgress=emptyMap())};confirm(null)}
+            Confirmation.ResetProgress -> {clearSession();save {it.copy(completed=emptySet(),stories=emptySet(),mistakes=emptySet(),reviews=0,positions=emptyMap(),activeLesson="",activeIndex=0,taskProgress=emptyMap(),activeDays=emptySet())};confirm(null)}
             Confirmation.Logout -> {auth.reset();save {it.copy(signedIn=false)};navigate(Route.Phone)}
             null -> Unit
         }
