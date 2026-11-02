@@ -143,3 +143,17 @@ Next action:
 - Blocked by: renderer Match (قید `unrendered_kinds`)
 - Evidence paths: `scripts/test-activity-kinds.py`
 - Next action: منطق خالص صفحه‌های A تا D با تست JVM.
+
+## ۲۰۲۶-۱۱-۰۳ — صفحه‌های A تا D، گام ۲: منطق خالص پیشرفت
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۳
+- Task ID: `phase-2b-progression-logic` (خارج از roadmap اجرایی؛ `docs/COMPLETION_PLAN_FA.md` گام ۲)
+- Agent/tool: Claude، sandbox بدون Android SDK؛ `kotlinc` 2.1.20
+- Baseline source hash/version: شاخهٔ `phase-4i-activity-kinds` `59bab90`
+- Files changed: `content/Progression.kt` (تازه)، `ProgressionTest.kt` (تازه)، `scripts/jvm-core-check.py` (کلاس تازه)، `docs/COMPLETION_PLAN_FA.md`، `PROJECT_STATE.md`، این فایل
+- Commands actually executed: `jvm-core-check` (سه بار: عادی و دو آزمون جهش)، `harness.py validate`، `audit-project.py`
+- Results: ۳۸ تست پاس، ۰ شکست (۶ تازه). آزمون جهش ۱ (شروع هفته از دوشنبه) و ۲ (حذف سقف ۶۰ روز) هر دو تست را شکست دادند و با بازگرداندن سبز شدند. کارت کشف از `completed` مشتق می‌شود؛ پس «فقط یک‌بار» ذاتی است و ذخیرهٔ تازه نمی‌خواهد.
+- **اجرا نشد:** ذخیرهٔ `activeDays` در DataStore و هر UI (Compose، ViewModel).
+- Blocked by: —
+- Evidence paths: `android/app/src/test/java/com/ava/reading/ProgressionTest.kt`
+- Next action: ذخیره و ViewModel برای گل‌ها، سپس UI صفحه‌های A تا D.

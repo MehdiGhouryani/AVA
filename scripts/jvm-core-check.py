@@ -2,7 +2,7 @@
 """Partial JVM-only check of the pure Kotlin layers (content, data).
 
 This is NOT Gradle, Android or Robolectric. It compiles content/ and data/ with kotlinc and
-runs ModelTest, ActivityEngineTest and ContentRepositoryTest against small stand-ins for
+runs ModelTest, ActivityEngineTest, ContentRepositoryTest and ProgressionTest against small stand-ins for
 JUnit and kotlinx.coroutines (scripts/jvm-core-check/*.kt). It does not replace
 testDebugUnitTest or lintDebug and must never be recorded as native verification.
 
@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "android/app/src"
 SHIM = Path(__file__).with_name("jvm-core-check")
-TESTS = ["ModelTest", "ActivityEngineTest", "ContentRepositoryTest"]
+TESTS = ["ModelTest", "ActivityEngineTest", "ContentRepositoryTest", "ProgressionTest"]
 
 
 def r_stub() -> str:
