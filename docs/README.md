@@ -28,6 +28,7 @@
 | ../harness/ZCODE_SYSTEM_PROMPT_FA.md | دستور ثابت و محدودیت‌های عامل خودکار |
 | EXECUTION_PHASES_FA.md | فازبندی اجرایی با قدم، گیت و ریسک؛ ترتیب کار از پایه تا انتشار |
 | UX_CONFORMANCE_FA.md | ماتریس انطباق UX کودک (P2.1): ۱۴ قاعده، شکاف‌ها و برش‌بندی اصلاح |
+| EDUCATOR_REVIEW_PACK_FA.md | فرم بازبینی برای متخصص آموزش: همهٔ فعالیت‌ها، قصه‌ها و صوت‌های فعلی (تولیدشده با `scripts/export-educator-pack.py`) |
 | CURRICULUM_BLUEPRINT_FA.md | پیش‌نویس طرح سطح ۱ (۱۰ واحد)، تأییدنشده و در انتظار متخصص |
 | ../PROJECT_STATE.md | وضعیت و تصمیم‌های جاری برای عامل‌های کدنویسی |
 | ../CLAUDE.md | نقطه ورود Claude؛ اشاره به AGENTS.md و هارنس |

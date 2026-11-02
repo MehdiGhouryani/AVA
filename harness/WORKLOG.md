@@ -116,3 +116,16 @@ Next action:
 - Blocked by: toolchain Native
 - Evidence paths: `docs/UX_CONFORMANCE_FA.md`
 - Next action: P3.1 (بستهٔ بازبینی متخصص)، سپس S3 (دیالوگ‌ها) و S4 (مسیر).
+
+## ۲۰۲۶-۱۱-۰۱ — فاز ۳، قدم P3.1: بستهٔ بازبینی متخصص آموزش
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۱
+- Task ID: `phase-3-educator-pack` (مقدمهٔ `061-educator-review`؛ خود task گیت انسانی است و اجرا نشد)
+- Agent/tool: Claude، اسکریپت پایتون آفلاین
+- Baseline source hash/version: شاخهٔ `phase-2-s1-touch` `82d047d`
+- Files changed: `scripts/export-educator-pack.py`، `docs/EDUCATOR_REVIEW_PACK_FA.md` (تولیدشده)، `docs/README.md`، `PROJECT_STATE.md`، این فایل
+- Commands actually executed: `python3 scripts/export-educator-pack.py` و `--check`
+- Results: بسته ۱۷ فعالیت، ۹ صفحهٔ قصه، ۲ پرسش قصه، ۲۲ نیاز صوتی و ۸ تصمیم آموزشی را با ستون‌های «تصمیم/توضیح» خالی نشان می‌دهد؛ اسکریپت اگر `audioRef` یک فعالیت در inventory نباشد خطا می‌دهد. هیچ مقدار `approvedForRelease` تغییر نکرد.
+- Blocked by: بازبین انسانی (`061-educator-review`) که هنوز تعیین نشده
+- Evidence paths: `docs/EDUCATOR_REVIEW_PACK_FA.md`
+- Next action: مالک متخصص را پیدا و بسته را برایش می‌فرستد؛ در این فاصله S3/S4 از P2.3.
