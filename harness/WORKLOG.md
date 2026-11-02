@@ -129,3 +129,17 @@ Next action:
 - Blocked by: بازبین انسانی (`061-educator-review`) که هنوز تعیین نشده
 - Evidence paths: `docs/EDUCATOR_REVIEW_PACK_FA.md`
 - Next action: مالک متخصص را پیدا و بسته را برایش می‌فرستد؛ در این فاصله S3/S4 از P2.3.
+
+## ۲۰۲۶-۱۱-۰۳ — زیرساخت محتوا I1 و I2: نوع‌های Find، Bubble، Match و رشد‌پذیری
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۳
+- Task ID: `phase-4i-activity-kinds` (خارج از roadmap اجرایی؛ زیرساخت پیش از `080-content-expansion`، که محتوای تازه اضافه نکرد)
+- Agent/tool: Claude، sandbox بدون Android SDK؛ `kotlinc` 2.1.20
+- Baseline source hash/version: شاخهٔ `phase-3-educator-pack` `94ca981`
+- Files changed: `Models.kt`، `ActivityRegistry.kt`، `Exercise.kt` (`flip`، `clearMismatch`)، `design/content.schema.json` (`find`، `bubble`، `matchTask`)، `validate-content-contract.py`، `validate-audio-inventory.py`، `sync-android-resources.py`، `migrate-content-v2-to-v3.py` (قید زیرمجموعه)، `export-educator-pack.py`، `ActivityEngineTest.kt` (۳ تست)، `ModelTest.kt` (شمارش ثابت ← شناسه‌های فریزشده)، `scripts/test-activity-kinds.py`، `docs/ACTIVITY_ENGINE_FA.md`، `docs/COMPLETION_PLAN_FA.md`، `docs/EXECUTION_PHASES_FA.md`، `docs/README.md`، `PROJECT_STATE.md`
+- Commands actually executed: `jvm-core-check` (۳۲ پاس)، `test-activity-kinds.py` (۷ از ۷)، `validate-content-contract`، `validate-audio-inventory`، `sync-android-resources --check`، `export-educator-pack --check`، `harness.py validate`، `audit-project.py`
+- Results: (۱) قید مهاجرت v2 افزودن هر درس یا واحد را در audit رد می‌کرد؛ اکنون زیرمجموعه‌ای است و تغییر یک عنوان فریزشده همچنان رد می‌شود. (۲) محتوای آزمایشی با ۷ درس و ۲۰ فعالیت شامل سه نوع تازه از validatorها گذشت، generator `TaskKind.Find/Bubble/Match` تولید کرد، Catalog تولیدی کامپایل شد و ۳۲ تست روی آن پاس شد (روی نسخهٔ موقت، نه مخزن). (۳) آزمون جهش: شکستن منطق جفت‌شدن تست را شکست داد.
+- **اجرا نشد:** Compose و renderer ‑ این برش هیچ UI ندارد. محتوای منتشرشده تغییر نکرد (۶ درس، ۱۷ فعالیت).
+- Blocked by: renderer Match (قید `unrendered_kinds`)
+- Evidence paths: `scripts/test-activity-kinds.py`
+- Next action: منطق خالص صفحه‌های A تا D با تست JVM.

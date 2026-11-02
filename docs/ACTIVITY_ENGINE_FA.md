@@ -8,11 +8,28 @@
 
 | خانواده | نوع‌ها | تعامل | hint | صوت |
 |---|---|---|---|---|
-| دیداری | Recognize، DotFamily، PositionalForm | انتخاب واحد | خیر | اختیاری |
-| شنیداری | Listen، InitialSound، FinalSound | انتخاب واحد | بله | اختیاری در اجرا؛ ممکن است برای publication الزامی باشد |
+| دیداری | Recognize، DotFamily، PositionalForm، **Find** | انتخاب واحد | خیر | اختیاری |
+| دیداری | **Match** | جفت‌یابی (`PairMatch`) | خیر | خیر |
+| شنیداری | Listen، InitialSound، FinalSound، **Bubble** | انتخاب واحد | بله | اختیاری در اجرا؛ ممکن است برای publication الزامی باشد |
 | ساخت واژه | BuildWord، Segment، Blend | token + undo | خیر | در این برش خیر |
 
 افزودن `TaskKind` بدون تعریف registry خطای compile ایجاد می‌کند، چون `when` exhaustive است. generator و schema نیز shape داده را کنترل می‌کنند: فعالیت انتخابی choices می‌خواهد و فعالیت tokenی tokens.
+
+## نوع‌های Find، Bubble و Match (۰٫۶٫۲ پیش‌نویس)
+
+- **Find** و **Bubble** همان قرارداد انتخاب سه‌گزینه‌ای را دارند؛ فقط renderer متفاوت می‌شود (صحنه با هدف‌های بزرگ؛ حباب‌های شناور). Find مثل Recognize `writtenFallback == target` دارد؛ Bubble مثل Listen برای انتشار صوت لازم و hint نوشتاری دارد.
+- **Match**: `tokens` فهرست زوج‌هاست و `tokens[2i]` با `tokens[2i+1]` جفت است (۴ تا ۸ کارت، همه یکتا)؛ `target` باید دقیقاً `الف=ب|پ=ت|…` باشد. `ExerciseReducer.flip` کارت را برمی‌گرداند، جفت‌شدن را در `matched` نگه می‌دارد، و ناجور بودن را در `mismatch` (UI آن را پس از ۹۰۰ms با `clearMismatch` پاک می‌کند). اشتباه شمرده نمی‌شود (`wrongCount` دست‌نخورده) و با جفت‌شدن همهٔ کارت‌ها `checked=correct=true` می‌شود. `matched/pending/mismatch` در snapshot ذخیره نمی‌شوند؛ پس از بازگشت بازی از اول شروع می‌شود.
+- **Match در محتوای منتشرشده ممنوع است تا renderer بیاید**: `validate-content-contract.py` آن را رد می‌کند (`unrendered_kinds`). با ساخت `MatchStep` و سیم‌کشی ViewModel این قید برداشته می‌شود.
+- آزمون: `python3 scripts/test-activity-kinds.py` (schema و validatorها)، `scripts/jvm-core-check.py` (reducer).
+
+## افزودن نوع فعالیت تازه — چک‌لیست
+
+۱. `TaskKind` در `Models.kt`؛ ۲. `ActivityRegistry.kt` (interaction، family، hint، audio)؛ ۳. در صورت لزوم `ExerciseReducer`؛ ۴. `design/content.schema.json` (enum یا تعریف تازه)؛ ۵. مجموعه‌های kind در `validate-content-contract.py` و `validate-audio-inventory.py`؛ ۶. نگاشت و اعتبارسنجی در `sync-android-resources.py`؛ ۷. برچسب در `export-educator-pack.py`؛ ۸. تست registry/reducer و یک مورد در `test-activity-kinds.py`؛ ۹. renderer؛ ۱۰. این سند.
+
+## قواعد رشد محتوا
+
+- `migrate-content-v2-to-v3.py --check` دیگر برابری کامل نمی‌خواهد: هرچه از v2 فریز‌شده بوده باید با همان شناسه و مقدار در `content.fa.json` بماند، ولی واحد، درس، فعالیت، مهارت و قصهٔ تازه مجاز است.
+- تست‌های Kotlin شمارش ثابت ندارند؛ شناسه‌های فریزشده و ترتیبشان، یکتایی و ناوردایی‌ها را می‌سنجند.
 
 ## state و نشست
 
