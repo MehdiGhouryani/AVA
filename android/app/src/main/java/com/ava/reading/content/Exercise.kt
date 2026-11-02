@@ -11,7 +11,10 @@ data class Exercise(
     val checked: Boolean = false,
     val correct: Boolean = false,
     val complete: Boolean = false,
-    val wrongCount: Int = 0
+    val wrongCount: Int = 0,
+    val pending: Int? = null,
+    val matched: Set<Int> = emptySet(),
+    val mismatch: Pair<Int,Int>? = null
 )
 data class SessionSnapshot(
     val version: Int=1,
@@ -54,6 +57,21 @@ object ExerciseReducer {
         return if(s.complete || (s.checked&&s.correct) || interaction(task)!=ActivityInteraction.TokenBuild || s.selectedTokens.isEmpty())s
         else s.copy(selectedTokens=s.selectedTokens.dropLast(1),checked=false,correct=false)
     }
+    /** Pair matching: cards are token indices; tokens[2i] pairs with tokens[2i+1]. Mismatches are never counted. */
+    fun flip(s: Exercise, card: Int, tasks: List<Task>): Exercise {
+        val task=task(s,tasks)?:return s
+        if(s.complete || (s.checked&&s.correct) || interaction(task)!=ActivityInteraction.PairMatch || card !in task.tokens.indices || card/2 in s.matched)return s
+        val cleared=s.copy(mismatch=null);val first=cleared.pending
+        return when {
+            first==null -> cleared.copy(pending=card)
+            first==card -> cleared
+            first/2==card/2 -> cleared.copy(pending=null,matched=cleared.matched+(card/2)).let {
+                if(it.matched.size==task.tokens.size/2)it.copy(checked=true,correct=true) else it
+            }
+            else -> cleared.copy(pending=null,mismatch=first to card)
+        }
+    }
+    fun clearMismatch(s: Exercise): Exercise = if(s.mismatch==null)s else s.copy(mismatch=null)
     fun revealHint(s: Exercise,tasks: List<Task>): Exercise =
         if(s.complete || task(s,tasks)?.let {ActivityRegistry[it.kind].supportsHint}!=true)s else s.copy(hintVisible=true)
     fun response(s: Exercise,tasks: List<Task>): String? {

@@ -39,6 +39,45 @@ class ActivityEngineTest {
         }
     }
 
+    private fun match()=Task(
+        id="match_ui",kind=TaskKind.Match,target="آب=آ|باد=ب|گل=گ",tokens=listOf("آب","آ","باد","ب","گل","گ"),skillIds=listOf("word_building")
+    )
+
+    @Test fun findBubbleAndMatchAreRegisteredWithTheirOwnBehaviour() {
+        val find=ActivityRegistry[TaskKind.Find];val bubble=ActivityRegistry[TaskKind.Bubble];val pairs=ActivityRegistry[TaskKind.Match]
+        assertEquals(ActivityInteraction.Choice,find.interaction);assertEquals(ActivityFamily.Visual,find.family);assertFalse(find.supportsHint);assertTrue(find.supportsAudio)
+        assertEquals(ActivityInteraction.Choice,bubble.interaction);assertEquals(ActivityFamily.Listening,bubble.family);assertTrue(bubble.supportsHint);assertTrue(bubble.supportsAudio)
+        assertEquals(ActivityInteraction.PairMatch,pairs.interaction);assertEquals(ActivityFamily.Visual,pairs.family);assertFalse(pairs.supportsHint);assertFalse(pairs.supportsAudio)
+    }
+
+    @Test fun pairMatchMatchesCompletesAndNeverCountsMistakes() {
+        val tasks=listOf(match());var state=Exercise()
+        state=ExerciseReducer.flip(state,0,tasks);assertEquals(0,state.pending)
+        assertEquals(state,ExerciseReducer.flip(state,0,tasks))
+        state=ExerciseReducer.flip(state,2,tasks)
+        assertEquals(0 to 2,state.mismatch);assertNull(state.pending);assertTrue(state.matched.isEmpty());assertEquals(0,state.wrongCount)
+        val afterNewFlip=ExerciseReducer.flip(state,1,tasks);assertNull(afterNewFlip.mismatch);assertEquals(1,afterNewFlip.pending)
+        assertNull(ExerciseReducer.clearMismatch(state).mismatch)
+        state=ExerciseReducer.flip(ExerciseReducer.flip(ExerciseReducer.clearMismatch(state),0,tasks),1,tasks)
+        assertEquals(setOf(0),state.matched);assertNull(state.pending);assertFalse(state.checked)
+        assertEquals(state,ExerciseReducer.flip(state,1,tasks))
+        state=ExerciseReducer.flip(ExerciseReducer.flip(state,2,tasks),3,tasks)
+        assertFalse(state.checked)
+        state=ExerciseReducer.flip(ExerciseReducer.flip(state,4,tasks),5,tasks)
+        assertTrue(state.checked);assertTrue(state.correct);assertEquals(setOf(0,1,2),state.matched);assertEquals(0,state.wrongCount)
+        assertTrue(ExerciseReducer.advance(state,tasks).complete)
+    }
+
+    @Test fun pairMatchAndOtherInteractionsDoNotLeakIntoEachOther() {
+        val pairs=match();val choice=choice(TaskKind.Find)
+        assertEquals(Exercise(),ExerciseReducer.flip(Exercise(),0,listOf(choice)))
+        assertEquals(Exercise(),ExerciseReducer.flip(Exercise(),9,listOf(pairs)))
+        assertEquals(Exercise(),ExerciseReducer.choose(Exercise(),"آب",listOf(pairs)))
+        assertEquals(Exercise(),ExerciseReducer.chooseToken(Exercise(),0,listOf(pairs)))
+        assertFalse(ExerciseReducer.canCheck(Exercise(),listOf(pairs)))
+        assertEquals(Exercise(),ExerciseReducer.restore(Exercise().snapshot().encode(),listOf(pairs)))
+    }
+
     @Test fun hintsBelongOnlyToListeningFamily() {
         TaskKind.entries.forEach {kind->
             val definition=ActivityRegistry[kind]

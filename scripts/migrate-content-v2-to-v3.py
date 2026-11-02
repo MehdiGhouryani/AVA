@@ -109,6 +109,61 @@ def migrate(data: dict) -> dict:
         "stories": stories,
     }
 
+def _same(old: dict, new: dict, ignore: tuple[str, ...], where: str) -> None:
+    left = {k: v for k, v in old.items() if k not in ignore}
+    right = {k: v for k, v in new.items() if k not in ignore}
+    assert left == right, f"Frozen v2 item changed in canonical v3: {where}"
+
+
+def _by_id(items: list[dict], where: str) -> dict[str, dict]:
+    ids = [item["id"] for item in items]
+    assert len(ids) == len(set(ids)), f"Duplicate ids in {where}"
+    return dict(zip(ids, items))
+
+
+def _keep_order(old_ids: list[str], new_ids: list[str], where: str) -> None:
+    assert [i for i in new_ids if i in old_ids] == old_ids, f"Frozen v2 order changed in {where}"
+
+
+def assert_preserved(migrated: dict, canonical: dict) -> None:
+    """Everything from the frozen v2 migration must still exist unchanged in canonical v3, matched by id.
+
+    New skills, units, lessons, tasks and stories may be added; existing ids, targets, choices, tokens,
+    audio refs and titles may not change (IDs stay stable; changes need a migration and validator).
+    """
+    assert canonical["schemaVersion"] == migrated["schemaVersion"] and canonical["locale"] == migrated["locale"]
+    skills = _by_id(canonical["skills"], "skills")
+    for skill in migrated["skills"]:
+        assert skill["id"] in skills, f"Frozen v2 skill missing: {skill['id']}"
+        _same(skill, skills[skill["id"]], (), f"skill {skill['id']}")
+    levels = _by_id(canonical["levels"], "levels")
+    for level in migrated["levels"]:
+        assert level["id"] in levels, f"Frozen v2 level missing: {level['id']}"
+        new_level = levels[level["id"]]
+        _same(level, new_level, ("order", "units"), f"level {level['id']}")
+        units = _by_id(new_level["units"], f"units of {level['id']}")
+        _keep_order([u["id"] for u in level["units"]], list(units), f"units of {level['id']}")
+        for unit in level["units"]:
+            assert unit["id"] in units, f"Frozen v2 unit missing: {unit['id']}"
+            new_unit = units[unit["id"]]
+            _same(unit, new_unit, ("order", "lessons"), f"unit {unit['id']}")
+            lessons = _by_id(new_unit["lessons"], f"lessons of {unit['id']}")
+            _keep_order([x["id"] for x in unit["lessons"]], list(lessons), f"lessons of {unit['id']}")
+            for lesson in unit["lessons"]:
+                assert lesson["id"] in lessons, f"Frozen v2 lesson missing: {lesson['id']}"
+                new_lesson = lessons[lesson["id"]]
+                _same(lesson, new_lesson, ("order", "tasks"), f"lesson {lesson['id']}")
+                tasks = _by_id(new_lesson["tasks"], f"tasks of {lesson['id']}")
+                _keep_order([t["id"] for t in lesson["tasks"]], list(tasks), f"tasks of {lesson['id']}")
+                for task in lesson["tasks"]:
+                    assert task["id"] in tasks, f"Frozen v2 task missing: {task['id']}"
+                    _same(task, tasks[task["id"]], (), f"task {task['id']}")
+    stories = _by_id(canonical["stories"], "stories")
+    for story in migrated["stories"]:
+        assert story["id"] in stories, f"Frozen v2 story missing: {story['id']}"
+        _same(story, stories[story["id"]], ("order",), f"story {story['id']}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", type=Path, default=ROOT / "design/fixtures/content-v2.json")
@@ -119,9 +174,9 @@ def main() -> None:
     canonical = ROOT / "design/content.fa.json"
     if args.check:
         expected = load_json(canonical)
-        assert migrated == expected, "Canonical v3 content differs from deterministic v2 migration"
+        assert_preserved(migrated, expected)
         assert migrate(expected) == expected, "v3 migration must be idempotent"
-        print("Content migration passed: v2 fixture -> canonical v3; v3 is idempotent.")
+        print("Content migration passed: frozen v2 items are preserved in canonical v3 (new content may be added); v3 is idempotent.")
         return
     text = json.dumps(migrated, ensure_ascii=False, indent=2) + "\n"
     if args.output:

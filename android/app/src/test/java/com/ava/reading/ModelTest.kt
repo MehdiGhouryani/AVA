@@ -17,22 +17,25 @@ class ModelTest {
         assertFalse(validPhone("08123456789"));assertFalse(validPhone("0912"))
     }
     @Test fun catalogHasUniqueIdsAndValidTargets() {
-        assertEquals(6,Catalog.lessons.size);assertEquals(2,Catalog.stories.size)
-        assertEquals(17,Catalog.lessons.sumOf {it.tasks.size})
+        val frozenLessons=listOf("visual_shapes_01","dots_02","edge_sounds_03","blend_words_04","words_03","garden_04")
+        assertEquals(frozenLessons,Catalog.lessons.map {it.id}.filter {it in frozenLessons})
+        assertTrue(Catalog.lessons.sumOf {it.tasks.size}>=17);assertTrue(Catalog.stories.size>=2)
+        assertEquals(Catalog.lessons.size,Catalog.lessons.map {it.id}.distinct().size)
         val tasks=Catalog.lessons.flatMap {it.tasks}
         assertEquals(tasks.size,tasks.map {it.id}.distinct().size)
-        assertEquals(3,tasks.count {it.kind==TaskKind.Recognize});assertEquals(4,tasks.count {it.kind==TaskKind.Listen});assertEquals(3,tasks.count {it.kind==TaskKind.BuildWord})
-        assertEquals(2,tasks.count {it.kind==TaskKind.DotFamily});assertEquals(2,tasks.count {it.kind==TaskKind.InitialSound})
-        assertEquals(1,tasks.count {it.kind==TaskKind.FinalSound});assertEquals(2,tasks.count {it.kind==TaskKind.Blend})
         tasks.forEach {
-            if(ActivityRegistry[it.kind].interaction==ActivityInteraction.TokenBuild) {assertTrue(it.choices.isEmpty());assertEquals(it.target.toList().sorted(),it.tokens.joinToString("").toList().sorted())}
-            else {assertEquals(3,it.choices.distinct().size);assertTrue(it.target in it.choices);assertTrue(it.tokens.isEmpty())}
+            when(ActivityRegistry[it.kind].interaction) {
+                ActivityInteraction.TokenBuild -> {assertTrue(it.choices.isEmpty());assertEquals(it.target.toList().sorted(),it.tokens.joinToString("").toList().sorted())}
+                ActivityInteraction.Choice -> {assertEquals(3,it.choices.distinct().size);assertTrue(it.target in it.choices);assertTrue(it.tokens.isEmpty())}
+                ActivityInteraction.PairMatch -> {assertTrue(it.choices.isEmpty());assertTrue(it.tokens.size in 4..8 && it.tokens.size%2==0)
+                    assertEquals(it.target,it.tokens.chunked(2).joinToString("|") {pair->pair[0]+"="+pair[1]})}
+            }
         }
-        assertEquals(9,Catalog.stories.sumOf {it.pages.size})
+        assertTrue(Catalog.stories.sumOf {it.pages.size}>=9)
     }
     @Test fun contentV3HasStableHierarchyRefsAndCompatibilityContract() {
-        assertEquals(3,Catalog.release.schemaVersion);assertEquals("0.6.1-dev.1",Catalog.release.contentVersion)
-        assertEquals(1,Catalog.levels.size);assertEquals(3,Catalog.levels.single().units.size);assertEquals(5,Catalog.skills.size)
+        assertEquals(3,Catalog.release.schemaVersion);assertTrue(Catalog.release.contentVersion.isNotBlank())
+        assertTrue(Catalog.levels.isNotEmpty());assertTrue(Catalog.levels.first().units.size>=3);assertTrue(Catalog.skills.size>=5)
         val tasks=Catalog.lessons.flatMap {it.tasks}
         tasks.filter {ActivityRegistry[it.kind].family==ActivityFamily.Listening}.forEach {
             assertNotNull(it.audioRef);assertTrue(it.audioRequiredForPublication);assertFalse(it.writtenFallback.isNullOrBlank())

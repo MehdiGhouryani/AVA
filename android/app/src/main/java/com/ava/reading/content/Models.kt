@@ -1,6 +1,6 @@
 package com.ava.reading.content
 
-enum class TaskKind { Recognize, Listen, BuildWord, DotFamily, PositionalForm, InitialSound, FinalSound, Segment, Blend }
+enum class TaskKind { Recognize, Listen, BuildWord, DotFamily, PositionalForm, InitialSound, FinalSound, Segment, Blend, Find, Bubble, Match }
 enum class ReviewMode { Mix, Mistakes, Learned }
 private val stableRefPattern=Regex("^[a-z0-9._-]+$")
 data class AssetRef(val id: String) {init {require(stableRefPattern.matches(id))}}

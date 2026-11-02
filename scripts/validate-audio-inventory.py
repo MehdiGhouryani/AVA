@@ -46,8 +46,8 @@ for item in assets:
             assert ref["type"] == "system" and ref.get("key"), item["id"]
 
 expected_tasks = {}
-choice_kinds = {"recognize", "listen", "dot_family", "positional_form", "initial_sound", "final_sound"}
-listening_kinds = {"listen", "initial_sound", "final_sound"}
+choice_kinds = {"recognize", "listen", "dot_family", "positional_form", "initial_sound", "final_sound", "find", "bubble"}
+listening_kinds = {"listen", "initial_sound", "final_sound", "bubble"}
 lessons = [lesson for level in content["levels"] for unit in level["units"] for lesson in unit["lessons"]]
 for lesson in lessons:
     for task in lesson["tasks"]:

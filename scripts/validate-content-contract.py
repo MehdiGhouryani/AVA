@@ -3,6 +3,7 @@
 from pathlib import Path
 import hashlib
 import json
+import os
 import re
 import subprocess
 import sys
@@ -33,8 +34,11 @@ assert len(skill_ids) == len(set(skill_ids))
 units: set[str] = set()
 task_count = 0
 token_kinds = {"build_word", "segment", "blend"}
-listening_kinds = {"listen", "initial_sound", "final_sound"}
-visual_kinds = {"recognize", "dot_family", "positional_form"}
+pair_kinds = {"match"}
+listening_kinds = {"listen", "initial_sound", "final_sound", "bubble"}
+visual_kinds = {"recognize", "dot_family", "positional_form", "find"}
+# Kinds whose Compose renderer does not exist yet may not ship in content (probe tests set the override).
+unrendered_kinds = set() if os.environ.get("AVA_ALLOW_UNRENDERED_KINDS") == "1" else {"match"}
 for level in content["levels"]:
     assert level["id"] not in ids; ids.add(level["id"])
     ordered(level["units"])
@@ -49,8 +53,14 @@ for level in content["levels"]:
                 assert task["id"] not in task_ids; task_ids.add(task["id"])
                 assert task["skillIds"] and set(task["skillIds"]) <= set(skill_ids)
                 assert set(task["assetRefs"]) <= assets
-                assert task["kind"] in token_kinds | listening_kinds | visual_kinds
-                if task["kind"] in token_kinds:
+                assert task["kind"] in token_kinds | pair_kinds | listening_kinds | visual_kinds
+                assert task["kind"] not in unrendered_kinds, ("No renderer yet for", task["kind"])
+                if task["kind"] in pair_kinds:
+                    tokens = task["tokens"]
+                    assert task["audioRef"] is None and task["writtenFallback"] is None and not task["audioRequiredForPublication"]
+                    assert not task.get("choices") and 4 <= len(tokens) <= 8 and len(tokens) % 2 == 0 and len(tokens) == len(set(tokens))
+                    assert task["target"] == "|".join(f"{tokens[i]}={tokens[i + 1]}" for i in range(0, len(tokens), 2))
+                elif task["kind"] in token_kinds:
                     assert task["audioRef"] is None and task["writtenFallback"] is None
                     assert not task["audioRequiredForPublication"] and not task.get("choices")
                     assert sorted("".join(task["tokens"])) == sorted(task["target"])

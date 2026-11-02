@@ -40,7 +40,7 @@ assert release['schemaVersion']==3 and release['contentVersion']==data['contentV
 skills=data['skills'];skill_ids={s['id'] for s in skills}
 assert len(skill_ids)==len(skills) and all(re.fullmatch(r'[a-z0-9_]+',x) for x in skill_ids)
 skills_code=[f'Skill({kt(s["id"])}, {kt(s["title"])}, {kt(s["description"])})' for s in skills]
-task_ids=set();lesson_ids=set();unit_ids=set();level_ids=set();kinds={'recognize':'Recognize','listen':'Listen','build_word':'BuildWord','dot_family':'DotFamily','positional_form':'PositionalForm','initial_sound':'InitialSound','final_sound':'FinalSound','segment':'Segment','blend':'Blend'}
+task_ids=set();lesson_ids=set();unit_ids=set();level_ids=set();kinds={'recognize':'Recognize','listen':'Listen','build_word':'BuildWord','dot_family':'DotFamily','positional_form':'PositionalForm','initial_sound':'InitialSound','final_sound':'FinalSound','segment':'Segment','blend':'Blend','find':'Find','bubble':'Bubble','match':'Match'}
 levels=[];lesson_count=0;task_count=0
 for level in data['levels']:
  assert level['id'] not in level_ids;level_ids.add(level['id'])
@@ -60,11 +60,15 @@ for level in data['levels']:
     if t['kind'] in {'build_word','segment','blend'}:
      assert not choices and 2<=len(tokens)<=8 and sorted(''.join(tokens))==sorted(t['target'])
      assert t['audioRef'] is None and t['writtenFallback'] is None and not t['audioRequiredForPublication']
+    elif t['kind']=='match':
+     assert not choices and 4<=len(tokens)<=8 and len(tokens)%2==0 and len(tokens)==len(set(tokens))
+     assert t['target']=='|'.join(f'{tokens[i]}={tokens[i+1]}' for i in range(0,len(tokens),2))
+     assert t['audioRef'] is None and t['writtenFallback'] is None and not t['audioRequiredForPublication']
     else:
      assert not tokens and len(choices)==len(set(choices))==3 and t['target'] in choices
      assert t['audioRef'] in audio_ids and isinstance(t['writtenFallback'],str) and t['writtenFallback'].strip()
-     assert t['audioRequiredForPublication'] is (t['kind'] in {'listen','initial_sound','final_sound'})
-     if t['kind'] in {'recognize','dot_family','positional_form'}:assert t['writtenFallback']==t['target']
+     assert t['audioRequiredForPublication'] is (t['kind'] in {'listen','initial_sound','final_sound','bubble'})
+     if t['kind'] in {'recognize','dot_family','positional_form','find'}:assert t['writtenFallback']==t['target']
     choice_code='listOf('+', '.join(kt(v) for v in choices)+')' if choices else 'emptyList()'
     token_code='listOf('+', '.join(kt(v) for v in tokens)+')' if tokens else 'emptyList()'
     skill_code='listOf('+', '.join(kt(v) for v in t['skillIds'])+')'

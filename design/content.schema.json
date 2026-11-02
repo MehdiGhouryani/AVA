@@ -180,6 +180,9 @@
               },
               {
                 "$ref": "#/$defs/buildTask"
+              },
+              {
+                "$ref": "#/$defs/matchTask"
               }
             ]
           }
@@ -233,7 +236,9 @@
             "dot_family",
             "positional_form",
             "initial_sound",
-            "final_sound"
+            "final_sound",
+            "find",
+            "bubble"
           ]
         },
         "audioRef": {
@@ -308,6 +313,67 @@
           "type": "array",
           "minItems": 2,
           "maxItems": 8,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "matchTask": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "target",
+        "skillIds",
+        "assetRefs",
+        "audioRequiredForPublication",
+        "kind",
+        "audioRef",
+        "writtenFallback",
+        "tokens"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "target": {
+          "type": "string",
+          "minLength": 3
+        },
+        "skillIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "assetRefs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/ref"
+          }
+        },
+        "audioRequiredForPublication": {
+          "const": false
+        },
+        "kind": {
+          "const": "match"
+        },
+        "audioRef": {
+          "type": "null"
+        },
+        "writtenFallback": {
+          "type": "null"
+        },
+        "tokens": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 8,
+          "uniqueItems": true,
           "items": {
             "type": "string",
             "minLength": 1
