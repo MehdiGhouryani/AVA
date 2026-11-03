@@ -185,3 +185,17 @@ Next action:
 - Blocked by: toolchain Native
 - Evidence paths: `docs/READINESS_REVIEW_FA.md`
 - Next action: UI صفحه‌های A تا D در برش‌های کوچک.
+
+## ۲۰۲۶-۱۱-۰۳ — صفحه‌های A تا D: UI
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۳
+- Task ID: `phase-2b-ui-a` (خارج از roadmap اجرایی؛ `docs/COMPLETION_PLAN_FA.md` گام ۳)
+- Agent/tool: Claude، فقط ویرایش و خواندن کد؛ `kotlinc` فقط برای بررسی نحو و JVM-only
+- Baseline source hash/version: شاخهٔ `phase-2b-review` `0e58d9f`
+- Files changed: `AlbumScreen.kt` (تازه)، `LessonScreens.kt`، `ProfileScreens.kt`، `HomeScreen.kt`، `AvaApp.kt`، `AvaViewModel.kt` (`Route.Album` و مسیر بازگشت)، `design/strings.fa.json` و منابع تولیدی (۲۶ رشتهٔ پیشنهادی)، `NativeUiTest.kt` (۲ تست)، `docs/` (COMPLETION_PLAN، SCREEN_MATRIX، PROJECT_MAP)، `PROJECT_STATE.md`
+- Commands actually executed: `jvm-core-check` (۳۸ پاس)، `sync-android-resources --check`، `check-docs.py`، بررسی نحو با `kotlinc` روی کل سورس، grep واژه‌های ممنوع روی رشته‌های تازه
+- Results: چهار برش جدا کامیت شد. بررسی نحو: صفر خطای نحوی؛ خطاهای خطوط تازه همه از نوع «پیدا نشد» به‌جز یک «نوع پارامتر قابل استنباط نیست» روی `?.let {card->` در `LessonResultScreen` که همان خانوادهٔ ۳۷ خطای cascade در `main` است (بدنهٔ lambda به نمادهای Compose پیدا‌نشده ارجاع می‌دهد). رشتهٔ «روزهای خالی جریمه ندارند» به «هر روز که تمرین کنی، یک گل می‌شکفد.» تغییر کرد تا مفهوم جریمه را به کودک نیاورد.
+- **اجرا نشد:** Gradle، Compose، Robolectric و دو تست UI تازه. انیمیشن جشن عمداً نیست (قاعده ۷)، پس کاهش حرکت اینجا موضوعیت ندارد.
+- Blocked by: toolchain Native
+- Evidence paths: `android/app/src/main/java/com/ava/reading/ui/screens/AlbumScreen.kt`
+- Next action: F1 تا F3 (renderer یافتن، حباب، جفت‌یابی) و سیم‌کشی ViewModel.

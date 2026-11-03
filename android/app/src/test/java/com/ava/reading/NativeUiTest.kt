@@ -204,10 +204,10 @@ class NativeUiTest {
         render({AvaState(route=Route.Otp,phone="09123456789",resendUntil=90_000)},width=320,height=560)
         ui.onAllNodes(hasSetTextAction()).assertCountEquals(1);ui.onNodeWithText("ادامه").performScrollTo().assertExists();snapshot("otp-320")
     }
-    @Test fun progressShowsTheWeekWithoutPenaltyText() {
+    @Test fun progressShowsTheWeekWithAnEncouragingNote() {
         render({AvaState(route=Route.Progress,learner=Learner())})
         ui.onNodeWithText("گل‌های این هفته").performScrollTo().assertExists()
-        ui.onNodeWithText("روزهای خالی جریمه ندارند").performScrollTo().assertExists()
+        ui.onNodeWithText("هر روز که تمرین کنی، یک گل می‌شکفد.").performScrollTo().assertExists()
     }
     @Test fun albumCountsOnlyCompletedLessons() {
         render({AvaState(route=Route.Album,learner=Learner(completed=setOf(Catalog.lessons.first().id)))})

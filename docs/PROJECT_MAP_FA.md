@@ -74,6 +74,7 @@
 
 - `content/Progression.kt`: کارت کشف مشتق از درس‌های تمام‌شده، وضعیت پایان مسیر، هفتهٔ شنبه تا جمعه و ثبت روز فعال (منطق خالص؛ UI هنوز نیست).
 - `Learner.activeDays` و کلید DataStore `active_days` برای گل‌های هفته.
+- `ui/screens/AlbumScreen.kt` (`DiscoveryRow`، `AlbumScreen`، `Route.Album`)، کارت کشف در `LessonResultScreen`، گل‌های هفته در `ProgressScreen` و دکمهٔ پایان مسیر در `HomeScreen`.
 - نوع‌های Find، Bubble و Match در `Models.kt`، `ActivityRegistry.kt`، `ExerciseReducer.flip` و `content.schema.json`.
 - `Exercise.wrongCount` و دکمهٔ «رد کردن این قدم» پس از دو پاسخ نادرست.
 - `scripts/`: `jvm-core-check.py` (+ `jvm-core-check/`)، `export-educator-pack.py`، `test-activity-kinds.py`، `check-docs.py`.
