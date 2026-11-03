@@ -114,6 +114,7 @@ import com.ava.reading.ui.theme.*
                 Text(txt(if(allLessons)"progress_all_done" else "progress_next_step"),Modifier.fillMaxWidth(),style=MaterialTheme.typography.bodySmall,color=AvaColors.deep,textAlign=TextAlign.Center)
                 if(allLessons)Primary(txt("library"),{a.navigate(Route.Library)}) else Primary(txt("continue_path"),a.continueLearning)
             }
+            FlowerWeekCard(s.learner.activeDays,compact)
             if(compact) Column(verticalArrangement=Arrangement.spacedBy(10.dp)) {
                 ProgressMetric(txt("lessons_done"),lessons,s.lessons.size,Icons.Outlined.Flag)
                 ProgressMetric(txt("stories_done"),stories,s.stories.size,Icons.Outlined.AutoStories)
@@ -128,6 +129,26 @@ import com.ava.reading.ui.theme.*
             Text(txt("badges_summary","count" to fa(earned)),color=AvaColors.soft)
             badges.forEach {(key,earnedBadge,icon)->BadgeCard(key,earnedBadge,icon)}
         }
+    }
+}
+
+/** Saturday-to-Friday week. A done day shows a flower icon (shape, not only colour); an empty day carries no penalty text. */
+@Composable private fun FlowerWeekCard(active: Set<String>,compact: Boolean) {
+    val week=flowerWeek(java.time.LocalDate.now(),parseActiveDays(active))
+    SoftCard(Modifier.fillMaxWidth(),padding=if(compact)16.dp else 20.dp,gap=8.dp) {
+        Text(txt("flowers_title"),Modifier.fillMaxWidth().semantics {heading()},style=MaterialTheme.typography.titleLarge,color=AvaColors.deep,textAlign=TextAlign.Center)
+        Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(4.dp)) {
+            week.days.forEachIndexed {index,day->
+                val description=txt("weekday_$index")+"، "+txt(if(day.done)"flower_done" else "flower_empty")
+                Column(Modifier.weight(1f).semantics(mergeDescendants=true) {contentDescription=description},horizontalAlignment=Alignment.CenterHorizontally,verticalArrangement=Arrangement.spacedBy(4.dp)) {
+                    Text(txt("weekday_short_$index"),style=MaterialTheme.typography.bodySmall,color=AvaColors.deep,fontWeight=if(day.isToday)androidx.compose.ui.text.font.FontWeight.Bold else androidx.compose.ui.text.font.FontWeight.Normal)
+                    Box(Modifier.size(36.dp).background(if(day.done)AvaColors.green else AvaColors.cream,RoundedCornerShape(100.dp)).border(if(day.isToday)3.dp else 1.dp,AvaColors.green,RoundedCornerShape(100.dp)),contentAlignment=Alignment.Center) {
+                        if(day.done)Icon(Icons.Outlined.Spa,null,Modifier.size(22.dp),tint=androidx.compose.ui.graphics.Color.White)
+                    }
+                }
+            }
+        }
+        Text(txt("flowers_note"),Modifier.fillMaxWidth(),style=MaterialTheme.typography.bodySmall,color=AvaColors.soft,textAlign=TextAlign.Center)
     }
 }
 

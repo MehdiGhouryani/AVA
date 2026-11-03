@@ -310,6 +310,78 @@
       "fa": "رد کردن این قدم",
       "source": "proposed"
     },
+    "flowers_title": {
+      "fa": "گل‌های این هفته",
+      "source": "proposed"
+    },
+    "flowers_note": {
+      "fa": "روزهای خالی جریمه ندارند",
+      "source": "proposed"
+    },
+    "flower_done": {
+      "fa": "گل شکفت",
+      "source": "proposed"
+    },
+    "flower_empty": {
+      "fa": "هنوز گلی نیست",
+      "source": "proposed"
+    },
+    "weekday_0": {
+      "fa": "شنبه",
+      "source": "proposed"
+    },
+    "weekday_1": {
+      "fa": "یکشنبه",
+      "source": "proposed"
+    },
+    "weekday_2": {
+      "fa": "دوشنبه",
+      "source": "proposed"
+    },
+    "weekday_3": {
+      "fa": "سه‌شنبه",
+      "source": "proposed"
+    },
+    "weekday_4": {
+      "fa": "چهارشنبه",
+      "source": "proposed"
+    },
+    "weekday_5": {
+      "fa": "پنجشنبه",
+      "source": "proposed"
+    },
+    "weekday_6": {
+      "fa": "جمعه",
+      "source": "proposed"
+    },
+    "weekday_short_0": {
+      "fa": "ش",
+      "source": "proposed"
+    },
+    "weekday_short_1": {
+      "fa": "ی",
+      "source": "proposed"
+    },
+    "weekday_short_2": {
+      "fa": "د",
+      "source": "proposed"
+    },
+    "weekday_short_3": {
+      "fa": "س",
+      "source": "proposed"
+    },
+    "weekday_short_4": {
+      "fa": "چ",
+      "source": "proposed"
+    },
+    "weekday_short_5": {
+      "fa": "پ",
+      "source": "proposed"
+    },
+    "weekday_short_6": {
+      "fa": "ج",
+      "source": "proposed"
+    },
     "album_title": {
       "fa": "کشف‌های من",
       "source": "proposed"

@@ -71,6 +71,24 @@
     <string name="app_activities" formatted="false">{count} بازی کوتاه</string>
     <string name="app_check" formatted="false">بررسی کن</string>
     <string name="app_skip_step" formatted="false">رد کردن این قدم</string>
+    <string name="app_flowers_title" formatted="false">گل‌های این هفته</string>
+    <string name="app_flowers_note" formatted="false">روزهای خالی جریمه ندارند</string>
+    <string name="app_flower_done" formatted="false">گل شکفت</string>
+    <string name="app_flower_empty" formatted="false">هنوز گلی نیست</string>
+    <string name="app_weekday_0" formatted="false">شنبه</string>
+    <string name="app_weekday_1" formatted="false">یکشنبه</string>
+    <string name="app_weekday_2" formatted="false">دوشنبه</string>
+    <string name="app_weekday_3" formatted="false">سه‌شنبه</string>
+    <string name="app_weekday_4" formatted="false">چهارشنبه</string>
+    <string name="app_weekday_5" formatted="false">پنجشنبه</string>
+    <string name="app_weekday_6" formatted="false">جمعه</string>
+    <string name="app_weekday_short_0" formatted="false">ش</string>
+    <string name="app_weekday_short_1" formatted="false">ی</string>
+    <string name="app_weekday_short_2" formatted="false">د</string>
+    <string name="app_weekday_short_3" formatted="false">س</string>
+    <string name="app_weekday_short_4" formatted="false">چ</string>
+    <string name="app_weekday_short_5" formatted="false">پ</string>
+    <string name="app_weekday_short_6" formatted="false">ج</string>
     <string name="app_album_title" formatted="false">کشف‌های من</string>
     <string name="app_album_body" formatted="false">هر کارت، یک یادآوری</string>
     <string name="app_album_count" formatted="false">{count} از {total} کارت</string>
