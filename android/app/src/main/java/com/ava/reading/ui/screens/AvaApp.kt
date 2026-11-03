@@ -60,6 +60,7 @@ private val roots=listOf(Route.Home,Route.Library,Route.Practice,Route.Profile)
         Route.Profile -> ProfileScreen(s,a)
         Route.EditProfile -> EditProfileScreen(s,a)
         Route.Progress -> ProgressScreen(s,a)
+        Route.Album -> AlbumScreen(s,a)
         Route.Settings -> SettingsScreen(s,a)
         Route.Help,Route.About,Route.Privacy,Route.Terms -> InformationScreen(s,a)
     }

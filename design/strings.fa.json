@@ -310,6 +310,18 @@
       "fa": "رد کردن این قدم",
       "source": "proposed"
     },
+    "album_title": {
+      "fa": "کشف‌های من",
+      "source": "proposed"
+    },
+    "album_body": {
+      "fa": "هر کارت، یک یادآوری",
+      "source": "proposed"
+    },
+    "album_count": {
+      "fa": "{count} از {total} کارت",
+      "source": "proposed"
+    },
     "album_locked": {
       "fa": "با تمام کردن مرحله‌اش باز می‌شود",
       "source": "proposed"

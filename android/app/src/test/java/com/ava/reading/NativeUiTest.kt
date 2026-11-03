@@ -204,6 +204,10 @@ class NativeUiTest {
         render({AvaState(route=Route.Otp,phone="09123456789",resendUntil=90_000)},width=320,height=560)
         ui.onAllNodes(hasSetTextAction()).assertCountEquals(1);ui.onNodeWithText("ادامه").performScrollTo().assertExists();snapshot("otp-320")
     }
+    @Test fun albumCountsOnlyCompletedLessons() {
+        render({AvaState(route=Route.Album,learner=Learner(completed=setOf(Catalog.lessons.first().id)))})
+        ui.onNodeWithText("۱ از ${fa(Catalog.lessons.size)} کارت").assertExists()
+    }
     @Test fun pageGalleryRendersEveryDestination() {
         var state by mutableStateOf(AvaState())
         render({state})

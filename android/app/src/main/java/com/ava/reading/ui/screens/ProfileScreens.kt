@@ -123,6 +123,7 @@ import com.ava.reading.ui.theme.*
                 ProgressMetric(txt("stories_done"),stories,s.stories.size,Icons.Outlined.AutoStories,Modifier.weight(1f))
                 ProgressMetric(txt("reviews_done"),reviews,null,Icons.Outlined.Refresh,Modifier.weight(1f))
             }
+            Menu(txt("album_title"),Icons.Outlined.Spa,{a.navigate(Route.Album)},txt("album_body"))
             Text(txt("badges"),Modifier.fillMaxWidth().semantics {heading()},style=MaterialTheme.typography.titleLarge,color=AvaColors.deep)
             Text(txt("badges_summary","count" to fa(earned)),color=AvaColors.soft)
             badges.forEach {(key,earnedBadge,icon)->BadgeCard(key,earnedBadge,icon)}

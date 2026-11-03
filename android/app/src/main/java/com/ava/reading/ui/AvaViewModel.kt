@@ -10,7 +10,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 
-enum class Route { Splash, Onboarding1, Onboarding2, Phone, Otp, Home, LessonDetails, Lesson, Library, StoryDetails, StoryReader, StoryQuestion, StoryComplete, Practice, Progress, Profile, EditProfile, Settings, Help, About, Privacy, Terms }
+enum class Route { Splash, Onboarding1, Onboarding2, Phone, Otp, Home, LessonDetails, Lesson, Library, StoryDetails, StoryReader, StoryQuestion, StoryComplete, Practice, Progress, Profile, EditProfile, Settings, Help, About, Privacy, Terms, Album }
 enum class Confirmation { ExitLesson, ResetProgress, Logout }
 data class AvaState(
     val route: Route = Route.Splash, val learner: Learner = Learner(),
@@ -126,6 +126,7 @@ class AvaViewModel(
             Route.StoryQuestion -> { mutable.update {it.copy(storyAnswer=null,storyChecked=false)};navigate(Route.StoryReader) }
             Route.StoryReader -> navigate(Route.StoryDetails)
             Route.StoryDetails,Route.StoryComplete -> navigate(Route.Library)
+            Route.Album -> navigate(Route.Progress)
             Route.EditProfile,Route.Settings,Route.Help,Route.About,Route.Progress -> navigate(Route.Profile)
             Route.Privacy,Route.Terms -> navigate(Route.Settings)
             Route.Library,Route.Practice,Route.Profile,Route.LessonDetails -> navigate(Route.Home)
