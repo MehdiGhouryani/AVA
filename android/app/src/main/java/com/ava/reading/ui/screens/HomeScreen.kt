@@ -46,6 +46,7 @@ import com.ava.reading.ui.theme.*
                     ArtImage("char.ava.wave_book",Modifier.width(if(compact)72.dp else 104.dp).height(if(compact)96.dp else 112.dp))
                 }
                 Primary(txt(if(next==null)"library" else if(resumable!=null)"resume" else "start"),{if(next==null)a.navigate(Route.Library) else a.continueLearning()})
+                if(next==null)s.lessons.firstOrNull()?.let {first->Secondary(txt("explore_again"),{a.openLesson(first.id)})}
             }
             SoftCard(padding=16.dp,gap=8.dp) {
                 Text(txt("path_title"),Modifier.fillMaxWidth().semantics {heading()},style=MaterialTheme.typography.headlineMedium.copy(fontWeight=FontWeight.Normal),color=AvaColors.deep,textAlign=TextAlign.Center);Text(txt("path_body"),style=MaterialTheme.typography.bodySmall,color=AvaColors.soft,textAlign=TextAlign.Center)

@@ -71,6 +71,7 @@
     <string name="app_activities" formatted="false">{count} بازی کوتاه</string>
     <string name="app_check" formatted="false">بررسی کن</string>
     <string name="app_skip_step" formatted="false">رد کردن این قدم</string>
+    <string name="app_explore_again" formatted="false">دوباره کشف کنیم</string>
     <string name="app_flowers_title" formatted="false">گل‌های این هفته</string>
     <string name="app_flowers_note" formatted="false">روزهای خالی جریمه ندارند</string>
     <string name="app_flower_done" formatted="false">گل شکفت</string>
