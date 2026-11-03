@@ -31,4 +31,5 @@ subprocess.run([sys.executable,str(root/'scripts/validate-cms-contract.py')],che
 subprocess.run([sys.executable,str(root/'scripts/validate-payload-prototype.py')],check=True)
 subprocess.run([sys.executable,str(root/'scripts/validate-harness.py')],check=True)
 subprocess.run([sys.executable,str(root/'scripts/test-content-bundle.py')],check=True)
-print('Project audit passed: content v3/release/audio/CMS contracts, Payload prototype, coding-agent harness, deterministic bundle/tamper checks, migration, asset dimensions, 3 skill hashes, 13 design references, font and generated native resources.')
+subprocess.run([sys.executable,str(root/'scripts/test-activity-kinds.py')],check=True)
+print('Project audit passed: content v3/release/audio/CMS contracts, Payload prototype, coding-agent harness, deterministic bundle/tamper checks, migration, asset dimensions, 3 skill hashes, '+str(len(reviewed))+' design references, font and generated native resources.')
