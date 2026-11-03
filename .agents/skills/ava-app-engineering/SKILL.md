@@ -26,7 +26,7 @@ Replaces the React-era version. Where `AGENTS.md`, `harness/roadmap.json` or a p
 2. No payment, subscription, ads, coin shop, lives, lost streaks or punishing timers. Errors are amber, not red.
 3. Four characters only: Ava, bunny, squirrel, fox.
 4. Persian RTL, Vazirmatn, Persian numerals, local art. No runtime assets from the network.
-5. Touch targets: repo token 48 dp; child screens aim for 64 dp and the main CTA for 72 dp (owner decision pending).
+5. Touch targets: child screens use 64 dp targets and a 72 dp main CTA (decision DG-3, 2026-11-01); the `minTouch` token (48) stays only for adult-facing form controls.
 6. Reduced motion honoured; large fonts reflow, not shrink.
 7. Existing IDs never change without migration and validator. Content stays `approvedForRelease=false` until a human approves it.
 8. No APK/AAB unless the owner asks in that request. Native unit tests and lint are allowed.

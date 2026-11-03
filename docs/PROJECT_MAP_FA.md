@@ -69,3 +69,12 @@
 ## هارنس ادامه پروژه در ۰٫۶٫۱
 
 `harness/roadmap.json` فازهای ۰٫۶٫۱، ۰٫۷٫۰، ۰٫۷٫۱ و ۰٫۸٫۰+ را به taskهای دارای dependency، scope فایل، acceptance و commandهای allowlisted تقسیم می‌کند. `scripts/harness.py` فقط task آماده را نمایش می‌دهد و gateها را بدون shell اجرا می‌کند؛ assemble/bundle در validator ممنوع است. approval آموزشی، حقوق صوت و QA دستگاه `human_gate` هستند و عامل کدنویسی نمی‌تواند آن‌ها را completed کند.
+
+## افزوده‌های ۰٫۶٫۲ (پیش‌نویس، شاخه‌های Claude)
+
+- `content/Progression.kt`: کارت کشف مشتق از درس‌های تمام‌شده، وضعیت پایان مسیر، هفتهٔ شنبه تا جمعه و ثبت روز فعال (منطق خالص؛ UI هنوز نیست).
+- `Learner.activeDays` و کلید DataStore `active_days` برای گل‌های هفته.
+- نوع‌های Find، Bubble و Match در `Models.kt`، `ActivityRegistry.kt`، `ExerciseReducer.flip` و `content.schema.json`.
+- `Exercise.wrongCount` و دکمهٔ «رد کردن این قدم» پس از دو پاسخ نادرست.
+- `scripts/`: `jvm-core-check.py` (+ `jvm-core-check/`)، `export-educator-pack.py`، `test-activity-kinds.py`، `check-docs.py`.
+- `docs/`: `EXECUTION_PHASES_FA.md`، `COMPLETION_PLAN_FA.md`، `UX_CONFORMANCE_FA.md`، `EDUCATOR_REVIEW_PACK_FA.md`، `CURRICULUM_BLUEPRINT_FA.md`، `READINESS_REVIEW_FA.md`.

@@ -103,3 +103,12 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 5. اجرای Native tests/lint و رندر typeهای تازه در toolchain کامل.
 
 قدم بعدی ثبت‌شده: اجرای `python3 scripts/build-android-apk.py --output-dir <PATH>` در محیط دارای JDK 17، Android SDK 35/Build Tools و Gradle 8.11.1؛ سپس ثبت hash APK و QA نصب. در هارنس، `061-db-s3-integration` نیز در محیط دارای Docker باز است.
+
+## بروزرسانی ۲۰۲۶-۱۱-۰۳ — برش‌های شاخه‌های Claude (بدون اثبات Native)
+
+این بخش تغییرهای پس از ۰٫۶٫۱ را جدا از شواهد بالا نشان می‌دهد. هیچ گیت باز بسته نشد و درصد‌ها تغییر نکردند.
+
+- تست‌های سورس اکنون ۱۱۶ است (۱۰۴ + ۱۲ تازه)؛ رشته‌های تولیدی ۲۶۴ (+ `app.skip_step`).
+- اجرا‌شده (`ran`): `scripts/jvm-core-check.py` روی `content` و `data`: ۳۸ تست پاس؛ همهٔ validatorها؛ `audit-project.py` پاس (پس از حذف سه مرجع کهنهٔ `.aistudio` از ممیزی).
+- تغییرهای UI/ViewModel/DataStore (اندازهٔ لمس ۶۴/۷۲dp، رد کردن پس از دو اشتباه، `activeDays`) فقط `read in code` هستند و کامپایل نشده‌اند.
+- گیت‌های باز بدون تغییر: Gradle/lint، تأیید متخصص آموزش، صوت انسانی، DB/S3، QA دستگاه.

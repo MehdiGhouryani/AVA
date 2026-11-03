@@ -6,6 +6,7 @@
 |---|---|---|---|
 | قرارداد منبع | JSON، content، audio inventory، asset و hash | `sync-android-resources.py --check` و `audit-project.py` | هر تغییر محتوا/منبع |
 | منطق خالص | reducer، planner، migration و validator | تست‌های JUnit/Python | هر تغییر مدل |
+| JVM-only جزئی | لایه‌های `content` و `data` با kotlinc و جایگزین ساده برای JUnit/coroutines | `scripts/jvm-core-check.py` | جایگزین Gradle نیست؛ در `NATIVE_VERIFICATION.json` ثبت نمی‌شود |
 | repository | DataStore، صف write، reopen و corruption | Robolectric/unit | هر تغییر داده |
 | component | semantics، reflow، انتخاب و feedback | Compose/Robolectric | هر تغییر UI |
 | journey | ورود، درس، قصه، مرور، reset و process recreation | androidTest/device | پایان feature |
@@ -20,6 +21,7 @@
 - تعداد test source با تعداد تست اجراشده یکی نیست.
 - رندر Robolectric اسکرین‌شات دستگاه محسوب نمی‌شود.
 - نتیجه قدیمی به نسخه تازه نسبت داده نمی‌شود.
+- نتیجهٔ `jvm-core-check` «اجرای تست Native» نیست؛ فقط منطق خالص را با ابزار دیگری می‌سنجد.
 - شکست محیط، همراه command و علت ثبت می‌شود و «passed» نیست.
 - APK/AAB فقط با درخواست صریح مالک تولید می‌شود؛ unit/UI test مجاز است.
 - برای هر برش، `PROGRESS_FA.md` و `NATIVE_VERIFICATION.json` باید شواهد، گیت باز و قدم بعد را نشان دهند.

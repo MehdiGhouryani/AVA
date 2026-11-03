@@ -70,7 +70,7 @@
         },
         {
           "id": "061-native-toolchain",
-          "titleFa": "اجرای ۱۰۴ تست Native و lint در toolchain کامل",
+          "titleFa": "اجرای همهٔ تست‌های Native و lint در toolchain کامل",
           "priority": "P0",
           "status": "ready",
           "automationAllowed": true,

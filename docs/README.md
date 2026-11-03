@@ -26,6 +26,7 @@
 | ../ZCODE.md | نقطه ورود coding agentها و هارنس ادامه پروژه |
 | ../harness/roadmap.json | ترتیب ماشین‌خوان taskها، dependency، scope و gate |
 | ../harness/ZCODE_SYSTEM_PROMPT_FA.md | دستور ثابت و محدودیت‌های عامل خودکار |
+| READINESS_REVIEW_FA.md | بازبینی تا این مرحله: یافته‌ها، ماتریس شواهد، ریسک‌ها و چک‌لیست ادامه |
 | COMPLETION_PLAN_FA.md | برنامهٔ تکمیل: فهرست صفحه‌ها، زیرساخت محتوا و ترتیب (اول صفحه‌ها، بعد محتوا) |
 | EXECUTION_PHASES_FA.md | فازبندی اجرایی با قدم، گیت و ریسک؛ ترتیب کار از پایه تا انتشار |
 | UX_CONFORMANCE_FA.md | ماتریس انطباق UX کودک (P2.1): ۱۴ قاعده، شکاف‌ها و برش‌بندی اصلاح |

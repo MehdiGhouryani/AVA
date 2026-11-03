@@ -13,7 +13,7 @@ AVA (آوا) is a Persian early-reading app for children aged 4 to 7. The produc
 2. No payment, subscription, ads, coin shop, lives, lost streaks or punishing timers. Errors are amber, never red.
 3. Four characters only: Ava, bunny, squirrel, fox.
 4. Persian RTL, Vazirmatn, Persian numerals, local artwork only.
-5. Touch targets: the repo token is 48 dp. Child screens aim for 64 dp and the main CTA for 72 dp until the owner decides (see `PROJECT_STATE.md`).
+5. Touch targets: child screens use 64 dp targets and a 72 dp main CTA (decision DG-3, 2026-11-01; the `minTouch` token stays 48 for adult-facing form controls).
 6. Honour reduced motion and large fonts. Check widths 320, 360, 390, 412 and font scale 1, 1.3, 1.5.
 7. UI receives state and actions only. No I/O, repository or network inside a Composable.
 8. IDs of existing lessons, tasks and audio refs never change without migration and validator.

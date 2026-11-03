@@ -5,13 +5,14 @@
 |---|---|---|
 | UI UX Pro Max | https://github.com/nextlevelbuilder/ui-ux-pro-max-skill | 28b3b8dee8c976df4fa3e94aed4e092ad43fcb03 |
 | Claymorphism | https://github.com/bergside/awesome-design-skills | f631a09b4fcc0166f2e2c1a8c81906ef680c57e8 |
-| ava-duolingo-learning | راهنمای اختصاصی غیررسمی AVA | native-0.4.1 |
+| ava-duolingo-learning | راهنمای اختصاصی غیررسمی AVA | native-0.6.2-draft |
+| ava-app-engineering | روش مهندسی و استاندارد UX کودک برای خط Android (بدون قفل ثالث) | 2026-11-01 |
 
 مجوز MIT ثالث حفظ شده و فایل‌های راهنمای ثالث تغییر نکرده‌اند. داده/اسکریپت UI UX Pro Max محلی و قابل اجرا با Python3 است. مثال: `python3 .agents/skills/ui-ux-pro-max/scripts/search.py "navigation accessibility" --stack jetpack-compose -n 3`.
 
 جست‌وجوی سیستم طراحی، Claymorphism را برای کودک مرتبط یافت؛ پیشنهاد رنگ نارنجی/آبی، فونت انگلیسی و الگوی landing برای AVA پذیرفته نشد. از سطح گرد، فشار ملایم، کنتراست و ثبات اجزا استفاده شد. نتایج stack شامل اطلاعات نسخه‌ای است که بدون تطبیق با Android رسمی قابل اعتماد قطعی نیست؛ route در state این پروژه یک وضعیت نمایشی است، نه event بازپخش‌شونده navigation.
 
-قواعد AVA مقدم‌اند: Vazirmatn محلی، RTL، خطای کهربایی، حداقل لمس ۴۸dp، بدون پنل والدین، چهار تب، داده واقعی، حرکت کمتر و art موجود. قواعد اختصاصی در Skill AVA و AGENTS هستند؛ منابع ثالث را برای این تغییرات دستکاری نکنید. lock شامل hash است و ممیزی پروژه آن را کنترل می‌کند.
+قواعد AVA مقدم‌اند: Vazirmatn محلی، RTL، خطای کهربایی، لمس ۶۴dp برای کنترل‌های کودک و CTA ‏۷۲dp (تصمیم DG-3؛ توکن ۴۸ فقط برای کنترل‌های غیرکودک)، بدون پنل والدین، چهار تب، داده واقعی، حرکت کمتر و art موجود. قواعد اختصاصی در Skill AVA و AGENTS هستند؛ منابع ثالث را برای این تغییرات دستکاری نکنید. lock شامل hash است و ممیزی پروژه آن را کنترل می‌کند.
 
 در ۰٫۳٫۳ جست‌وجوی متمرکز Error Recovery/Error Feedback به کنترل ثابت، پیام قابل اصلاح و نتیجه روشن تبدیل شد. شیوه گروه انتخاب با منبع رسمی Android تطبیق داده شد؛ رنگ و تایپوگرافی ثالث جای AVA را نگرفتند. Skillهای pinned تغییر نکردند.
 

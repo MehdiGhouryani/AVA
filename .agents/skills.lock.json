@@ -15,8 +15,8 @@
     {
       "name": "ava-duolingo-learning",
       "source": "project-owned",
-      "revision": "native-0.4.1",
-      "skillSha256": "d7d833d8005510d260e0ebd7ad903971d3c82a896ab6215ae4845fb9829d860c"
+      "revision": "native-0.6.2-draft",
+      "skillSha256": "12a7e8aced1f16933457eb967da82ec10b63e696374056b43f494b58303c38d8"
     }
   ]
 }

@@ -1,3 +1,5 @@
+> Historical prompt for the original web prototype (Google AI Studio). Current native Android work starts at [docs/README.md](docs/README.md); sizes below (48 px) are superseded by the 64 dp child rule.
+
 # PROMPT 01 — paste this into Google AI Studio (Build mode)
 
 (Attach the 6 images from `/reference` to this message if the UI allows. They are in the project too.)

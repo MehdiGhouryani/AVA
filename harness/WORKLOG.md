@@ -171,3 +171,17 @@ Next action:
 - Blocked by: toolchain Native
 - Evidence paths: `android/app/src/test/java/com/ava/reading/LearnerPersistenceTest.kt`
 - Next action: UI صفحه‌های A تا D.
+
+## ۲۰۲۶-۱۱-۰۳ — بازبینی تا این مرحله و آمادگی برای ادامه
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۳
+- Task ID: `phase-2b-review` (خارج از roadmap اجرایی)
+- Agent/tool: Claude، sandbox بدون Android SDK؛ `kotlinc` 2.1.20
+- Baseline source hash/version: شاخهٔ `phase-2b-flowers-storage` `27c0095`
+- Files changed: `CLAUDE.md`، `PROJECT_STATE.md`، `PROMPT_01.md`، `.agents/skills/ava-app-engineering/SKILL.md`، `.agents/skills/ava-duolingo-learning/SKILL.md` و `.agents/skills.lock.json` (hash تازه)، `scripts/audit-project.py`، `scripts/check-docs.py` (تازه)، `harness/roadmap.json` (فقط یک عنوان)، `docs/` (DEVICE_QA، SKILLS، TEST_STRATEGY، PROJECT_MAP، PROGRESS، MASTER_ROADMAP، README، READINESS_REVIEW)، این فایل
+- Commands actually executed: `check-docs.py`، `audit-project.py`، `harness.py validate`، `validate-harness.py`، بررسی نحو با `kotlinc` روی کل سورس `main/` برای شاخهٔ فعلی و `cd9c581`
+- Results: ۴۳ سند با کد تطبیق داده شد؛ ۹ یافته (تناقض ۴۸ در برابر ۶۴ در پنج متن، پیام audit، شمارش‌های کهنه، یک عنوان هارنس، قدیمی‌بودن نقشهٔ راه، یک سند بدون برچسب تاریخی، سه سند بی‌خبر از افزوده‌ها، تست پروب بیرون از audit) اصلاح شد. بررسی نحو: صفر خطای نحوی؛ ۱۹۹۴ خطا در برابر ۱۹۸۱ روی `main` که همه از نبودن کتابخانه‌اند.
+- **اجرا نشد:** Gradle و Compose. «بررسی نحو» تضمین کامپایل نیست.
+- Blocked by: toolchain Native
+- Evidence paths: `docs/READINESS_REVIEW_FA.md`
+- Next action: UI صفحه‌های A تا D در برش‌های کوچک.
