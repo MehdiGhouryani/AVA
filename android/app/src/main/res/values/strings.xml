@@ -71,6 +71,9 @@
     <string name="app_activities" formatted="false">{count} بازی کوتاه</string>
     <string name="app_check" formatted="false">بررسی کن</string>
     <string name="app_skip_step" formatted="false">رد کردن این قدم</string>
+    <string name="app_album_locked" formatted="false">با تمام کردن مرحله‌اش باز می‌شود</string>
+    <string name="app_discovery_title" formatted="false">کارت کشف</string>
+    <string name="app_discovery_body" formatted="false">این کارت در «کشف‌های من» می‌ماند.</string>
     <string name="app_choose" formatted="false">نشانهٔ شبیه نمونه را پیدا کن.</string>
     <string name="app_target" formatted="false">نمونه</string>
     <string name="app_word_choose" formatted="false">کلمهٔ شبیه نمونه را پیدا کن.</string>

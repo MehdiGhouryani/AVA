@@ -219,6 +219,11 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
                 Text(txt(if(s.reviewing)"review_body" else "lesson_complete_body"),color=AvaColors.soft)
                 Text(txt("completion_summary","count" to fa(s.tasks.size)),color=AvaColors.deep)
                 if(!s.reviewing && next!=null)Text(txt("up_next","title" to next.title),color=AvaColors.deep)
+                if(!s.reviewing)discoveries(s.learner.completed,s.lessons).firstOrNull {it.id==s.lesson.id && it.unlocked}?.let {card->
+                    Text(txt("discovery_title"),Modifier.fillMaxWidth().semantics {heading()},style=MaterialTheme.typography.titleMedium,color=AvaColors.deep)
+                    DiscoveryRow(card)
+                    Text(txt("discovery_body"),style=MaterialTheme.typography.bodySmall,color=AvaColors.soft)
+                }
                 when {
                     s.reviewing -> Primary(txt("practice"),{a.navigate(Route.Practice)})
                     allDone -> Primary(txt("library"),{a.navigate(Route.Library)})

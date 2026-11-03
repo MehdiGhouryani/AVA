@@ -310,6 +310,18 @@
       "fa": "رد کردن این قدم",
       "source": "proposed"
     },
+    "album_locked": {
+      "fa": "با تمام کردن مرحله‌اش باز می‌شود",
+      "source": "proposed"
+    },
+    "discovery_title": {
+      "fa": "کارت کشف",
+      "source": "proposed"
+    },
+    "discovery_body": {
+      "fa": "این کارت در «کشف‌های من» می‌ماند.",
+      "source": "proposed"
+    },
     "choose": {
       "fa": "نشانهٔ شبیه نمونه را پیدا کن.",
       "source": "reconstructed-original-development"
