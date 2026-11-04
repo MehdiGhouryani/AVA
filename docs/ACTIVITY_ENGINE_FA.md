@@ -19,7 +19,8 @@
 
 - **Find** و **Bubble** همان قرارداد انتخاب سه‌گزینه‌ای را دارند؛ فقط renderer متفاوت می‌شود (صحنه با هدف‌های بزرگ؛ حباب‌های شناور). Find مثل Recognize `writtenFallback == target` دارد؛ Bubble مثل Listen برای انتشار صوت لازم و hint نوشتاری دارد.
 - **Match**: `tokens` فهرست زوج‌هاست و `tokens[2i]` با `tokens[2i+1]` جفت است (۴ تا ۸ کارت، همه یکتا)؛ `target` باید دقیقاً `الف=ب|پ=ت|…` باشد. `ExerciseReducer.flip` کارت را برمی‌گرداند، جفت‌شدن را در `matched` نگه می‌دارد، و ناجور بودن را در `mismatch` (UI آن را پس از ۹۰۰ms با `clearMismatch` پاک می‌کند). اشتباه شمرده نمی‌شود (`wrongCount` دست‌نخورده) و با جفت‌شدن همهٔ کارت‌ها `checked=correct=true` می‌شود. `matched/pending/mismatch` در snapshot ذخیره نمی‌شوند؛ پس از بازگشت بازی از اول شروع می‌شود.
-- **Match در محتوای منتشرشده ممنوع است تا renderer بیاید**: `validate-content-contract.py` آن را رد می‌کند (`unrendered_kinds`). با ساخت `MatchStep` و سیم‌کشی ViewModel این قید برداشته می‌شود.
+- **Match در محتوای منتشرشده ممنوع است تا renderer روی دستگاه تأیید شود**: renderer نوشته شده (`MatchTask` در `LessonScreens.kt`، `flip`/`clearMismatch` در ViewModel) ولی کامپایل و اجرا نشده؛ `validate-content-contract.py` تا آن زمان آن را رد می‌کند (`unrendered_kinds`). پس از فاز ۱ و QA دستگاه آن قید را بردار.
+- **Renderer‌ها:** Find با سه کاشی صحنه‌ای ≥۱۱۲dp؛ Bubble با حباب‌های ۹۶dp که فقط حدود ۵dp بر ثانیه بالا و پایین می‌روند و در کاهش حرکت ثابت‌اند؛ Match با کارت‌های رو (نه حافظه‌ای): دو کارت جفت را بزن، جفت می‌ماند و ناجور پس از ۹۰۰ms با حلقهٔ کهربایی و آیکون برگشت پاک می‌شود. شمارش اشتباه و زمان‌سنج ندارد.
 - آزمون: `python3 scripts/test-activity-kinds.py` (schema و validatorها)، `scripts/jvm-core-check.py` (reducer).
 
 ## افزودن نوع فعالیت تازه — چک‌لیست

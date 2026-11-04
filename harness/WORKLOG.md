@@ -199,3 +199,17 @@ Next action:
 - Blocked by: toolchain Native
 - Evidence paths: `android/app/src/main/java/com/ava/reading/ui/screens/AlbumScreen.kt`
 - Next action: F1 تا F3 (renderer یافتن، حباب، جفت‌یابی) و سیم‌کشی ViewModel.
+
+## ۲۰۲۶-۱۱-۰۳ — F1 تا F3: renderer یافتن، حباب، جفت‌یابی
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۳
+- Task ID: `phase-2b-games` (خارج از roadmap اجرایی؛ `docs/COMPLETION_PLAN_FA.md` گام ۴)
+- Agent/tool: Claude، فقط ویرایش و خواندن کد؛ `kotlinc` برای بررسی نحو
+- Baseline source hash/version: شاخهٔ `phase-2b-ui-a` `6c73490`
+- Files changed: `LessonScreens.kt` (`FindTask`، `BubbleTask`، `MatchTask`، استخراج `ListenCard`)، `AvaViewModel.kt` (`flip`، `clearMismatch`، استخراج `recordChecked`)، `AvaActions.kt`، `design/strings.fa.json` و منابع تولیدی (۶ رشتهٔ پیشنهادی)، `validate-content-contract.py` و `test-activity-kinds.py` (پیام قید)، `docs/` و `PROJECT_STATE.md`
+- Commands actually executed: بررسی نحو با `kotlinc` روی کل سورس، `jvm-core-check`، `sync --check`، `check-docs.py`، `test-activity-kinds.py`، `audit-project.py`
+- Results: صفر خطای نحوی؛ همهٔ خطاهای خطوط تازه از نوع «پیدا نشد». یک import لازم (`animateFloat`) را با بازبینی دستی پیدا و اضافه کردم (فایل importهای صریح دارد و بررسی نحو چنین خطایی را نمی‌گیرد). Match طراحی «کارت‌های رو» است نه حافظه‌ای؛ حباب‌ها حدود ۵dp بر ثانیه حرکت می‌کنند و در کاهش حرکت ثابت‌اند؛ اشتباه شمرده نمی‌شود.
+- **اجرا نشد:** Compose، ViewModel، Robolectric. تست UI برای renderer‌ها نوشته نشد، چون ساخت `AvaState` با محتوای سفارشی بدون Gradle قابل راستی‌آزمایی نبود؛ fixture آن در I8 می‌ماند.
+- Blocked by: toolchain Native؛ برداشتن قید `unrendered_kinds` پس از QA دستگاه
+- Evidence paths: `android/app/src/main/java/com/ava/reading/ui/screens/LessonScreens.kt`
+- Next action: G1 تا G3 (مسیر، دیالوگ‌ها، کاهش حرکت پیش‌فرض)، سپس I3 تا I9.
