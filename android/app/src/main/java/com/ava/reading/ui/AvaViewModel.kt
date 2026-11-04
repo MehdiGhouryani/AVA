@@ -199,18 +199,26 @@ class AvaViewModel(
     fun check() {
         val s=mutable.value;if(s.route!=Route.Lesson)return
         val result=ExerciseReducer.check(s.exercise,s.tasks);mutable.update {it.copy(exercise=result)};persistSession()
-        if(result!=s.exercise && result.checked) {
-            val key=if(s.reviewing)s.reviewKeys[s.exercise.index] else taskKey(s.selectedLesson,s.exercise.index,s.lessons)
-            val seenAt=progressClock()
-            save {learner->
-                val progress=(learner.taskProgress[key]?:TaskProgress()).record(result.correct,s.exercise.hintVisible,seenAt)
-                learner.copy(
-                    mistakes=if(result.correct)learner.mistakes else learner.mistakes+key,
-                    taskProgress=learner.taskProgress+(key to progress)
-                )
-            }
+        if(result!=s.exercise && result.checked)recordChecked(s,result)
+    }
+    private fun recordChecked(s: AvaState,result: Exercise) {
+        val key=if(s.reviewing)s.reviewKeys[s.exercise.index] else taskKey(s.selectedLesson,s.exercise.index,s.lessons)
+        val seenAt=progressClock()
+        save {learner->
+            val progress=(learner.taskProgress[key]?:TaskProgress()).record(result.correct,s.exercise.hintVisible,seenAt)
+            learner.copy(
+                mistakes=if(result.correct)learner.mistakes else learner.mistakes+key,
+                taskProgress=learner.taskProgress+(key to progress)
+            )
         }
     }
+    fun flip(card: Int) {
+        val s=mutable.value;if(s.route!=Route.Lesson)return
+        val result=ExerciseReducer.flip(s.exercise,card,s.tasks);if(result==s.exercise)return
+        mutable.update {it.copy(exercise=result)};persistSession()
+        if(result.checked && !s.exercise.checked)recordChecked(s,result)
+    }
+    fun clearMismatch() { mutable.update {if(it.route==Route.Lesson)it.copy(exercise=ExerciseReducer.clearMismatch(it.exercise)) else it} }
     fun advance() {
         val s=mutable.value;if(s.route!=Route.Lesson || s.exercise.complete)return
         val result=ExerciseReducer.advance(s.exercise,s.tasks);if(result==s.exercise)return

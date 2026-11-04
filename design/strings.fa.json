@@ -310,6 +310,30 @@
       "fa": "رد کردن این قدم",
       "source": "proposed"
     },
+    "find_title": {
+      "fa": "بگرد و پیدا کن",
+      "source": "proposed"
+    },
+    "bubble_title": {
+      "fa": "صدا رو بگیر",
+      "source": "proposed"
+    },
+    "match_title": {
+      "fa": "دو تا دوست پیدا کن",
+      "source": "proposed"
+    },
+    "match_hint": {
+      "fa": "آرام امتحان کن",
+      "source": "proposed"
+    },
+    "card_matched": {
+      "fa": "جفت شد",
+      "source": "proposed"
+    },
+    "card_selected": {
+      "fa": "انتخاب شد",
+      "source": "proposed"
+    },
     "explore_again": {
       "fa": "دوباره کشف کنیم",
       "source": "proposed"

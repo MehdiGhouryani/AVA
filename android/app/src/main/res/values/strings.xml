@@ -71,6 +71,12 @@
     <string name="app_activities" formatted="false">{count} بازی کوتاه</string>
     <string name="app_check" formatted="false">بررسی کن</string>
     <string name="app_skip_step" formatted="false">رد کردن این قدم</string>
+    <string name="app_find_title" formatted="false">بگرد و پیدا کن</string>
+    <string name="app_bubble_title" formatted="false">صدا رو بگیر</string>
+    <string name="app_match_title" formatted="false">دو تا دوست پیدا کن</string>
+    <string name="app_match_hint" formatted="false">آرام امتحان کن</string>
+    <string name="app_card_matched" formatted="false">جفت شد</string>
+    <string name="app_card_selected" formatted="false">انتخاب شد</string>
     <string name="app_explore_again" formatted="false">دوباره کشف کنیم</string>
     <string name="app_flowers_title" formatted="false">گل‌های این هفته</string>
     <string name="app_flowers_note" formatted="false">هر روز که تمرین کنی، یک گل می‌شکفد.</string>

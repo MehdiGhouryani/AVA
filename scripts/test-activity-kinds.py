@@ -61,7 +61,7 @@ def main() -> int:
         checks = [("contract accepts find, bubble and match", run(root, "validate-content-contract.py", True).returncode == 0),
                   ("audio inventory accepts find and bubble", run(root, "validate-audio-inventory.py", True).returncode == 0)]
         blocked = run(root, "validate-content-contract.py", False)
-        checks.append(("match stays blocked in shipped content", blocked.returncode != 0 and "No renderer yet" in blocked.stderr))
+        checks.append(("match stays blocked in shipped content", blocked.returncode != 0 and "Renderer not verified yet" in blocked.stderr))
         for name, mutate in (
             ("odd number of match tokens", lambda t: t["tokens"].pop()),
             ("match target out of sync with tokens", lambda t: t.update(target="آب=آ|گل=گ|باد=ب")),

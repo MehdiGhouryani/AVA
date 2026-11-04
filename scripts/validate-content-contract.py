@@ -37,7 +37,7 @@ token_kinds = {"build_word", "segment", "blend"}
 pair_kinds = {"match"}
 listening_kinds = {"listen", "initial_sound", "final_sound", "bubble"}
 visual_kinds = {"recognize", "dot_family", "positional_form", "find"}
-# Kinds whose Compose renderer does not exist yet may not ship in content (probe tests set the override).
+# Kinds whose Compose renderer is written but not yet verified on a device may not ship in content (probe tests set the override).
 unrendered_kinds = set() if os.environ.get("AVA_ALLOW_UNRENDERED_KINDS") == "1" else {"match"}
 for level in content["levels"]:
     assert level["id"] not in ids; ids.add(level["id"])
@@ -54,7 +54,7 @@ for level in content["levels"]:
                 assert task["skillIds"] and set(task["skillIds"]) <= set(skill_ids)
                 assert set(task["assetRefs"]) <= assets
                 assert task["kind"] in token_kinds | pair_kinds | listening_kinds | visual_kinds
-                assert task["kind"] not in unrendered_kinds, ("No renderer yet for", task["kind"])
+                assert task["kind"] not in unrendered_kinds, ("Renderer not verified yet for", task["kind"])
                 if task["kind"] in pair_kinds:
                     tokens = task["tokens"]
                     assert task["audioRef"] is None and task["writtenFallback"] is None and not task["audioRequiredForPublication"]

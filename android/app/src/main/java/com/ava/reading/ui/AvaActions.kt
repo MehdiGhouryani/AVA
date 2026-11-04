@@ -15,7 +15,8 @@ data class AvaActions(
     val storyAnswer: (String)->Unit = {}, val checkStory: ()->Unit = {}, val finishStory: ()->Unit = {},
     val name: (String)->Unit = {}, val avatar: (Int)->Unit = {}, val saveProfile: ()->Unit = {}, val setting: (String,Boolean)->Unit = {_,_->},
     val confirm: (Confirmation?)->Unit = {}, val confirmAction: ()->Unit = {}, val retryStorage: ()->Unit = {}, val notice: (String?)->Unit = {},
-    val listen: (AudioRequest)->Unit = {}, val stop: ()->Unit = {}, val skip: ()->Unit = {}
+    val listen: (AudioRequest)->Unit = {}, val stop: ()->Unit = {}, val skip: ()->Unit = {},
+    val flip: (Int)->Unit = {}, val clearMismatch: ()->Unit = {}
 )
 fun AvaViewModel.actions() = AvaActions(
     navigate=::navigate,back={back();Unit},phone=::phone,consent=::consent,blurPhone=::validatePhone,
@@ -23,5 +24,5 @@ fun AvaViewModel.actions() = AvaActions(
     choose=::choose,chooseToken=::chooseToken,removeToken=::removeToken,revealHint=::revealHint,
     check=::check,advance=::advance,review=::review,openStory=::openStory,startStory=::startStory,page=::page,
     storyAnswer=::storyAnswer,checkStory=::checkStory,finishStory=::finishStory,name=::editName,avatar=::avatar,saveProfile=::saveProfile,
-    setting=::setting,confirm=::confirm,confirmAction=::confirmAction,retryStorage=::retryStorage,notice=::notice,skip=::skip
+    setting=::setting,confirm=::confirm,confirmAction=::confirmAction,retryStorage=::retryStorage,notice=::notice,skip=::skip,flip=::flip,clearMismatch=::clearMismatch
 )

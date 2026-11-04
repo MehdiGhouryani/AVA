@@ -1,5 +1,11 @@
 package com.ava.reading.ui.screens
 
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -14,6 +20,7 @@ import androidx.compose.material.icons.outlined.RadioButtonChecked
 import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.key
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,6 +40,8 @@ import com.ava.reading.ui.AvaActions
 import com.ava.reading.ui.AvaState
 import com.ava.reading.ui.Route
 import com.ava.reading.ui.theme.AvaColors
+import com.ava.reading.ui.theme.LocalReducedMotion
+import kotlinx.coroutines.delay
 
 private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
     ActivityFamily.Visual->"activity_recognize"
@@ -90,6 +99,9 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
                     val definition=ActivityRegistry[task.kind]
                     when {
                         definition.interaction==ActivityInteraction.TokenBuild->BuildWordTask(task,e,compact,a)
+                        definition.interaction==ActivityInteraction.PairMatch->MatchTask(task,e,a)
+                        task.kind==TaskKind.Find->FindTask(task,e,s.learner.narration,compact,a)
+                        task.kind==TaskKind.Bubble->BubbleTask(task,e,s.learner.narration,compact,a)
                         definition.supportsHint->ListenTask(task,e,s.learner.narration,compact,a)
                         else->RecognizeTask(task,e,s.learner.narration,compact,a)
                     }
@@ -98,7 +110,7 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
             }
             LessonFeedback(task,e,ExerciseReducer.response(e,s.tasks)!=null)
             if(e.checked&&e.correct)Primary(txt(if(e.index==s.tasks.lastIndex)"finish_lesson" else "next"),a.advance)
-            else Primary(txt("check"),a.check,enabled=ExerciseReducer.canCheck(e,s.tasks))
+            else if(ActivityRegistry[task.kind].interaction!=ActivityInteraction.PairMatch)Primary(txt("check"),a.check,enabled=ExerciseReducer.canCheck(e,s.tasks))
             if(ExerciseReducer.canSkip(e,s.tasks))Secondary(txt("skip_step"),a.skip)
         }
     }
@@ -121,7 +133,12 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
 }
 
 @Composable private fun ListenTask(task: Task,e: Exercise,narration: Boolean,compact: Boolean,a: AvaActions) {
-    Title(txt("listen_choose"))
+    ListenCard(task,e,narration,compact,a,"listen_choose")
+    ChoiceGroup(task,e,compact,a)
+}
+
+@Composable private fun ListenCard(task: Task,e: Exercise,narration: Boolean,compact: Boolean,a: AvaActions,titleKey: String) {
+    Title(txt(titleKey))
     SoftCard(Modifier.fillMaxWidth(),padding=if(compact)14.dp else 20.dp,gap=8.dp) {
         Icon(Icons.AutoMirrored.Outlined.VolumeUp,null,Modifier.align(Alignment.CenterHorizontally).size(48.dp),tint=AvaColors.green)
         Text(txt("listen_instruction"),Modifier.fillMaxWidth(),color=AvaColors.deep,textAlign=TextAlign.Center)
@@ -133,7 +150,80 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
             Text(fallback,Modifier.align(Alignment.CenterHorizontally).semantics {heading()},fontSize=if(fallback.length>1)48.sp else 64.sp,color=AvaColors.deep,textAlign=TextAlign.Center)
         } else TextButton(a.revealHint,Modifier.align(Alignment.CenterHorizontally).heightIn(min=64.dp)) {Text(txt("show_hint"))}
     }
-    ChoiceGroup(task,e,compact,a)
+}
+
+/** Find: the target is read and shown; three large scene tiles carry the choices. Identified by the letter and sound, not by colour. */
+@Composable private fun FindTask(task: Task,e: Exercise,narration: Boolean,compact: Boolean,a: AvaActions) {
+    Title(txt("find_title"))
+    TargetCard(task.target,task.audioRef,narration,compact,a)
+    Row(Modifier.fillMaxWidth().selectableGroup(),horizontalArrangement=Arrangement.spacedBy(8.dp)) {
+        task.choices.forEach {value->SceneTile(value,value==e.selected,!(e.checked&&e.correct),{a.choose(value)},Modifier.weight(1f))}
+    }
+}
+
+@Composable private fun SceneTile(value: String,selected: Boolean,enabled: Boolean,action: ()->Unit,modifier: Modifier) {
+    Surface(modifier.heightIn(min=112.dp).selectable(selected=selected,enabled=enabled,role=Role.RadioButton,onClick=action),shape=RoundedCornerShape(26.dp),color=if(selected)AvaColors.line else AvaColors.surface,
+        border=BorderStroke(if(selected)3.dp else 1.dp,if(selected)AvaColors.green else AvaColors.line)) {
+        Box(Modifier.fillMaxSize(),contentAlignment=Alignment.Center) {
+            Text(value,Modifier.padding(8.dp),fontSize=if(value.length>1)26.sp else 44.sp,color=AvaColors.deep,textAlign=TextAlign.Center)
+            if(selected)Icon(Icons.Outlined.RadioButtonChecked,null,tint=AvaColors.green,modifier=Modifier.align(Alignment.TopEnd).padding(8.dp).size(18.dp))
+        }
+    }
+}
+
+/** Bubble: listen, then tap the bubble with the sound. Bubbles only bob gently (about 5 dp per second); under reduced motion they stay still. */
+@Composable private fun BubbleTask(task: Task,e: Exercise,narration: Boolean,compact: Boolean,a: AvaActions) {
+    ListenCard(task,e,narration,compact,a,"bubble_title")
+    val reduced=LocalReducedMotion.current
+    val transition=rememberInfiniteTransition(label="bubbles")
+    Row(Modifier.fillMaxWidth().heightIn(min=132.dp).selectableGroup(),horizontalArrangement=Arrangement.SpaceEvenly,verticalAlignment=Alignment.CenterVertically) {
+        task.choices.forEachIndexed {index,value->
+            val drift=if(reduced)0f else transition.animateFloat(-6f,6f,infiniteRepeatable(tween(2600+index*500,easing=FastOutSlowInEasing),RepeatMode.Reverse),label="bubble$index").value
+            BubbleChoice(value,value==e.selected,!(e.checked&&e.correct),{a.choose(value)},Modifier.offset(y=drift.dp))
+        }
+    }
+}
+
+@Composable private fun BubbleChoice(value: String,selected: Boolean,enabled: Boolean,action: ()->Unit,modifier: Modifier) {
+    Surface(modifier.size(96.dp).selectable(selected=selected,enabled=enabled,role=Role.RadioButton,onClick=action),shape=RoundedCornerShape(100.dp),color=if(selected)AvaColors.line else AvaColors.surface,
+        border=BorderStroke(if(selected)3.dp else 1.dp,if(selected)AvaColors.green else AvaColors.line)) {
+        Box(Modifier.fillMaxSize(),contentAlignment=Alignment.Center) {
+            Text(value,fontSize=if(value.length>1)24.sp else 36.sp,color=AvaColors.deep,textAlign=TextAlign.Center)
+            if(selected)Icon(Icons.Outlined.RadioButtonChecked,null,tint=AvaColors.green,modifier=Modifier.align(Alignment.TopEnd).padding(10.dp).size(16.dp))
+        }
+    }
+}
+
+/** Match: every card is face up. Tap two that belong together; a match stays marked, a mismatch is shown with an amber ring and a refresh icon for 900 ms. Mistakes are never counted. */
+@Composable private fun MatchTask(task: Task,e: Exercise,a: AvaActions) {
+    Title(txt("match_title"))
+    val pairs=task.tokens.size/2
+    LaunchedEffect(e.mismatch) {if(e.mismatch!=null){delay(900);a.clearMismatch()}}
+    Column(Modifier.fillMaxWidth(),verticalArrangement=Arrangement.spacedBy(12.dp)) {
+        (0 until pairs).forEach {row->
+            Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(12.dp)) {
+                MatchCard(task.tokens[2*row],2*row,e,a,Modifier.weight(1f))
+                MatchCard(task.tokens[2*((row+1)%pairs)+1],2*((row+1)%pairs)+1,e,a,Modifier.weight(1f))
+            }
+        }
+    }
+}
+
+@Composable private fun MatchCard(label: String,card: Int,e: Exercise,a: AvaActions,modifier: Modifier) {
+    val matched=card/2 in e.matched
+    val picked=e.pending==card
+    val wrong=e.mismatch?.let {card==it.first || card==it.second}==true
+    val state=txt(if(matched)"card_matched" else "card_selected")
+    Surface({a.flip(card)},modifier.heightIn(min=96.dp).semantics {if(matched||picked)stateDescription=state},enabled=!matched,shape=RoundedCornerShape(22.dp),
+        color=if(matched||picked)AvaColors.line else AvaColors.surface,
+        border=BorderStroke(if(picked||wrong)3.dp else 1.dp,if(wrong)AvaColors.amber else if(matched||picked)AvaColors.green else AvaColors.line)) {
+        Box(Modifier.fillMaxSize(),contentAlignment=Alignment.Center) {
+            Text(label,Modifier.padding(12.dp),fontSize=if(label.length>1)28.sp else 34.sp,color=AvaColors.deep,textAlign=TextAlign.Center)
+            if(matched)Icon(Icons.Outlined.Check,null,tint=AvaColors.green,modifier=Modifier.align(Alignment.TopEnd).padding(8.dp).size(18.dp))
+            if(wrong)Icon(Icons.Outlined.Refresh,null,tint=AvaColors.amber,modifier=Modifier.align(Alignment.TopEnd).padding(8.dp).size(18.dp))
+            if(picked&&!wrong)Icon(Icons.Outlined.RadioButtonChecked,null,tint=AvaColors.green,modifier=Modifier.align(Alignment.TopEnd).padding(8.dp).size(18.dp))
+        }
+    }
 }
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -185,6 +275,7 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
 @Composable private fun LessonFeedback(task: Task,e: Exercise,hasResponse: Boolean) {
     if(!e.checked) {
         val key=when {
+            ActivityRegistry[task.kind].interaction==ActivityInteraction.PairMatch->"match_hint"
             !hasResponse && ActivityRegistry[task.kind].interaction==ActivityInteraction.TokenBuild->"build_more_hint"
             hasResponse && ActivityRegistry[task.kind].interaction==ActivityInteraction.TokenBuild->"build_ready_hint"
             !hasResponse->"select_hint"
