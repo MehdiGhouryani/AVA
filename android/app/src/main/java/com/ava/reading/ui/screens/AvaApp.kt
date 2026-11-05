@@ -15,7 +15,9 @@ import com.ava.reading.ui.theme.*
 private val roots=listOf(Route.Home,Route.Library,Route.Practice,Route.Profile)
 @Composable fun AvaApp(s: AvaState,a: AvaActions) {
     val rootsState=key(s.learner.signedIn) {rememberSaveableStateHolder()}
-    CompositionLocalProvider(LocalReducedMotion provides s.learner.reducedMotion) {
+    val context=androidx.compose.ui.platform.LocalContext.current
+    val systemMotionOff=remember(context) {android.provider.Settings.Global.getFloat(context.contentResolver,android.provider.Settings.Global.ANIMATOR_DURATION_SCALE,1f)==0f}
+    CompositionLocalProvider(LocalReducedMotion provides (s.learner.reducedMotion || systemMotionOff)) {
         Scaffold(modifier=Modifier.fillMaxSize().imePadding(),containerColor=AvaColors.paper,contentWindowInsets=WindowInsets.safeDrawing,
             bottomBar={if(s.route in roots)NavigationBar(containerColor=AvaColors.cream,tonalElevation=0.dp) {
                 val icons=listOf(Icons.Outlined.Home,Icons.Outlined.AutoStories,Icons.Outlined.PublishedWithChanges,Icons.Outlined.PersonOutline)
@@ -32,13 +34,13 @@ private val roots=listOf(Route.Home,Route.Library,Route.Practice,Route.Profile)
                 }
             }
         }
-        s.legal?.let {privacy->AlertDialog(onDismissRequest={a.legal(null)},title={Text(txt(if(privacy)"privacy" else "terms"))},text={Text(txt(if(privacy)"privacy_body" else "terms_body"))},confirmButton={TextButton({a.legal(null)}) {Text(txt("close"))}})}
+        s.legal?.let {privacy->AlertDialog(onDismissRequest={a.legal(null)},title={Text(txt(if(privacy)"privacy" else "terms"))},text={Text(txt(if(privacy)"privacy_body" else "terms_body"))},confirmButton={TextButton({a.legal(null)},Modifier.heightIn(min=64.dp)) {Text(txt("close"))}})}
         s.confirmation?.let {kind->
             val key=when(kind) {Confirmation.ExitLesson->"exit";Confirmation.ResetProgress->"reset";Confirmation.Logout->"logout"}
             AlertDialog(onDismissRequest={a.confirm(null)},title={Text(txt(key+"_title"))},text={Text(txt(key+"_body"))},
-                confirmButton={TextButton(a.confirmAction) {Text(txt("yes"))}},dismissButton={TextButton({a.confirm(null)}) {Text(txt("cancel"))}})
+                confirmButton={Button({a.confirm(null)},Modifier.heightIn(min=72.dp)) {Text(txt("cancel"))}},dismissButton={OutlinedButton(a.confirmAction,Modifier.heightIn(min=64.dp)) {Text(txt("yes"))}})
         }
-        s.notice?.let {message->AlertDialog(onDismissRequest={a.notice(null)},text={Text(txt(message))},confirmButton={TextButton({a.notice(null)}) {Text(txt("close"))}})}
+        s.notice?.let {message->AlertDialog(onDismissRequest={a.notice(null)},text={Text(txt(message))},confirmButton={TextButton({a.notice(null)},Modifier.heightIn(min=64.dp)) {Text(txt("close"))}})}
     }
 }
 
