@@ -285,3 +285,17 @@ Next action:
 - Blocked by: تنظیم `other_tcp` در سندباکس (تصمیم کاربر)
 - Evidence paths: `docs/NATIVE_VERIFICATION.json` (شمار تست ۱۲۹)، `docs/PROGRESS_FA.md` (بخش I8)
 - Next action: پس از Ask شدن `other_tcp`، اجرای گیت‌های تسک؛ I6 در گام v1-8 پس از بسته‌شدن گام‌های میانی.
+
+## ۲۰۲۶-۱۱-۰۵ — گیت‌های Gradle پس از Ask شدن `other_tcp`: daemon هنوز کار نمی‌کند
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۵
+- Task ID: `061-native-toolchain` (v1-1 و v1-2)
+- Agent/tool: Muse، شاخهٔ `phase-1-native-toolchain` از `main` (`e38d940`)
+- Baseline source hash/version: ادامهٔ کامیت `5e4bf8f` روی همین شاخه (PR #2)
+- Files changed: (بدون تغییر سورس در این دور)
+- Commands actually executed: نصب دوبارهٔ OpenJDK 17.0.20.1 با apt (ماشین مجازی عوض شده بود و `/usr/lib/jvm` از بین رفته بود؛ `~/android-sdk` و `~/gradle-8.11.1` سالم ماندند)؛ `sh gradlew testDebugUnitTest lintDebug --no-daemon`؛ `~/gradle-8.11.1/bin/gradle testDebugUnitTest lintDebug --no-daemon` (دو بار)؛ تست loopback با جاوای ساده (`Loop.java`: ServerSocket روی 127.0.0.1 + اتصال کلاینت)
+- Results: با Ask شدن `other_tcp` پیام middlebox دیگر نمی‌آید و سوکت JVM برقرار می‌شود، ولی: (۱) دانلود wrapper از services.gradle.org در TLS handshake با `SocketTimeoutException` بعد از ۱۰ ثانیه مرد؛ (۲) Gradle نصب‌شده بالا می‌آید («Welcome to Gradle 8.11.1!») ولی daemon تک‌مصرف همان اول می‌میرد: «The first result from the daemon was empty» — دو بار تکرار شد و پوشهٔ `~/.gradle/daemon/` اصلاً ساخته نشد؛ (۳) تست loopback علت را نشان داد: `connect()` به 127.0.0.1 موفق است ولی `accept()` هیچ‌وقت برنمی‌گردد و داده عبور نمی‌کند — اتصال برقرار می‌شود و مسیر داده سیاه‌چاله است. پس IPC حلقه‌به‌حلقهٔ daemon در این سندباکس کار نمی‌کند و Gradle 8.11 بدون daemon اجرا نمی‌شود. کارت تاییدی هم در انتظار نیست (`list_pending` خالی است).
+- **اجرا نشد:** `testDebugUnitTest` و `lintDebug` — علت تازه: IPC loopback جاوا، نه Deny بودن تنظیم.
+- Blocked by: فیلتر شبکهٔ سندباکس روی سوکت‌های JVM (تصمیم کاربر: Allow کردن `other_tcp` برای آزمایش دوباره، یا اجرای گیت‌ها روی ماشین مالک / GitHub Actions با تایید مالک)
+- Evidence paths: `docs/NATIVE_VERIFICATION.json` (بخش `latestResult`)
+- Next action: تصمیم مالک برای Allow یا مسیر خارج از سندباکس؛ پس از آن اجرای دوبارهٔ گیت‌ها و ثبت نتیجهٔ واقعی.
