@@ -299,3 +299,17 @@ Next action:
 - Blocked by: فیلتر شبکهٔ سندباکس روی سوکت‌های JVM (تصمیم کاربر: Allow کردن `other_tcp` برای آزمایش دوباره، یا اجرای گیت‌ها روی ماشین مالک / GitHub Actions با تایید مالک)
 - Evidence paths: `docs/NATIVE_VERIFICATION.json` (بخش `latestResult`)
 - Next action: تصمیم مالک برای Allow یا مسیر خارج از سندباکس؛ پس از آن اجرای دوبارهٔ گیت‌ها و ثبت نتیجهٔ واقعی.
+
+## ۲۰۲۶-۱۱-۰۵ — بازبینی کد PR شماره ۲ و بهبودها پیش از اجرای مالک روی Android Studio
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۵
+- Task ID: `061-native-toolchain` (v1-2/v1-3)
+- Agent/tool: Muse، شاخهٔ `phase-1-native-toolchain` از `main` (`e38d940`)
+- Baseline source hash/version: کامیت `b5fab86` روی همین شاخه (PR #2)
+- Files changed: `android/app/src/main/java/com/ava/reading/ui/screens/LessonScreens.kt`، `android/app/src/main/java/com/ava/reading/content/LocalContentRepository.kt`، `android/app/src/test/java/com/ava/reading/AllKindsFixture.kt`، `android/app/src/test/java/com/ava/reading/AllKindsUiTest.kt`، `android/app/src/test/java/com/ava/reading/ContentRepositoryTest.kt`، `android/app/src/test/java/com/ava/reading/JourneyUiTest.kt` (تازه)، `android/app/src/test/java/com/ava/reading/WidthsUiTest.kt` (تازه)، `PROJECT_STATE.md`، `docs/PROGRESS_FA.md`، `docs/NATIVE_VERIFICATION.json`
+- Commands actually executed: بازبینی کامل diff (خواندن کد + ردیابی منطق + تطبیق با محتوای واقعی و validator)؛ `python3 scripts/check-docs.py`؛ `python3 scripts/audit-project.py`؛ `python3 scripts/validate-harness.py`؛ `python3 scripts/validate-content-contract.py`؛ `python3 scripts/sync-android-resources.py --check`
+- Results: بازبینی این‌ها را پیدا کرد و همه اصلاح شدند — (۱) خطای کامپایل P0: پارامتر `size: Dp` در `BubbleChoice` بدون import کلاس `Dp` (فقط `dp`/`sp` import شده بودند)؛ (۲) تست `everyKindRendersItsTask` برای ۶ نوع از ۱۲ نوع غلط بود (هدف دو بار رندر می‌شود یا پشت hint پنهان است)؛ (۳) fixtureهای InitialSound/FinalSound با هدف واژه در برابر انتخاب‌های حرفی هیچ‌وقت درست نمی‌شدند؛ (۴) `validationError` درس با صفر فعالیت را قبول می‌کرد و `startLesson` با `coerceIn(0,-1)` کرش می‌کرد — حالا `lesson_tasks_empty`؛ (۵) کامنت حباب عدد اشتباه می‌گفت. تست‌های تازه: `everyKindAnswersCorrectly` (هر ۱۲ نوع با action واقعی)، `JourneyUiTest` (ورود با کد آزمایشی، درس اول، قصهٔ اول، درس → مرور → reset با ViewModel و AvaApp واقعی)، `WidthsUiTest` (۳۶۰dp و ۴۱۲dp). مجموع تست‌های سورس ۱۲۹ به ۱۳۷ رسید. تناقض ۱۶ در برابر ۱۸ تست CMS هم حل شد: ۱۸ درست است (۴ فایل، ۴+۷+۲+۵) و دو جای `PROGRESS_FA.md` و `docs/adr/0003` که ۱۶ می‌گفتند اصلاح شدند.
+- **اجرا نشد:** `testDebugUnitTest` و `lintDebug` — علت: daemon جاوا در سندباکس کار نمی‌کند (loopback سیاه‌چاله)؛ مالک روی Android Studio ماشین خودش اجرا می‌کند. همهٔ تغییرهای این دور فقط `read in code` هستند.
+- Blocked by: اجرای Gradle در سندباکس (تصمیم مالک: اجرا روی ماشین خودش)
+- Evidence paths: `docs/PROGRESS_FA.md` (بخش تازه)، `docs/NATIVE_VERIFICATION.json`، `PROJECT_STATE.md`
+- Next action: مالک `testDebugUnitTest` و `lintDebug` را روی Android Studio اجرا می‌کند و نتیجه را می‌گوید؛ پس از آن رفع شکست‌ها (در صورت وجود) و ثبت نتیجهٔ واقعی.

@@ -88,6 +88,7 @@ class LocalContentRepository(
         if(skillIds.size!=snapshot.skills.size)return "skill_ids_invalid"
         val lessons=snapshot.lessons
         if(lessons.isEmpty() || lessons.map {it.id}.distinct().size!=lessons.size)return "lesson_ids_invalid"
+        if(lessons.any {it.tasks.isEmpty()})return "lesson_tasks_empty"
         val tasks=lessons.flatMap {it.tasks}
         if(tasks.isEmpty() || tasks.map {it.id}.distinct().size!=tasks.size)return "task_ids_invalid"
         if(tasks.any {it.skillIds.isEmpty() || !skillIds.containsAll(it.skillIds)})return "task_skill_refs_invalid"

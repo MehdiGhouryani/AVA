@@ -39,6 +39,20 @@ class ContentRepositoryTest {
         assertEquals(Catalog.release.releaseId,repository.active().release.releaseId)
     }
 
+    @Test fun lessonWithZeroTasksIsRejectedWithoutChangingActive()=runBlocking {
+        val repository=LocalContentRepository()
+        val emptyLessonLevel=Catalog.levels.first().let {level->
+            level.copy(units=level.units.mapIndexed {unitIndex,unit->
+                if(unitIndex==0)unit.copy(lessons=unit.lessons.mapIndexed {lessonIndex,lesson->
+                    if(lessonIndex==0)lesson.copy(tasks=emptyList()) else lesson
+                }) else unit
+            })
+        }
+        val result=repository.activate(candidate(id="empty-lesson",levels=listOf(emptyLessonLevel)+Catalog.levels.drop(1)))
+        assertEquals(ContentActivationResult.Rejected("lesson_tasks_empty"),result)
+        assertEquals(Catalog.release.releaseId,repository.active().release.releaseId)
+    }
+
     @Test fun rollbackRestoresPreviousBundledSnapshot()=runBlocking {
         val repository=LocalContentRepository();val next=candidate()
         repository.activate(next);assertEquals(next.release.releaseId,repository.active().release.releaseId)

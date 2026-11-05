@@ -72,7 +72,7 @@
 
 ## وضعیت CMS و صوت
 
-Payload برای prototype از حالت ADR خارج و به سورس اجرایی تبدیل شده است: نسخهٔ پایدار 3.92.1، PostgreSQL، S3-compatible خصوصی، access/hook/version، پنج collection و ۱۶ تست دامنه. production build بدون DB موفق است، اما خود server و مسیر upload در برابر PostgreSQL/MinIO اجرا نشده‌اند؛ بنابراین تصمیم production هنوز مشروط است. تشخیص magic/hash پیاده شده ولی antivirus، decode و transcode عمداً به‌عنوان گیت واقعی باقی مانده‌اند.
+Payload برای prototype از حالت ADR خارج و به سورس اجرایی تبدیل شده است: نسخهٔ پایدار 3.92.1، PostgreSQL، S3-compatible خصوصی، access/hook/version، پنج collection و ۱۸ تست دامنه. production build بدون DB موفق است، اما خود server و مسیر upload در برابر PostgreSQL/MinIO اجرا نشده‌اند؛ بنابراین تصمیم production هنوز مشروط است. تشخیص magic/hash پیاده شده ولی antivirus، decode و transcode عمداً به‌عنوان گیت واقعی باقی مانده‌اند.
 
 اپ Android هیچ وابستگی، URL یا query مستقیم به CMS ندارد. ادمین آینده asset را مدیریت می‌کند؛ compiler فقط export کامل و تأییدشده را به ContentRelease تبدیل می‌کند. TTS دستگاه همچنان fallback توسعه است.
 
@@ -89,8 +89,8 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 | DB/object storage | compose آماده است؛ اجرا نشد چون Docker در محیط نصب نیست |
 | bundle/tamper | موفق و deterministic |
 | JSON/Python | ۷۶ JSON strict و Python compile موفق |
-| تست‌های Native/Compose در سورس | ۱۲۹ |
-| اجرای Gradle/APK | JDK 17 و Android SDK 35 و Gradle 8.11.1 در سندباکس نصب‌اند؛ اجرای Gradle مسدود است چون سوکت‌های جاوا بسته‌اند (`other_tcp` روی Deny)؛ هیچ تستی اجرا نشد |
+| تست‌های Native/Compose در سورس | ۱۳۷ |
+| اجرای Gradle/APK | JDK 17 و Android SDK 35 و Gradle 8.11.1 در سندباکس نصب‌اند؛ اجرای Gradle در سندباکس ممکن نیست — پس از Ask شدن `other_tcp` پیام مسدودیت رفت ولی daemon جاوا همان اول می‌میرد (مسیر دادهٔ loopback سیاه‌چاله است)؛ مالک گیت‌ها را روی Android Studio ماشین خودش اجرا می‌کند؛ هیچ تستی هنوز اجرا نشد |
 | permission اینترنت/میکروفن | وجود ندارد |
 | APK/AAB | ساخته نشد |
 
@@ -146,3 +146,18 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - I6 انجام نشد — اصولی: ابزار hash نسخه زیر گام v1-8 و تسک `080-release-readiness` است که هنوز blocked است (پیش‌نیاز: گام‌های v1-2 تا v1-7)؛ قرارداد AGENTS.md شروع کار blocked را ممنوع می‌کند. پس از بسته‌شدن گام‌های میانی انجام می‌شود.
 - مجموع تست‌های سورس اکنون ۱۲۹ است. تغییرها فقط `read in code` هستند و کامپایل نشده‌اند (Gradle همچنان مسدود به `other_tcp`).
 - اجرا‌شده (`ran`): `audit-project.py`، `validate-harness.py`، `check-docs.py` (۰ مشکل پس از اصلاح شمار تست به ۱۲۹)، `validate-content-contract.py`، `sync --check` — همه پاس.
+
+## بروزرسانی ۲۰۲۶-۱۱-۰۵ — بازبینی کد و بهبودها پیش از اجرای مالک روی Android Studio (بدون اجرای Gradle)
+
+- بازبینی کامل تغییرهای PR شماره ۲ (خواندن diff و ردیابی منطق) چند مورد واقعی پیدا کرد و همه اصلاح شدند:
+  - **خطای کامپایل P0:** در `LessonScreens.kt` پارامتر `size: Dp` بدون import کلاس `Dp` بود — `import androidx.compose.ui.unit.Dp` اضافه شد.
+  - **تست غلط AllKinds:** `onNodeWithText(target)` برای ۶ نوع از ۱۲ نوع درست نبود — برای Recognize/DotFamily/PositionalForm/Find هدف دو بار رندر می‌شود (TargetCard + کاشی انتخاب) و برای InitialSound/FinalSound هدف پشت hint پنهان است؛ حالا هر نوع با node درست خودش سنجیده می‌شود.
+  - **Fixture غیرقابل‌برد:** هدف InitialSound/FinalSound واژه («بابا»/«آب») بود در حالی که انتخاب‌ها حرف‌اند و `check` هیچ‌وقت درست نمی‌شد؛ هدف‌ها «ب» شدند و واژه‌ها در `writtenFallback` ماندند (همان قرارداد محتوای واقعی).
+  - **سوراخ validation:** `validationError` درس با صفر فعالیت را قبول می‌کرد و `startLesson` بعد با `coerceIn(0, -1)` کرش می‌کرد؛ حالا `lesson_tasks_empty` رد می‌شود و یک تست در `ContentRepositoryTest` دارد.
+  - **کامنت حباب:** عدد «۱۶dp فاصله» با ریاضی فرمول نمی‌خواند (در ۳۲۰dp فاصله‌ها حدود ۸dp‌ا‌ند)؛ کامنت با محاسبهٔ درست بازنویسی شد.
+- تست‌های تازه (همه فقط `read in code`، کامپایل و اجرا با مالک روی Android Studio):
+  - `everyKindAnswersCorrectly` در `AllKindsUiTest`: هر ۱۲ نوع با actionهای واقعی پاسخ داده می‌شوند (انتخاب، توکن‌ها، جفت‌های Match) تا «پیدایش کردی!».
+  - `JourneyUiTest` (۴ تست): ورود کاربر تازه با کد آزمایشی، تکمیل درس اول، خواندن قصهٔ اول، و درس → مرور → شروع دوباره (reset) — با `AvaViewModel` واقعی و `AvaApp` واقعی.
+  - `WidthsUiTest` (۲ تست): رندر Home/درس/حباب در عرض‌های ۳۶۰dp (مرز compact) و ۴۱۲dp.
+- مجموع تست‌های سورس اکنون ۱۳۷ است. I6 همچنان انجام نشد (همان دلیل بالا).
+- اجرا‌شده (`ran`): `audit-project.py`، `validate-harness.py`، `check-docs.py` (۰ مشکل پس از اصلاح شمار تست به ۱۳۷)، `validate-content-contract.py`، `sync --check` — همه پاس.

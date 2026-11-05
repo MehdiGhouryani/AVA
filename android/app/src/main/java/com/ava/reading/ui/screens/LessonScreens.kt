@@ -33,6 +33,7 @@ import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ava.reading.content.*
@@ -178,7 +179,11 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
     val reduced=LocalReducedMotion.current
     val transition=rememberInfiniteTransition(label="bubbles")
     BoxWithConstraints(Modifier.fillMaxWidth()) {
-        // Three 96 dp bubbles exactly fill a 320 dp screen with no margin: shrink them so at least 16 dp stays between neighbours.
+        // Three bubbles share the content width minus 32 dp of slack, clamped to
+        // 64–96 dp each. At 320 dp the content is 288 dp wide, so each bubble is
+        // about 85 dp and SpaceEvenly splits the 32 dp slack into four ~8 dp gaps.
+        // The /3 assumes exactly 3 choices, which the content validator enforces
+        // for listening kinds.
         val size=((maxWidth-32.dp)/3).coerceIn(64.dp,96.dp)
         Row(Modifier.fillMaxWidth().heightIn(min=132.dp).selectableGroup(),horizontalArrangement=Arrangement.SpaceEvenly,verticalAlignment=Alignment.CenterVertically) {
             task.choices.forEachIndexed {index,value->
