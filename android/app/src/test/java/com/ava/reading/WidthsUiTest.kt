@@ -40,22 +40,21 @@ class WidthsUiTest {
             }
         }
     }
-    private fun firstLessonRenders(width: Int,height: Int) {
-        val first=Catalog.lessons.first().tasks.first()
-        render({AvaState(route=Route.Lesson)},width=width,height=height)
-        ui.onAllNodesWithText(first.target)[1].performScrollTo().assertIsDisplayed()
-        ui.onNodeWithText("بررسی کن").assertIsDisplayed()
-    }
-
     @Config(qualifiers="w360dp-h640dp-mdpi")
     @Test fun homeLessonAndBubblesRenderAt360dp() {
-        render({AvaState(route=Route.Home)},width=360,height=640)
+        // One setContent per test — Compose forbids calling it twice, so
+        // navigate by reassigning the state, not by re-rendering.
+        var state by mutableStateOf(AvaState(route=Route.Home))
+        render({state},width=360,height=640)
         ui.onNodeWithText("شروع تمرین").assertIsDisplayed()
-        firstLessonRenders(360,640)
+        state=AvaState(route=Route.Lesson)
+        val first=Catalog.lessons.first().tasks.first()
+        ui.onAllNodesWithText(first.target)[1].performScrollTo().assertIsDisplayed()
+        ui.onNodeWithText("بررسی کن").assertIsDisplayed()
         // The 360 dp boundary: three bubbles share 288 dp of content
         // width, so each is about 85 dp — still within 64–96 dp.
         val bubbleIndex=AllKindsFixture.tasks().indexOfFirst {it.kind==TaskKind.Bubble}
-        render({AvaState(route=Route.Lesson,content=AllKindsFixture.snapshot(),selectedLesson="lesson_all_kinds",exercise=Exercise(index=bubbleIndex))},width=360,height=640)
+        state=AvaState(route=Route.Lesson,content=AllKindsFixture.snapshot(),selectedLesson="lesson_all_kinds",exercise=Exercise(index=bubbleIndex))
         ui.onNodeWithText("پ").performScrollTo().assertIsDisplayed()
         val radio=SemanticsMatcher.expectValue(SemanticsProperties.Role,Role.RadioButton)
         ui.onAllNodes(radio).assertCountEquals(3)
@@ -64,9 +63,10 @@ class WidthsUiTest {
 
     @Config(qualifiers="w412dp-h892dp-mdpi")
     @Test fun homeAndLessonRenderAt412dp() {
-        render({AvaState(route=Route.Home)},width=412,height=892)
+        var state by mutableStateOf(AvaState(route=Route.Home))
+        render({state},width=412,height=892)
         ui.onNodeWithText("شروع تمرین").assertIsDisplayed()
-        render({AvaState(route=Route.Lesson)},width=412,height=892)
+        state=AvaState(route=Route.Lesson)
         val first=Catalog.lessons.first().tasks.first()
         ui.onAllNodesWithText(first.target)[1].performScrollTo().assertIsDisplayed()
         ui.onNodeWithText("بررسی کن").assertIsDisplayed()

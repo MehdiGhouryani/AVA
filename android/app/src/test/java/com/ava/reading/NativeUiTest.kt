@@ -319,7 +319,9 @@ class NativeUiTest {
         val learner=Learner(completed=Catalog.lessons.map {it.id}.toSet(),stories=setOf(Catalog.stories.first().id),reviews=1)
         render({AvaState(route=Route.Progress,learner=learner)},AvaActions(navigate={destination=it}),width=320,height=560,font=1.3f)
         ui.onNodeWithText("همهٔ مرحله‌های این باغ کامل شده‌اند؛ قصه‌ها منتظرند.").performScrollTo().assertIsDisplayed()
-        ui.onNodeWithText("۶ از ۶ یادگاری به دست آمده").performScrollTo().assertIsDisplayed()
+        // Four badges exist (first lesson, all lessons, story, review) — not
+        // six: this learner earned all four, so the summary reads ۴ از ۴.
+        ui.onNodeWithText("۴ از ۴ یادگاری به دست آمده").performScrollTo().assertIsDisplayed()
         ui.onNodeWithText("قصه‌ها").performScrollTo().performClick();assertEquals(Route.Library,destination)
         snapshot("progress-complete-320-large")
     }
@@ -363,7 +365,11 @@ class NativeUiTest {
     }
     @Config(qualifiers="w320dp-h560dp-mdpi")
     @Test fun wordBuilderUsesLargeTapTargetsAndSupportsCorrection() {
-        var state by mutableStateOf(AvaState(route=Route.Lesson,selectedLesson=Catalog.lessons[2].id))
+        // The word-builder lesson is words_03: its first task is build_word
+        // آب with tokens [ب, آ]. Lesson 3 (edge_sounds_03) starts with an
+        // initial_sound choice task instead, so "آ" was never on screen.
+        val wordLesson=Catalog.lessons.first {it.tasks.firstOrNull()?.kind==TaskKind.BuildWord}
+        var state by mutableStateOf(AvaState(route=Route.Lesson,selectedLesson=wordLesson.id))
         val a=AvaActions(chooseToken={state=state.copy(exercise=ExerciseReducer.chooseToken(state.exercise,it,state.tasks))},removeToken={state=state.copy(exercise=ExerciseReducer.removeToken(state.exercise,state.tasks))},check={state=state.copy(exercise=ExerciseReducer.check(state.exercise,state.tasks))})
         render({state},a,width=320,height=560,font=1.3f)
         ui.onNodeWithText("بررسی کن").assertIsNotEnabled()

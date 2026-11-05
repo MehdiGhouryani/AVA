@@ -59,9 +59,12 @@ class AllKindsUiTest {
         assertEquals(TaskKind.entries,AllKindsFixture.tasks().map {it.kind})
     }
     @Test fun everyKindRendersItsTask() {
+        // One setContent per test — Compose forbids calling it twice, so
+        // switch tasks by reassigning the state, not by re-rendering.
+        var state by mutableStateOf(AvaState(route=Route.Lesson,content=AllKindsFixture.snapshot(),selectedLesson="lesson_all_kinds",exercise=Exercise(index=0)))
+        render({state})
         AllKindsFixture.tasks().forEachIndexed {index,task->
-            var state by mutableStateOf(AvaState(route=Route.Lesson,content=AllKindsFixture.snapshot(),selectedLesson="lesson_all_kinds",exercise=Exercise(index=index)))
-            render({state})
+            state=state.copy(exercise=Exercise(index=index))
             visibleNode(task).performScrollTo().assertIsDisplayed()
             if(task.kind==TaskKind.Match)ui.onNodeWithText("بررسی کن").assertDoesNotExist()
             else ui.onNodeWithText("بررسی کن").assertIsDisplayed()
@@ -74,16 +77,21 @@ class AllKindsUiTest {
      * Every kind must reach the "پیدایش کردی!" feedback.
      */
     @Test fun everyKindAnswersCorrectly() {
+        // One setContent per test (see everyKindRendersItsTask), and the
+        // check button lives in the lesson's fixed footer, outside the
+        // scrollable column — performScrollTo on it throws "no parent
+        // layout with a Scroll SemanticsAction", so click it directly.
+        var state by mutableStateOf(AvaState(route=Route.Lesson,content=AllKindsFixture.snapshot(),selectedLesson="lesson_all_kinds",exercise=Exercise(index=0)))
+        val actions=AvaActions(
+            choose={state=state.copy(exercise=ExerciseReducer.choose(state.exercise,it,state.tasks))},
+            chooseToken={state=state.copy(exercise=ExerciseReducer.chooseToken(state.exercise,it,state.tasks))},
+            check={state=state.copy(exercise=ExerciseReducer.check(state.exercise,state.tasks))},
+            flip={state=state.copy(exercise=ExerciseReducer.flip(state.exercise,it,state.tasks))},
+            clearMismatch={state=state.copy(exercise=ExerciseReducer.clearMismatch(state.exercise))}
+        )
+        render({state},actions)
         AllKindsFixture.tasks().forEachIndexed {index,task->
-            var state by mutableStateOf(AvaState(route=Route.Lesson,content=AllKindsFixture.snapshot(),selectedLesson="lesson_all_kinds",exercise=Exercise(index=index)))
-            val actions=AvaActions(
-                choose={state=state.copy(exercise=ExerciseReducer.choose(state.exercise,it,state.tasks))},
-                chooseToken={state=state.copy(exercise=ExerciseReducer.chooseToken(state.exercise,it,state.tasks))},
-                check={state=state.copy(exercise=ExerciseReducer.check(state.exercise,state.tasks))},
-                flip={state=state.copy(exercise=ExerciseReducer.flip(state.exercise,it,state.tasks))},
-                clearMismatch={state=state.copy(exercise=ExerciseReducer.clearMismatch(state.exercise))}
-            )
-            render({state},actions)
+            state=state.copy(exercise=Exercise(index=index))
             when(task.kind) {
                 TaskKind.Match -> {
                     // Pairs are آب=آ, باد=ب, گل=گ; each label is a unique card.
@@ -96,14 +104,14 @@ class AllKindsUiTest {
                     // Target آب, tokens [ب, آ]: tap آ then ب.
                     ui.onNodeWithText("آ").performScrollTo().performClick()
                     ui.onNodeWithText("ب").performScrollTo().performClick()
-                    ui.onNodeWithText("بررسی کن").performScrollTo().performClick()
+                    ui.onNodeWithText("بررسی کن").performClick()
                 }
                 TaskKind.Segment -> {
                     // Target باد, tokens [د, ب, ا]: tap ب, ا, د in word order.
                     ui.onNodeWithText("ب").performScrollTo().performClick()
                     ui.onNodeWithText("ا").performScrollTo().performClick()
                     ui.onNodeWithText("د").performScrollTo().performClick()
-                    ui.onNodeWithText("بررسی کن").performScrollTo().performClick()
+                    ui.onNodeWithText("بررسی کن").performClick()
                 }
                 TaskKind.Blend -> {
                     // Target باب, tokens [ب, ا, ب]: the two ب buttons stay
@@ -111,11 +119,11 @@ class AllKindsUiTest {
                     ui.onAllNodesWithText("ب")[0].performScrollTo().performClick()
                     ui.onNodeWithText("ا").performScrollTo().performClick()
                     ui.onAllNodesWithText("ب")[1].performScrollTo().performClick()
-                    ui.onNodeWithText("بررسی کن").performScrollTo().performClick()
+                    ui.onNodeWithText("بررسی کن").performClick()
                 }
                 else -> {
                     visibleNode(task).performScrollTo().performClick()
-                    ui.onNodeWithText("بررسی کن").performScrollTo().performClick()
+                    ui.onNodeWithText("بررسی کن").performClick()
                 }
             }
             ui.onNodeWithText("پیدایش کردی!").assertExists()

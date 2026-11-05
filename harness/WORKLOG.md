@@ -327,3 +327,17 @@ Next action:
 - Blocked by: اجرای Gradle در سندباکس (تصمیم مالک: اجرا روی ماشین خودش)؛ تصمیم مالک برای طراحی/ساخت پخش‌کنندهٔ صوت انسانی (P0 باز)
 - Evidence paths: `docs/PROGRESS_FA.md` (بخش تازه)، `docs/NATIVE_VERIFICATION.json`، `PROJECT_STATE.md`
 - Next action: مالک `testDebugUnitTest` و `lintDebug` را روی Android Studio اجرا می‌کند و نتیجه را می‌گوید؛ پس از آن رفع شکست‌ها (در صورت وجود) و ثبت نتیجهٔ واقعی. جداگانه: تصمیم مالک دربارهٔ ساخت پخش‌کنندهٔ صوت انسانی (P0) پیش از v1-5.
+
+## ۲۰۲۶-۱۱-۰۵ — اولین اجرای واقعی گیت‌های Gradle روی ماشین مالک: ۱۳۳ از ۱۴۰ سبز، lint سبز؛ اصلاح ۶ تست از ۷ تست قرمز
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۵
+- Task ID: `061-native-toolchain` (v1-2/v1-3)
+- Agent/tool: Muse، شاخهٔ `phase-1-native-toolchain` از `main` (`e38d940`)
+- Baseline source hash/version: ادامهٔ کامیت `68b9e9d` روی همین شاخه (PR #2)
+- Files changed: `android/app/src/test/java/com/ava/reading/WidthsUiTest.kt`، `android/app/src/test/java/com/ava/reading/AllKindsUiTest.kt`، `android/app/src/test/java/com/ava/reading/NativeUiTest.kt`، `PROJECT_STATE.md`، `docs/PROGRESS_FA.md`، `docs/NATIVE_VERIFICATION.json`
+- Commands actually executed: اجرای گیت‌ها روی ماشین مالک (ویندوز): `gradlew.bat testDebugUnitTest lintDebug --no-daemon` با `JAVA_HOME` روی JDK 17 و `JAVA_TOOL_OPTIONS=-Drobolectric.dependency.dir=D:\robolectric-deps`؛ در سندباکس فقط `python3 scripts/audit-project.py`، `validate-harness.py`، `check-docs.py`، `validate-content-contract.py`، `sync --check`، `validate-audio-inventory.py`
+- Results: اولین اجرای واقعی گیت‌ها در تاریخ برنچ — تا پیش از این `nativeTestsExecuted` صادقانه `false` بود. `testDebugUnitTest`: از ۱۴۰ تست، ۱۳۳ پاس و ۷ failed؛ `lintDebug`: BUILD SUCCESSFUL. کارهای سطح ماشین (بدون تغییر سورس): Build Tools ‏۳۵٫۰٫۰ نبود و دانلودش از آن شبکه بلاک است (404؛ میرور Aliyun) — کپی محلی از ۳۶٫۰٫۰ با متادیتای ۳۵٫۰٫۰ در `D:\SDK\build-tools\35.0.0`؛ باگ مسیر Robolectric (فاصله در نام کاربر → مسیر `%20`-انکودشدهٔ `.m2`، اول ۵۵ خطای `UnsatisfiedLinkError` در RenderNode) — با `D:\robolectric-deps` و `JAVA_TOOL_OPTIONS` حل شد. اصلاح‌شده در این کامیت (همه باگ تست، نه باگ اپ): (۱) «Cannot call setContent twice» در `WidthsUiTest` (هر دو تست) و `AllKindsUiTest.everyKindRendersItsTask` — حالا یک `setContent` در هر تست و جابه‌جایی با تغییر state؛ (۲) `performScrollTo` روی «بررسی کن» در `everyKindAnswersCorrectly` — دکمه در فوتر ثابت درس است، بیرون از ستون اسکرول‌شونده؛ حالا کلیک مستقیم؛ (۳) متن یادگاری «۶ از ۶» → «۴ از ۴» (فقط ۴ یادگاری وجود دارد)؛ (۴) درس word-builder اشتباه بود (`edge_sounds_03` به‌جای `words_03`). اصلاح نشد: `JourneyUiTest.newUserLogsInWithMockCode` («component is not displayed») — خط دقیق از روی سورس قابل تعیین نیست؛ متن کامل `<failure>` از XML مالک لازم است. همهٔ ولیدیتورهای پایتون پاس شدند (audit، harness، check-docs با ۰ مشکل، content-contract، sync --check، audio-inventory). شمار تست‌ها همچنان ۱۴۰.
+- **اجرا نشد:** اجرای دوبارهٔ `testDebugUnitTest`/`lintDebug` پس از اصلاح‌ها — با مالک روی ماشین خودش است. همهٔ تغییرهای این دور فقط `read in code` هستند.
+- Blocked by: اجرای Gradle در سندباکس (loopback سیاه‌چاله)؛ متن خطای دقیق تست ورود (Journey) از مالک
+- Evidence paths: `docs/PROGRESS_FA.md` (بخش تازه)، `docs/NATIVE_VERIFICATION.json` (`nativeTestsExecuted` اکنون `true`، نتیجهٔ واقعی اجرا)، `PROJECT_STATE.md`
+- Next action: مالک متن کامل `<failure>` تست `newUserLogsInWithMockCode` را از `TEST-com.ava.reading.JourneyUiTest.xml` می‌فرستد؛ پس از اصلاح آن، اجرای دوبارهٔ گیت‌ها و بعد مرج PR شماره ۱ و PR شماره ۲ به main.
