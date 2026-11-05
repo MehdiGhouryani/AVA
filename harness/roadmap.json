@@ -365,7 +365,7 @@
           "priority": "P0",
           "status": "blocked",
           "automationAllowed": true,
-          "dependsOn": ["080-content-expansion", "080-human-audio-rights", "080-device-accessibility-qa", "080-account-privacy-operations"],
+          "dependsOn": ["080-human-audio-rights", "080-device-accessibility-qa", "080-account-privacy-operations"],
           "readFirst": ["AGENTS.md", "docs/AVA_MASTER_ROADMAP_FA.md", "docs/DEVICE_QA_FA.md"],
           "allowedPaths": ["android/**", "cms/**", "design/**", "docs/**", "scripts/**", "harness/**"],
           "acceptance": [
