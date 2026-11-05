@@ -89,8 +89,8 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 | DB/object storage | compose آماده است؛ اجرا نشد چون Docker در محیط نصب نیست |
 | bundle/tamper | موفق و deterministic |
 | JSON/Python | ۷۶ JSON strict و Python compile موفق |
-| تست‌های Native/Compose در سورس | ۱۰۴ |
-| اجرای Gradle/APK | متوقف پیش از configuration؛ Android SDK موجود نیست و دانلود Gradle 8.11.1 با `Network is unreachable` شکست خورد |
+| تست‌های Native/Compose در سورس | ۱۲۲ |
+| اجرای Gradle/APK | JDK 17 و Android SDK 35 و Gradle 8.11.1 در سندباکس نصب‌اند؛ اجرای Gradle مسدود است چون سوکت‌های جاوا بسته‌اند (`other_tcp` روی Deny)؛ هیچ تستی اجرا نشد |
 | permission اینترنت/میکروفن | وجود ندارد |
 | APK/AAB | ساخته نشد |
 
@@ -112,3 +112,15 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - اجرا‌شده (`ran`): `scripts/jvm-core-check.py` روی `content` و `data`: ۳۸ تست پاس؛ همهٔ validatorها؛ `audit-project.py` پاس (پس از حذف سه مرجع کهنهٔ `.aistudio` از ممیزی).
 - تغییرهای UI/ViewModel/DataStore (اندازهٔ لمس ۶۴/۷۲dp، رد کردن پس از دو اشتباه، `activeDays`) فقط `read in code` هستند و کامپایل نشده‌اند.
 - گیت‌های باز بدون تغییر: Gradle/lint، تأیید متخصص آموزش، صوت انسانی، DB/S3، QA دستگاه.
+
+## بروزرسانی ۲۰۲۶-۱۱-۰۵ — toolchain و رفع P0 در شاخهٔ `phase-1-native-toolchain` (بدون اجرای Gradle)
+
+این بخش کار تسک `061-native-toolchain` را نشان می‌دهد. هیچ گیتی بسته نشد و امتیاز ۴۵ عمداً تغییر نکرد.
+
+- محیط toolchain در سندباکس آماده شد: OpenJDK 17.0.20.1 (apt)، Android SDK 35 (پلتفرم ext15، build-tools 35.0.0، platform-tools — با curl گرفته شد چون `sdkmanager` با جاوا به شبکه نمی‌رسد)، Gradle 8.11.1 (توزیع با SHA-256 تاییدشده).
+- اجرای Gradle در این سندباکس ممکن نیست: سوکت‌های JVM بسته‌اند (`other_tcp` روی Deny) و با جاوای ساده بازتولید شد — دانلود wrapper، IPC حلقه‌به‌حلقهٔ daemon و دانلود وابستگی‌ها هر سه می‌میرند. رفع آن دست کاربر است: Muse settings ← Permissions ← Direct network protocols ← `other_tcp` روی Ask. تا آنجا `testDebugUnitTest` و `lintDebug` اجرا نشده‌اند.
+- رفع P0 (فقط `read in code`، کامپایل نشده): در `AvaViewModel` بارگذاری محتوا به `loadContent()` جدا شد و شکست آن بنر تلاش دوباره (`storageError`، همان بنری که در Splash هم دیده می‌شود) را نشان می‌دهد؛ `retryStorage()` حالا محتوای ناموفق را هم دوباره بار می‌کند. دو تست رگرسیون تازه در `AvaViewModelTest` (همیشه‌خراب و یک‌بار‌خراب) این رفتار را می‌سنجند؛ مجموع تست‌های سورس اکنون ۱۲۲ است.
+- رشتهٔ نسخه درست شد: `design/strings.fa.json` (`version`) از «۰٫۴٫۱» به «۰٫۶٫۱» و `strings.xml` با sync بازتولید شد؛ `sync --check` پاس شد.
+- `android/gradlew` در ریپو مجوز اجرا ندارد (mode 644)؛ تغییر mode با API گیت‌هاب قابل push نیست و موقع مرج با یک دستور `chmod +x android/gradlew` انجام می‌شود.
+- اجرا‌شده (`ran`): `audit-project.py`، `validate-harness.py`، `check-docs.py` (پس از اصلاح شمار تست در `PROJECT_STATE.md` به ۱۲۲)، `validate-content-contract.py`، `sync --check` — همه پاس.
+- گیت‌های باز بدون تغییر: Gradle/lint (مسدود به تنظیم کاربر)، تأیید متخصص آموزش، صوت انسانی، DB/S3، QA دستگاه.

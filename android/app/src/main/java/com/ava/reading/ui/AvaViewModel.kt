@@ -48,20 +48,13 @@ class AvaViewModel(
     private var request: Job?=null
     private var ticker: Job?=null
     private var loading: Job?=null
+    private var contentLoading: Job?=null
     private var splashReady=false
     private var loaded=false
     private var pending=0
     private val writes=Channel<Learner>(Channel.UNLIMITED)
     init {
-        viewModelScope.launch {
-            val active=contentRepository.active()
-            mutable.update {state->state.copy(
-                content=active,contentReady=true,
-                selectedLesson=state.selectedLesson.takeIf {id->active.lessons.any {it.id==id}}?:active.lessons.first().id,
-                selectedStory=state.selectedStory.takeIf {id->active.stories.any {it.id==id}}?:active.stories.first().id
-            )}
-            finishStartup()
-        }
+        loadContent()
         viewModelScope.launch {
             // Single writer preserves user intent order. Each snapshot includes all preceding UI edits,
             // so a later successful write also recovers a preceding failed write without losing progress.
@@ -74,6 +67,23 @@ class AvaViewModel(
         }
         readData()
         viewModelScope.launch { delay(1800); splashReady=true; finishStartup() }
+    }
+    // A failed bundled-content load must surface the retry banner instead of
+    // leaving the app on Splash forever: active() throws on invalid content.
+    private fun loadContent() {
+        contentLoading?.cancel()
+        contentLoading=viewModelScope.launch {
+            try {
+                val active=contentRepository.active()
+                mutable.update {state->state.copy(
+                    content=active,contentReady=true,
+                    selectedLesson=state.selectedLesson.takeIf {id->active.lessons.any {it.id==id}}?:active.lessons.first().id,
+                    selectedStory=state.selectedStory.takeIf {id->active.stories.any {it.id==id}}?:active.stories.first().id
+                )}
+                finishStartup()
+            } catch(e: CancellationException) { throw e }
+            catch(_: Exception) { mutable.update { it.copy(storageError=true) } }
+        }
     }
     private fun readData() {
         loading?.cancel()
@@ -106,7 +116,9 @@ class AvaViewModel(
     }
     private fun clearSession() {saved.remove<String>("session_owner");saved.remove<String>("session_state")}
     fun retryStorage() {
-        if(!loaded) { mutable.update { it.copy(storageError=false,restoring=true) };readData() }
+        mutable.update { it.copy(storageError=false) }
+        if(!mutable.value.contentReady) loadContent()
+        if(!loaded) { mutable.update { it.copy(restoring=true) };readData() }
         else { save { mutable.value.learner };readData() }
     }
     fun navigate(route: Route) {

@@ -23,7 +23,7 @@ Never start `blocked` or `human_gate` tasks. Never build APK/AAB unless the owne
 ## 3. What exists (read in code unless marked ran)
 - 22 native destinations: Splash, Onboarding 1/2, Phone, OTP, Home, LessonDetails, Lesson, Library, StoryDetails/Reader/Question/Complete, Practice, Progress, Profile, EditProfile, Settings, Help, About, Privacy, Terms.
 - Content (`design/content.fa.json`, schema v3): 1 level, 3 units, 6 lessons, 17 tasks (7 kinds), 2 stories (9 pages). `approvedForRelease=false`.
-- 120 tests exist in source (104 on `main` + 16 added on Claude branches). Not compiled, not run in any session so far.
+- 122 tests exist in source (104 on `main` + 18 added on agent branches, including 2 content-load regression tests on phase-1-native-toolchain). Not compiled, not run in any session so far.
 - 295 strings in generated resources (263 on `main` + 32 proposed strings from Claude branches); 16 images.
 - CMS prototype (`cms/payload`): Payload 3.92.1, PostgreSQL, S3-compatible storage, 5 collections, 6 roles, 18 domain tests. Not run against a database.
 - Audio: 22 needs in `design/audio.inventory.json`; no audio files; device TTS is the fallback.

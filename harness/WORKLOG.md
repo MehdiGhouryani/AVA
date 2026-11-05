@@ -227,3 +227,18 @@ Next action:
 - Blocked by: toolchain Native؛ آزمون با کودک (فاز ۷)
 - Evidence paths: `docs/UX_CONFORMANCE_FA.md` بخش ۷
 - Next action: زیرساخت محتوا I3 تا I9.
+
+## ۲۰۲۶-۱۱-۰۵ — تسک 061-native-toolchain و رفع P0 (بدون اجرای Gradle)
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۵
+- Task ID: `061-native-toolchain` (تسک آمادهٔ فاز ۰۶۱؛ v1-2 و v1-3 از طرح v1)
+- Agent/tool: Muse، شاخهٔ `phase-1-native-toolchain` از `main` (`e38d940`)؛ شاخه‌های پیاده‌سازی جدا از `main` منشعب می‌شوند، نه روی `phase-0-v1-phasing`
+- Baseline source hash/version: `main` `e38d940`
+- Files changed: `AvaViewModel.kt` (بارگذاری محتوا به `loadContent()` جدا شد؛ شکست، بنر تلاش دوباره را نشان می‌دهد و `retryStorage()` محتوا را هم دوباره بار می‌کند)، `AvaViewModelTest.kt` (دو تست رگرسیون: محتوای همیشه‌خراب و یک‌بار‌خراب)، `design/strings.fa.json` + `android/app/src/main/res/values/strings.xml` (رشتهٔ نسخه «۰٫۴٫۱» به «۰٫۶٫۱»)، `docs/PROGRESS_FA.md`، `docs/NATIVE_VERIFICATION.json`، `PROJECT_STATE.md` (شمار تست ۱۲۰ به ۱۲۲)
+- توجه: `android/gradlew` در ریپو mode 644 دارد و `./gradlew` روی کلون تازه کار نمی‌کند؛ تغییر mode با API گیت‌هاب قابل push نیست و موقع مرج با `chmod +x android/gradlew` انجام می‌شود.
+- Commands actually executed: `apt-get install openjdk-17-jdk` (JDK 17.0.20.1)؛ دانلود با curl: cmdline-tools اندروید، `platforms;android-35`، `build-tools;35.0.0`، `platform-tools`، توزیع Gradle 8.11.1 (SHA-256 تایید شد)؛ `gradle testDebugUnitTest lintDebug --no-daemon`؛ `python3 scripts/sync-android-resources.py` و `--check`؛ `audit-project.py`، `validate-harness.py`، `check-docs.py`، `validate-content-contract.py`
+- Results: همهٔ validatorهای پایتون پاس شدند؛ `sync --check` تایید کرد رشتهٔ نسخه «نسخهٔ توسعه ۰٫۶٫۱» است؛ شمار تست سورس ۱۲۲ شد. تغییرهای Kotlin فقط `read in code` هستند و کامپایل نشده‌اند.
+- **اجرا نشد:** `testDebugUnitTest` و `lintDebug` (گیت‌های تسک). دلیل دقیق: سندباکس سوکت‌های JVM را می‌بندد (`other_tcp` روی Deny)؛ با جاوای ساده بازتولید شد — هر سوکت جاوا (حتی localhost) به پیام «muse: Other TCP connections is turned off… switch other_tcp from Deny to Ask» می‌رسد. دانلود wrapper، IPC حلقه‌به‌حلقهٔ daemon و دانلود وابستگی‌ها هر سه از همین علت می‌میرند. curl سالم است. رفع آن: کاربر در Muse settings ← Permissions ← Direct network protocols گزینهٔ `other_tcp` را روی Ask بگذارد؛ پس از آن گیت‌ها دوباره اجرا می‌شوند.
+- Blocked by: تنظیم `other_tcp` در سندباکس (تصمیم کاربر)؛ سپس QA دستگاه و بازبینی متخصص
+- Evidence paths: `docs/NATIVE_VERIFICATION.json` (بخش `nativeUnitAndCompose` و شمار تست)، `docs/PROGRESS_FA.md` (بروز‌رسانی ۲۰۲۶-۱۱-۰۵)
+- Next action: پس از Ask شدن `other_tcp`، اجرای گیت‌های تسک و ثبت نتیجهٔ واقعی؛ سپس مسیر موازی بازبینی متخصص/صوت و حساب/حقوقی از روز اول.
