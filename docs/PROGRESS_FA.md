@@ -89,7 +89,7 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 | DB/object storage | compose آماده است؛ اجرا نشد چون Docker در محیط نصب نیست |
 | bundle/tamper | موفق و deterministic |
 | JSON/Python | ۷۶ JSON strict و Python compile موفق |
-| تست‌های Native/Compose در سورس | ۱۲۲ |
+| تست‌های Native/Compose در سورس | ۱۲۷ |
 | اجرای Gradle/APK | JDK 17 و Android SDK 35 و Gradle 8.11.1 در سندباکس نصب‌اند؛ اجرای Gradle مسدود است چون سوکت‌های جاوا بسته‌اند (`other_tcp` روی Deny)؛ هیچ تستی اجرا نشد |
 | permission اینترنت/میکروفن | وجود ندارد |
 | APK/AAB | ساخته نشد |
@@ -124,3 +124,18 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - `android/gradlew` در ریپو مجوز اجرا ندارد (mode 644)؛ تغییر mode با API گیت‌هاب قابل push نیست و موقع مرج با یک دستور `chmod +x android/gradlew` انجام می‌شود.
 - اجرا‌شده (`ran`): `audit-project.py`، `validate-harness.py`، `check-docs.py` (پس از اصلاح شمار تست در `PROJECT_STATE.md` به ۱۲۲)، `validate-content-contract.py`، `sync --check` — همه پاس.
 - گیت‌های باز بدون تغییر: Gradle/lint (مسدود به تنظیم کاربر)، تأیید متخصص آموزش، صوت انسانی، DB/S3، QA دستگاه.
+
+## بروزرسانی ۲۰۲۶-۱۱-۰۵ — تکمیل v1-3 و اسکریپت I7 در شاخهٔ `phase-1-native-toolchain` (بدون اجرای Gradle)
+
+این بخش بقیهٔ موارد گام v1-3 و اسکریپت اعتبارسنجی تحویل صوت (I7) را نشان می‌دهد. هیچ گیتی بسته نشد و امتیاز ۴۵ عمداً تغییر نکرد.
+
+- مورد ۳: راهنمای کد آزمایشی از مسیر انتشار حذف شد — دو `Text` راهنمای `mock_hint` از صفحه‌های Phone و OTP و رشتهٔ `mock_hint` از `design/strings.fa.json` برداشته شد؛ `strings.xml` و `TextIds.kt` با sync بازتولید شدند (رشته‌ها ۲۹۵ به ۲۹۴). `MockAuthRepository` و کد `123456` به‌عنوان double تست/توسعه می‌مانند و سرویس واقعی در گام v1-7 می‌آید.
+- مورد ۴: `SessionSnapshot` نسخه ۲ شد — `wrongCount` و وضعیت Match (`matched` و `mismatch`) هم در snapshot ذخیره می‌شوند؛ decode نسخهٔ ۱ را هم هنوز می‌خواند. `restore()` وضعیت Match را اعتبارسنجی می‌کند و یک Match کامل را checked/correct برمی‌گرداند.
+- مورد ۵: guard برای Match غیرقابل‌بازی — وقتی توکن‌های PairMatch کمتر از دو تا باشند، `canSkip` همیشه true است تا کاربر روی صفحهٔ خالی گیر نکند؛ دکمهٔ رد کردن (که از قبل هست) راه خروج است.
+- مورد ۶: کاهش حرکت زنده خوانده می‌شود — `AvaApp` تغییر `ANIMATOR_DURATION_SCALE` را با ContentObserver دنبال می‌کند (نه یک‌بار با remember) و مقیاس ۰٫۵× هم حرکتِ کاهش‌یافته حساب می‌شود.
+- مورد ۷: آستانه‌های compact یکدست شدند — `LayoutThresholds` در `AvaTheme` با `compactWidth=360.dp` و `compactHeight=640.dp`؛ دو استثنا (۶۵۰ در Auth و ۳۴۰ در Story) اصلاح شدند. assertionهای ۴۸dp در `NativeUiTest` به ۶۴dp رسیدند (هدف لمسی ۶۴dp که در خود کامپوننت‌ها بود).
+- مورد ۸: `LearnerRepository.decode` حالا با named arguments ساخته می‌شود و اندازهٔ حباب‌ها در `BubbleTask` واکنشی است — در عرض ۳۲۰ سه حباب ۹۶dp دیگر تمام عرض را پر نمی‌کنند و حداقل ۱۶dp فاصله می‌ماند (کف ۶۴dp، سقف ۹۶dp).
+- تست‌های خروجی: دو تست تازه در `ActivityEngineTest` (round-trip وضعیت Match و wrongCount + سازگاری v1، و رد کردن Match خالی + کامل‌شدن توکن فرد)، `MainActivityTest` (smoke test سیم‌کشی onCreate) و `AndroidNarratorTest` (play بدون صدای فارسی، Missing می‌دهد؛ همهٔ فراخوانی‌ها پس از close امن‌اند). مجموع تست‌های سورس اکنون ۱۲۷ است.
+- I7: `scripts/validate-audio-delivery.py` نوشته شد — تحویل صوت مسیر B را با inventory می‌سنجد: وجود فایل، فرمت (WAV با magic bytes و هدر، MP3 با پیمایش فریم)، مدت (۰٫۲ تا ۳۰ ثانیه) و تطابق sha256؛ حالت `--record` هش و codec و مدت را در inventory ثبت می‌کند. با فیکسچرهای WAV/MP3 ساخته‌شده تست شد (OK/FAIL درست). هنوز تحویلی نداریم: ۷ مورد لازم، ۰ تحویل‌شده. اسکریپت به‌عنوان گیت دوم تسک `080-human-audio-rights` در `harness/roadmap.json` اضافه شد و I7 در `docs/COMPLETION_PLAN_FA.md` تیک خورد.
+- اجرا‌شده (`ran`): `audit-project.py`، `validate-harness.py`، `check-docs.py` (پس از اصلاح شمار تست به ۱۲۷ و رشته‌ها به ۲۹۴ در `PROJECT_STATE.md` و stage کردن فایل‌های تازه)، `validate-content-contract.py`، `sync --check`، `validate-audio-delivery.py` (بدون تحویل: exit 1 درست؛ با فیکسچر: رفتار OK/FAIL درست) — همه پاس، جز `validate-audio-delivery.py` بدون تحویل که طبق طراحی fail می‌کند.
+- گیت‌های باز بدون تغییر: Gradle/lint (مسدود به تنظیم کاربر — تست جاوا ۱۸:۲۷ دوباره مسدود بودن را نشان داد)، تأیید متخصص آموزش، صوت انسانی (تحویل ۷ prompt)، DB/S3، QA دستگاه.

@@ -17,29 +17,39 @@ data class Exercise(
     val mismatch: Pair<Int,Int>? = null
 )
 data class SessionSnapshot(
-    val version: Int=1,
+    val version: Int=2,
     val index: Int,
     val selected: String?,
     val selectedTokens: List<Int>,
     val hintVisible: Boolean,
     val checked: Boolean,
-    val complete: Boolean
+    val complete: Boolean,
+    val wrongCount: Int=0,
+    val matched: Set<Int> = emptySet(),
+    val mismatch: Pair<Int,Int>? = null
 ) {
     fun encode(): String {
         val choice=selected?.let {Base64.getUrlEncoder().withoutPadding().encodeToString(it.toByteArray(StandardCharsets.UTF_8))}.orEmpty()
-        return listOf(version,index,choice,selectedTokens.joinToString(","),hintVisible,checked,complete).joinToString("|")
+        val pair=mismatch?.let {"${it.first},${it.second}"}.orEmpty()
+        return listOf(version,index,choice,selectedTokens.joinToString(","),hintVisible,checked,complete,wrongCount,matched.joinToString(","),pair).joinToString("|")
     }
     companion object {
         fun decode(value: String): SessionSnapshot?=runCatching {
-            val parts=value.split('|');require(parts.size==7 && parts[0].toInt()==1)
+            val parts=value.split('|')
+            val version=parts[0].toInt()
+            require((version==1 && parts.size==7) || (version==2 && parts.size==10))
             val selected=parts[2].takeIf {it.isNotEmpty()}?.let {String(Base64.getUrlDecoder().decode(it),StandardCharsets.UTF_8)}
             val tokens=parts[3].takeIf {it.isNotEmpty()}?.split(',')?.map {it.toInt()}?:emptyList()
-            SessionSnapshot(1,parts[1].toInt(),selected,tokens,parts[4].toBooleanStrict(),parts[5].toBooleanStrict(),parts[6].toBooleanStrict())
+            val base=SessionSnapshot(version=version,index=parts[1].toInt(),selected=selected,selectedTokens=tokens,hintVisible=parts[4].toBooleanStrict(),checked=parts[5].toBooleanStrict(),complete=parts[6].toBooleanStrict())
+            if(version==1)return@runCatching base
+            val matched=parts[8].takeIf {it.isNotEmpty()}?.split(',')?.map {it.toInt()}?.toSet()?:emptySet()
+            val mismatch=parts[9].takeIf {it.isNotEmpty()}?.split(',')?.let {require(it.size==2);it[0].toInt() to it[1].toInt()}
+            base.copy(wrongCount=parts[7].toInt(),matched=matched,mismatch=mismatch)
         }.getOrNull()
     }
 }
 
-fun Exercise.snapshot()=SessionSnapshot(index=index,selected=selected,selectedTokens=selectedTokens,hintVisible=hintVisible,checked=checked,complete=complete)
+fun Exercise.snapshot()=SessionSnapshot(index=index,selected=selected,selectedTokens=selectedTokens,hintVisible=hintVisible,checked=checked,complete=complete,wrongCount=wrongCount,matched=matched,mismatch=mismatch)
 
 object ExerciseReducer {
     private fun task(s: Exercise,tasks: List<Task>)=tasks.getOrNull(s.index)
@@ -85,7 +95,9 @@ object ExerciseReducer {
         val correct=response(s,tasks)==tasks[s.index].target
         return s.copy(checked=true,correct=correct,wrongCount=s.wrongCount+if(correct)0 else 1)
     }
-    fun canSkip(s: Exercise, tasks: List<Task>)=!s.complete && task(s,tasks)!=null && s.wrongCount>=2 && !(s.checked&&s.correct)
+    /** A PairMatch task with fewer than two tokens can never be played: no card exists to flip, so the learner must always be able to skip it. */
+    private fun unplayable(task: Task?)=interaction(task)==ActivityInteraction.PairMatch && (task?.tokens?.size?:0)<2
+    fun canSkip(s: Exercise, tasks: List<Task>)=!s.complete && task(s,tasks)!=null && (s.wrongCount>=2 || unplayable(task(s,tasks))) && !(s.checked&&s.correct)
     fun skip(s: Exercise, tasks: List<Task>): Exercise = when {
         !canSkip(s,tasks) -> s
         s.index==tasks.lastIndex -> s.copy(complete=true)
@@ -102,7 +114,12 @@ object ExerciseReducer {
         val index=snapshot.index.coerceIn(0,tasks.lastIndex);val task=tasks[index];val mode=interaction(task)
         val selected=snapshot.selected?.takeIf {mode==ActivityInteraction.Choice && it in task.choices}
         val tokens=snapshot.selectedTokens.distinct().filter {mode==ActivityInteraction.TokenBuild && it in task.tokens.indices}
-        val base=Exercise(index=index,selected=selected,selectedTokens=tokens,hintVisible=snapshot.hintVisible&&ActivityRegistry[task.kind].supportsHint,complete=snapshot.complete&&index==tasks.lastIndex)
+        val matched=if(mode==ActivityInteraction.PairMatch)snapshot.matched.filter {it in 0 until task.tokens.size/2}.toSet() else emptySet()
+        val mismatch=snapshot.mismatch?.takeIf {mode==ActivityInteraction.PairMatch && it.first in task.tokens.indices && it.second in task.tokens.indices && it.first!=it.second && it.first/2 !in matched && it.second/2 !in matched}
+        val base=Exercise(index=index,selected=selected,selectedTokens=tokens,hintVisible=snapshot.hintVisible&&ActivityRegistry[task.kind].supportsHint,wrongCount=snapshot.wrongCount,matched=matched,mismatch=mismatch,complete=snapshot.complete&&index==tasks.lastIndex)
+        if(mode==ActivityInteraction.PairMatch) {
+            return if(task.tokens.size>=2 && matched.size==task.tokens.size/2)base.copy(checked=true,correct=true) else base
+        }
         if(!snapshot.checked)return base
         val response=response(base,tasks)?:return base
         return base.copy(checked=true,correct=response==task.target)

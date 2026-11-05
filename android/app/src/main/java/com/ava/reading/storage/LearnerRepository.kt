@@ -69,11 +69,11 @@ class DataStoreLearnerRepository(private val store: DataStore<Preferences>) : Le
         val progressSchema=p[K.progressSchema]?:0
         require(progressSchema in 0..1) {"Unsupported task progress schema: $progressSchema"}
         return Learner(
-        p[K.onboarded]?:false, p[K.signedIn]?:false, p[K.name].orEmpty().take(24), (p[K.avatar]?:0).coerceIn(0,3),
-        p[K.completed].orEmpty(),p[K.stories].orEmpty(),p[K.mistakes].orEmpty(),(p[K.reviews]?:0).coerceAtLeast(0),
-        p[K.positions].orEmpty().mapNotNull { v -> v.substringAfterLast(':').toIntOrNull()?.let { v.substringBeforeLast(':') to it.coerceAtLeast(0) } }.toMap(),
-        p[K.active].orEmpty(),(p[K.index]?:0).coerceAtLeast(0),p[K.narration]?:true,p[K.sounds]?:true,p[K.motion]?:false,
-        decodeProgress(p[K.taskProgress].orEmpty()),p[K.activeDays].orEmpty()
+            onboarded=p[K.onboarded]?:false, signedIn=p[K.signedIn]?:false, name=p[K.name].orEmpty().take(24), avatar=(p[K.avatar]?:0).coerceIn(0,3),
+            completed=p[K.completed].orEmpty(), stories=p[K.stories].orEmpty(), mistakes=p[K.mistakes].orEmpty(), reviews=(p[K.reviews]?:0).coerceAtLeast(0),
+            positions=p[K.positions].orEmpty().mapNotNull { v -> v.substringAfterLast(':').toIntOrNull()?.let { v.substringBeforeLast(':') to it.coerceAtLeast(0) } }.toMap(),
+            activeLesson=p[K.active].orEmpty(), activeIndex=(p[K.index]?:0).coerceAtLeast(0), narration=p[K.narration]?:true, sounds=p[K.sounds]?:true, reducedMotion=p[K.motion]?:false,
+            taskProgress=decodeProgress(p[K.taskProgress].orEmpty()), activeDays=p[K.activeDays].orEmpty()
         )
     }
     override val data = store.data.map(::decode)

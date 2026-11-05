@@ -5,8 +5,12 @@ import androidx.compose.material3.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.*
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ava.reading.R
+
+/** One compact breakpoint for every screen: narrow phones use the compact layout below 360 dp wide or 640 dp tall, or with large text. */
+object LayoutThresholds { val compactWidth=360.dp; val compactHeight=640.dp }
 
 object AvaColors {
     val paper=Color(DesignTokens.paper);val cream=Color(DesignTokens.cream);val surface=Color(DesignTokens.surface)

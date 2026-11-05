@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.*
 import com.ava.reading.content.*
 import com.ava.reading.ui.*
 import com.ava.reading.ui.theme.*
+import com.ava.reading.ui.theme.LayoutThresholds
 
 /** One discovery card: the lesson title and goal, or a lock with the reason in text. Cards are derived from completed lessons. */
 @Composable fun DiscoveryRow(card: Discovery,pop: Boolean=false) {
@@ -52,7 +53,7 @@ import com.ava.reading.ui.theme.*
 @Composable fun AlbumScreen(s: AvaState,a: AvaActions) {
     val cards=discoveries(s.learner.completed,s.lessons)
     BoxWithConstraints(Modifier.fillMaxSize()) {
-        val compact=maxWidth<360.dp || LocalDensity.current.fontScale>1.15f
+        val compact=maxWidth<LayoutThresholds.compactWidth || LocalDensity.current.fontScale>1.15f
         Page(txt("album_title"),a.back) {
             SoftCard(Modifier.fillMaxWidth(),padding=if(compact)16.dp else 20.dp) {
                 ArtImage("char.ava.wave_book",Modifier.fillMaxWidth().height(if(compact)88.dp else 130.dp))

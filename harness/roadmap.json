@@ -315,7 +315,8 @@
           ],
           "evidenceFiles": ["docs/AUDIO_INVENTORY_FA.md", "harness/WORKLOG.md"],
           "gates": [
-            { "cwd": ".", "command": ["python3", "scripts/validate-audio-inventory.py"] }
+            { "cwd": ".", "command": ["python3", "scripts/validate-audio-inventory.py"] },
+            { "cwd": ".", "command": ["python3", "scripts/validate-audio-delivery.py"] }
           ]
         },
         {

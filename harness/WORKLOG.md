@@ -242,3 +242,18 @@ Next action:
 - Blocked by: تنظیم `other_tcp` در سندباکس (تصمیم کاربر)؛ سپس QA دستگاه و بازبینی متخصص
 - Evidence paths: `docs/NATIVE_VERIFICATION.json` (بخش `nativeUnitAndCompose` و شمار تست)، `docs/PROGRESS_FA.md` (بروز‌رسانی ۲۰۲۶-۱۱-۰۵)
 - Next action: پس از Ask شدن `other_tcp`، اجرای گیت‌های تسک و ثبت نتیجهٔ واقعی؛ سپس مسیر موازی بازبینی متخصص/صوت و حساب/حقوقی از روز اول.
+
+## ۲۰۲۶-۱۱-۰۵ — تکمیل v1-3 (موارد ۳ تا ۸) و I7 در شاخهٔ `phase-1-native-toolchain` (بدون اجرای Gradle)
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۵
+- Task ID: `061-native-toolchain` (تسک آمادهٔ فاز ۰۶۱؛ v1-3 و I7 از طرح v1)
+- Agent/tool: Muse، شاخهٔ `phase-1-native-toolchain` از `main` (`e38d940`)؛ شاخه‌های پیاده‌سازی جدا از `main` منشعب می‌شوند، نه روی `phase-0-v1-phasing`
+- Baseline source hash/version: `main` `e38d940`؛ ادامهٔ کامیت `cd50833` روی همین شاخه (PR #2)
+- Files changed: `AuthScreens.kt` + `design/strings.fa.json` + `strings.xml` + `TextIds.kt` (حذف `mock_hint` از UI انتشار؛ رشته‌ها ۲۹۵ به ۲۹۴)، `Exercise.kt` (`SessionSnapshot` نسخهٔ ۲ با `wrongCount` و وضعیت Match، `restore()` با اعتبارسنجی Match، guard رد کردن Match غیرقابل‌بازی)، `AvaApp.kt` (خواندن زندهٔ `ANIMATOR_DURATION_SCALE` با ContentObserver و آستانهٔ ۰٫۵×)، `AvaTheme.kt` (`LayoutThresholds`: عرض ۳۶۰ و ارتفاع ۶۴۰) + ۷ فایل صفحه (یکدست‌سازی آستانه‌ها؛ ۶۵۰ در Auth و ۳۴۰ در Story اصلاح شد)، `LessonScreens.kt` (حباب‌های واکنشی)، `LearnerRepository.kt` (named arguments در `decode`)، `ActivityEngineTest.kt` (۲ تست تازه)، `MainActivityTest.kt` و `AndroidNarratorTest.kt` (تازه)، `NativeUiTest.kt` (assertionهای ۴۸dp به ۶۴dp)، `scripts/validate-audio-delivery.py` (تازه؛ I7)، `harness/roadmap.json` (گیت دوم `080-human-audio-rights`)، `docs/COMPLETION_PLAN_FA.md` (I7 تیک خورد)، `docs/PROGRESS_FA.md`، `docs/NATIVE_VERIFICATION.json`، `PROJECT_STATE.md` (تست ۱۲۲ به ۱۲۷، رشته ۲۹۵ به ۲۹۴)
+- توجه: `MockAuthRepository` و کد ثابت `123456` به‌عنوان double تست/توسعه می‌مانند؛ سرویس واقعی در گام v1-7 می‌آید. `android/gradlew` همچنان mode 644 دارد؛ تغییر mode با API گیت‌هاب قابل push نیست و موقع مرج با `chmod +x android/gradlew` انجام می‌شود.
+- Commands actually executed: `python3 scripts/sync-android-resources.py` و `--check`؛ `python3 scripts/validate-audio-delivery.py` (بدون تحویل: exit 1 درست؛ با فیکسچرهای WAV/MP3 ساخته‌شده در `/tmp/audiotest`: رفتار OK/FAIL درست؛ `--record` روی کپی inventory: هش و codec و مدت ثبت شد)؛ `audit-project.py`، `validate-harness.py`، `check-docs.py` (۰ مشکل)، `validate-content-contract.py`
+- Results: همهٔ validatorهای پایتون پاس شدند؛ `check-docs.py` پس از اصلاح شمار تست و رشته‌ها و stage کردن فایل‌های تازه ۰ مشکل گزارش کرد. شمار تست سورس ۱۲۷ شد (ActivityEngine ۱۲، MainActivity ۱، AndroidNarrator ۲). تغییرهای Kotlin فقط `read in code` هستند و کامپایل نشده‌اند. I7 روی فیکسچرها تمرین شد: WAV سالم OK، MP3 سالم OK، فایل خراب FAIL، فایل غایب FAIL.
+- **اجرا نشد:** `testDebugUnitTest` و `lintDebug` (گیت‌های تسک). دلیل دقیق: سندباکس سوکت‌های JVM را می‌بندد (`other_tcp` روی Deny)؛ ۱۸:۲۷ با جاوای ساده دوباره بازتولید شد و هنوز مسدود است. رفع آن: کاربر در Muse settings ← Permissions ← Direct network protocols گزینهٔ `other_tcp` را روی Ask بگذارد؛ پس از آن گیت‌ها دوباره اجرا می‌شوند.
+- Blocked by: تنظیم `other_tcp` در سندباکس (تصمیم کاربر)؛ سپس QA دستگاه و بازبینی متخصص
+- Evidence paths: `docs/NATIVE_VERIFICATION.json` (شمار تست ۱۲۷)، `docs/PROGRESS_FA.md` (بروز‌رسانی دوم ۲۰۲۶-۱۱-۰۵)، `scripts/validate-audio-delivery.py`
+- Next action: پس از Ask شدن `other_tcp`، اجرای گیت‌های تسک و ثبت نتیجهٔ واقعی؛ سپس مسیر موازی بازبینی متخصص/صوت و حساب/حقوقی از روز اول.

@@ -283,7 +283,7 @@ class NativeUiTest {
         render({state},AvaActions(avatar={state=state.copy(profileAvatar=it)},saveProfile={saved=true}),width=320,height=560,font=1.3f)
         val radio=SemanticsMatcher.expectValue(SemanticsProperties.Role,Role.RadioButton)
         ui.onAllNodes(radio).assertCountEquals(4)
-        ui.onNode(hasText("روباه") and radio).performScrollTo().assertHeightIsAtLeast(48.dp).assertWidthIsAtLeast(48.dp).performClick().assertIsSelected()
+        ui.onNode(hasText("روباه") and radio).performScrollTo().assertHeightIsAtLeast(64.dp).assertWidthIsAtLeast(64.dp).performClick().assertIsSelected()
         ui.onNodeWithText("ذخیره").performScrollTo().assertIsDisplayed().performClick()
         assertTrue(saved);snapshot("edit-profile-320-large")
     }
@@ -353,7 +353,7 @@ class NativeUiTest {
         render({state},a,width=320,height=560,font=1.3f)
         ui.onNodeWithText("بررسی کن").assertIsNotEnabled()
         ui.onNodeWithText("ب").performScrollTo().assertHeightIsAtLeast(64.dp).assertWidthIsAtLeast(64.dp).performClick()
-        ui.onNodeWithText("آ").performScrollTo().assertHeightIsAtLeast(48.dp).performClick()
+        ui.onNodeWithText("آ").performScrollTo().assertHeightIsAtLeast(64.dp).performClick()
         ui.onNodeWithText("بررسی کن").assertIsEnabled().performClick()
         ui.onNodeWithText("اشکالی ندارد؛ یک بار دیگر نشانه‌ها را بچین.").assertIsDisplayed()
         repeat(2) {ui.onNodeWithText("آخرین نشانه را بردار").performClick()}

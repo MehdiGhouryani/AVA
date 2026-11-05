@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.*
 import com.ava.reading.content.*
 import com.ava.reading.ui.*
 import com.ava.reading.ui.theme.*
+import com.ava.reading.ui.theme.LayoutThresholds
 
 @Composable fun SplashScreen(s: AvaState,a: AvaActions) {
     Scene("bg.splash") {
@@ -37,7 +38,7 @@ import com.ava.reading.ui.theme.*
     val first=s.route==Route.Onboarding1
     Scene(if(first)"bg.onboarding1" else "bg.garden") {
         BoxWithConstraints(Modifier.fillMaxSize()) {
-            val compact=maxHeight<650.dp
+            val compact=maxHeight<LayoutThresholds.compactHeight
             val large=LocalDensity.current.fontScale>1.15f
             val artHeight=(maxHeight.value*.28f).coerceIn(90f,250f).dp
             val m=if(large)Modifier.verticalScroll(rememberScrollState()) else Modifier
@@ -93,7 +94,6 @@ import com.ava.reading.ui.theme.*
                 TextButton({a.legal(false)},Modifier.weight(1f).heightIn(min=64.dp)) {Text(txt("phone_link_terms"),textAlign=TextAlign.Center)}
             }
             Primary(txt(if(s.busy)"phone_sending" else "phone_cta"),{a.send(false)},enabled=validPhone(s.phone)&&s.consent,busy=s.busy)
-            Text(txt("mock_hint"),style=MaterialTheme.typography.bodySmall,color=AvaColors.muted,textAlign=TextAlign.Center)
         }
     }
 }
@@ -116,7 +116,6 @@ private val PersianDigits=VisualTransformation { value -> TransformedText(Annota
                     if(s.locked || seconds>0)Text(txt(if(s.locked)"lock_timer" else "otp_resend_in","time" to time),color=AvaColors.deep)
                     else TextButton({a.send(true)},Modifier.heightIn(min=64.dp),enabled=!s.busy) {Text(txt("otp_resend"))}
                     Primary(txt(if(s.busy)"otp_verifying" else "otp_cta"),a.verify,enabled=s.code.length==6&&!s.locked,busy=s.busy)
-                    Text(txt("mock_hint"),style=MaterialTheme.typography.bodySmall,color=AvaColors.muted,textAlign=TextAlign.Center)
                 }
             }
         }

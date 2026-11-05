@@ -1002,10 +1002,6 @@
       "fa": "بررسی انجام نشد. دوباره تلاش کن.",
       "source": "reconstructed-original-development"
     },
-    "mock_hint": {
-      "fa": "ورود آزمایشی: کد ۱۲۳۴۵۶؛ پیامک واقعی ارسال نمی‌شود.",
-      "source": "reconstructed-original-development"
-    },
     "otp_label": {
       "fa": "کد شش‌رقمی",
       "source": "reconstructed-original-development"

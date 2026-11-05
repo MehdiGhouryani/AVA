@@ -40,6 +40,7 @@ import com.ava.reading.ui.AvaActions
 import com.ava.reading.ui.AvaState
 import com.ava.reading.ui.Route
 import com.ava.reading.ui.theme.AvaColors
+import com.ava.reading.ui.theme.LayoutThresholds
 import com.ava.reading.ui.theme.LocalReducedMotion
 import kotlinx.coroutines.delay
 
@@ -51,7 +52,7 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
 
 @Composable fun LessonDetailsScreen(s: AvaState,a: AvaActions) {
     BoxWithConstraints(Modifier.fillMaxSize()) {
-        val compact=maxHeight<640.dp || LocalDensity.current.fontScale>1.15f
+        val compact=maxHeight<LayoutThresholds.compactHeight || LocalDensity.current.fontScale>1.15f
         val resuming=resumableLesson(s.learner.activeLesson,s.learner.completed,s.lessons)?.id==s.selectedLesson
         val recognize=s.lesson.tasks.count {ActivityRegistry[it.kind].family==ActivityFamily.Visual}
         val listen=s.lesson.tasks.count {ActivityRegistry[it.kind].family==ActivityFamily.Listening}
@@ -89,7 +90,7 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
     val e=s.exercise
     val task=s.tasks.getOrNull(e.index)?:return
     BoxWithConstraints(Modifier.fillMaxSize()) {
-        val compact=maxWidth<360.dp || maxHeight<640.dp || LocalDensity.current.fontScale>1.15f
+        val compact=maxWidth<LayoutThresholds.compactWidth || maxHeight<LayoutThresholds.compactHeight || LocalDensity.current.fontScale>1.15f
         Column(Modifier.fillMaxSize().padding(horizontal=if(compact)16.dp else 20.dp).padding(bottom=12.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
             Header(if(s.reviewing)txt("practice_title") else s.lesson.title,a.back)
             Text(txt("exercise_progress","current" to fa(e.index+1),"total" to fa(s.tasks.size)),color=AvaColors.deep,style=MaterialTheme.typography.bodySmall)
@@ -176,16 +177,20 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
     ListenCard(task,e,narration,compact,a,"bubble_title")
     val reduced=LocalReducedMotion.current
     val transition=rememberInfiniteTransition(label="bubbles")
-    Row(Modifier.fillMaxWidth().heightIn(min=132.dp).selectableGroup(),horizontalArrangement=Arrangement.SpaceEvenly,verticalAlignment=Alignment.CenterVertically) {
-        task.choices.forEachIndexed {index,value->
-            val drift=if(reduced)0f else transition.animateFloat(-6f,6f,infiniteRepeatable(tween(2600+index*500,easing=FastOutSlowInEasing),RepeatMode.Reverse),label="bubble$index").value
-            BubbleChoice(value,value==e.selected,!(e.checked&&e.correct),{a.choose(value)},Modifier.offset(y=drift.dp))
+    BoxWithConstraints(Modifier.fillMaxWidth()) {
+        // Three 96 dp bubbles exactly fill a 320 dp screen with no margin: shrink them so at least 16 dp stays between neighbours.
+        val size=((maxWidth-32.dp)/3).coerceIn(64.dp,96.dp)
+        Row(Modifier.fillMaxWidth().heightIn(min=132.dp).selectableGroup(),horizontalArrangement=Arrangement.SpaceEvenly,verticalAlignment=Alignment.CenterVertically) {
+            task.choices.forEachIndexed {index,value->
+                val drift=if(reduced)0f else transition.animateFloat(-6f,6f,infiniteRepeatable(tween(2600+index*500,easing=FastOutSlowInEasing),RepeatMode.Reverse),label="bubble$index").value
+                BubbleChoice(value,value==e.selected,!(e.checked&&e.correct),{a.choose(value)},Modifier.offset(y=drift.dp),size)
+            }
         }
     }
 }
 
-@Composable private fun BubbleChoice(value: String,selected: Boolean,enabled: Boolean,action: ()->Unit,modifier: Modifier) {
-    Surface(modifier.size(96.dp).selectable(selected=selected,enabled=enabled,role=Role.RadioButton,onClick=action),shape=RoundedCornerShape(100.dp),color=if(selected)AvaColors.line else AvaColors.surface,
+@Composable private fun BubbleChoice(value: String,selected: Boolean,enabled: Boolean,action: ()->Unit,modifier: Modifier,size: Dp = 96.dp) {
+    Surface(modifier.size(size).selectable(selected=selected,enabled=enabled,role=Role.RadioButton,onClick=action),shape=RoundedCornerShape(100.dp),color=if(selected)AvaColors.line else AvaColors.surface,
         border=BorderStroke(if(selected)3.dp else 1.dp,if(selected)AvaColors.green else AvaColors.line)) {
         Box(Modifier.fillMaxSize(),contentAlignment=Alignment.Center) {
             Text(value,fontSize=if(value.length>1)24.sp else 36.sp,color=AvaColors.deep,textAlign=TextAlign.Center)
@@ -301,7 +306,7 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
 
 @Composable private fun LessonResultScreen(s: AvaState,a: AvaActions) {
     BoxWithConstraints(Modifier.fillMaxSize()) {
-        val compact=maxHeight<640.dp || LocalDensity.current.fontScale>1.15f
+        val compact=maxHeight<LayoutThresholds.compactHeight || LocalDensity.current.fontScale>1.15f
         val next=nextLesson(s.learner.completed,s.lessons)
         val allDone=s.lessons.all {it.id in s.learner.completed}
         Page(if(s.reviewing)txt("practice_title") else s.lesson.title,a.back) {

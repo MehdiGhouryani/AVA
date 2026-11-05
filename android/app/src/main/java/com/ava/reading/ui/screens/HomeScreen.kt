@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.*
 import com.ava.reading.content.*
 import com.ava.reading.ui.*
 import com.ava.reading.ui.theme.*
+import com.ava.reading.ui.theme.LayoutThresholds
 
 @Composable fun HomeScreen(s: AvaState,a: AvaActions) {
     val resumable=resumableLesson(s.learner.activeLesson,s.learner.completed,s.lessons)
@@ -26,7 +27,7 @@ import com.ava.reading.ui.theme.*
     val completed=knownLessonCount(s.learner.completed,s.lessons)
     Scene("bg.garden") {
         BoxWithConstraints(Modifier.fillMaxSize()) {
-        val compact=maxWidth<360.dp || LocalDensity.current.fontScale>1.15f
+        val compact=maxWidth<LayoutThresholds.compactWidth || LocalDensity.current.fontScale>1.15f
         Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(if(compact)16.dp else 20.dp),verticalArrangement=Arrangement.spacedBy(if(compact)12.dp else 16.dp)) {
             Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(if(compact)8.dp else 16.dp),verticalAlignment=Alignment.CenterVertically) {
                 ArtImage("brand.logo",Modifier.height(if(compact)48.dp else 64.dp).width(if(compact)32.dp else 44.dp),txt("brand_name"))

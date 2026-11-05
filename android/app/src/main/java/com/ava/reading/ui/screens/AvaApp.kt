@@ -13,10 +13,19 @@ import com.ava.reading.ui.*
 import com.ava.reading.ui.theme.*
 
 private val roots=listOf(Route.Home,Route.Library,Route.Practice,Route.Profile)
+/** Reduced motion is on when the system animator scale is off (0) or halved (0.5x): both mean the user asked animations to slow down or stop. */
+private fun isSystemMotionOff(context: android.content.Context)=android.provider.Settings.Global.getFloat(context.contentResolver,android.provider.Settings.Global.ANIMATOR_DURATION_SCALE,1f)<=0.5f
 @Composable fun AvaApp(s: AvaState,a: AvaActions) {
     val rootsState=key(s.learner.signedIn) {rememberSaveableStateHolder()}
     val context=androidx.compose.ui.platform.LocalContext.current
-    val systemMotionOff=remember(context) {android.provider.Settings.Global.getFloat(context.contentResolver,android.provider.Settings.Global.ANIMATOR_DURATION_SCALE,1f)==0f}
+    var systemMotionOff by remember {mutableStateOf(isSystemMotionOff(context))}
+    DisposableEffect(context) {
+        val observer=object : android.database.ContentObserver(android.os.Handler(android.os.Looper.getMainLooper())) {
+            override fun onChange(selfChange: Boolean) {systemMotionOff=isSystemMotionOff(context)}
+        }
+        context.contentResolver.registerContentObserver(android.provider.Settings.Global.getUriFor(android.provider.Settings.Global.ANIMATOR_DURATION_SCALE),false,observer)
+        onDispose {context.contentResolver.unregisterContentObserver(observer)}
+    }
     CompositionLocalProvider(LocalReducedMotion provides (s.learner.reducedMotion || systemMotionOff)) {
         Scaffold(modifier=Modifier.fillMaxSize().imePadding(),containerColor=AvaColors.paper,contentWindowInsets=WindowInsets.safeDrawing,
             bottomBar={if(s.route in roots)NavigationBar(containerColor=AvaColors.cream,tonalElevation=0.dp) {
