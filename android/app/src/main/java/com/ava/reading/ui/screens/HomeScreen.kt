@@ -52,17 +52,19 @@ import com.ava.reading.ui.theme.*
                 Text(txt("path_title"),Modifier.fillMaxWidth().semantics {heading()},style=MaterialTheme.typography.headlineMedium.copy(fontWeight=FontWeight.Normal),color=AvaColors.deep,textAlign=TextAlign.Center);Text(txt("path_body"),style=MaterialTheme.typography.bodySmall,color=AvaColors.soft,textAlign=TextAlign.Center)
                 LinearProgressIndicator(progress={completed.toFloat()/s.lessons.size},modifier=Modifier.fillMaxWidth().height(4.dp).clip(RoundedCornerShape(8.dp)),color=AvaColors.green,trackColor=AvaColors.line)
             }
-            s.lessons.forEachIndexed { index,l ->
-                val enabled=unlocked(l.id,s.learner.completed,s.lessons);val done=l.id in s.learner.completed
-                val status=txt(if(done)"done" else if(enabled)"next_step" else "locked_step")
-                val desc=txt("path_status","index" to fa(index+1),"status" to status)
-                Surface(onClick={a.openLesson(l.id)},enabled=enabled,shape=RoundedCornerShape(32.dp),color=if(enabled)AvaColors.cream else AvaColors.surface.copy(alpha=.94f),
+            pathNodes(s.learner.completed,s.lessons).forEach {node->
+                val l=node.lesson;val index=node.order-1
+                val current=node.state==PathNodeState.Current;val done=node.state==PathNodeState.Done;val enabled=node.state!=PathNodeState.Locked
+                val status=txt(if(done)"done" else if(current)"next_step" else "locked_step")
+                val desc=txt("path_status","index" to fa(node.order),"status" to status)
+                Surface(onClick={a.openLesson(l.id)},enabled=enabled,shape=RoundedCornerShape(32.dp),color=if(current)AvaColors.cream else AvaColors.surface.copy(alpha=if(enabled)1f else .94f),
+                    border=if(current)BorderStroke(3.dp,AvaColors.green) else null,
                     modifier=Modifier.fillMaxWidth().padding(start=if(index%2==0)0.dp else 20.dp,end=if(index%2==0)20.dp else 0.dp).semantics {contentDescription=desc}) {
-                    Row(Modifier.padding(20.dp).heightIn(min=64.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(16.dp)) {
-                        Box(Modifier.size(56.dp).background(if(enabled)AvaColors.green else AvaColors.disabled,RoundedCornerShape(100.dp)),contentAlignment=Alignment.Center) {
-                            if(!enabled)Icon(Icons.Outlined.Lock,null,tint=AvaColors.muted) else if(done)Icon(Icons.Outlined.Check,null,tint=androidx.compose.ui.graphics.Color.White) else Text(fa(index+1),style=MaterialTheme.typography.headlineMedium,color=androidx.compose.ui.graphics.Color.White)
+                    Row(Modifier.padding(if(current)24.dp else 16.dp).heightIn(min=if(current)72.dp else 64.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(16.dp)) {
+                        Box(Modifier.size(if(current)72.dp else 48.dp).background(if(enabled)AvaColors.green else AvaColors.disabled,RoundedCornerShape(100.dp)),contentAlignment=Alignment.Center) {
+                            if(!enabled)Icon(Icons.Outlined.Lock,null,tint=AvaColors.muted) else if(done)Icon(Icons.Outlined.Check,null,tint=androidx.compose.ui.graphics.Color.White) else Text(fa(node.order),style=MaterialTheme.typography.headlineMedium,color=androidx.compose.ui.graphics.Color.White)
                         }
-                        Column(Modifier.weight(1f)) {Text(l.title,color=AvaColors.deep);Text(status,style=MaterialTheme.typography.bodySmall,color=AvaColors.deep)}
+                        Column(Modifier.weight(1f)) {Text(l.title,style=if(current)MaterialTheme.typography.titleMedium else MaterialTheme.typography.bodyLarge,color=AvaColors.deep);Text(status,style=MaterialTheme.typography.bodySmall,color=AvaColors.deep)}
                     }
                 }
             }

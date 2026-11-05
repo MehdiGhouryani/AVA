@@ -20,6 +20,21 @@ fun pathStatus(completed: Set<String>,lessons: List<Lesson> = Catalog.lessons) =
     complete=lessons.isNotEmpty() && lessons.all {it.id in completed},next=nextLesson(completed,lessons)
 )
 
+/** State of a node on the learning path: done lessons can be replayed, exactly one lesson is current (the next one), the rest stay locked until it is done. */
+enum class PathNodeState { Done, Current, Locked }
+data class PathNode(val lesson: Lesson,val order: Int,val state: PathNodeState)
+
+fun pathNodes(completed: Set<String>,lessons: List<Lesson> = Catalog.lessons): List<PathNode> {
+    val current=nextLesson(completed,lessons)?.id
+    return lessons.mapIndexed {index,lesson->
+        PathNode(lesson,index+1,when {
+            lesson.id in completed->PathNodeState.Done
+            lesson.id==current->PathNodeState.Current
+            else->PathNodeState.Locked
+        })
+    }
+}
+
 /** Weeks run Saturday to Friday. A day is done when the child completed a lesson that day; an empty day carries no penalty. */
 data class FlowerDay(val date: LocalDate,val done: Boolean,val isToday: Boolean,val isFuture: Boolean)
 data class FlowerWeek(val days: List<FlowerDay>) {

@@ -30,6 +30,19 @@ class ProgressionTest {
         assertFalse(pathStatus(setOf("a"),emptyList()).complete)
     }
 
+    @Test fun pathHasExactlyOneCurrentNodeAndLocksTheRest() {
+        assertEquals(listOf(PathNodeState.Current,PathNodeState.Locked,PathNodeState.Locked),pathNodes(emptySet(),lessons).map {it.state})
+        assertEquals(listOf(PathNodeState.Done,PathNodeState.Done,PathNodeState.Current),pathNodes(setOf("a","b"),lessons).map {it.state})
+        assertEquals(listOf(1,2,3),pathNodes(setOf("a"),lessons).map {it.order})
+        assertTrue(pathNodes(setOf("a","b","c","x"),lessons).all {it.state==PathNodeState.Done})
+        assertTrue(pathNodes(emptySet(),emptyList()).isEmpty())
+    }
+
+    @Test fun anOutOfOrderCompletionStaysDoneWhileTheFirstGapIsCurrent() {
+        assertEquals(listOf(PathNodeState.Current,PathNodeState.Locked,PathNodeState.Done),pathNodes(setOf("c"),lessons).map {it.state})
+        assertEquals(1,pathNodes(setOf("c"),lessons).count {it.state==PathNodeState.Current})
+    }
+
     @Test fun weeksRunSaturdayToFriday() {
         assertEquals(DayOfWeek.TUESDAY,LocalDate.of(2026,11,3).dayOfWeek)
         val saturday=LocalDate.of(2026,10,31)
