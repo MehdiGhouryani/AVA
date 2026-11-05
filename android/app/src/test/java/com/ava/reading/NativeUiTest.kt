@@ -175,6 +175,21 @@ class NativeUiTest {
         ui.onNodeWithText("فعلاً نه").performClick();assertFalse(reset);assertNull(state.confirmation);snapshot("settings-320")
     }
     @Config(qualifiers="w320dp-h560dp-mdpi")
+    @Test fun resetDialogPutsConfirmActionInPrimarySlot() {
+        // Deep review round 2 (P1-3): the confirm and dismiss slots were swapped,
+        // so the left button (the primary position under the app's forced RTL)
+        // read "فعلاً نه". Material3 lays its button row dismiss-first, so in RTL
+        // the confirm slot is the LEFT button: assert the "yes" button sits left
+        // of "cancel". If this fails on a newer Material3, the slot order changed
+        // — check the dialog visually and flip the comparison, not the fix.
+        var state by mutableStateOf(AvaState(route=Route.Settings,confirmation=Confirmation.ResetProgress))
+        render({state},AvaActions(confirm={state=state.copy(confirmation=it)},confirmAction={}),width=320,height=560)
+        ui.waitForIdle()
+        val yesX=ui.onNodeWithText("بله، ادامه بده").fetchSemanticsNode().positionInRoot.x
+        val cancelX=ui.onNodeWithText("فعلاً نه").fetchSemanticsNode().positionInRoot.x
+        assertTrue(yesX<cancelX)
+    }
+    @Config(qualifiers="w320dp-h560dp-mdpi")
     @Test fun settingsUseSingleFullRowSwitchTargetsWithReadableState() {
         var state by mutableStateOf(AvaState(route=Route.Settings,learner=Learner(narration=true,sounds=false,reducedMotion=true)))
         val actions=AvaActions(setting={key,value->state=state.copy(learner=when(key) {

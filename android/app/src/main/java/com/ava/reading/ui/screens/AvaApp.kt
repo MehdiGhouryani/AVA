@@ -47,7 +47,11 @@ private fun isSystemMotionOff(context: android.content.Context)=android.provider
         s.confirmation?.let {kind->
             val key=when(kind) {Confirmation.ExitLesson->"exit";Confirmation.ResetProgress->"reset";Confirmation.Logout->"logout"}
             AlertDialog(onDismissRequest={a.confirm(null)},title={Text(txt(key+"_title"))},text={Text(txt(key+"_body"))},
-                confirmButton={Button({a.confirm(null)},Modifier.heightIn(min=72.dp)) {Text(txt("cancel"))}},dismissButton={OutlinedButton(a.confirmAction,Modifier.heightIn(min=64.dp)) {Text(txt("yes"))}})
+                // The confirm slot is the primary action (filled, 72 dp); the
+                // dismiss slot is the secondary one. They were swapped: cancel
+                // sat in the primary slot, so in RTL the left button read
+                // "فعلاً نه" and a wrong tap could reset a child's progress.
+                confirmButton={Button(a.confirmAction,Modifier.heightIn(min=72.dp)) {Text(txt("yes"))}},dismissButton={OutlinedButton({a.confirm(null)},Modifier.heightIn(min=64.dp)) {Text(txt("cancel"))}})
         }
         s.notice?.let {message->AlertDialog(onDismissRequest={a.notice(null)},text={Text(txt(message))},confirmButton={TextButton({a.notice(null)},Modifier.heightIn(min=64.dp)) {Text(txt("close"))}})}
     }

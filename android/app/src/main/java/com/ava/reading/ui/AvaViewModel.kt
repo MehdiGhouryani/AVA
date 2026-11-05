@@ -181,7 +181,11 @@ class AvaViewModel(
         mutable.update { it.copy(busy=true,message=null) }
         request=viewModelScope.launch {
             when(call {auth.verify(s.phone,s.code)}) {
-                AuthResult.Success -> {mutable.update { it.copy(message="otp_success") };delay(600);save {it.copy(onboarded=true,signedIn=true)};navigate(Route.Home)}
+                // The login must be durable before the 600 ms success pause: back()
+                // cancels this job (navigate cancels request), and a back press in
+                // that window used to drop the login silently. Saving first means
+                // the user stays signed in even if they leave before Home.
+                AuthResult.Success -> {mutable.update { it.copy(message="otp_success") };save {it.copy(onboarded=true,signedIn=true)};delay(600);navigate(Route.Home)}
                 AuthResult.Wrong -> mutable.update {it.copy(busy=false,message="otp_wrong")}
                 AuthResult.Expired -> mutable.update {it.copy(busy=false,message="otp_expired",resendUntil=0)}
                 AuthResult.Locked -> mutable.update {it.copy(busy=false,message="otp_locked",now=clock(),lockedUntil=clock()+120_000)}

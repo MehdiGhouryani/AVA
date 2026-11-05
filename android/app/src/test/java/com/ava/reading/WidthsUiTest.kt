@@ -26,7 +26,9 @@ import org.robolectric.annotation.*
  * render box of the same size.
  */
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk=[35],qualifiers="w390dp-h844dp-mdpi")
+// The class-level qualifiers were dead (both tests override them); only
+// sdk=[35] belongs here — the widths live on the method-level @Configs.
+@Config(sdk=[35])
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 class WidthsUiTest {
     @get:Rule val ui=createAndroidComposeRule<ComponentActivity>()

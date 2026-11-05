@@ -65,6 +65,14 @@ class AvaViewModelTest {
         val v=vm();runCurrent();v.navigate(Route.Phone);v.phone("۰۹۱۲۳۴۵۶۷۸۹");v.send();assertEquals("phone_consent_hint",v.state.value.message)
         v.consent(true);v.send();runCurrent();assertEquals(Route.Otp,v.state.value.route);v.code("۱۲۳۴۵۶");runCurrent();advanceTimeBy(601);runCurrent();assertEquals(Route.Home,v.state.value.route);assertTrue(v.state.value.learner.signedIn)
     }
+    @Test fun backDuringSuccessDelayDoesNotLoseLogin()=runTest {
+        // Deep review round 2 (P1-1): the 600 ms pause after a successful OTP used to
+        // sit between the server's Success and saving signedIn, so a back press in
+        // that window cancelled the job and the login was silently lost. The save
+        // now happens first: backing out still leaves the phone screen, but the
+        // login survives in state and in the repository.
+        val repo=MemoryLearnerRepository();val v=vm(repo);runCurrent();v.navigate(Route.Phone);v.phone("09123456789");v.consent(true);v.send();runCurrent();assertEquals(Route.Otp,v.state.value.route);v.code("123456");runCurrent();advanceTimeBy(100);runCurrent();v.back();advanceTimeBy(501);runCurrent();assertEquals(Route.Phone,v.state.value.route);assertTrue(v.state.value.learner.signedIn);assertTrue(repo.data.value.signedIn)
+    }
     @Test fun leavingDuringRequestCancelsNavigation()=runTest {val v=vm();runCurrent();v.navigate(Route.Phone);v.phone("09123456789");v.consent(true);v.send();v.navigate(Route.Onboarding1);runCurrent();assertEquals(Route.Onboarding1,v.state.value.route)}
     @Test fun lockedLessonCannotOpen()=runTest {val v=vm();runCurrent();v.navigate(Route.Home);v.openLesson(Catalog.lessons[1].id);assertEquals(Route.Home,v.state.value.route)}
     @Test fun completionUnlocksNextAndIsIdempotent()=runTest {val v=vm();runCurrent();v.continueLearning();complete(v);v.advance();runCurrent();assertEquals(setOf(Catalog.lessons[0].id),v.state.value.learner.completed);v.continueLearning();assertEquals(Catalog.lessons[1].id,v.state.value.selectedLesson)}

@@ -135,6 +135,11 @@ private val PersianDigits=VisualTransformation { value -> TransformedText(Annota
         decorationBox={inner ->
             Box {
                 Box(Modifier.size(1.dp)) {inner()}
+                // The digit boxes are a number, read left to right: the app is
+                // forced RTL, so without this the first digit lands on the right
+                // and the code reads backwards. The phone field already does the
+                // same with textDirection=Ltr; the boxes need the layout override.
+                CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
                 Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(6.dp)) {
                     repeat(6) {i->
                         val active=focused && i==s.code.length.coerceAtMost(5)
@@ -143,6 +148,7 @@ private val PersianDigits=VisualTransformation { value -> TransformedText(Annota
                             Text(s.code.getOrNull(i)?.let {fa(it)}.orEmpty(),style=MaterialTheme.typography.headlineMedium,color=AvaColors.deep,modifier=Modifier.clearAndSetSemantics {})
                         }
                     }
+                }
                 }
             }
         })
