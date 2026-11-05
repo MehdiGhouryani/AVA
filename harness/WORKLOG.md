@@ -227,3 +227,17 @@ Next action:
 - Blocked by: toolchain Native؛ آزمون با کودک (فاز ۷)
 - Evidence paths: `docs/UX_CONFORMANCE_FA.md` بخش ۷
 - Next action: زیرساخت محتوا I3 تا I9.
+
+## ۲۰۲۶-۱۱-۰۵ — فازبندی دقیق v1 و ویرایش وابستگی release-readiness
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۵
+- Task ID: `phase-0-v1-phasing` (خارج از roadmap اجرایی؛ مایل‌ستون v1 داخل فازهای موجود، مانند `phase-0-align`)
+- Agent/tool: Muse، sandbox بدون Android SDK و بدون Docker
+- Baseline source hash/version: `main` `e38d940`، نسخهٔ Native ۰٫۶٫۱
+- Files changed: `harness/roadmap.json` (فقط یک خط: حذف `080-content-expansion` از `dependsOn` تسک `080-release-readiness`)، `docs/V1_PHASING_FA.md` (تازه؛ فازبندی دقیق v1 با گام‌های v1-1 تا v1-8)، `docs/README.md` (یک سطر در جدول)، این فایل. هیچ فایلی زیر `android/`، `design/content*`، `cms/` یا `src/` تغییر نکرد.
+- Commands actually executed: `python3 scripts/harness.py validate`، `python3 scripts/validate-harness.py`، `python3 scripts/audit-project.py`، `python3 scripts/check-docs.py`
+- Results: هر چهار فرمان پاس شدند — harness معتبر (۱۴ تسک، ۴ فاز، بدون چرخه)، audit کامل پاس، check-docs صفر مشکل (۱۲۰ تست، ۲۹۵ رشته). وضعیت taskها تغییر نکرد: ready=۲، blocked=۹، human_gate=۳.
+- **اجرا نشد:** Gradle، Compose، Docker؛ این تغییر فقط roadmap و مستندات است و هیچ کد یا محتوایی را عوض نمی‌کند.
+- Blocked by: تایید مالک برای merge این PR؛ سپس گام v1-1 (محیط toolchain) و v1-4 (یافتن متخصص آموزش).
+- Evidence paths: `docs/V1_PHASING_FA.md` بخش ۵ (تنها ویرایش ساختاری)، diff همین شاخه.
+- Next action: مالک PR را بررسی و merge می‌کند؛ بعد گام v1-1 و v1-4 موازی شروع می‌شوند.
