@@ -47,6 +47,6 @@ prototype باید این موارد را واقعاً اثبات کند:
 
 - سورس مستقل Payload 3.92.1 با PostgreSQL و storage رسمی S3 تولید type و production build می‌شود.
 - پنج collection، شش نقش، فیلدهای server-managed، audit hook و gate انتشار وجود دارند.
-- ۱۶ تست دامنه، تشخیص magic/hash، جداسازی دو reviewer و export deterministic را پوشش می‌دهند.
+- ۱۸ تست دامنه، تشخیص magic/hash، جداسازی دو reviewer و export deterministic را پوشش می‌دهند.
 - شرط‌های ۲ تا ۵ در سطح کد/دامنه پیش رفته‌اند، اما اثبات integration با DB/S3 و decode/transcode هنوز باز است.
 - شرط ۱ نیازمند QA مرورگر واقعی و شرط ۶ نیازمند محیط deployment آزمایشی است؛ بنابراین وضعیت production همچنان مشروط می‌ماند.

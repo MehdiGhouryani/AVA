@@ -13,6 +13,7 @@ import com.ava.reading.content.*
 import com.ava.reading.ui.AvaActions
 import com.ava.reading.ui.AvaState
 import com.ava.reading.ui.theme.AvaColors
+import com.ava.reading.ui.theme.LayoutThresholds
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable fun PracticeScreen(s: AvaState,a: AvaActions) {
@@ -20,7 +21,7 @@ import com.ava.reading.ui.theme.AvaColors
     val learned=learnedTaskKeys(s.learner.completed,s.lessons)
     val mix=plannedReviewKeys(ReviewMode.Mix,s.learner.completed,s.learner.mistakes,s.learner.reviews,lessons=s.lessons)
     BoxWithConstraints(Modifier.fillMaxSize()) {
-        val compact=maxHeight<640.dp || LocalDensity.current.fontScale>1.15f
+        val compact=maxHeight<LayoutThresholds.compactHeight || LocalDensity.current.fontScale>1.15f
         Page(txt("practice_title")) {
             Text(txt("practice_body"),color=AvaColors.soft)
             ArtImage("char.ava.reading",Modifier.fillMaxWidth().height(if(compact)104.dp else 168.dp))

@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.*
 import com.ava.reading.content.*
 import com.ava.reading.ui.*
 import com.ava.reading.ui.theme.*
+import com.ava.reading.ui.theme.LayoutThresholds
 
 @Composable fun SplashScreen(s: AvaState,a: AvaActions) {
     Scene("bg.splash") {
@@ -37,7 +38,7 @@ import com.ava.reading.ui.theme.*
     val first=s.route==Route.Onboarding1
     Scene(if(first)"bg.onboarding1" else "bg.garden") {
         BoxWithConstraints(Modifier.fillMaxSize()) {
-            val compact=maxHeight<650.dp
+            val compact=maxHeight<LayoutThresholds.compactHeight
             val large=LocalDensity.current.fontScale>1.15f
             val artHeight=(maxHeight.value*.28f).coerceIn(90f,250f).dp
             val m=if(large)Modifier.verticalScroll(rememberScrollState()) else Modifier
@@ -134,6 +135,11 @@ private val PersianDigits=VisualTransformation { value -> TransformedText(Annota
         decorationBox={inner ->
             Box {
                 Box(Modifier.size(1.dp)) {inner()}
+                // The digit boxes are a number, read left to right: the app is
+                // forced RTL, so without this the first digit lands on the right
+                // and the code reads backwards. The phone field already does the
+                // same with textDirection=Ltr; the boxes need the layout override.
+                CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
                 Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(6.dp)) {
                     repeat(6) {i->
                         val active=focused && i==s.code.length.coerceAtMost(5)
@@ -142,6 +148,7 @@ private val PersianDigits=VisualTransformation { value -> TransformedText(Annota
                             Text(s.code.getOrNull(i)?.let {fa(it)}.orEmpty(),style=MaterialTheme.typography.headlineMedium,color=AvaColors.deep,modifier=Modifier.clearAndSetSemantics {})
                         }
                     }
+                }
                 }
             }
         })

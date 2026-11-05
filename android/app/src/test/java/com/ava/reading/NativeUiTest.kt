@@ -175,6 +175,21 @@ class NativeUiTest {
         ui.onNodeWithText("فعلاً نه").performClick();assertFalse(reset);assertNull(state.confirmation);snapshot("settings-320")
     }
     @Config(qualifiers="w320dp-h560dp-mdpi")
+    @Test fun resetDialogPutsConfirmActionInPrimarySlot() {
+        // Deep review round 2 (P1-3): the confirm and dismiss slots were swapped,
+        // so the left button (the primary position under the app's forced RTL)
+        // read "فعلاً نه". Material3 lays its button row dismiss-first, so in RTL
+        // the confirm slot is the LEFT button: assert the "yes" button sits left
+        // of "cancel". If this fails on a newer Material3, the slot order changed
+        // — check the dialog visually and flip the comparison, not the fix.
+        var state by mutableStateOf(AvaState(route=Route.Settings,confirmation=Confirmation.ResetProgress))
+        render({state},AvaActions(confirm={state=state.copy(confirmation=it)},confirmAction={}),width=320,height=560)
+        ui.waitForIdle()
+        val yesX=ui.onNodeWithText("بله، ادامه بده").fetchSemanticsNode().positionInRoot.x
+        val cancelX=ui.onNodeWithText("فعلاً نه").fetchSemanticsNode().positionInRoot.x
+        assertTrue(yesX<cancelX)
+    }
+    @Config(qualifiers="w320dp-h560dp-mdpi")
     @Test fun settingsUseSingleFullRowSwitchTargetsWithReadableState() {
         var state by mutableStateOf(AvaState(route=Route.Settings,learner=Learner(narration=true,sounds=false,reducedMotion=true)))
         val actions=AvaActions(setting={key,value->state=state.copy(learner=when(key) {
@@ -283,7 +298,7 @@ class NativeUiTest {
         render({state},AvaActions(avatar={state=state.copy(profileAvatar=it)},saveProfile={saved=true}),width=320,height=560,font=1.3f)
         val radio=SemanticsMatcher.expectValue(SemanticsProperties.Role,Role.RadioButton)
         ui.onAllNodes(radio).assertCountEquals(4)
-        ui.onNode(hasText("روباه") and radio).performScrollTo().assertHeightIsAtLeast(48.dp).assertWidthIsAtLeast(48.dp).performClick().assertIsSelected()
+        ui.onNode(hasText("روباه") and radio).performScrollTo().assertHeightIsAtLeast(64.dp).assertWidthIsAtLeast(64.dp).performClick().assertIsSelected()
         ui.onNodeWithText("ذخیره").performScrollTo().assertIsDisplayed().performClick()
         assertTrue(saved);snapshot("edit-profile-320-large")
     }
@@ -304,7 +319,9 @@ class NativeUiTest {
         val learner=Learner(completed=Catalog.lessons.map {it.id}.toSet(),stories=setOf(Catalog.stories.first().id),reviews=1)
         render({AvaState(route=Route.Progress,learner=learner)},AvaActions(navigate={destination=it}),width=320,height=560,font=1.3f)
         ui.onNodeWithText("همهٔ مرحله‌های این باغ کامل شده‌اند؛ قصه‌ها منتظرند.").performScrollTo().assertIsDisplayed()
-        ui.onNodeWithText("۶ از ۶ یادگاری به دست آمده").performScrollTo().assertIsDisplayed()
+        // Four badges exist (first lesson, all lessons, story, review) — not
+        // six: this learner earned all four, so the summary reads ۴ از ۴.
+        ui.onNodeWithText("۴ از ۴ یادگاری به دست آمده").performScrollTo().assertIsDisplayed()
         ui.onNodeWithText("قصه‌ها").performScrollTo().performClick();assertEquals(Route.Library,destination)
         snapshot("progress-complete-320-large")
     }
@@ -348,18 +365,28 @@ class NativeUiTest {
     }
     @Config(qualifiers="w320dp-h560dp-mdpi")
     @Test fun wordBuilderUsesLargeTapTargetsAndSupportsCorrection() {
-        var state by mutableStateOf(AvaState(route=Route.Lesson,selectedLesson=Catalog.lessons[2].id))
+        // The word-builder lesson is words_03: its first task is build_word
+        // آب with tokens [ب, آ]. Lesson 3 (edge_sounds_03) starts with an
+        // initial_sound choice task instead, so "آ" was never on screen.
+        val wordLesson=Catalog.lessons.first {it.tasks.firstOrNull()?.kind==TaskKind.BuildWord}
+        var state by mutableStateOf(AvaState(route=Route.Lesson,selectedLesson=wordLesson.id))
         val a=AvaActions(chooseToken={state=state.copy(exercise=ExerciseReducer.chooseToken(state.exercise,it,state.tasks))},removeToken={state=state.copy(exercise=ExerciseReducer.removeToken(state.exercise,state.tasks))},check={state=state.copy(exercise=ExerciseReducer.check(state.exercise,state.tasks))})
         render({state},a,width=320,height=560,font=1.3f)
         ui.onNodeWithText("بررسی کن").assertIsNotEnabled()
         ui.onNodeWithText("ب").performScrollTo().assertHeightIsAtLeast(64.dp).assertWidthIsAtLeast(64.dp).performClick()
-        ui.onNodeWithText("آ").performScrollTo().assertHeightIsAtLeast(48.dp).performClick()
+        ui.onNodeWithText("آ").performScrollTo().assertHeightIsAtLeast(64.dp).performClick()
         ui.onNodeWithText("بررسی کن").assertIsEnabled().performClick()
         ui.onNodeWithText("اشکالی ندارد؛ یک بار دیگر نشانه‌ها را بچین.").assertIsDisplayed()
-        repeat(2) {ui.onNodeWithText("آخرین نشانه را بردار").performClick()}
-        ui.onNodeWithText("آ").performClick();ui.onNodeWithText("ب").performClick()
+        // After a wrong answer on this narrow window the remove button and the
+        // re-enabled tokens sit below the scroll clip, so a blind tap would hit
+        // the fixed footer underneath — scroll them into view first, like a
+        // real user would.
+        repeat(2) {ui.onNodeWithText("آخرین نشانه را بردار").performScrollTo().performClick()}
+        ui.onNodeWithText("آ").performScrollTo().performClick();ui.onNodeWithText("ب").performScrollTo().performClick()
         ui.onNodeWithText("بررسی کن").performClick()
-        ui.onNodeWithText("پیدایش کردی!").assertIsDisplayed()
+        // The success feedback can be composed a frame behind the click on
+        // this small window; wait for it to actually show.
+        ui.waitUntil(timeoutMillis=10_000) {runCatching {ui.onNodeWithText("پیدایش کردی!").assertIsDisplayed()}.isSuccess}
         snapshot("word-lesson-320-large")
     }
     @Config(qualifiers="w320dp-h560dp-mdpi")

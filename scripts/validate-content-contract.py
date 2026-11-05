@@ -75,6 +75,7 @@ page_ids = set()
 for story in content["stories"]:
     assert story["unitId"] in units and story["artRef"] in assets
     assert story["answer"] in story["choices"] and len(story["choices"]) == len(set(story["choices"]))
+    assert story["pages"]  # empty pages crash startStory (coerceIn(0, -1)); see story_pages_empty
     for page in story["pages"]:
         assert page["id"] not in page_ids; page_ids.add(page["id"])
         assert page["audioRef"] in audio and page["text"].strip()

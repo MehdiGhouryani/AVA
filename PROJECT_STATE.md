@@ -1,10 +1,10 @@
-# AVA — project state (knowledge file). Updated 2026-11-01.
+# AVA — project state (knowledge file). Updated 2026-11-05.
 
 Read this first. If the owner's latest message disagrees with it, trust the owner and update the plan.
 This file replaces the earlier version that described the React web line (`AVA-Ui`, phase 2/3).
 
 ## 1. Source of truth
-- Repo: `https://github.com/MehdiGhouryani/AVA.git`, branch `main`, HEAD `cd9c581` ("Initial clean push", 2026-10-28). One commit, one branch.
+- Repo: `https://github.com/MehdiGhouryani/AVA.git`, branch `main`, HEAD `e38d940` (2026-11-05). Agent branches: `phase-0-v1-phasing` (PR #1, docs-only, open) and `phase-1-native-toolchain` (PR #2, open).
 - Product: **native Android**, Kotlin + Jetpack Compose, `android/`. Version 0.6.1, versionCode 16, minSdk 26, targetSdk 35.
 - `src/` (React) is a historical reference. `AGENTS.md` and the harness forbid expanding it.
 - `PAGES_PLAYBOOK.md` (React phase 3) is **superseded**. Do not run it. Its product ideas are kept as candidates (section 5).
@@ -23,8 +23,8 @@ Never start `blocked` or `human_gate` tasks. Never build APK/AAB unless the owne
 ## 3. What exists (read in code unless marked ran)
 - 22 native destinations: Splash, Onboarding 1/2, Phone, OTP, Home, LessonDetails, Lesson, Library, StoryDetails/Reader/Question/Complete, Practice, Progress, Profile, EditProfile, Settings, Help, About, Privacy, Terms.
 - Content (`design/content.fa.json`, schema v3): 1 level, 3 units, 6 lessons, 17 tasks (7 kinds), 2 stories (9 pages). `approvedForRelease=false`.
-- 120 tests exist in source (104 on `main` + 16 added on Claude branches). Not compiled, not run in any session so far.
-- 295 strings in generated resources (263 on `main` + 32 proposed strings from Claude branches); 16 images.
+- 140 tests exist in source (120 on `main` + 20 added on `phase-1-native-toolchain`, including 2 content-load regression tests, 2 snapshot/Match tests, MainActivity/AndroidNarrator tests, 2 all-kinds UI tests + 1 interaction test, 4 journey UI tests, 2 width UI tests, 1 empty-lesson rejection test, 1 back-during-success-delay login test, 1 confirm-slot position test, and 1 story-pages-empty rejection test). FIRST REAL RUN 2026-11-05 on the owner's Windows machine: 133 passed, 7 failed (all test-side bugs), `lintDebug` BUILD SUCCESSFUL. 6 of the 7 failures are fixed in this commit (double setContent in Widths/AllKinds, check-button scrollTo outside the scrollable column, wrong badge count 6-vs-4, wrong lesson for the word-builder test); the 7th (Journey login "component is not displayed") needs the exact failure line from the owner's XML before fixing. Re-run by the owner is pending.
+- 295 strings in generated resources (295 on `main`; no net change on this branch — `mock_hint` was removed and then restored per the owner's decision); 16 images.
 - CMS prototype (`cms/payload`): Payload 3.92.1, PostgreSQL, S3-compatible storage, 5 collections, 6 roles, 18 domain tests. Not run against a database.
 - Audio: 22 needs in `design/audio.inventory.json`; no audio files; device TTS is the fallback.
 - Art: 16 images in `design/assets.manifest.json`. No word pictures.

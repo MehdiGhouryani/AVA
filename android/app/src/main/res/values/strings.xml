@@ -217,7 +217,7 @@
     <string name="app_logout_body" formatted="false">پیشرفت روی همین دستگاه حفظ می‌شود. برای ورود دوباره کد توسعه را بزن.</string>
     <string name="app_storage_error" formatted="false">ذخیره یا بازیابی پیشرفت انجام نشد. دوباره تلاش کن.</string>
     <string name="app_loading" formatted="false">در حال آماده‌سازی باغ…</string>
-    <string name="app_version" formatted="false">نسخهٔ توسعه ۰٫۴٫۱</string>
+    <string name="app_version" formatted="false">نسخهٔ توسعه ۰٫۶٫۱</string>
     <string name="app_about_body" formatted="false">آوا همراه تو در دنیای نشانه‌ها، کلمه‌ها و قصه‌های فارسی است. با نگاه‌کردن، شنیدن و تلاش دوباره، قدم‌به‌قدم جلو می‌رویم.</string>
     <string name="app_about_native" formatted="false">این محصول با Kotlin و Jetpack Compose برای Android ساخته می‌شود و دادهٔ یادگیری را محلی نگه می‌دارد.</string>
     <string name="app_about_content" formatted="false">محتوای فعلی: {lessons} مرحله و {stories} قصهٔ توسعه‌ای.</string>

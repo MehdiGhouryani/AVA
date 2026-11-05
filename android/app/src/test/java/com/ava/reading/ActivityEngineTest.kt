@@ -97,6 +97,38 @@ class ActivityEngineTest {
         assertEquals(built.copy(correct=true),ExerciseReducer.restore(built.snapshot().encode(),listOf(build)))
     }
 
+    @Test fun snapshotRoundTripsMatchProgressAndWrongCount() {
+        val pairs=match();val tasks=listOf(pairs)
+        val mismatched=ExerciseReducer.flip(ExerciseReducer.flip(Exercise(),0,tasks),2,tasks)
+        assertEquals(0 to 2,mismatched.mismatch)
+        assertEquals(mismatched,ExerciseReducer.restore(mismatched.snapshot().encode(),tasks))
+        val matched=ExerciseReducer.flip(ExerciseReducer.flip(ExerciseReducer.clearMismatch(mismatched),0,tasks),1,tasks)
+        assertEquals(setOf(0),matched.matched);assertFalse(matched.checked)
+        assertEquals(matched,ExerciseReducer.restore(matched.snapshot().encode(),tasks))
+        var done=matched
+        done=ExerciseReducer.flip(ExerciseReducer.flip(done,2,tasks),3,tasks)
+        done=ExerciseReducer.flip(ExerciseReducer.flip(done,4,tasks),5,tasks)
+        assertTrue(done.checked);assertTrue(done.correct);assertEquals(setOf(0,1,2),done.matched)
+        assertEquals(done,ExerciseReducer.restore(done.snapshot().encode(),tasks))
+        val listening=choice(TaskKind.InitialSound)
+        val wrong=ExerciseReducer.check(Exercise(selected="ب"),listOf(listening))
+        assertEquals(1,wrong.wrongCount);assertFalse(wrong.correct)
+        assertEquals(wrong,ExerciseReducer.restore(wrong.snapshot().encode(),listOf(listening)))
+        val legacy=SessionSnapshot(1,0,"پ",listOf(0,1),false,true,false)
+        val restored=ExerciseReducer.restore(legacy.encode(),listOf(listening))
+        assertEquals(0,restored.wrongCount);assertTrue(restored.matched.isEmpty());assertNull(restored.mismatch)
+    }
+
+    @Test fun emptyMatchTaskCanAlwaysBeSkippedAndOddTokensStillComplete() {
+        val empty=match().copy(id="match_empty",tokens=emptyList())
+        val odd=match().copy(id="match_odd",tokens=listOf("آب","آ","باد"))
+        val tasks=listOf(empty,odd)
+        assertTrue(ExerciseReducer.canSkip(Exercise(),tasks))
+        assertEquals(Exercise(index=1),ExerciseReducer.skip(Exercise(),tasks))
+        val done=ExerciseReducer.flip(ExerciseReducer.flip(Exercise(index=1),0,tasks),1,tasks)
+        assertTrue(done.checked);assertTrue(done.correct)
+    }
+
     @Test fun corruptOrStaleSnapshotFallsBackWithoutInvalidSelections() {
         val task=choice(TaskKind.DotFamily);val tasks=listOf(task)
         assertEquals(Exercise(),ExerciseReducer.restore("broken",tasks))

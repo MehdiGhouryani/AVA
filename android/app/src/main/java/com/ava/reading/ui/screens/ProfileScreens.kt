@@ -21,10 +21,11 @@ import androidx.compose.ui.unit.*
 import com.ava.reading.content.*
 import com.ava.reading.ui.*
 import com.ava.reading.ui.theme.*
+import com.ava.reading.ui.theme.LayoutThresholds
 
 @Composable fun ProfileScreen(s: AvaState,a: AvaActions) {
     BoxWithConstraints(Modifier.fillMaxSize()) {
-        val compact=maxWidth<360.dp || LocalDensity.current.fontScale>1.15f
+        val compact=maxWidth<LayoutThresholds.compactWidth || LocalDensity.current.fontScale>1.15f
         val lessons=knownLessonCount(s.learner.completed,s.lessons);val stories=knownStoryCount(s.learner.stories,s.stories)
         Page(txt("profile_title")) {
             SoftCard(Modifier.fillMaxWidth(),padding=if(compact)16.dp else 20.dp) {
@@ -95,7 +96,7 @@ import com.ava.reading.ui.theme.*
 
 @Composable fun ProgressScreen(s: AvaState,a: AvaActions) {
     BoxWithConstraints(Modifier.fillMaxSize()) {
-        val compact=maxWidth<360.dp || LocalDensity.current.fontScale>1.15f
+        val compact=maxWidth<LayoutThresholds.compactWidth || LocalDensity.current.fontScale>1.15f
         val lessons=knownLessonCount(s.learner.completed,s.lessons);val stories=knownStoryCount(s.learner.stories,s.stories);val reviews=s.learner.reviews.coerceAtLeast(0)
         val allLessons=lessons==s.lessons.size
         val badges=listOf(

@@ -10,10 +10,12 @@ class ContentRepositoryTest {
         id: String="candidate-0.5.1",
         minApp: String="0.5.0",
         status: ContentReleaseStatus=ContentReleaseStatus.Staged,
-        levels: List<Level> = Catalog.levels
+        levels: List<Level> = Catalog.levels,
+        stories: List<Story> = Catalog.stories
     )=Catalog.snapshot.copy(
         release=Catalog.release.copy(releaseId=id,status=status,minAppVersion=minApp),
-        levels=levels
+        levels=levels,
+        stories=stories
     )
 
     @Test fun bundledSourceIsCanonicalFallback()=runBlocking {
@@ -36,6 +38,31 @@ class ContentRepositoryTest {
         val empty=repository.activate(candidate(id="empty",levels=emptyList()))
         assertEquals(ContentActivationResult.Rejected("app_version_incompatible"),incompatible)
         assertEquals(ContentActivationResult.Rejected("content_empty"),empty)
+        assertEquals(Catalog.release.releaseId,repository.active().release.releaseId)
+    }
+
+    @Test fun lessonWithZeroTasksIsRejectedWithoutChangingActive()=runBlocking {
+        val repository=LocalContentRepository()
+        val emptyLessonLevel=Catalog.levels.first().let {level->
+            level.copy(units=level.units.mapIndexed {unitIndex,unit->
+                if(unitIndex==0)unit.copy(lessons=unit.lessons.mapIndexed {lessonIndex,lesson->
+                    if(lessonIndex==0)lesson.copy(tasks=emptyList()) else lesson
+                }) else unit
+            })
+        }
+        val result=repository.activate(candidate(id="empty-lesson",levels=listOf(emptyLessonLevel)+Catalog.levels.drop(1)))
+        assertEquals(ContentActivationResult.Rejected("lesson_tasks_empty"),result)
+        assertEquals(Catalog.release.releaseId,repository.active().release.releaseId)
+    }
+
+    @Test fun storyWithZeroPagesIsRejectedWithoutChangingActive()=runBlocking {
+        // Deep review round 2 (P2-6): same family as lesson_tasks_empty — a story
+        // with no pages crashes startStory (pages.lastIndex is -1, coerceIn(0,-1)
+        // throws), and neither the contract script nor validationError checked it.
+        val repository=LocalContentRepository()
+        val emptyStory=Catalog.stories.first().copy(pageItems=emptyList())
+        val result=repository.activate(candidate(id="empty-story",stories=listOf(emptyStory)+Catalog.stories.drop(1)))
+        assertEquals(ContentActivationResult.Rejected("story_pages_empty"),result)
         assertEquals(Catalog.release.releaseId,repository.active().release.releaseId)
     }
 

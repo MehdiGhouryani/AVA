@@ -19,6 +19,14 @@ class MainRule : TestWatcher() {
     override fun starting(description: Description) {Dispatchers.setMain(dispatcher)}
     override fun finished(description: Description) {Dispatchers.resetMain()}
 }
+private class FlakyContentRepository(private var failures: Int) : ContentRepository {
+    override suspend fun active(): ContentSnapshot {
+        if(failures>0) { failures--; throw IllegalStateException("Bundled content is invalid: test") }
+        return Catalog.snapshot
+    }
+    override suspend fun activate(candidate: ContentSnapshot)=ContentActivationResult.Rejected("unused")
+    override suspend fun rollback()=ContentActivationResult.Rejected("unused")
+}
 @OptIn(ExperimentalCoroutinesApi::class)
 class AvaViewModelTest {
     @get:Rule val main=MainRule()
@@ -34,6 +42,15 @@ class AvaViewModelTest {
     }
     private fun complete(v: AvaViewModel) {while(!v.state.value.exercise.complete) {answer(v);v.check();v.advance()}}
     @Test fun startupRespectsReturningSession()=runTest {val v=vm(MemoryLearnerRepository(Learner(signedIn=true)));advanceTimeBy(1801);runCurrent();assertEquals(Route.Home,v.state.value.route)}
+    @Test fun invalidBundledContentShowsRetryInsteadOfHangingOnSplash()=runTest {
+        val v=vm(contentRepository=FlakyContentRepository(Int.MAX_VALUE));runCurrent();advanceTimeBy(1801);runCurrent()
+        assertEquals(Route.Splash,v.state.value.route);assertFalse(v.state.value.contentReady);assertTrue(v.state.value.storageError)
+    }
+    @Test fun retryStorageReloadsContentAfterFailure()=runTest {
+        val v=vm(contentRepository=FlakyContentRepository(1));runCurrent();assertTrue(v.state.value.storageError)
+        v.retryStorage();runCurrent();advanceTimeBy(1801);runCurrent()
+        assertTrue(v.state.value.contentReady);assertFalse(v.state.value.storageError);assertEquals(Route.Onboarding1,v.state.value.route)
+    }
     @Test fun startupReadsTheActiveLocalSnapshotInsteadOfStaticUiCatalog()=runTest {
         val first=Catalog.levels.first();val unit=first.units.first();val lesson=unit.lessons.first().copy(title="عنوان نسخهٔ محلی")
         val levels=listOf(first.copy(units=listOf(unit.copy(lessons=listOf(lesson)))+first.units.drop(1)))
@@ -47,6 +64,14 @@ class AvaViewModelTest {
     @Test fun phoneConsentAndSingleAutoVerificationFlow()=runTest {
         val v=vm();runCurrent();v.navigate(Route.Phone);v.phone("۰۹۱۲۳۴۵۶۷۸۹");v.send();assertEquals("phone_consent_hint",v.state.value.message)
         v.consent(true);v.send();runCurrent();assertEquals(Route.Otp,v.state.value.route);v.code("۱۲۳۴۵۶");runCurrent();advanceTimeBy(601);runCurrent();assertEquals(Route.Home,v.state.value.route);assertTrue(v.state.value.learner.signedIn)
+    }
+    @Test fun backDuringSuccessDelayDoesNotLoseLogin()=runTest {
+        // Deep review round 2 (P1-1): the 600 ms pause after a successful OTP used to
+        // sit between the server's Success and saving signedIn, so a back press in
+        // that window cancelled the job and the login was silently lost. The save
+        // now happens first: backing out still leaves the phone screen, but the
+        // login survives in state and in the repository.
+        val repo=MemoryLearnerRepository();val v=vm(repo);runCurrent();v.navigate(Route.Phone);v.phone("09123456789");v.consent(true);v.send();runCurrent();assertEquals(Route.Otp,v.state.value.route);v.code("123456");runCurrent();advanceTimeBy(100);runCurrent();v.back();advanceTimeBy(501);runCurrent();assertEquals(Route.Phone,v.state.value.route);assertTrue(v.state.value.learner.signedIn);assertTrue(repo.data.value.signedIn)
     }
     @Test fun leavingDuringRequestCancelsNavigation()=runTest {val v=vm();runCurrent();v.navigate(Route.Phone);v.phone("09123456789");v.consent(true);v.send();v.navigate(Route.Onboarding1);runCurrent();assertEquals(Route.Onboarding1,v.state.value.route)}
     @Test fun lockedLessonCannotOpen()=runTest {val v=vm();runCurrent();v.navigate(Route.Home);v.openLesson(Catalog.lessons[1].id);assertEquals(Route.Home,v.state.value.route)}

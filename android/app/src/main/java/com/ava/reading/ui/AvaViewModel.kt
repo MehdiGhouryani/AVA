@@ -48,20 +48,13 @@ class AvaViewModel(
     private var request: Job?=null
     private var ticker: Job?=null
     private var loading: Job?=null
+    private var contentLoading: Job?=null
     private var splashReady=false
     private var loaded=false
     private var pending=0
     private val writes=Channel<Learner>(Channel.UNLIMITED)
     init {
-        viewModelScope.launch {
-            val active=contentRepository.active()
-            mutable.update {state->state.copy(
-                content=active,contentReady=true,
-                selectedLesson=state.selectedLesson.takeIf {id->active.lessons.any {it.id==id}}?:active.lessons.first().id,
-                selectedStory=state.selectedStory.takeIf {id->active.stories.any {it.id==id}}?:active.stories.first().id
-            )}
-            finishStartup()
-        }
+        loadContent()
         viewModelScope.launch {
             // Single writer preserves user intent order. Each snapshot includes all preceding UI edits,
             // so a later successful write also recovers a preceding failed write without losing progress.
@@ -74,6 +67,23 @@ class AvaViewModel(
         }
         readData()
         viewModelScope.launch { delay(1800); splashReady=true; finishStartup() }
+    }
+    // A failed bundled-content load must surface the retry banner instead of
+    // leaving the app on Splash forever: active() throws on invalid content.
+    private fun loadContent() {
+        contentLoading?.cancel()
+        contentLoading=viewModelScope.launch {
+            try {
+                val active=contentRepository.active()
+                mutable.update {state->state.copy(
+                    content=active,contentReady=true,
+                    selectedLesson=state.selectedLesson.takeIf {id->active.lessons.any {it.id==id}}?:active.lessons.first().id,
+                    selectedStory=state.selectedStory.takeIf {id->active.stories.any {it.id==id}}?:active.stories.first().id
+                )}
+                finishStartup()
+            } catch(e: CancellationException) { throw e }
+            catch(_: Exception) { mutable.update { it.copy(storageError=true) } }
+        }
     }
     private fun readData() {
         loading?.cancel()
@@ -106,7 +116,9 @@ class AvaViewModel(
     }
     private fun clearSession() {saved.remove<String>("session_owner");saved.remove<String>("session_state")}
     fun retryStorage() {
-        if(!loaded) { mutable.update { it.copy(storageError=false,restoring=true) };readData() }
+        mutable.update { it.copy(storageError=false) }
+        if(!mutable.value.contentReady) loadContent()
+        if(!loaded) { mutable.update { it.copy(restoring=true) };readData() }
         else { save { mutable.value.learner };readData() }
     }
     fun navigate(route: Route) {
@@ -169,7 +181,11 @@ class AvaViewModel(
         mutable.update { it.copy(busy=true,message=null) }
         request=viewModelScope.launch {
             when(call {auth.verify(s.phone,s.code)}) {
-                AuthResult.Success -> {mutable.update { it.copy(message="otp_success") };delay(600);save {it.copy(onboarded=true,signedIn=true)};navigate(Route.Home)}
+                // The login must be durable before the 600 ms success pause: back()
+                // cancels this job (navigate cancels request), and a back press in
+                // that window used to drop the login silently. Saving first means
+                // the user stays signed in even if they leave before Home.
+                AuthResult.Success -> {mutable.update { it.copy(message="otp_success") };save {it.copy(onboarded=true,signedIn=true)};delay(600);navigate(Route.Home)}
                 AuthResult.Wrong -> mutable.update {it.copy(busy=false,message="otp_wrong")}
                 AuthResult.Expired -> mutable.update {it.copy(busy=false,message="otp_expired",resendUntil=0)}
                 AuthResult.Locked -> mutable.update {it.copy(busy=false,message="otp_locked",now=clock(),lockedUntil=clock()+120_000)}

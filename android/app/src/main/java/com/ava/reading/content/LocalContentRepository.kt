@@ -88,6 +88,7 @@ class LocalContentRepository(
         if(skillIds.size!=snapshot.skills.size)return "skill_ids_invalid"
         val lessons=snapshot.lessons
         if(lessons.isEmpty() || lessons.map {it.id}.distinct().size!=lessons.size)return "lesson_ids_invalid"
+        if(lessons.any {it.tasks.isEmpty()})return "lesson_tasks_empty"
         val tasks=lessons.flatMap {it.tasks}
         if(tasks.isEmpty() || tasks.map {it.id}.distinct().size!=tasks.size)return "task_ids_invalid"
         if(tasks.any {it.skillIds.isEmpty() || !skillIds.containsAll(it.skillIds)})return "task_skill_refs_invalid"
@@ -95,6 +96,11 @@ class LocalContentRepository(
         if(snapshot.stories.any {story->units.none {it.id==story.unitId}})return "story_unit_refs_invalid"
         val pages=snapshot.stories.flatMap {it.pageItems}
         if(pages.map {it.id}.distinct().size!=pages.size)return "story_page_ids_invalid"
+        // A story with zero pages crashes startStory: pages.lastIndex is -1 and
+        // coerceIn(0,-1) throws. Same family as lesson_tasks_empty (deep review
+        // round 2, P2-6); the current content has 5 and 4 pages, so this is only
+        // reachable from a bad staged snapshot.
+        if(snapshot.stories.any {it.pageItems.isEmpty()})return "story_pages_empty"
         return null
     }
 }

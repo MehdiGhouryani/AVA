@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.*
 import com.ava.reading.content.*
 import com.ava.reading.ui.*
 import com.ava.reading.ui.theme.*
+import com.ava.reading.ui.theme.LayoutThresholds
 
 @Composable fun LibraryScreen(s: AvaState,a: AvaActions) {
     Page(txt("library_title")) {
@@ -31,7 +32,7 @@ import com.ava.reading.ui.theme.*
             Surface(onClick={a.openStory(story.id)},shape=RoundedCornerShape(28.dp),color=AvaColors.cream,shadowElevation=3.dp,
                 border=BorderStroke(1.dp,AvaColors.line),modifier=Modifier.fillMaxWidth().semantics {stateDescription=status}) {
                 BoxWithConstraints {
-                    val compact=maxWidth<340.dp || LocalDensity.current.fontScale>1.15f
+                    val compact=maxWidth<LayoutThresholds.compactWidth || LocalDensity.current.fontScale>1.15f
                     if(compact) Column(Modifier.padding(16.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
                         StoryCover(story.art,completed,Modifier.fillMaxWidth().height(104.dp))
                         StoryCardCopy(story,status,completed,saved,position)
@@ -74,7 +75,7 @@ import com.ava.reading.ui.theme.*
 
 @Composable fun StoryDetailsScreen(s: AvaState,a: AvaActions) {
     BoxWithConstraints(Modifier.fillMaxSize()) {
-        val compact=maxHeight<640.dp || LocalDensity.current.fontScale>1.15f
+        val compact=maxHeight<LayoutThresholds.compactHeight || LocalDensity.current.fontScale>1.15f
         val completed=s.selectedStory in s.learner.stories
         val saved=s.learner.positions[s.selectedStory]
         val position=(saved?:0).coerceIn(0,s.story.pages.lastIndex)
@@ -108,7 +109,7 @@ import com.ava.reading.ui.theme.*
 @Composable fun StoryReaderScreen(s: AvaState,a: AvaActions) {
     key(s.selectedStory,s.storyPage) {
         BoxWithConstraints(Modifier.fillMaxSize()) {
-            val compact=maxHeight<640.dp || LocalDensity.current.fontScale>1.15f
+            val compact=maxHeight<LayoutThresholds.compactHeight || LocalDensity.current.fontScale>1.15f
             val last=s.storyPage==s.story.pages.lastIndex
             Column(Modifier.fillMaxSize().padding(horizontal=if(compact)16.dp else 20.dp).padding(bottom=12.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
                 Header(s.story.title,a.back)
@@ -139,7 +140,7 @@ import com.ava.reading.ui.theme.*
 
 @Composable fun StoryQuestionScreen(s: AvaState,a: AvaActions) {
     BoxWithConstraints(Modifier.fillMaxSize()) {
-        val compact=maxHeight<640.dp || LocalDensity.current.fontScale>1.15f
+        val compact=maxHeight<LayoutThresholds.compactHeight || LocalDensity.current.fontScale>1.15f
         val correct=s.storyChecked&&s.storyAnswer==s.story.answer
         Column(Modifier.fillMaxSize().padding(horizontal=if(compact)16.dp else 20.dp).padding(bottom=12.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
             Header(txt("story_question"),a.back)
@@ -182,7 +183,7 @@ import com.ava.reading.ui.theme.*
 
 @Composable fun StoryCompleteScreen(s: AvaState,a: AvaActions) {
     BoxWithConstraints(Modifier.fillMaxSize()) {
-        val compact=maxHeight<640.dp || LocalDensity.current.fontScale>1.15f
+        val compact=maxHeight<LayoutThresholds.compactHeight || LocalDensity.current.fontScale>1.15f
         Page(txt("story_complete"),a.back) {
             ArtImage("char.ava.wave_book",Modifier.fillMaxWidth().height(if(compact)72.dp else 230.dp))
             SoftCard(Modifier.fillMaxWidth(),padding=if(compact)12.dp else 20.dp,gap=if(compact)8.dp else 12.dp) {
