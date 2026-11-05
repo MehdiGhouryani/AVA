@@ -2,7 +2,7 @@
 
 ## خروجی این برش
 
-`cms-export-v1` مرز vendor-neutral میان پنل ادمین و compiler است. در کنار fixture قرارداد، پروژهٔ واقعی Payload در `cms/payload` ساخته شده و با production build، type generation و ۱۶ تست دامنه اعتبارسنجی شده است. validator شناسه و متن را با inventory اصلی تطبیق می‌دهد، جداسازی نقش‌ها را کنترل می‌کند و چهار دلیل واقعی مسدودبودن انتشار را گزارش می‌دهد.
+`cms-export-v1` مرز vendor-neutral میان پنل ادمین و compiler است. در کنار fixture قرارداد، پروژهٔ واقعی Payload در `cms/payload` ساخته شده و با production build، type generation و ۱۸ تست دامنه اعتبارسنجی شده است. validator شناسه و متن را با inventory اصلی تطبیق می‌دهد، جداسازی نقش‌ها را کنترل می‌کند و چهار دلیل واقعی مسدودبودن انتشار را گزارش می‌دهد.
 
 | قابلیت | Strapi 5 | Payload | نتیجه برای AVA |
 |---|---|---|---|
