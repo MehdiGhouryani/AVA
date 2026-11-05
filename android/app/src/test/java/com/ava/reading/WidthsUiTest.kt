@@ -40,21 +40,28 @@ class WidthsUiTest {
             }
         }
     }
+    /** Swap the rendered screen through state — the test rule rejects a second setContent. */
+    private fun show(screen: MutableState<Int>,value: Int) {
+        ui.runOnIdle {screen.value=value};ui.waitForIdle()
+    }
+
     @Config(qualifiers="w360dp-h640dp-mdpi")
     @Test fun homeLessonAndBubblesRenderAt360dp() {
-        // One setContent per test — Compose forbids calling it twice, so
-        // navigate by reassigning the state, not by re-rendering.
-        var state by mutableStateOf(AvaState(route=Route.Home))
-        render({state},width=360,height=640)
+        val screen=mutableStateOf(0)
+        val bubbleIndex=AllKindsFixture.tasks().indexOfFirst {it.kind==TaskKind.Bubble}
+        render({when(screen.value) {
+            0->AvaState(route=Route.Home)
+            1->AvaState(route=Route.Lesson)
+            else->AvaState(route=Route.Lesson,content=AllKindsFixture.snapshot(),selectedLesson="lesson_all_kinds",exercise=Exercise(index=bubbleIndex))
+        }},width=360,height=640)
         ui.onNodeWithText("شروع تمرین").assertIsDisplayed()
-        state=AvaState(route=Route.Lesson)
         val first=Catalog.lessons.first().tasks.first()
+        show(screen,1)
         ui.onAllNodesWithText(first.target)[1].performScrollTo().assertIsDisplayed()
         ui.onNodeWithText("بررسی کن").assertIsDisplayed()
         // The 360 dp boundary: three bubbles share 288 dp of content
         // width, so each is about 85 dp — still within 64–96 dp.
-        val bubbleIndex=AllKindsFixture.tasks().indexOfFirst {it.kind==TaskKind.Bubble}
-        state=AvaState(route=Route.Lesson,content=AllKindsFixture.snapshot(),selectedLesson="lesson_all_kinds",exercise=Exercise(index=bubbleIndex))
+        show(screen,2)
         ui.onNodeWithText("پ").performScrollTo().assertIsDisplayed()
         val radio=SemanticsMatcher.expectValue(SemanticsProperties.Role,Role.RadioButton)
         ui.onAllNodes(radio).assertCountEquals(3)
@@ -63,10 +70,10 @@ class WidthsUiTest {
 
     @Config(qualifiers="w412dp-h892dp-mdpi")
     @Test fun homeAndLessonRenderAt412dp() {
-        var state by mutableStateOf(AvaState(route=Route.Home))
-        render({state},width=412,height=892)
+        val screen=mutableStateOf(0)
+        render({if(screen.value==0)AvaState(route=Route.Home) else AvaState(route=Route.Lesson)},width=412,height=892)
         ui.onNodeWithText("شروع تمرین").assertIsDisplayed()
-        state=AvaState(route=Route.Lesson)
+        show(screen,1)
         val first=Catalog.lessons.first().tasks.first()
         ui.onAllNodesWithText(first.target)[1].performScrollTo().assertIsDisplayed()
         ui.onNodeWithText("بررسی کن").assertIsDisplayed()

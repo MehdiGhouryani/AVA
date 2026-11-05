@@ -377,10 +377,16 @@ class NativeUiTest {
         ui.onNodeWithText("آ").performScrollTo().assertHeightIsAtLeast(64.dp).performClick()
         ui.onNodeWithText("بررسی کن").assertIsEnabled().performClick()
         ui.onNodeWithText("اشکالی ندارد؛ یک بار دیگر نشانه‌ها را بچین.").assertIsDisplayed()
-        repeat(2) {ui.onNodeWithText("آخرین نشانه را بردار").performClick()}
-        ui.onNodeWithText("آ").performClick();ui.onNodeWithText("ب").performClick()
+        // After a wrong answer on this narrow window the remove button and the
+        // re-enabled tokens sit below the scroll clip, so a blind tap would hit
+        // the fixed footer underneath — scroll them into view first, like a
+        // real user would.
+        repeat(2) {ui.onNodeWithText("آخرین نشانه را بردار").performScrollTo().performClick()}
+        ui.onNodeWithText("آ").performScrollTo().performClick();ui.onNodeWithText("ب").performScrollTo().performClick()
         ui.onNodeWithText("بررسی کن").performClick()
-        ui.onNodeWithText("پیدایش کردی!").assertIsDisplayed()
+        // The success feedback can be composed a frame behind the click on
+        // this small window; wait for it to actually show.
+        ui.waitUntil(timeoutMillis=10_000) {runCatching {ui.onNodeWithText("پیدایش کردی!").assertIsDisplayed()}.isSuccess}
         snapshot("word-lesson-320-large")
     }
     @Config(qualifiers="w320dp-h560dp-mdpi")

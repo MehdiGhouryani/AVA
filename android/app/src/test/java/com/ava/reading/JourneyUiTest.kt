@@ -81,8 +81,15 @@ class JourneyUiTest {
         ui.onNodeWithText("دریافت کد").performScrollTo().assertIsEnabled().performClick()
         ui.waitForIdle()
         ui.onNode(hasSetTextAction()).performTextInput("۱۲۳۴۵۶")
+        // Settle the typed-code composition before the coroutine clock runs;
+        // otherwise the looper advances past the VM navigation and the stale
+        // OTP composition is what the following assertions would see.
+        ui.waitForIdle()
         idle(2)
-        ui.onNodeWithText("شروع تمرین").assertIsDisplayed()
+        // The VM's 600 ms OTP delay is coroutine time, so the Home frame can
+        // land after the looper has already gone idle; wait for the visible
+        // result instead of asserting against a possibly stale composition.
+        ui.waitUntil(timeoutMillis=10_000) {runCatching {ui.onNodeWithText("شروع تمرین").assertIsDisplayed()}.isSuccess}
         assertTrue(v.state.value.learner.signedIn)
     }
 
