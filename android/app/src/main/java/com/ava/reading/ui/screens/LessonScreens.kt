@@ -293,6 +293,7 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
             Row(Modifier.fillMaxWidth().padding(12.dp).semantics(mergeDescendants=true) {liveRegion=LiveRegionMode.Polite},verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(8.dp)) {
                 Icon(if(e.correct)Icons.Outlined.Check else Icons.Outlined.Refresh,null,tint=if(e.correct)AvaColors.deep else AvaColors.amber)
                 Text(txt(message),Modifier.weight(1f),style=MaterialTheme.typography.bodySmall,color=if(e.correct)AvaColors.deep else AvaColors.amber)
+                ArtImage(if(e.correct)"char.ava.head_happy" else "char.ava.reading",Modifier.size(44.dp))
             }
         }
     }
@@ -312,7 +313,7 @@ private fun kindKey(kind: TaskKind)=when(ActivityRegistry[kind].family) {
                 if(!s.reviewing && next!=null)Text(txt("up_next","title" to next.title),color=AvaColors.deep)
                 if(!s.reviewing)discoveries(s.learner.completed,s.lessons).firstOrNull {it.id==s.lesson.id && it.unlocked}?.let {card->
                     Text(txt("discovery_title"),Modifier.fillMaxWidth().semantics {heading()},style=MaterialTheme.typography.titleMedium,color=AvaColors.deep)
-                    DiscoveryRow(card)
+                    DiscoveryRow(card,pop=true)
                     Text(txt("discovery_body"),style=MaterialTheme.typography.bodySmall,color=AvaColors.soft)
                 }
                 when {

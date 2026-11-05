@@ -1,5 +1,7 @@
 package com.ava.reading.ui.screens
 
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -7,7 +9,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.*
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.*
 import androidx.compose.ui.text.style.TextAlign
@@ -17,10 +25,15 @@ import com.ava.reading.ui.*
 import com.ava.reading.ui.theme.*
 
 /** One discovery card: the lesson title and goal, or a lock with the reason in text. Cards are derived from completed lessons. */
-@Composable fun DiscoveryRow(card: Discovery) {
+@Composable fun DiscoveryRow(card: Discovery,pop: Boolean=false) {
+    // A short pop (0.6 s, never blocks the screen, none under reduced motion) when the card first appears on the lesson result.
+    val reduced=LocalReducedMotion.current
+    var shown by remember {mutableStateOf(!pop)}
+    LaunchedEffect(Unit) {shown=true}
+    val scale by animateFloatAsState(if(shown)1f else .6f,animationSpec=tween(if(reduced || !pop)0 else 600),label="discovery")
     Row(Modifier.fillMaxWidth().heightIn(min=64.dp),horizontalArrangement=Arrangement.spacedBy(12.dp),verticalAlignment=Alignment.CenterVertically) {
         Surface(shape=RoundedCornerShape(18.dp),color=if(card.unlocked)AvaColors.line else AvaColors.cream) {
-            Icon(if(card.unlocked)Icons.Outlined.Spa else Icons.Outlined.Lock,null,Modifier.padding(10.dp).size(26.dp),tint=AvaColors.green)
+            Icon(if(card.unlocked)Icons.Outlined.Spa else Icons.Outlined.Lock,null,Modifier.padding(10.dp).size(26.dp).graphicsLayer {scaleX=scale;scaleY=scale},tint=AvaColors.green)
         }
         Column(Modifier.weight(1f)) {
             Text(card.title,style=MaterialTheme.typography.titleMedium,color=AvaColors.deep)
