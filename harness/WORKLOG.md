@@ -257,3 +257,17 @@ Next action:
 - Blocked by: تنظیم `other_tcp` در سندباکس (تصمیم کاربر)؛ سپس QA دستگاه و بازبینی متخصص
 - Evidence paths: `docs/NATIVE_VERIFICATION.json` (شمار تست ۱۲۷)، `docs/PROGRESS_FA.md` (بروز‌رسانی دوم ۲۰۲۶-۱۱-۰۵)، `scripts/validate-audio-delivery.py`
 - Next action: پس از Ask شدن `other_tcp`، اجرای گیت‌های تسک و ثبت نتیجهٔ واقعی؛ سپس مسیر موازی بازبینی متخصص/صوت و حساب/حقوقی از روز اول.
+
+## ۲۰۲۶-۱۱-۰۵ — برگرداندن `mock_hint` (تصمیم مالک: کد آزمایشی در دولوپ می‌ماند)
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۵
+- Task ID: `061-native-toolchain` (اصلاح مورد ۳ از v1-3 پس از بازخورد مالک)
+- Agent/tool: Muse، شاخهٔ `phase-1-native-toolchain` از `main` (`e38d940`)
+- Baseline source hash/version: ادامهٔ کامیت `b623308` روی همین شاخه (PR #2)
+- Files changed: `AuthScreens.kt` (دو `Text` راهنمای `mock_hint` برگردانده شد)، `design/strings.fa.json` (رشتهٔ `mock_hint` برگردانده شد)، `strings.xml` + `TextIds.kt` (با sync بازتولید شدند؛ رشته‌ها ۲۹۴ به ۲۹۵)، `docs/PROGRESS_FA.md`، `docs/NATIVE_VERIFICATION.json`، `PROJECT_STATE.md`
+- Commands actually executed: `python3 scripts/sync-android-resources.py` و `--check`؛ `audit-project.py`، `check-docs.py` (۰ مشکل پس از اصلاح شمار رشته‌ها)، `validate-harness.py`، `validate-content-contract.py`
+- Results: `mock_hint` در هر چهار جا برگشت و sync تایید کرد ۲۹۵ رشته. حذف `mock_hint` و کد `123456` از مسیر انتشار به گام v1-7 موکول شد؛ تا آنجا ورود آزمایشی در حالت دولوپ می‌ماند.
+- **اجرا نشد:** `testDebugUnitTest` و `lintDebug` (مسدود به `other_tcp` روی Deny؛ تصمیم کاربر).
+- Blocked by: تنظیم `other_tcp` در سندباکس (تصمیم کاربر)
+- Evidence paths: `docs/PROGRESS_FA.md` (بخش مورد ۳)، `docs/NATIVE_VERIFICATION.json`
+- Next action: پس از Ask شدن `other_tcp`، اجرای گیت‌های تسک؛ در موازات، I6 و I8 از طرح v1.

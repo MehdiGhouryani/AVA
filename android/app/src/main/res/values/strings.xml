@@ -244,6 +244,7 @@
     <string name="app_faq_save" formatted="false">پیشرفتم کجا می‌ماند؟</string>
     <string name="app_faq_save_body" formatted="false">پیشرفت روی همین دستگاه ذخیره می‌شود. پاک‌کردن دادهٔ برنامه یا حذف آن می‌تواند پیشرفت را پاک کند.</string>
     <string name="app_otp_network" formatted="false">بررسی انجام نشد. دوباره تلاش کن.</string>
+    <string name="app_mock_hint" formatted="false">ورود آزمایشی: کد ۱۲۳۴۵۶؛ پیامک واقعی ارسال نمی‌شود.</string>
     <string name="app_otp_label" formatted="false">کد شش‌رقمی</string>
     <string name="app_lock_timer" formatted="false">تلاش دوباره تا {time}</string>
     <string name="app_avatar_ava" formatted="false">آوا</string>

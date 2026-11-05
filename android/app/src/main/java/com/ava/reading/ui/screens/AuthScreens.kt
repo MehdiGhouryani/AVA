@@ -94,6 +94,7 @@ import com.ava.reading.ui.theme.LayoutThresholds
                 TextButton({a.legal(false)},Modifier.weight(1f).heightIn(min=64.dp)) {Text(txt("phone_link_terms"),textAlign=TextAlign.Center)}
             }
             Primary(txt(if(s.busy)"phone_sending" else "phone_cta"),{a.send(false)},enabled=validPhone(s.phone)&&s.consent,busy=s.busy)
+            Text(txt("mock_hint"),style=MaterialTheme.typography.bodySmall,color=AvaColors.muted,textAlign=TextAlign.Center)
         }
     }
 }
@@ -116,6 +117,7 @@ private val PersianDigits=VisualTransformation { value -> TransformedText(Annota
                     if(s.locked || seconds>0)Text(txt(if(s.locked)"lock_timer" else "otp_resend_in","time" to time),color=AvaColors.deep)
                     else TextButton({a.send(true)},Modifier.heightIn(min=64.dp),enabled=!s.busy) {Text(txt("otp_resend"))}
                     Primary(txt(if(s.busy)"otp_verifying" else "otp_cta"),a.verify,enabled=s.code.length==6&&!s.locked,busy=s.busy)
+                    Text(txt("mock_hint"),style=MaterialTheme.typography.bodySmall,color=AvaColors.muted,textAlign=TextAlign.Center)
                 }
             }
         }

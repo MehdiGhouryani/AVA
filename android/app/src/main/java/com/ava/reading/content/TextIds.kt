@@ -246,6 +246,7 @@ object TextIds { val ids = mapOf(
     "app_faq_save" to R.string.app_faq_save,
     "app_faq_save_body" to R.string.app_faq_save_body,
     "app_otp_network" to R.string.app_otp_network,
+    "app_mock_hint" to R.string.app_mock_hint,
     "app_otp_label" to R.string.app_otp_label,
     "app_lock_timer" to R.string.app_lock_timer,
     "app_avatar_ava" to R.string.app_avatar_ava,
