@@ -33,7 +33,7 @@
 | I5 | راهنمای نوشتن محتوا `docs/CONTENT_AUTHORING_FA.md` با فرمان‌ها | ⬜ |
 | I6 | ابزار به‌روزرسانی hash نسخهٔ محتوا و توصیف نسخه (`content.release.json`) | ⬜ |
 | I7 | اسکریپت اعتبارسنجی تحویل صوت برای مسیر B (فرمت، مدت، hash با inventory) | ✅ انجام شد — `scripts/validate-audio-delivery.py`؛ هنوز تحویلی نداریم (۷ مورد لازم، ۰ تحویل‌شده) |
-| I8 | fixture «همهٔ نوع‌ها» برای تست UI در `src/test` (بدون ورود به محتوای منتشرشده) | ⬜ |
+| I8 | fixture «همهٔ نوع‌ها» برای تست UI در `src/test` (بدون ورود به محتوای منتشرشده) | ✅ انجام شد — `AllKindsFixture` و `AllKindsUiTest` در `android/app/src/test`؛ فقط تست، بدون ورود به محتوا |
 | I9 | قاعدهٔ جایگاه تصویر (`assetRefs`) و جایگزین بدون art | ⬜ |
 
 ## ۳. ترتیب کار

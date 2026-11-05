@@ -271,3 +271,17 @@ Next action:
 - Blocked by: تنظیم `other_tcp` در سندباکس (تصمیم کاربر)
 - Evidence paths: `docs/PROGRESS_FA.md` (بخش مورد ۳)، `docs/NATIVE_VERIFICATION.json`
 - Next action: پس از Ask شدن `other_tcp`، اجرای گیت‌های تسک؛ در موازات، I6 و I8 از طرح v1.
+
+## ۲۰۲۶-۱۱-۰۵ — I8: fixture همهٔ نوع‌ها برای تست UI (زیر `061-native-toolchain`)
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۵
+- Task ID: `061-native-toolchain` (I8 از طرح v1؛ گام v1-2/v1-3)
+- Agent/tool: Muse، شاخهٔ `phase-1-native-toolchain` از `main` (`e38d940`)
+- Baseline source hash/version: ادامهٔ کامیت `4d16d59` روی همین شاخه (PR #2)
+- Files changed: `AllKindsFixture.kt` (تازه؛ یک task مصنوعی از هر ۱۲ نوع + درس و snapshot مصنوعی)، `AllKindsUiTest.kt` (تازه؛ ۲ تست: پوشش همهٔ نوع‌ها و رندر هر نوع از مسیر واقعی صفحهٔ درس)، `docs/COMPLETION_PLAN_FA.md` (I8 تیک خورد)، `docs/PROGRESS_FA.md`، `docs/NATIVE_VERIFICATION.json`، `PROJECT_STATE.md` (تست ۱۲۷ به ۱۲۹)
+- Commands actually executed: `audit-project.py`، `validate-harness.py`، `check-docs.py` (۰ مشکل)، `validate-content-contract.py`، `sync --check`
+- Results: همهٔ validatorهای پایتون پاس شدند. fixture هیچ ورودی به محتوای منتشرشده ندارد و قید `unrendered_kinds` برای Match در محتوا سر جایش می‌ماند. تست‌های تازه فقط `read in code` هستند و کامپایل/اجرا نشده‌اند.
+- **اجرا نشد:** `testDebugUnitTest` و `lintDebug` (مسدود به `other_tcp` روی Deny؛ تصمیم کاربر). I6 هم انجام نشد: زیر گام v1-8 و تسک blocked `080-release-readiness` است و قرارداد AGENTS.md شروع کار blocked را ممنوع می‌کند.
+- Blocked by: تنظیم `other_tcp` در سندباکس (تصمیم کاربر)
+- Evidence paths: `docs/NATIVE_VERIFICATION.json` (شمار تست ۱۲۹)، `docs/PROGRESS_FA.md` (بخش I8)
+- Next action: پس از Ask شدن `other_tcp`، اجرای گیت‌های تسک؛ I6 در گام v1-8 پس از بسته‌شدن گام‌های میانی.

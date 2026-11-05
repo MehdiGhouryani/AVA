@@ -89,7 +89,7 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 | DB/object storage | compose آماده است؛ اجرا نشد چون Docker در محیط نصب نیست |
 | bundle/tamper | موفق و deterministic |
 | JSON/Python | ۷۶ JSON strict و Python compile موفق |
-| تست‌های Native/Compose در سورس | ۱۲۷ |
+| تست‌های Native/Compose در سورس | ۱۲۹ |
 | اجرای Gradle/APK | JDK 17 و Android SDK 35 و Gradle 8.11.1 در سندباکس نصب‌اند؛ اجرای Gradle مسدود است چون سوکت‌های جاوا بسته‌اند (`other_tcp` روی Deny)؛ هیچ تستی اجرا نشد |
 | permission اینترنت/میکروفن | وجود ندارد |
 | APK/AAB | ساخته نشد |
@@ -139,3 +139,10 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - I7: `scripts/validate-audio-delivery.py` نوشته شد — تحویل صوت مسیر B را با inventory می‌سنجد: وجود فایل، فرمت (WAV با magic bytes و هدر، MP3 با پیمایش فریم)، مدت (۰٫۲ تا ۳۰ ثانیه) و تطابق sha256؛ حالت `--record` هش و codec و مدت را در inventory ثبت می‌کند. با فیکسچرهای WAV/MP3 ساخته‌شده تست شد (OK/FAIL درست). هنوز تحویلی نداریم: ۷ مورد لازم، ۰ تحویل‌شده. اسکریپت به‌عنوان گیت دوم تسک `080-human-audio-rights` در `harness/roadmap.json` اضافه شد و I7 در `docs/COMPLETION_PLAN_FA.md` تیک خورد.
 - اجرا‌شده (`ran`): `audit-project.py`، `validate-harness.py`، `check-docs.py` (پس از اصلاح شمار تست به ۱۲۷ و رشته‌ها به ۲۹۴ در `PROJECT_STATE.md` و stage کردن فایل‌های تازه)، `validate-content-contract.py`، `sync --check`، `validate-audio-delivery.py` (بدون تحویل: exit 1 درست؛ با فیکسچر: رفتار OK/FAIL درست) — همه پاس، جز `validate-audio-delivery.py` بدون تحویل که طبق طراحی fail می‌کند.
 - گیت‌های باز بدون تغییر: Gradle/lint (مسدود به تنظیم کاربر — تست جاوا ۱۸:۲۷ دوباره مسدود بودن را نشان داد)، تأیید متخصص آموزش، صوت انسانی (تحویل ۷ prompt)، DB/S3، QA دستگاه.
+
+## بروزرسانی ۲۰۲۶-۱۱-۰۵ — I8: fixture همهٔ نوع‌ها برای تست UI (بدون اجرای Gradle)
+
+- I8 (`AllKindsFixture` و `AllKindsUiTest` در `android/app/src/test`) ساخته شد: یک درس مصنوعی با یک task از هر ۱۲ نوع فعالیت، فقط برای تست — هیچ ورودی به محتوای منتشرشده ندارد. تست هر نوع را از مسیر واقعی صفحهٔ درس رندر می‌کند و متن هدف (یا اولین توکن در Match) و بودن/نبودن دکمهٔ «بررسی کن» را می‌سنجد. این تنها جایی است که rendererهای Find و Bubble و Match تمرین می‌شوند، چون کاتالوگ منتشرشده هنوز taskای از این نوع‌ها ندارد. PositionalForm و Segment هم در fixture هستند، هرچند در محتوا عمداً غیرفعال‌اند.
+- I6 انجام نشد — اصولی: ابزار hash نسخه زیر گام v1-8 و تسک `080-release-readiness` است که هنوز blocked است (پیش‌نیاز: گام‌های v1-2 تا v1-7)؛ قرارداد AGENTS.md شروع کار blocked را ممنوع می‌کند. پس از بسته‌شدن گام‌های میانی انجام می‌شود.
+- مجموع تست‌های سورس اکنون ۱۲۹ است. تغییرها فقط `read in code` هستند و کامپایل نشده‌اند (Gradle همچنان مسدود به `other_tcp`).
+- اجرا‌شده (`ran`): `audit-project.py`، `validate-harness.py`، `check-docs.py` (۰ مشکل پس از اصلاح شمار تست به ۱۲۹)، `validate-content-contract.py`، `sync --check` — همه پاس.
