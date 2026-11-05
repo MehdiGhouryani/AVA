@@ -213,3 +213,17 @@ Next action:
 - Blocked by: toolchain Native؛ برداشتن قید `unrendered_kinds` پس از QA دستگاه
 - Evidence paths: `android/app/src/main/java/com/ava/reading/ui/screens/LessonScreens.kt`
 - Next action: G1 تا G3 (مسیر، دیالوگ‌ها، کاهش حرکت پیش‌فرض)، سپس I3 تا I9.
+
+## ۲۰۲۶-۱۱-۰۳ — بهبود UI/UX اصولی: G1 تا G3 و دو بهبود همراه
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۳
+- Task ID: `phase-2c-ux` (خارج از roadmap اجرایی؛ `docs/UX_CONFORMANCE_FA.md` نسخهٔ ۰٫۲)
+- Agent/tool: Claude، فقط ویرایش و خواندن کد؛ `kotlinc` برای بررسی نحو و JVM-only
+- Baseline source hash/version: شاخهٔ `phase-2b-games` `d102951`
+- Files changed: `content/Progression.kt` (`PathNode`، `pathNodes`)، `ProgressionTest.kt` (۲ تست)، `HomeScreen.kt` (گرهٔ فعلی)، `AvaApp.kt` (دیالوگ‌ها، حرکت سیستم)، `LessonScreens.kt` (آوا در بازخورد، پاپ)، `AlbumScreen.kt` (پاپ)، `docs/UX_CONFORMANCE_FA.md` (نسخهٔ ۰٫۲ و جدول اصل هر بهبود)، `docs/COMPLETION_PLAN_FA.md`، `docs/PROJECT_MAP_FA.md`، `PROJECT_STATE.md`
+- Commands actually executed: `jvm-core-check` (۴۰ پاس + آزمون جهش)، بررسی نحو با `kotlinc`، `check-docs.py`، `sync --check`، `audit-project.py`
+- Results: منطق مسیر با دو تست و آزمون جهش (۳۸ پاس و ۲ شکست) ثابت شد. بررسی نحو: صفر خطای نحوی؛ خطاهای خطوط تازه «پیدا نشد» و دو «نوع پارامتر قابل استنباط نیست» روی lambdaهای `let` دیالوگ‌ها که از قبل در `main` هم هستند. هیچ رشتهٔ تازه‌ای افزوده نشد.
+- **اجرا نشد:** Compose، Robolectric؛ همهٔ تغییرهای ظاهری `read in code`. اثر واقعی روی کودک آزموده نشده.
+- Blocked by: toolchain Native؛ آزمون با کودک (فاز ۷)
+- Evidence paths: `docs/UX_CONFORMANCE_FA.md` بخش ۷
+- Next action: زیرساخت محتوا I3 تا I9.

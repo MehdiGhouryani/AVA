@@ -72,7 +72,7 @@
 
 ## افزوده‌های ۰٫۶٫۲ (پیش‌نویس، شاخه‌های Claude)
 
-- `content/Progression.kt`: کارت کشف مشتق از درس‌های تمام‌شده، وضعیت پایان مسیر، هفتهٔ شنبه تا جمعه و ثبت روز فعال (منطق خالص؛ UI هنوز نیست).
+- `content/Progression.kt`: وضعیت گره‌های مسیر (`pathNodes`)، کارت کشف مشتق از درس‌های تمام‌شده، وضعیت پایان مسیر، هفتهٔ شنبه تا جمعه و ثبت روز فعال (منطق خالص؛ UI هنوز نیست).
 - `Learner.activeDays` و کلید DataStore `active_days` برای گل‌های هفته.
 - `ui/screens/AlbumScreen.kt` (`DiscoveryRow`، `AlbumScreen`، `Route.Album`)، کارت کشف در `LessonResultScreen`، گل‌های هفته در `ProgressScreen` و دکمهٔ پایان مسیر در `HomeScreen`.
 - renderer‌های `FindTask`، `BubbleTask` و `MatchTask` در `LessonScreens.kt` و اقدام‌های `flip`/`clearMismatch`.
