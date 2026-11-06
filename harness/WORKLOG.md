@@ -379,3 +379,27 @@ Next action:
 - Blocked by: —
 - Evidence paths: اسکرین‌شات‌های `android-emulator@zcode-plugins-official/screenshots/2026-11-06T10-13-37/10-15-43/15-30-11/15-32-27`، `docs/NATIVE_VERIFICATION.json` (deviceRun)
 - Next action: ران دودی بقیهٔ مسیر (ورود، قصه، مرور، تنظیمات) و آزمون صوت روی دستگاه واقعی؛ تصمیم P0 پخش‌کنندهٔ صوت انسانی همچنان باز است.
+
+## ۲۰۲۶-۱۱-۰۶ — شروع: مسیر پخش صوت انسانی در اپ (بستن P0 باز، تصمیم مالک)
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۶
+- Task ID: `061-native-toolchain` (ادامهٔ همان تسک — P0 باز دورهای بازبینی: «هیچ مسیر پخش صوت انسانی وجود ندارد»)
+- Agent/tool: ZCode (GLM)، برنچ `061-audio-playback` از `main` `be3b5b6`
+- Baseline source hash/version: `main` `be3b5b6`
+- Files changed: (در ابتدای چرخه — خالی)
+- Commands actually executed: `python -X utf8 scripts/harness.py validate` (هارنس معتبر: ۱۴ تسک/۴ فاز)؛ `status`؛ `next`؛ `task 061-native-toolchain`. نکتهٔ ویندوز: هارنس بدون `-X utf8` با cp1252 کرش می‌کند (خودِ این مورد در نتیجه ثبت می‌شود). تصمیم مالک (این جلسه): صوت باید از CMS ادمین ست شود و در اپ پخش شود؛ طرح دو فازی تأیید شد — فاز ۱ مسیر پخش باندل‌شده (ADR-0004)، فاز ۲ بوت واقعی CMS مشروط به Docker.
+- Blocked by: فاز ۲ (`061-db-s3-integration`) به Docker Desktop نیاز دارد که روی ماشین نصب نیست — طبق شرط توقف playbook پس از فاز ۱ فقط blocker ثبت می‌شود.
+- Next action: گسترش `scripts/sync-android-resources.py` (delivery → res/raw + Audio.kt) و `AndroidNarrator` (PlayedLocal با fallback TTS)، تست‌ها، گیت‌های Gradle.
+
+## ۲۰۲۶-۱۱-۰۶ — نتیجه: مسیر پخش صوت انسانی در اپ کامل شد — گیت ۱۴۳/۰
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۶
+- Task ID: `061-native-toolchain` (ادامهٔ همین چرخه — بستن P0 پخش صوت)
+- Agent/tool: ZCode (GLM)، برنچ `061-audio-playback`
+- Baseline source hash/version: `main` `be3b5b6`
+- Files changed: `scripts/sync-android-resources.py`، `android/app/src/main/java/com/ava/reading/platform/AndroidNarrator.kt`، `android/app/src/main/java/com/ava/reading/content/Audio.kt` (تولیدی جدید)، `android/app/src/test/java/com/ava/reading/AndroidNarratorTest.kt`، `docs/NATIVE_VERIFICATION.json`، `docs/PROGRESS_FA.md`، این فایل
+- Commands actually executed: `python -X utf8 scripts/sync-android-resources.py` و `--check` (Verified: 0 bundled audio — هنوز فایلی تحویل نشده)؛ `gradlew.bat testDebugUnitTest lintDebug -Pkotlin.compiler.execution.strategy=in-process --no-daemon` با `_JAVA_OPTIONS=-Djava.net.preferIPv4Stack=true` و `JAVA_TOOL_OPTIONS=-Drobolectric.dependency.dir=D:\robolectric-deps`؛ شمارش XMLها: ۱۳ فایل، tests=143 failures=0 errors=0
+- Results: مسیر پخش کامل شد — (۱) `sync-android-resources.py` اکنون فایل‌های تحویل‌شدهٔ `design/audio/delivery/<id>.wav|.mp3` را (فقط وقتی inventory دارای sha256 است، با assert تطبیق hash) به `res/raw/` کپی و `content/Audio.kt` با مپ `BundledAudio.ids` تولید می‌کند (با delivery خالی: مپ خالی، بدون خطا)؛ (۲) `AndroidNarrator.play()` اگر audioRef در مپ باشد MediaPlayer محلی را باز می‌کند و `PlayedLocal` برمی‌گرداند، در غیر این صورت مسیر TTS قبلی ( PlayedFallback/Missing ) — بدون هیچ شبکه‌ای؛ factory پلیر برای تست تزریق‌پذیر است؛ (۳) ۳ تست تازه: PlayedLocal برای ref موجود (با ShadowMediaPlayer و state machine واقعی)، fallback برای ref غایب، fallback وقتی باز شدن فایل شکست می‌خورد؛ fail-closed قبلی حفظ شد. **یافتهٔ محیطی مهم:** از ظهر امروز IPC دایمن‌های Gradle/Kotlin روی این ماشین «Cannot assign requested address» می‌داد (loopback پایتون سالم بود) — علت دقیق نامشخص ماند؛ راه‌حل پایدار: `_JAVA_OPTIONS=-Djava.net.preferIPv4Stack=true` + `kotlin.compiler.execution.strategy=in-process` (برای هر اجرای بعدی لازم است). فاز ۲ (بوت CMS) نیازمند Docker Desktop است که نصب نیست — طبق شرط توقف playbook، `061-db-s3-integration` باز ماند و implementation حدسی انجام نشد.
+- Blocked by: ضبط واقعی ۷ صوت الزامی = human_gate (`080-human-audio-rights`)؛ Docker Desktop برای بوت CMS (تصمیم مالک)
+- Evidence paths: `android/app/build/reports/tests/testDebugUnitTest/index.html`، `android/app/build/reports/lint-results-debug.html`، `android/app/build/test-results/testDebugUnitTest/*.xml`، `docs/NATIVE_VERIFICATION.json`
+- Next action: مالک Docker Desktop را نصب کند تا فاز ۲ (بوت CMS و آپلود صوت از /admin) طبق `061-db-s3-integration` اجرا شود؛ ضبط انسانی طبق v1-5؛ سپس ران شبیه‌ساز برای شنیدن پخش محلی پس از اولین delivery.

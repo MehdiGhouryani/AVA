@@ -31,6 +31,20 @@ for a in assets:
  outputs[dest]=source.read_bytes();art.append(f'    {kt(a["id"])} to R.drawable.{snake(a["id"])}')
 out(KOT/'content/Art.kt','package com.ava.reading.content\nimport com.ava.reading.R\nobject Art { val ids = mapOf(\n'+',\n'.join(art)+'\n) }')
 outputs[RES/'font/vazirmatn.ttf']=(ROOT/'public/fonts/Vazirmatn.ttf').read_bytes()
+audio_inventory=json.loads((ROOT/'design/audio.inventory.json').read_text())['assets']
+audio_raw=[]
+delivery_dir=ROOT/'design/audio/delivery'
+for item in audio_inventory:
+ if not item.get('sha256'):continue
+ assert delivery_dir.is_dir(), f"audio delivery dir missing but {item['id']} records a sha256"
+ matches=list(delivery_dir.glob(item['id']+'.*'))
+ assert len(matches)==1, f"audio delivery ambiguous for {item['id']}: {[m.name for m in matches]}"
+ source=matches[0]
+ assert hashlib.sha256(source.read_bytes()).hexdigest()==item['sha256'], f"audio delivery hash mismatch for {item['id']}"
+ raw_name=snake(item['id']).replace('-','_')
+ outputs[RES/'raw'/(raw_name+source.suffix.lower())]=source.read_bytes()
+ audio_raw.append(f'    {kt(item["id"])} to R.raw.{raw_name}')
+out(KOT/'content/Audio.kt','package com.ava.reading.content\nimport com.ava.reading.R\nobject BundledAudio { val ids = mapOf<String, Int>(\n'+',\n'.join(audio_raw)+'\n) }')
 data=json.loads((ROOT/'design/content.fa.json').read_text())
 release=json.loads((ROOT/'design/content.release.json').read_text())
 audio_ids={item['id'] for item in json.loads((ROOT/'design/audio.inventory.json').read_text())['assets']}
@@ -100,4 +114,4 @@ for p,b in outputs.items():
   if not p.exists() or p.read_bytes()!=b:fail.append(str(p.relative_to(ROOT)))
  else:p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b)
 if fail:print('Generated resources differ:',*fail,sep='\n');sys.exit(1)
-print(f'{"Verified" if check else "Generated"}: {len(assets)} images, {len(strings)} strings, font, palette, {len(data["levels"])} level, {len(unit_ids)} units, {lesson_count} lessons, {task_count} activities and {len(data["stories"])} stories.')
+print(f'{"Verified" if check else "Generated"}: {len(assets)} images, {len(strings)} strings, font, palette, {len(audio_raw)} bundled audio, {len(data["levels"])} level, {len(unit_ids)} units, {lesson_count} lessons, {task_count} activities and {len(data["stories"])} stories.')
