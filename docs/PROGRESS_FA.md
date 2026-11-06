@@ -189,3 +189,11 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
   - **`JourneyUiTest.newUserLogsInWithMockCode`** — ‏«The component is not displayed!»؛ از روی سورس نمی‌شود خط دقیق را تعیین کرد (مسیر ورود، فیلدها و نرمال‌سازی شماره از روی کد سالم‌اند). **اصلاح نشد — منتظر متن کامل `<failure>` از XML مالک است** (`TEST-com.ava.reading.JourneyUiTest.xml`) تا خط دقیق مشخص شود.
 - مجموع تست‌های سورس همچنان ۱۴۰ است (بدون تست تازه). همهٔ تغییرهای این دور فقط `read in code` هستند؛ اجرای دوباره با مالک است.
 - اجرا‌شده (`ran`): `audit-project.py`، `validate-harness.py`، `check-docs.py` (۰ مشکل)، `validate-content-contract.py`، `sync --check`، `validate-audio-inventory.py` — همه پاس.
+
+## بروزرسانی ۲۰۲۶-۱۱-۰۶ — مسیر پخش صوت انسانی در اپ کامل شد؛ گیت ۱۴۳/۰
+
+- P0 باز دورهای بازبینی بسته شد: `AndroidNarrator.play()` دیگر audioRef را دور نمی‌ریزد. اگر audioRef به یک asset تحویل‌شده اشاره کند، فایل باندل‌شده از `res/raw` با MediaPlayer پخش می‌شود و `PlayedLocal` برمی‌گردد؛ در غیر این صورت همان مسیر قبلی (TTS نصب‌شده → `PlayedFallback`، نبودِ صدا → `Missing` + پیام راهنما). هیچ دانلود یا دسترسی شبکه‌ای اضافه نشده.
+- زنجیرهٔ CMS تا کودک اکنون کامل است: ادمین در CMS صوت را ست/تأیید می‌کند → delivery artifact → `design/audio/delivery/<id>.wav|.mp3` (گیت I7: hash/کدک/مدت) → `sync-android-resources.py` (تطبیق hash و باندل در res/raw + تولید `content/Audio.kt` با مپ `BundledAudio.ids`) → پخش محلی در اپ. با delivery خالی، مپ خالی تولید می‌شود و همه‌چیز مثل قبل fail-closed می‌ماند.
+- تست‌های تازه (۳): PlayedLocal برای ref موجود (ShadowMediaPlayer با state machine واقعی)، fallback برای ref غایب، fallback وقتی باز شدن فایل شکست می‌خورد. `AndroidNarratorTest` اکنون ۵ تست دارد؛ مجموع سورس ۱۴۳.
+- **یافتهٔ محیطی:** از ظهر ۲۰۲۶-۱۱-۰۶ روی ماشین مالک، اتصال IPC دایمن‌های Gradle/Kotlin با «Cannot assign requested address» شکست می‌خورد (loopback خام سالم است؛ علت دقیق نامشخص). دستور کارکرد گیت: `_JAVA_OPTIONS=-Djava.net.preferIPv4Stack=true` + `JAVA_TOOL_OPTIONS=-Drobolectric.dependency.dir=D:\robolectric-deps` + `-Pkotlin.compiler.execution.strategy=in-process`.
+- فاز بعدی (تصمیم مالک): بوت واقعی CMS طبق `061-db-s3-integration` نیازمند Docker Desktop است که روی ماشین نصب نیست؛ طبق شرط توقف playbook بدون Docker implementation حدسی انجام نشد و تسک باز ماند.
