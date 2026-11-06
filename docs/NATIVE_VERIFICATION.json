@@ -9,19 +9,71 @@
   "nativeTestCount": 140,
   "nativeTestsExecuted": true,
   "nativeTestSources": [
-    {"name": "ActivityEngineTest", "tests": 12, "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); includes 2 new snapshot/Match tests"},
-    {"name": "AuthRepositoryTest", "tests": 5, "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures)"},
-    {"name": "AvaViewModelTest", "tests": 30, "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); includes 2 new content-load regression tests and the back-during-success-delay login test"},
-    {"name": "ContentRepositoryTest", "tests": 7, "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); includes the story_pages_empty rejection test"},
-    {"name": "LearnerPersistenceTest", "tests": 5, "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures)"},
-    {"name": "ModelTest", "tests": 17, "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures)"},
-    {"name": "NativeUiTest", "tests": 44, "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); includes the confirm-slot position test"},
-    {"name": "ProgressionTest", "tests": 8, "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures)"},
-    {"name": "MainActivityTest", "tests": 1, "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); wiring smoke test"},
-    {"name": "AndroidNarratorTest", "tests": 2, "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); fail-closed voice tests"},
-    {"name": "AllKindsUiTest", "tests": 3, "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); I8 all-kinds fixture tests + interaction test"},
-    {"name": "JourneyUiTest", "tests": 4, "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); journey tests with the real ViewModel"},
-    {"name": "WidthsUiTest", "tests": 2, "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); 360dp and 412dp width tests"}
+    {
+      "name": "ActivityEngineTest",
+      "tests": 12,
+      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); includes 2 new snapshot/Match tests"
+    },
+    {
+      "name": "AuthRepositoryTest",
+      "tests": 5,
+      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures)"
+    },
+    {
+      "name": "AvaViewModelTest",
+      "tests": 30,
+      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); includes 2 new content-load regression tests and the back-during-success-delay login test"
+    },
+    {
+      "name": "ContentRepositoryTest",
+      "tests": 7,
+      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); includes the story_pages_empty rejection test"
+    },
+    {
+      "name": "LearnerPersistenceTest",
+      "tests": 5,
+      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures)"
+    },
+    {
+      "name": "ModelTest",
+      "tests": 17,
+      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures)"
+    },
+    {
+      "name": "NativeUiTest",
+      "tests": 44,
+      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); includes the confirm-slot position test"
+    },
+    {
+      "name": "ProgressionTest",
+      "tests": 8,
+      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures)"
+    },
+    {
+      "name": "MainActivityTest",
+      "tests": 1,
+      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); wiring smoke test"
+    },
+    {
+      "name": "AndroidNarratorTest",
+      "tests": 2,
+      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); fail-closed voice tests"
+    },
+    {
+      "name": "AllKindsUiTest",
+      "tests": 3,
+      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); I8 all-kinds fixture tests + interaction test"
+    },
+    {
+      "name": "JourneyUiTest",
+      "tests": 4,
+      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); journey tests with the real ViewModel"
+    },
+    {
+      "name": "WidthsUiTest",
+      "tests": 2,
+      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); 360dp and 412dp width tests"
+    }
   ],
   "checks": {
     "resourceSync": "passed: 16 images, 295 strings, 1 level, 3 units, 6 lessons, 17 tasks and 2 stories",
@@ -78,8 +130,16 @@
     "tasks": 17,
     "stories": 2,
     "storyPages": 9,
-    "newTaskKindsInCanonical": ["DotFamily", "InitialSound", "FinalSound", "Blend"],
-    "intentionallyDeferredKinds": ["PositionalForm", "Segment"]
+    "newTaskKindsInCanonical": [
+      "DotFamily",
+      "InitialSound",
+      "FinalSound",
+      "Blend"
+    ],
+    "intentionallyDeferredKinds": [
+      "PositionalForm",
+      "Segment"
+    ]
   },
   "cms": {
     "runtimeServer": false,
@@ -97,16 +157,33 @@
     "exportContractVersion": 1,
     "roles": 6,
     "publicationBlocked": true,
-    "blockers": ["content_not_educator_approved", "required_audio_not_approved", "cms_export_scope_partial", "cms_candidate_not_ready"],
+    "blockers": [
+      "content_not_educator_approved",
+      "required_audio_not_approved",
+      "cms_export_scope_partial",
+      "cms_candidate_not_ready"
+    ],
     "releaseRequiresDeliveryArtifact": true,
-    "deferredPipeline": ["malware_scan", "real_decode", "transcode", "delivery_job"]
+    "deferredPipeline": [
+      "malware_scan",
+      "real_decode",
+      "transcode",
+      "delivery_job"
+    ]
   },
   "automationHarness": {
     "schemaVersion": 1,
     "phases": 4,
     "tasks": 14,
-    "readyTasks": ["061-db-s3-integration", "061-native-toolchain"],
-    "humanGates": ["061-educator-review", "080-human-audio-rights", "080-device-accessibility-qa"],
+    "readyTasks": [
+      "061-db-s3-integration",
+      "061-native-toolchain"
+    ],
+    "humanGates": [
+      "061-educator-review",
+      "080-human-audio-rights",
+      "080-device-accessibility-qa"
+    ],
     "valid": true
   },
   "sourceSha256": {
@@ -189,7 +266,13 @@
     "scripts/validate-harness.py": "c3cddd60261d682584ae055f1e6330c04b8c256b373373ff4b3d7c2657536679",
     "scripts/validate-payload-prototype.py": "dde94ab9b71e50da7a32e298cddaae84a56f5755871a8fa9612395490871d03b"
   },
-  "deviceRun": "not verified",
+  "deviceRun": {
+    "date": "2026-11-06",
+    "target": "Android emulator Pixel_6a (API 35, google_apis_playstore x86_64), emulator-5554",
+    "apk": "app-debug.apk built from main b13e145 (assembleDebug BUILD SUCCESSFUL)",
+    "checks": "Home (garden) renders fully in RTL with artwork, path nodes and bottom nav; first lesson opens; Recognize task: correct choice selected, «بررسی کن» enables, feedback «پیدایش کردی!» shows with happy Ava art and progress advances to 1/3; no AndroidRuntime crash lines for com.ava.reading in logcat",
+    "limits": "Device run was a smoke pass by the agent on an emulator, not a supervised session with a child; audio (TTS/human prompts) and the rest of the journey were not exercised; emulator ran with ANDROID_AVD_HOME moved to D:/avd-home because C: had only 1.5 GB free"
+  },
   "releaseGates": [
     "run the buildable Payload prototype with PostgreSQL and private object storage",
     "prove upload integration, malware scan, real decode, delivery job, dual review, audit and deterministic export against DB/S3",

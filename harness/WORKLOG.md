@@ -366,3 +366,16 @@ Next action:
 - Blocked by: —
 - Evidence paths: `android/app/build/reports/tests/testDebugUnitTest/index.html`، `android/app/build/reports/lint-results-debug.html`، `android/app/build/test-results/testDebugUnitTest/*.xml`
 - Next action: پوش شاخه (به‌روزرسانی PR #2)، مرج PR #1 و PR #2 به `main` (تعارض کوچک WORKLOG با حفظ هر دو ورودی)، همگام‌سازی `main` روی ماشین؛ سپس تصمیم مالک دربارهٔ P0 باز (پخش‌کنندهٔ صوت انسانی) و بازبینی بصری ناحیهٔ 320dp که تست آن را آشکار کرد.
+
+## ۲۰۲۶-۱۱-۰۶ — ران دودی روی شبیه‌ساز اندروید: صفحهٔ باغ و جریان اولین درس سالم
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۶
+- Task ID: `061-native-toolchain` (ران دودی پس از مرج PRها؛ درخواست مالک)
+- Agent/tool: ZCode (GLM) با android-emulator روی ماشین مالک، `main` `b13e145`
+- Baseline source hash/version: `main` `b13e145` (بعد از مرج هر دو PR و gradlew +x)
+- Files changed: `docs/NATIVE_VERIFICATION.json` (بخش `deviceRun`)، این فایل
+- Commands actually executed: `gradlew.bat assembleDebug --no-daemon` (BUILD SUCCESSFUL)؛ بوت AVD ‏`Pixel_6a` (API 35) با `ANDROID_AVD_HOME=D:\avd-home` — AVD به‌دلیل پر بودن C (فقط ۱٫۵GB آزاد) از `C:\Users\...\.android\avd` به `D:\avd-home` منتقل شد (جابه‌جایی، نه حذف؛ C به ۱۲GB آزاد رسید)؛ نصب APK با adb streamed install؛ launch با `com.ava.reading`؛ تعامل UI با UI Automator (تپ) و اسکرین‌شات؛ `adb logcat` فیلترشدهٔ اپ
+- Results: صفحهٔ باغ کامل و درست RTL رندر شد (لوگو، صورتک، کارت قهرمان، مسیر نشانه‌ها، مرحلهٔ قفل‌شده، نوار پایین). «شروع تمرین» → صفحهٔ درس با نمونهٔ «آ» و سه گزینه؛ انتخاب «آ» حلقهٔ انتخاب و «بررسی کن» فعال داد؛ بررسی → فیدبیک «پیدایش کردی!» با صورتک خوشحال و پیشرفت ۱/۳. در logcat هیچ AndroidRuntime خطایی برای اپ نبود. نکتهٔ ابزار: پلاگین اجرای gradlew روی ویندوز با مسیر دارای فاصله خطا داد — بیلد دستی و نصب با adb جایگزین شد؛ مختصات UI resolve گاهی با اسکرین‌شات نمی‌خواند و تپ با مختصات بصری انجام شد.
+- Blocked by: —
+- Evidence paths: اسکرین‌شات‌های `android-emulator@zcode-plugins-official/screenshots/2026-11-06T10-13-37/10-15-43/15-30-11/15-32-27`، `docs/NATIVE_VERIFICATION.json` (deviceRun)
+- Next action: ران دودی بقیهٔ مسیر (ورود، قصه، مرور، تنظیمات) و آزمون صوت روی دستگاه واقعی؛ تصمیم P0 پخش‌کنندهٔ صوت انسانی همچنان باز است.
