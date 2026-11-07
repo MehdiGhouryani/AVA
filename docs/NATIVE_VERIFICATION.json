@@ -1,78 +1,78 @@
 {
   "versionName": "0.6.1",
   "versionCode": 16,
-  "date": "2026-11-05",
+  "date": "2026-11-07",
   "delivery": "final source package; APK explicitly authorized but environment-blocked",
   "provenance": "Continued from AVA 0.6.0; prior progress and verification preserved under docs/history.",
-  "latestCommand": "JAVA_TOOL_OPTIONS=-Drobolectric.dependency.dir=D:/robolectric-deps gradlew.bat testDebugUnitTest lintDebug --no-daemon (Gradle 8.11.1, JDK 17.0.20.1, Windows, SDK D:/SDK)",
-  "latestResult": "اولین اجرای واقعی گیت (Gradle در سندباکس هرگز اجرا نشده بود؛ تاریخچهٔ قبلی این فایل همین را ثبت کرده است). اجرای اول روی ماشین ویندوز مالک ۷ شکست از ۱۴۰ نشان داد؛ هر ۷ باگ تست یا انتظار کهنه بودند، نه باگ اپ: (۱) دو بار setContent در WidthsUiTest و AllKindsUiTest (قانون compose-test قبول نمی‌کند — حلقه‌ها به الگوی state-driven تبدیل شدند)، (۲) انتظار «۶ از ۶ یادگاری» به‌جای «۴ از ۴» واقعی، (۳) wordBuilder درس index 2 را می‌دید که BuildWord ندارد — به اولین درس BuildWord اشاره شد، (۴) performScrollTo روی «بررسی کن» که در فوتر ثابت بیرون از verticalScroll است، (۵) تایپ کورِ «بردار»/توکن‌های زیر clip اسکرول که به فوتر می‌خورد — اکنون مثل کاربر واقعی اول اسکرول می‌شوند، (۶) رِیس فریم لاگین OTP: ناوبری coroutine در Robolectric گاهی یک فریم عقب است؛ waitUntil با شرط واقعی جایگزین idle کور شد. پس از اصلاح: testDebugUnitTest = ۱۴۰ تست، ۰ شکست، ۰ خطا و lintDebug = BUILD SUCCESSFUL (2026-11-06). نکتهٔ ماشین: Build Tools 35.0.0 در D:/SDK به‌صورت کپی محلی از 36.0.0 با متادیتای ویرایش‌شده ساخته شد (دانلود dl.google.com در آن شبکه بلاک است) و JAVA_TOOL_OPTIONS=-Drobolectric.dependency.dir=D:/robolectric-deps برای دور زدن باگ %20 مسیر Robolectric با نام کاربری دارای فاصله لازم است. + 2026-11-06: مسیر پخش صوت انسانی کامل شد — sync-android-resources.py تحویل‌های تأییدشدهٔ design/audio/delivery را به res/raw می‌بندل و Audio.kt تولید می‌کند؛ AndroidNarrator با audioRefِ موجود PlayedLocal می‌دهد و در غیر این صورت TTS fallback (بدون شبکه)؛ گیت کامل: ۱۴۳ تست، ۰ شکست + lint سبز. تا این لحظه ۰ فایل delivery — ضبط انسانی human_gate است. راه‌حل اجرای گیت روی این ماشین از ظهر 2026-11-06: _JAVA_OPTIONS=-Djava.net.preferIPv4Stack=true و -Pkotlin.compiler.execution.strategy=in-process.",
+  "latestCommand": "_JAVA_OPTIONS=-Djava.net.preferIPv4Stack=true JAVA_TOOL_OPTIONS=-Drobolectric.dependency.dir=D:/robolectric-deps gradlew.bat testDebugUnitTest lintDebug --rerun-tasks -Pkotlin.compiler.execution.strategy=in-process --no-daemon (cwd android; Gradle 8.11.1, JDK 17.0.20.1, Windows, SDK D:/SDK)",
+  "latestResult": "اولین اجرای واقعی گیت (Gradle در سندباکس هرگز اجرا نشده بود؛ تاریخچهٔ قبلی این فایل همین را ثبت کرده است). اجرای اول روی ماشین ویندوز مالک ۷ شکست از ۱۴۰ نشان داد؛ هر ۷ باگ تست یا انتظار کهنه بودند، نه باگ اپ: (۱) دو بار setContent در WidthsUiTest و AllKindsUiTest (قانون compose-test قبول نمی‌کند — حلقه‌ها به الگوی state-driven تبدیل شدند)، (۲) انتظار «۶ از ۶ یادگاری» به‌جای «۴ از ۴» واقعی، (۳) wordBuilder درس index 2 را می‌دید که BuildWord ندارد — به اولین درس BuildWord اشاره شد، (۴) performScrollTo روی «بررسی کن» که در فوتر ثابت بیرون از verticalScroll است، (۵) تایپ کورِ «بردار»/توکن‌های زیر clip اسکرول که به فوتر می‌خورد — اکنون مثل کاربر واقعی اول اسکرول می‌شوند، (۶) رِیس فریم لاگین OTP: ناوبری coroutine در Robolectric گاهی یک فریم عقب است؛ waitUntil با شرط واقعی جایگزین idle کور شد. پس از اصلاح: testDebugUnitTest = ۱۴۰ تست، ۰ شکست، ۰ خطا و lintDebug = BUILD SUCCESSFUL (2026-11-06). نکتهٔ ماشین: Build Tools 35.0.0 در D:/SDK به‌صورت کپی محلی از 36.0.0 با متادیتای ویرایش‌شده ساخته شد (دانلود dl.google.com در آن شبکه بلاک است) و JAVA_TOOL_OPTIONS=-Drobolectric.dependency.dir=D:/robolectric-deps برای دور زدن باگ %20 مسیر Robolectric با نام کاربری دارای فاصله لازم است. + 2026-11-06: مسیر پخش صوت انسانی کامل شد — sync-android-resources.py تحویل‌های تأییدشدهٔ design/audio/delivery را به res/raw می‌بندل و Audio.kt تولید می‌کند؛ AndroidNarrator با audioRefِ موجود PlayedLocal می‌دهد و در غیر این صورت TTS fallback (بدون شبکه)؛ گیت کامل: ۱۴۳ تست، ۰ شکست + lint سبز. تا این لحظه ۰ فایل delivery — ضبط انسانی human_gate است. راه‌حل اجرای گیت روی این ماشین از ظهر 2026-11-06: _JAVA_OPTIONS=-Djava.net.preferIPv4Stack=true و -Pkotlin.compiler.execution.strategy=in-process. + 2026-11-07: تکمیل رسمی 061-native-toolchain روی شاخهٔ 061-native-toolchain-formal — ریشهٔ محیطی پایان‌خط اصلاح شد (core.autocrlf=true سراسری باعث CRLF شدن worktree و شکست بایتی sync --check روی Audio.kt و هش پین‌شدهٔ SKILL.md می‌شد؛ اصلاح محلی: autocrlf=input و بازسازی اجباری فقط همان دو فایل از HEAD) و گیت کامل با --rerun-tasks اجرا شد: هر ۳۸ تسک واقعاً بازاجرا شدند، ۱۳ فایل XML تازه (2026-11-07 20:37): ۱۴۳ تست، ۰ شکست، ۰ خطا + lint سبز. اجرای اولِ بدون --rerun-tasks به‌عنوان شواهد تازه پذیرفته نشد چون testDebugUnitTest به‌خاطر ورودی‌های بدون تغییر UP-TO-DATE ماند. رانر run-gates هارنس روی ویندوز با FileNotFoundError [WinError 2] روی ./gradlew شکست خورد و exact همین ثبت شد؛ معادل gradlew.bat با همان آرگومان‌ها استفاده شد.",
   "nativeTestCount": 143,
   "nativeTestsExecuted": true,
   "nativeTestSources": [
     {
       "name": "ActivityEngineTest",
       "tests": 12,
-      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); includes 2 new snapshot/Match tests"
+      "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures); includes 2 new snapshot/Match tests"
     },
     {
       "name": "AuthRepositoryTest",
       "tests": 5,
-      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures)"
+      "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures)"
     },
     {
       "name": "AvaViewModelTest",
       "tests": 30,
-      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); includes 2 new content-load regression tests and the back-during-success-delay login test"
+      "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures); includes 2 new content-load regression tests and the back-during-success-delay login test"
     },
     {
       "name": "ContentRepositoryTest",
       "tests": 7,
-      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); includes the story_pages_empty rejection test"
+      "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures); includes the story_pages_empty rejection test"
     },
     {
       "name": "LearnerPersistenceTest",
       "tests": 5,
-      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures)"
+      "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures)"
     },
     {
       "name": "ModelTest",
       "tests": 17,
-      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures)"
+      "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures)"
     },
     {
       "name": "NativeUiTest",
       "tests": 44,
-      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); includes the confirm-slot position test"
+      "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures); includes the confirm-slot position test"
     },
     {
       "name": "ProgressionTest",
       "tests": 8,
-      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures)"
+      "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures)"
     },
     {
       "name": "MainActivityTest",
       "tests": 1,
-      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); wiring smoke test"
+      "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures); wiring smoke test"
     },
     {
       "name": "AndroidNarratorTest",
       "tests": 5,
-      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); fail-closed voice tests + bundled local playback (PlayedLocal, fallback, closed)"
+      "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures); fail-closed voice tests + bundled local playback (PlayedLocal, fallback, closed)"
     },
     {
       "name": "AllKindsUiTest",
       "tests": 3,
-      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); I8 all-kinds fixture tests + interaction test"
+      "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures); I8 all-kinds fixture tests + interaction test"
     },
     {
       "name": "JourneyUiTest",
       "tests": 4,
-      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); journey tests with the real ViewModel"
+      "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures); journey tests with the real ViewModel"
     },
     {
       "name": "WidthsUiTest",
       "tests": 2,
-      "execution": "passed 2026-11-06 on the owner's Windows machine (gate: 140 tests, 0 failures); 360dp and 412dp width tests"
+      "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures); 360dp and 412dp width tests"
     }
   ],
   "checks": {
@@ -87,7 +87,7 @@
     "strictJson": "passed: 76 JSON files; duplicate object keys rejected by release validators",
     "python": "passed: compile validation",
     "uiContentBoundary": "passed static audit: zero direct Catalog reads in production screens",
-    "nativeUnitAndCompose": "passed 2026-11-06 on the owner's Windows machine: gradlew.bat testDebugUnitTest lintDebug --no-daemon -> 140 tests, 0 failures, 0 errors; lint BUILD SUCCESSFUL (JDK 17.0.20.1, Gradle 8.11.1, SDK D:/SDK)",
+    "nativeUnitAndCompose": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate, all 38 tasks re-executed, 13 XML files dated 2026-11-07): gradlew.bat testDebugUnitTest lintDebug --rerun-tasks -Pkotlin.compiler.execution.strategy=in-process --no-daemon -> 143 tests, 0 failures, 0 errors; lint BUILD SUCCESSFUL (JDK 17.0.20.1, Gradle 8.11.1, SDK D:/SDK); first real run was 2026-11-06 (140 tests, then 143 with the audio playback tests)",
     "apkBuild": "not attempted: no APK/AAB requested (source-only increment); Gradle run is blocked in this sandbox by other_tcp Deny",
     "finalSourceHygiene": "passed: canonical paths documented; cache, node_modules, local SDK paths, secrets, keystores, APK/AAB and build outputs excluded from source ZIP",
     "manifestPermissions": "passed: no INTERNET or RECORD_AUDIO permission",
@@ -117,7 +117,7 @@
     "open": [
       "run Payload with database/object storage and prove upload/export integration plus delivery job",
       "obtain educator and pronunciation review for the development slice",
-      "compile and execute 122 Native/Compose tests plus emulator/device QA"
+      "full supervised device QA beyond the 2026-11-06 emulator smoke run (080-device-accessibility-qa); the 143 unit/Compose tests now execute (fresh gate 2026-11-07)"
     ]
   },
   "content": {
@@ -177,7 +177,7 @@
     "tasks": 14,
     "readyTasks": [
       "061-db-s3-integration",
-      "061-native-toolchain"
+      "080-account-privacy-operations"
     ],
     "humanGates": [
       "061-educator-review",
@@ -277,9 +277,9 @@
     "run the buildable Payload prototype with PostgreSQL and private object storage",
     "prove upload integration, malware scan, real decode, delivery job, dual review, audit and deterministic export against DB/S3",
     "educator review of sequence, distractors, scripts and pronunciation",
-    "provide Gradle 8.11.1, JDK 17, Android SDK 35 and dependency cache; execute 140 tests and lint",
+    "provide Gradle 8.11.1, JDK 17, Android SDK 35 and dependency cache; native test/lint gates executed on the owner's Windows machine (2026-11-06 and fresh --rerun-tasks 2026-11-07: 143 tests, 0 failures, lint green) — document this machine setup (robolectric-deps, IPv4 flag, in-process Kotlin) for any future machine",
     "add process-persistent bundle store and process-death recovery before remote sync",
     "physical-device TalkBack/TTS/lifecycle/font/performance QA"
   ],
-  "nextIncrement": "run gradle testDebugUnitTest lintDebug --no-daemon on the owner's Android Studio (branch phase-1-native-toolchain; chmod +x android/gradlew first if needed); then record the real test count and lint result here and in PROGRESS_FA.md — no APK/AAB is built (repo contract)"
+  "nextIncrement": "owner decision: begin the separately planned UI/UX redesign phase (design-system foundation first, then page-by-page) or start 080-account-privacy-operations (now ready); 061-db-s3-integration stays deferred per ADR-0004 until Docker Desktop and pnpm are installed; audio delivery files remain a human gate (080-human-audio-rights) — no APK/AAB is built (repo contract)"
 }
