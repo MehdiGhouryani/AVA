@@ -418,3 +418,16 @@ Next action:
 - Evidence paths: `android/app/build/test-results/testDebugUnitTest/*.xml` (۲۰۲۶-۱۱-۰۷ ۲۰:۳۷)، `android/app/build/reports/lint-results-debug.html`، `docs/NATIVE_VERIFICATION.json`، `docs/PROGRESS_FA.md`، `PROJECT_STATE.md` (§۱۲)
 - Harness status: `061-native-toolchain` → **completed**؛ `080-account-privacy-operations` → **ready** (تنها وابستگی‌اش کامل شد)؛ `080-device-accessibility-qa` در `human_gate` ماند (طبق validator هارنس، human_gate با automationAllowed=false نمی‌تواند ready شود). وابستگی هیچ تسکی تغییر نکرد.
 - Next action: تصمیم مالک — شروع فاز بازطراحی UI/UX (جداگانه برنامه‌ریزی می‌شود؛ ابتدا بنیاد دیزاین‌سیستم، سپس صفحه‌به‌صفحه) یا `080-account-privacy-operations` (اکنون ready). `061-db-s3-integration` تا نصب Docker Desktop/pnpm معوق می‌ماند (ADR-0004). پس از اولین delivery صوت، ران شبیه‌ساز برای شنیدن پخش محلی.
+
+## ۲۰۲۶-۱۱-۰۷ — نتیجه: فاز ۰۶۲ UX Discovery — سند ممیزی، الگوبرداری و نقشه راه بازطراحی
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۰۷
+- Task ID: مأموریت مستقیم مالک «فاز ۰۶۲: UX Discovery» — task هارنس اضافه نشد و وضعیت هیچ taskای تغییر نکرد (طبق دستور مالک)
+- Agent/tool: ZCode (GLM)، شاخهٔ `062-ux-discovery` از `0bbc3bf`
+- Files changed: `docs/design/AVA_UX_DISCOVERY.md` (جدید، ۱۶ بخش)؛ این فایل. هیچ فایل UI/Theme/Route/محتوایی لمس نشد.
+- Commands actually executed (`ran`): تأیید مجدد ادعاهای فاز قبل (۱۳ XML = ۱۴۳/۰، lint report، ۲۲ شاخهٔ Route از کد، APK موجود)؛ ران شبیه‌ساز `emulator-5554` با نصب `app-debug.apk` موجود (هیچ build جدید؛ `adb install -r`)، ناوبری واقعی با تپ (Home→درس→انتخاب→فیدبک «پیدایش کردی!»→دیالوگ تأیید خروج→Library→StoryDetails→StoryReader→Profile→Practice) + ۱۶ اسکرین‌شات + uiautomator dump؛ واکشی ۵ منبع مرجع (Duolingo ABC، Khan Kids ×۲، Lingokids ×۲)؛ محاسبهٔ کنتراست WCAG از `DesignTokens.kt`؛ اعتبارسنجی سند (refs/sections/fences).
+- Results: سند شامل ممیزی ۲۲ شاخه/۲۰ صفحهٔ منطقی با ۱۴ پرسش، ۱۰ یافتهٔ اصلی (F1..F10: Splash بی‌نشانگر ≥13s روی شروع سردِ شبیه‌ساز، mock_hint، دو دکمهٔ صوت قصه‌خوان، ۱۰ شعاع/۵ ارتفاع نوار پیشرفت، فونت تک‌وزن، دو-لمسی G08، ۷۶sp ثابت، سه مقصد پیشرفت، زیگزاگ مسیر، Phone/OTP بزرگسال)، جدول الگوبرداری، ۱۰ اصل با معیار پذیرش، توکن‌ها (همهٔ کنتراست‌ها ≥۴٫۷۷:۱)، ۱۴ کامپوننت (موجود/جدید)، Backlog R01..R13 با gate، چک‌لیست دسترس‌پذیری، ۶ تصمیم باز مالک. یافتهٔ روش: jump با `qa_route` در شروع سرد توسط پیشروی Splash بازنویسی می‌شود؛ ضبط مطمئن با ناوبری گرم.
+- NOT VERIFIED (صریح): TalkBack، رندر فونت ۱٫۵/۲٫۰، بررسی بصری عمیق PNGهای Profile/Practice/Settings/صفحات اطلاعات (متن‌ها با dump تأیید شد)، کودک واقعی.
+- Blocked by: ۶ تصمیم بخش ۱۵ سند (به‌ویژه F8 ادغام Progress/Album و F9 زیگزاگ) برای شروع R01.
+- Evidence paths: `docs/design/AVA_UX_DISCOVERY.md`؛ اسکرین‌شات‌های untracked `.zcode/screens/`؛ `docs/UX_CONFORMANCE_FA.md` (پایهٔ قبلی G01..G12)
+- Next action: مالک سند را بازبینی و ۶ تصمیم را بدهد؛ سپس برش R01 (دیزاین‌سیستم: توکن‌ها + ChoiceTile/AvaProgress/AudioToggle) به‌عنوان نخستین برش پیاده‌سازی.
