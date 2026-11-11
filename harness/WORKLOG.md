@@ -431,3 +431,15 @@ Next action:
 - Blocked by: ۶ تصمیم بخش ۱۵ سند (به‌ویژه F8 ادغام Progress/Album و F9 زیگزاگ) برای شروع R01.
 - Evidence paths: `docs/design/AVA_UX_DISCOVERY.md`؛ اسکرین‌شات‌های untracked `.zcode/screens/`؛ `docs/UX_CONFORMANCE_FA.md` (پایهٔ قبلی G01..G12)
 - Next action: مالک سند را بازبینی و ۶ تصمیم را بدهد؛ سپس برش R01 (دیزاین‌سیستم: توکن‌ها + ChoiceTile/AvaProgress/AudioToggle) به‌عنوان نخستین برش پیاده‌سازی.
+
+## ۲۰۲۶-۱۱-۱۱ — نتیجه: R01 بنیان دیزاین‌سیستم — ۱۵۴/۰، بدون تغییر صفحه‌ها
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۱۱
+- Task ID: برش R01 از نقشهٔ `docs/design/AVA_UX_DISCOVERY.md` (مأموریت مستقیم مالک؛ بدون تغییر وضعیت taskهای هارنس)
+- Agent/tool: ZCode (GLM)، شاخهٔ `062-r01-design-system` از `b70b7f9`
+- Files changed: `android/app/src/main/java/com/ava/reading/ui/theme/AvaTokens.kt` (جدید)، `android/app/src/main/java/com/ava/reading/ui/components/AvaUI.kt` (جدید)، `android/app/src/test/java/com/ava/reading/AvaComponentsTest.kt` (جدید، ۱۱ تست)، `docs/design/AVA_DESIGN_SYSTEM.md` (جدید)، `docs/README.md` (ایندکس دو سند طراحی)، `docs/PROGRESS_FA.md`، `docs/NATIVE_VERIFICATION.json`، `PROJECT_STATE.md`، این فایل. `ui/screens/**` و `content/**` و `DesignTokens.kt` تولیدی و gradle deps بدون تغییر (diff خالی تأیید شد).
+- Commands actually executed: گیت کامل `gradlew.bat testDebugUnitTest lintDebug -Pkotlin.compiler.execution.strategy=in-process --no-daemon` با `_JAVA_OPTIONS=-Djava.net.preferIPv4Stack=true` و `JAVA_TOOL_OPTIONS=-Drobolectric.dependency.dir=D:/robolectric-deps` (پس از سه دور اصلاح کامپایل/تست)؛ شمارش XMLها؛ `audit-project.py` (پاس کامل)؛ `check-docs.py`؛ محاسبهٔ کنتراست WCAG از مقادیر `DesignTokens.kt`.
+- Results: **۱۴ فایل XML، tests=154 failures=0 errors=0** (۱۴۳ قبلی سبز ماند + ۱۱ تازهٔ `AvaComponentsTest`)؛ lint ‏BUILD SUCCESSFUL؛ اسنپ‌شات گالری کامپوننت‌ها رندر شد (`app/build/reports/native-ui/ava-components-gallery.png`). چهار اشکال مسیر این چرخه ثبت و رفع شد: (۱) `graphicsLayer` در این نسخهٔ Compose در `ui.graphics` است؛ (۲) تلاش افزودن `ui-tooling-preview:1.8.0` به‌دلیل بلاک بودن دانلود (TLS handshake آینه) شکست خورد و حذف شد — کش فقط 1.12.0 ناسازگار با BOM دارد؛ گالری با تست اسنپ‌شات واقعی جایگزین `@Preview` شد؛ (۳) سازندهٔ `ProgressBarRangeInfo` در ۱٫۸ امضای متفاوت دارد (تست به `keyIsDefined` ساده شد)؛ (۴) سه شکست تست اولیه (state بدون recomposition، کارت با محتوای خالی بی‌عرض، آیتم پایین گالری خارج از قاب) با `mutableStateOf`/`fillMaxWidth`/`assertExists` اصلاح شد.
+- Blocked by: — (برای R01). تصمیم‌های باز مالک (بخش ۱۵ Discovery، به‌ویژه F8 و F5) برای برش‌های بعدی باز هستند.
+- Evidence paths: `android/app/build/test-results/testDebugUnitTest/*.xml`، `android/app/build/reports/lint-results-debug.html`، `android/app/build/reports/native-ui/ava-components-gallery.png`، `docs/design/AVA_DESIGN_SYSTEM.md`
+- Next action: تأیید مالک + شروع R02 (Home و مسیر)؛ ادغام R01 در main و push به origin/main به درخواست صریح مالک در همین چرخه انجام می‌شود.
