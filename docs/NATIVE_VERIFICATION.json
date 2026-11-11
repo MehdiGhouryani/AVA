@@ -6,7 +6,7 @@
   "provenance": "Continued from AVA 0.6.0; prior progress and verification preserved under docs/history.",
   "latestCommand": "_JAVA_OPTIONS=-Djava.net.preferIPv4Stack=true JAVA_TOOL_OPTIONS=-Drobolectric.dependency.dir=D:/robolectric-deps gradlew.bat testDebugUnitTest lintDebug --rerun-tasks -Pkotlin.compiler.execution.strategy=in-process --no-daemon (cwd android; Gradle 8.11.1, JDK 17.0.20.1, Windows, SDK D:/SDK)",
   "latestResult": "اولین اجرای واقعی گیت (Gradle در سندباکس هرگز اجرا نشده بود؛ تاریخچهٔ قبلی این فایل همین را ثبت کرده است). اجرای اول روی ماشین ویندوز مالک ۷ شکست از ۱۴۰ نشان داد؛ هر ۷ باگ تست یا انتظار کهنه بودند، نه باگ اپ: (۱) دو بار setContent در WidthsUiTest و AllKindsUiTest (قانون compose-test قبول نمی‌کند — حلقه‌ها به الگوی state-driven تبدیل شدند)، (۲) انتظار «۶ از ۶ یادگاری» به‌جای «۴ از ۴» واقعی، (۳) wordBuilder درس index 2 را می‌دید که BuildWord ندارد — به اولین درس BuildWord اشاره شد، (۴) performScrollTo روی «بررسی کن» که در فوتر ثابت بیرون از verticalScroll است، (۵) تایپ کورِ «بردار»/توکن‌های زیر clip اسکرول که به فوتر می‌خورد — اکنون مثل کاربر واقعی اول اسکرول می‌شوند، (۶) رِیس فریم لاگین OTP: ناوبری coroutine در Robolectric گاهی یک فریم عقب است؛ waitUntil با شرط واقعی جایگزین idle کور شد. پس از اصلاح: testDebugUnitTest = ۱۴۰ تست، ۰ شکست، ۰ خطا و lintDebug = BUILD SUCCESSFUL (2026-11-06). نکتهٔ ماشین: Build Tools 35.0.0 در D:/SDK به‌صورت کپی محلی از 36.0.0 با متادیتای ویرایش‌شده ساخته شد (دانلود dl.google.com در آن شبکه بلاک است) و JAVA_TOOL_OPTIONS=-Drobolectric.dependency.dir=D:/robolectric-deps برای دور زدن باگ %20 مسیر Robolectric با نام کاربری دارای فاصله لازم است. + 2026-11-06: مسیر پخش صوت انسانی کامل شد — sync-android-resources.py تحویل‌های تأییدشدهٔ design/audio/delivery را به res/raw می‌بندل و Audio.kt تولید می‌کند؛ AndroidNarrator با audioRefِ موجود PlayedLocal می‌دهد و در غیر این صورت TTS fallback (بدون شبکه)؛ گیت کامل: ۱۴۳ تست، ۰ شکست + lint سبز. تا این لحظه ۰ فایل delivery — ضبط انسانی human_gate است. راه‌حل اجرای گیت روی این ماشین از ظهر 2026-11-06: _JAVA_OPTIONS=-Djava.net.preferIPv4Stack=true و -Pkotlin.compiler.execution.strategy=in-process. + 2026-11-07: تکمیل رسمی 061-native-toolchain روی شاخهٔ 061-native-toolchain-formal — ریشهٔ محیطی پایان‌خط اصلاح شد (core.autocrlf=true سراسری باعث CRLF شدن worktree و شکست بایتی sync --check روی Audio.kt و هش پین‌شدهٔ SKILL.md می‌شد؛ اصلاح محلی: autocrlf=input و بازسازی اجباری فقط همان دو فایل از HEAD) و گیت کامل با --rerun-tasks اجرا شد: هر ۳۸ تسک واقعاً بازاجرا شدند، ۱۳ فایل XML تازه (2026-11-07 20:37): ۱۴۳ تست، ۰ شکست، ۰ خطا + lint سبز. اجرای اولِ بدون --rerun-tasks به‌عنوان شواهد تازه پذیرفته نشد چون testDebugUnitTest به‌خاطر ورودی‌های بدون تغییر UP-TO-DATE ماند. رانر run-gates هارنس روی ویندوز با FileNotFoundError [WinError 2] روی ./gradlew شکست خورد و exact همین ثبت شد؛ معادل gradlew.bat با همان آرگومان‌ها استفاده شد.",
-  "nativeTestCount": 143,
+  "nativeTestCount": 154,
   "nativeTestsExecuted": true,
   "nativeTestSources": [
     {
@@ -73,6 +73,11 @@
       "name": "WidthsUiTest",
       "tests": 2,
       "execution": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate: 143 tests, 0 failures); 360dp and 412dp width tests"
+    },
+    {
+      "name": "AvaComponentsTest",
+      "tests": 11,
+      "execution": "passed 2026-11-11 on the owner's Windows machine (gate: 154 tests, 0 failures); R01 design-system base components: button sizes/styles/loading, radio answer options, card role/state/disabled, polite live-region feedback, icon-button label, progress semantics+label, character/state messages, large-font RTL survival, rendered gallery snapshot"
     }
   ],
   "checks": {
@@ -87,7 +92,7 @@
     "strictJson": "passed: 76 JSON files; duplicate object keys rejected by release validators",
     "python": "passed: compile validation",
     "uiContentBoundary": "passed static audit: zero direct Catalog reads in production screens",
-    "nativeUnitAndCompose": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate, all 38 tasks re-executed, 13 XML files dated 2026-11-07): gradlew.bat testDebugUnitTest lintDebug --rerun-tasks -Pkotlin.compiler.execution.strategy=in-process --no-daemon -> 143 tests, 0 failures, 0 errors; lint BUILD SUCCESSFUL (JDK 17.0.20.1, Gradle 8.11.1, SDK D:/SDK); first real run was 2026-11-06 (140 tests, then 143 with the audio playback tests)",
+    "nativeUnitAndCompose": "passed 2026-11-07 on the owner's Windows machine (fresh --rerun-tasks gate, all 38 tasks re-executed, 13 XML files dated 2026-11-07): gradlew.bat testDebugUnitTest lintDebug --rerun-tasks -Pkotlin.compiler.execution.strategy=in-process --no-daemon -> 143 tests, 0 failures, 0 errors; lint BUILD SUCCESSFUL (JDK 17.0.20.1, Gradle 8.11.1, SDK D:/SDK); first real run was 2026-11-06 (140 tests, then 143 with the audio playback tests). R01 design-system increment 2026-11-11: same gate -> 154 tests (143 + 11 AvaComponentsTest), 0 failures, 0 errors; lint BUILD SUCCESSFUL",
     "apkBuild": "not attempted: no APK/AAB requested (source-only increment); Gradle run is blocked in this sandbox by other_tcp Deny",
     "finalSourceHygiene": "passed: canonical paths documented; cache, node_modules, local SDK paths, secrets, keystores, APK/AAB and build outputs excluded from source ZIP",
     "manifestPermissions": "passed: no INTERNET or RECORD_AUDIO permission",

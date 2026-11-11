@@ -36,5 +36,7 @@
 | ../PROJECT_STATE.md | وضعیت و تصمیم‌های جاری برای عامل‌های کدنویسی |
 | ../CLAUDE.md | نقطه ورود Claude؛ اشاره به AGENTS.md و هارنس |
 | FINAL_DELIVERY_FA.md | مسیر canonical سورس و فرمان رسمی build/verify APK |
+| design/AVA_UX_DISCOVERY.md | سند Discovery فاز ۰۶۲: ممیزی صفحه‌به‌صفحه، الگوبرداری، توکن‌های پیشنهادی و نقشه راه بازطراحی |
+| design/AVA_DESIGN_SYSTEM.md | دیزاین‌سیستم R01: توکن‌های رنگ/تایپ/فاصله/شکل/حرکت، کاتالوگ کامپوننت پایه و راهنمای مهاجرت |
 
 `DESIGN_BRIEF.md` و `README_FA.md` تاریخچه جریان اولیه وب هستند؛ دستور Flutter و Home موقت در آن‌ها مبنای توسعه جاری نیست. `reference/` فقط برای مقایسه است و داخل UI رندر نمی‌شود. محصول Native در `android/` است.
