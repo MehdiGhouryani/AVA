@@ -601,11 +601,11 @@ Next action:
 
 ## ۲۰۲۶-۱۱-۱۹ — Foundation UI، برش اول
 
-- Task ID: `uiux-foundation-shared-primitives`
+- Task ID: `062-uiux-foundation` (roadmap: in_progress)
 - Branch: `phase-062-r01-ui-foundation`
 - Baseline: inventory branch `phase-062-non-lesson-uiux-inventory` @ `72c4c5df45d10942d15ece4fdffb0a1322acd1a9`
 - Scope: wrapper migration + one onboarding art asset; no page-flow or learning-logic changes.
-- Files changed: `AvaUI.kt`, `ui/screens/Components.kt`, `AuthScreens.kt`, `AvaComponentGallery.kt`, generated `Art.kt`, generated `drawable-nodpi/decor_onboarding_cloud_castle.xml`, source `public/ava-assets/decor/onboarding_glow_castle.xml`, `AvaComponentsTest.kt`, `AvaComponentGallery.kt`, `scripts/audit-project.py`, asset manifest, Design System, UI/UX inventory, progress and worklog.
+- Files changed: `AvaUI.kt`, `ui/screens/Components.kt`, `AuthScreens.kt`, `AvaComponentGallery.kt`, generated `Art.kt`, generated drawable and source VectorDrawable, `AvaComponentsTest.kt`, `scripts/audit-project.py`, asset manifest, Design System, UI/UX inventory, `harness/roadmap.json`, the new phase playbook, progress and worklog.
 - Generated-resource method: `Art.kt` mapping was rebuilt with the exact snake/id iteration used by `scripts/sync-android-resources.py`; pre-existing mapping was compared before adding the new id. Native drawable source is identical to the public manifest source. `audit-project.py` now parses VectorDrawable viewport/intrinsic dimensions while retaining Pillow verification for raster assets.
 - Result: common screen primitives now share R01 button/card/header/feedback implementations; navigation rows use the new accessible AvaMenuRow; the 10-component render gallery now includes enabled and disabled menu-row states. Onboarding 1 now uses the dedicated cloud-castle vector asset. Existing APIs remain compatible.
 - Checks performed: static source/manifest consistency, generated Art mapping comparison, new asset path/id mapping, test-source insertion and reference checks.
