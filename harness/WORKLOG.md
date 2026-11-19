@@ -549,3 +549,12 @@ Next action:
 - Root .env.example فقط دو خط comment داشت؛ هیچ key/value یا تنظیم مصرف‌شده‌ای نداشت. جست‌وجوی کد برای VITE_/import.meta.env و بررسی process.env نشان داد مسیر environment واقعی فقط داخل CMS است و به نمونهٔ مستقل cms/payload/.env.example متکی است.
 - فایل ریشه حذف شد؛ نمونهٔ CMS و README آن حفظ شدند. هیچ secret یا متغیر محیطی حذف نشد.
 - Not run: build وب، CMS boot و audit کامل؛ این بررسی از خواندن فایل‌ها و جست‌وجوی reference در مخزن انجام شد.
+
+## ۲۰۲۶-۱۱-۱۹ — دقیق‌سازی مرز پوشه‌های مستثنا در docs checker
+
+- Task ID: repo-hygiene-cleanup
+- `scripts/check-docs.py` به‌جای prefix ساده، مسیر دقیق یا زیرشاخهٔ مستثنا را کنترل می‌کند؛ پوشه‌های دارای نام مشابه دیگر به‌اشتباه skip نمی‌شوند.
+- `scripts/test-docs-check.py` یک تست boundary اضافه کرد؛ مجموع **۷ تست واحد**.
+- Verification روی محتوای دقیق commitهای فعلی: بازسازی در `/tmp/ava-cleanup-tests`، `python -m py_compile` روی هر دو فایل، `python test-docs-check.py -v` → **۷ passed، ۰ failed**.
+- مستندات اجرایی به‌روز شدند: ۱۰۴ تست و خطای قدیمی `.aistudio` به‌عنوان وضعیت تاریخی اصلاح شد؛ audit references اکنون از `removedEntries` استفاده می‌کند؛ آخرین گیت Native مستند ۱۵۴/۰ در ۲۰۲۶-۱۱-۱۱ باقی ماند.
+- Not run: اجرای کامل docs checker، `audit-project.py`، Sync منابع، build وب، Gradle و lint روی clone واقعی.
