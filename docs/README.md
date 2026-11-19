@@ -39,5 +39,6 @@
 | FINAL_DELIVERY_FA.md | مسیر canonical سورس و فرمان رسمی build/verify APK |
 | design/AVA_UX_DISCOVERY.md | سند Discovery فاز ۰۶۲: ممیزی صفحه‌به‌صفحه، الگوبرداری، توکن‌های پیشنهادی و نقشه راه بازطراحی |
 | design/AVA_DESIGN_SYSTEM.md | دیزاین‌سیستم R01: توکن‌های رنگ/تایپ/فاصله/شکل/حرکت، کاتالوگ کامپوننت پایه و راهنمای مهاجرت |
+| design/UI_UX_BACKLOG_NON_LESSON_FA.md | فهرست ۱۰۰ موردی بازطراحی صفحه‌ها، کامپوننت‌ها و دارایی‌های بصری خارج از درس و تمرین |
 
 `docs/history/web-prototype/` آرشیو README، Design Brief و prompt اولیهٔ Google AI Studio/React است؛ صرفاً برای تاریخچه حفظ شده و مبنای توسعهٔ جاری نیست. `reference/` فقط برای مقایسه است و داخل UI رندر نمی‌شود. محصول Native در `android/` است.

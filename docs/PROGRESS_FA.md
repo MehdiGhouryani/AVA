@@ -295,3 +295,37 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - حجم خارج‌شده از `public/`: **۲٬۵۳۴٬۷۲۴ بایت**. این تصاویر هیچ مصرف‌کننده‌ای در کد وب/Native نداشتند و فقط در manifest ممیزی ثبت شده بودند؛ اکنون از خروجی قابل‌انتشار Vite جدا هستند.
 - مسیرهای `design/screen-references.audit.json` به‌روز شد، `scripts/audit-project.py` پوشهٔ آرشیو را هم برای کنترل ابعاد و hash بررسی می‌کند و README آرشیو نقش این سه مرجع را توضیح می‌دهد.
 - اجرا/اعتبارسنجی: مقایسهٔ Blob SHA مبدأ و مقصد در Git Data API برابر بود. **اجرا نشد:** build وب، `audit-project.py`، Sync منابع، Gradle و lint؛ این تغییر هنوز end-to-end روی checkout واقعی اجرا نشده است.
+
+
+## بروزرسانی ۲۰۲۶-۱۱-۱۹ — ممیزی و فهرست طراحی UI/UX خارج از درس و تمرین
+
+- ممیزی ساختار Native، Routeها، صفحات، لایهٔ کامپوننت‌های قدیمی و R01، توکن‌ها، manifest تصویر و مرجع‌های صفحه انجام شد.
+- سند `docs/design/UI_UX_BACKLOG_NON_LESSON_FA.md` با **۱۰۰ شناسهٔ U01 تا U100** ثبت شد: شروع/ورود، پوسته و ناوبری، خانه، کتابخانه و مطالعهٔ قصه، پروفایل، پیشرفت، آلبوم، تنظیمات، اطلاعات و کامپوننت‌های مشترک.
+- دامنه شامل ۱۹ مقصد پیرامونی است. `LessonDetails`، `Lesson`، `StoryQuestion` و محتوای داخلی `Practice` عمداً خارج‌اند؛ مراحل و تمرین‌ها برای دور بعد محفوظ‌اند.
+- ممیزی نشان داد ۱۶ دارایی اصلی و ۷ مرجع تصویری محصول در مخزن وجود دارند. ۹ کامپوننت پایهٔ R01 تست/گالری دارند، اما هنوز مهاجرت آن‌ها به صفحه‌های تولیدی انجام نشده است.
+- دارایی‌های تازهٔ واقعاً کاندید: لوگوی برداری با وضوح بالا، تصویر سبک حباب Onboarding 1 و مجموعهٔ آیکون‌های نهایی. تصویرهای صفحه‌ای قصه فعلاً مشروط به طراحی wireframe و تصمیم دربارهٔ مدل محتوا هستند.
+- این برش فقط سند inventory و فهرست اسناد را تغییر داده است؛ هیچ کد تولیدی، تصویر، asset manifest، توکن، متن یا رفتار اپ تغییر نکرده است.
+- بررسی محتوایی/ارجاعی از GitHub انجام شد. **اجرا نشد:** Gradle، build، Native tests، lint، audit کامل و گالری screenshot صفحه‌ها.
+- شاخهٔ کاری: `phase-062-non-lesson-uiux-inventory`؛ این تغییر هنوز روی `main` ادغام نشده است.
+
+
+## بروزرسانی ۲۰۲۶-۱۱-۱۹ — Foundation UI، برش اول
+
+- wrapperهای مشترک صفحه‌ها در `ui/screens/Components.kt` به کامپوننت‌های R01 وصل شدند: دکمهٔ اصلی/فرعی، SoftCard، Header، Menu و Feedback.
+- کامپوننت `AvaMenuRow` با هدف ۷۲dp، آیکون ۴۴dp، زیرعنوان اختیاری و semantics واحد اضافه شد. `AvaCard` نیز برای soft card امکان حذف border دارد.
+- artwork برداری اختصاصی قلعهٔ ابری در `public/ava-assets/decor/onboarding_glow_castle.xml` اضافه و از طریق manifest/Art به drawable Native نگاشت شد؛ در Onboarding 1 استفاده می‌شود. `audit-project.py` اکنون ابعاد VectorDrawable را از XML می‌خواند و rasterها را مثل قبل با Pillow بررسی می‌کند.
+- آزمون `legacyScreenPrimitivesBridgeToTheFoundation` برای رگرسیون adapterها اضافه شد و `AvaMenuRow` در حالت فعال/غیرفعال به Gallery ده‌کامپوننتی افزوده شد؛ تست‌ها در این نشست اجرا نشده‌اند.
+- منطق route، auth mock، داده، reducer، محتوای درس و تمرین تغییر نکرد.
+- **اجرا نشد:** Gradle unit tests، lint، resource sync `--check` کامل، build و screenshot/device QA؛ checkout محلی کامل در این نشست موجود نیست. بررسی محتوایی و تطبیق mapping تولیدی `Art.kt` با generator انجام شده است.
+- Task: `062-uiux-foundation` با وضعیت `in_progress` در Harness ثبت شده است. Branch: `phase-062-r01-ui-foundation`; هنوز روی `main` ادغام نشده است.
+
+
+## بروزرسانی ۲۰۲۶-۱۱-۱۹ — Entry/Auth UI، برش دوم
+
+- چیدمان Onboarding برای ارتفاع‌های کوتاه نیز scroll می‌شود؛ هنگام scroll، artwork ارتفاع محدود و قابل پیش‌بینی دارد تا از اتکای نادرست به `weight` در محتوای نامحدود جلوگیری شود.
+- Phone در نمایشگرهای عریض در عرض حداکثر ۵۲۰dp متمرکز می‌شود؛ فرم شماره، رضایت، پیوندهای قانونی، بازخورد و CTA در یک سطح SoftCard قرار گرفتند. برچسب/تبدیل ارقام، خطا، حالت busy و متن ورود آزمایشی حفظ شد.
+- OTP در ارتفاع کم یا بزرگ‌نمایی متن، header کوتاه‌تری دارد؛ پنل اسکرول‌پذیر و حداکثر ۵۲۰dp است. تمرکز خودکار فیلد و ساختار شش خانه تغییر نکرد.
+- تست Journey برای مسیر Onboarding → Phone → OTP در viewport برابر ۳۹۰×۶۴۰dp و fontScale=1.3 افزوده شد؛ **منبع تست نوشته شده ولی اجرا نشده است**.
+- Task: `062-entry-auth-ui` در Harness با وضعیت `blocked`؛ dependency یعنی `062-uiux-foundation` هنوز تکمیل نشده است. هیچ route، ViewModel، reducer، قرارداد mock auth، تایمر یا منطق آموزشی تغییر نکرد.
+- **اجرا نشد:** Gradle، unit/instrumentation tests، lint، resource sync، audit کامل و device QA؛ checkout قابل‌اجرا در این نشست در دسترس نبود.
+- Branch: `phase-062-r02-entry-auth-ui`; هنوز روی `main` ادغام نشده است.

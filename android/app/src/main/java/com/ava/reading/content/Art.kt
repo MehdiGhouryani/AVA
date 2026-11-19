@@ -15,6 +15,7 @@ object Art { val ids = mapOf(
     "decor.login.top_left" to R.drawable.decor_login_top_left,
     "decor.login.bottom_left" to R.drawable.decor_login_bottom_left,
     "decor.login.bottom_right" to R.drawable.decor_login_bottom_right,
+    "decor.onboarding.cloud_castle" to R.drawable.decor_onboarding_cloud_castle,
     "decor.tree" to R.drawable.decor_tree,
     "decor.magic_book" to R.drawable.decor_magic_book
 ) }

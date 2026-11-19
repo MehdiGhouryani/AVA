@@ -582,3 +582,47 @@ Next action:
 - Verification: بازخوانی فایل‌های تغییرکرده از شاخهٔ `main` و تطبیق ارجاع‌ها/ترتیب فرمان‌ها؛ کد محصول، roadmap taskها و فایل‌های skill ثالث تغییر نکردند.
 - Not run: `harness.py validate`، `audit-project.py`، docs checker، build وب، Sync منابع، Gradle، Native tests و lint؛ محیط این نشست clone/worktree قابل‌اجرا ندارد.
 - Next action: روی checkout تازه، `python3 scripts/harness.py validate` و `python3 scripts/audit-project.py` اجرا شوند؛ در صورت عبور، task بعدی را فقط با `next` انتخاب کن.
+
+
+## ۲۰۲۶-۱۱-۱۹ — ممیزی ۱۰۰ موردی UI/UX خارج از درس و تمرین
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۱۹
+- Task ID: `uiux-non-lesson-inventory` (فهرست‌برداری و طراحی دامنه؛ بدون implementation)
+- Branch: `phase-062-non-lesson-uiux-inventory`
+- Baseline: `main` در `486a3f9f999d63f8d996907e0293673b02f8eaab`
+- Files changed: `docs/design/UI_UX_BACKLOG_NON_LESSON_FA.md`، `docs/README.md`، `docs/PROGRESS_FA.md` و این WORKLOG.
+- Audit method: خواندن ماتریس صفحه‌ها، PAGE DESIGN PLAN، UX Discovery، Design System R01، PROJECT MAP، Route/ViewModel، screen composables، shared components، design tokens، asset manifest، content model و screen reference audit؛ جست‌وجوی مصرف واقعی AvaUI در کد.
+- Result: دقیقاً ۱۰۰ مورد با شناسه‌های U01–U100، اولویت P0/P1/P2، وضعیت موجود/مهاجرت/دارایی جدید/تصمیم و تفکیک شش دسته ثبت شد. ۱۹ مقصد پیرامونی داخل محدوده‌اند؛ LessonDetails، Lesson، StoryQuestion و محتوای Practice خارج‌اند.
+- Confirmed findings: ۱۶ دارایی اصلی، ۷ مرجع تصویری محصول، ۹ کامپوننت پایهٔ R01؛ R01 به صفحه‌های تولیدی مهاجرت نشده است. دارایی جدید به سه نیاز محدودتر شده و تصویرسازی ۹ صفحهٔ قصه به‌دلیل نبود artRef صفحه‌ای، فعلاً مشروط باقی می‌ماند.
+- Verification: محتوای فایل و ترتیب شناسه‌ها پیش از انتشار کنترل شد؛ سند در شاخهٔ کاری ایجاد و به docs index متصل شد. مرور مسیرهای relative در سند انجام شد.
+- Not run: `harness.py validate`، `audit-project.py`، docs checker، Gradle، Native tests، lint، build، screenshot/device QA. این مرحله فقط inventory است؛ تولید تصویر و پیاده‌سازی کامپوننت شروع نشده است.
+- Next action: بررسی inventory توسط مالک؛ پس از تعیین تکلیف F8 (Progress/Album)، F9 (چیدمان مسیر Home) و F5 (وزن فونت)، طراحی و پیاده‌سازی برش‌های مستقل از Foundation و سپس صفحه‌ها آغاز شود.
+
+
+## ۲۰۲۶-۱۱-۱۹ — Foundation UI، برش اول
+
+- Task ID: `062-uiux-foundation` (roadmap: in_progress)
+- Branch: `phase-062-r01-ui-foundation`
+- Baseline: inventory branch `phase-062-non-lesson-uiux-inventory` @ `72c4c5df45d10942d15ece4fdffb0a1322acd1a9`
+- Scope: wrapper migration + one onboarding art asset; no page-flow or learning-logic changes.
+- Files changed: `AvaUI.kt`, `ui/screens/Components.kt`, `AuthScreens.kt`, `AvaComponentGallery.kt`, generated `Art.kt`, generated drawable and source VectorDrawable, `AvaComponentsTest.kt`, `scripts/audit-project.py`, asset manifest, Design System, UI/UX inventory, `docs/PROJECT_MAP_FA.md`, `harness/roadmap.json`, the new phase playbook, progress and worklog.
+- Generated-resource method: `Art.kt` mapping was rebuilt with the exact snake/id iteration used by `scripts/sync-android-resources.py`; pre-existing mapping was compared before adding the new id. Native drawable source is identical to the public manifest source. `audit-project.py` now parses VectorDrawable viewport/intrinsic dimensions while retaining Pillow verification for raster assets.
+- Result: common screen primitives now share R01 button/card/header/feedback implementations; navigation rows use the new accessible AvaMenuRow; the 10-component render gallery now includes enabled and disabled menu-row states. Onboarding 1 now uses the dedicated cloud-castle vector asset. Existing APIs remain compatible.
+- Checks performed: static source/manifest consistency, generated Art mapping comparison, new asset path/id mapping, test-source insertion and reference checks.
+- Not run: Gradle, unit tests, lint, full `sync-android-resources.py --check`, audit-project, build or device screenshots. Do not infer runtime success from static inspection.
+- Next: execute resource sync and native tests on a checkout; then move to the Entry screens and navigation shell as a separate slice.
+
+
+## ۲۰۲۶-۱۱-۱۹ — Entry/Auth UI، برش دوم
+
+- Task ID: `062-entry-auth-ui` (roadmap: blocked؛ dependency `062-uiux-foundation` هنوز تکمیل نشده است)
+- Branch: `phase-062-r02-entry-auth-ui`
+- Baseline: `phase-062-r01-ui-foundation` @ `01e0576ff572b77abc4c1a2b38e2edefc9afbd01`
+- Scope: Onboarding responsive scroll + Phone form hierarchy/width + OTP hero/panel proportions; no auth behavior changes.
+- Files changed: `AuthScreens.kt`، `JourneyUiTest.kt`، `harness/roadmap.json`، playbook جدید، backlog UI/UX، progress و این worklog.
+- UX changes: Onboarding حالا در ارتفاع کوتاه نیز scroll می‌شود؛ Phone روی نمایشگر عریض حداکثر عرض 520dp دارد و فرم داخل یک SoftCard منسجم است؛ OTP بخش برند کم‌ارتفاع‌تری در compact/large-text دارد و محتوای پنل با عرض محدود و اسکرول مستقل نمایش داده می‌شود.
+- Safety/invariants: متن ورود آزمایشی حفظ شده؛ phone/OTP actions، validation، consent action، timer، focus request، route و ViewModel دست‌نخورده مانده‌اند. Lesson/Practice و content تغییر نکرده‌اند.
+- Regression test source: یک تست Journey برای مسیر Onboarding → Phone → OTP با viewport برابر 390×640dp و fontScale=1.3 افزوده شد؛ تست اجرا نشده است.
+- Checks performed: بازخوانی سورس‌های مبنا، بررسی APIهای استفاده‌شده در R01 و بررسی ایستای diff/anchorها.
+- Not run: Gradle tests، lint، resource sync، audit-project، screenshot/device QA. به‌دلیل تکمیل‌نشدن dependency یعنی `062-uiux-foundation`، task جدید طبق قرارداد Harness در وضعیت `blocked` قرار گرفت؛ کد این شاخه پیش‌نویس باقی می‌ماند و تا عبور گیت Foundation نباید فعال یا ادغام شود.
+- Next: ابتدا گیت‌های `062-uiux-foundation` را روی checkout واقعی اجرا و همان task را تکمیل کن؛ سپس این برش را از حالت blocked خارج و گیت‌های خودش را اجرا کن.

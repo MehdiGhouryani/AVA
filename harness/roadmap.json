@@ -52,8 +52,17 @@
           "status": "ready",
           "automationAllowed": true,
           "dependsOn": [],
-          "readFirst": ["AGENTS.md", "cms/payload/README_FA.md", "docs/adr/0003-cms-technology-spike-fa.md"],
-          "allowedPaths": ["cms/payload/**", "scripts/**", "docs/**", "harness/**"],
+          "readFirst": [
+            "AGENTS.md",
+            "cms/payload/README_FA.md",
+            "docs/adr/0003-cms-technology-spike-fa.md"
+          ],
+          "allowedPaths": [
+            "cms/payload/**",
+            "scripts/**",
+            "docs/**",
+            "harness/**"
+          ],
           "acceptance": [
             "Compose services healthcheck سبز و migration بدون خطا باشد.",
             "کاربر نخست system_admin و کاربر دوم بدون مدیر قابل ساخت نباشد.",
@@ -61,11 +70,33 @@
             "دسترسی ناشناس به فایل رد و signed download مجاز اثبات شود.",
             "integration test پس از restart نیز موفق باشد."
           ],
-          "evidenceFiles": ["docs/PROGRESS_FA.md", "docs/NATIVE_VERIFICATION.json", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/PROGRESS_FA.md",
+            "docs/NATIVE_VERIFICATION.json",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": "cms/payload", "command": ["pnpm", "typecheck"] },
-            { "cwd": "cms/payload", "command": ["pnpm", "test"] },
-            { "cwd": ".", "command": ["python3", "scripts/validate-payload-prototype.py"] }
+            {
+              "cwd": "cms/payload",
+              "command": [
+                "pnpm",
+                "typecheck"
+              ]
+            },
+            {
+              "cwd": "cms/payload",
+              "command": [
+                "pnpm",
+                "test"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/validate-payload-prototype.py"
+              ]
+            }
           ]
         },
         {
@@ -75,18 +106,45 @@
           "status": "completed",
           "automationAllowed": true,
           "dependsOn": [],
-          "readFirst": ["AGENTS.md", "docs/TEST_STRATEGY_FA.md", "android/README.md"],
-          "allowedPaths": ["android/**", "scripts/**", "docs/**", "harness/**"],
+          "readFirst": [
+            "AGENTS.md",
+            "docs/TEST_STRATEGY_FA.md",
+            "android/README.md"
+          ],
+          "allowedPaths": [
+            "android/**",
+            "scripts/**",
+            "docs/**",
+            "harness/**"
+          ],
           "acceptance": [
             "Gradle 8.11.1، JDK 17 و Android SDK 35 شناسایی شوند.",
             "testDebugUnitTest و lintDebug بدون assemble/bundle اجرا شوند.",
             "تعداد تست اجراشده از گزارش واقعی استخراج شود.",
             "شکست شبکه یا SDK با command و stderr ثبت شود، نه passed."
           ],
-          "evidenceFiles": ["docs/PROGRESS_FA.md", "docs/NATIVE_VERIFICATION.json", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/PROGRESS_FA.md",
+            "docs/NATIVE_VERIFICATION.json",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": "android", "command": ["./gradlew", "testDebugUnitTest", "lintDebug", "--no-daemon"] },
-            { "cwd": ".", "command": ["python3", "scripts/audit-project.py"] }
+            {
+              "cwd": "android",
+              "command": [
+                "./gradlew",
+                "testDebugUnitTest",
+                "lintDebug",
+                "--no-daemon"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/audit-project.py"
+              ]
+            }
           ]
         },
         {
@@ -96,17 +154,178 @@
           "status": "human_gate",
           "automationAllowed": false,
           "dependsOn": [],
-          "readFirst": ["docs/LEVEL1_SEQUENCE_FA.md", "docs/AUDIO_INVENTORY_FA.md"],
-          "allowedPaths": ["design/**", "docs/**", "harness/**"],
+          "readFirst": [
+            "docs/LEVEL1_SEQUENCE_FA.md",
+            "docs/AUDIO_INVENTORY_FA.md"
+          ],
+          "allowedPaths": [
+            "design/**",
+            "docs/**",
+            "harness/**"
+          ],
           "acceptance": [
             "نام و صلاحیت بازبین، تاریخ و دامنه review ثبت شود.",
             "هر اصلاح با ID پایدار task/audio ثبت شود.",
             "هیچ عامل کدنویسی حق جعل یا خودکار اعلام‌کردن approval را ندارد."
           ],
-          "evidenceFiles": ["docs/LEVEL1_SEQUENCE_FA.md", "docs/AUDIO_INVENTORY_FA.md", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/LEVEL1_SEQUENCE_FA.md",
+            "docs/AUDIO_INVENTORY_FA.md",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": ".", "command": ["python3", "scripts/validate-content-contract.py"] },
-            { "cwd": ".", "command": ["python3", "scripts/validate-audio-inventory.py"] }
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/validate-content-contract.py"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/validate-audio-inventory.py"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "062",
+      "titleFa": "بازطراحی Native UI و UX آوا",
+      "playbook": "harness/phases/062_UI_UX_FOUNDATION_FA.md",
+      "exitGate": [
+        "کامپوننت‌های مشترک R01 بدون تغییر رفتار route/state در صفحات مصرف شوند.",
+        "تمام assetها با manifest و خروجی منابع Android سازگار باشند.",
+        "گیت‌های resource sync، audit، Native tests و lint موفق شوند.",
+        "هیچ تغییر تمرین/محتوا/احراز هویت بدون task و approval مستقل وارد نشود."
+      ],
+      "tasks": [
+        {
+          "id": "062-uiux-foundation",
+          "titleFa": "اتصال دیزاین‌سیستم R01، کامپوننت‌های مشترک و دارایی‌های پایه",
+          "priority": "P0",
+          "status": "in_progress",
+          "automationAllowed": true,
+          "dependsOn": [],
+          "readFirst": [
+            "AGENTS.md",
+            "docs/design/AVA_DESIGN_SYSTEM.md",
+            "docs/design/UI_UX_BACKLOG_NON_LESSON_FA.md",
+            "docs/SCREEN_MATRIX_FA.md"
+          ],
+          "allowedPaths": [
+            "android/**",
+            "design/**",
+            "docs/**",
+            "scripts/**",
+            "public/**",
+            "harness/**"
+          ],
+          "acceptance": [
+            "wrapperهای مشترک صفحه به componentهای R01 delegate کنند و API/رفتار فراخواننده حفظ شود.",
+            "AvaMenuRow حالت فعال/غیرفعال، RTL و semantics واحد داشته باشد و در گالری فارسی رندر شود.",
+            "artwork جدید در manifest و source public ثبت شود؛ drawable و Art mapping با generator رسمی منطبق باشند.",
+            "audit-project.py ابعاد raster و VectorDrawable را به‌صورت مستقل و معتبر کنترل کند.",
+            "تست regression برای wrapperهای legacy و حالت منوی جدید در سورس وجود داشته باشد.",
+            "هیچ route، reducer، content ID، auth contract، permission یا محتوای آموزشی تغییر نکند."
+          ],
+          "evidenceFiles": [
+            "harness/WORKLOG.md",
+            "docs/PROGRESS_FA.md",
+            "docs/design/AVA_DESIGN_SYSTEM.md",
+            "docs/design/UI_UX_BACKLOG_NON_LESSON_FA.md"
+          ],
+          "gates": [
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/sync-android-resources.py",
+                "--check"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/audit-project.py"
+              ]
+            },
+            {
+              "cwd": "android",
+              "command": [
+                "./gradlew",
+                "testDebugUnitTest",
+                "lintDebug",
+                "--no-daemon"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "062-entry-auth-ui",
+          "titleFa": "بازطراحی واکنش‌گرای ورود، شماره‌تلفن و OTP",
+          "priority": "P0",
+          "status": "blocked",
+          "automationAllowed": true,
+          "dependsOn": [
+            "062-uiux-foundation"
+          ],
+          "readFirst": [
+            "AGENTS.md",
+            "docs/design/AVA_DESIGN_SYSTEM.md",
+            "docs/design/UI_UX_BACKLOG_NON_LESSON_FA.md",
+            "android/app/src/main/java/com/ava/reading/ui/screens/AuthScreens.kt",
+            "android/app/src/test/java/com/ava/reading/JourneyUiTest.kt"
+          ],
+          "allowedPaths": [
+            "android/app/src/main/java/com/ava/reading/ui/screens/AuthScreens.kt",
+            "android/app/src/test/java/com/ava/reading/JourneyUiTest.kt",
+            "docs/**",
+            "harness/**"
+          ],
+          "acceptance": [
+            "Onboarding در ارتفاع کوتاه و fontScale بزرگ بدون حذف CTA قابل اسکرول باشد.",
+            "Phone در عرض‌های عریض با حداکثر عرض خوانا متمرکز شود و فرم در یک سطح بصری منسجم قرار گیرد.",
+            "ورودی شماره، تبدیل ارقام، consent، legal links، خطا و loading همان قرارداد قبلی را حفظ کنند.",
+            "OTP فضای ثابت و متناسب برای برند داشته باشد؛ پنل اصلی اسکرول‌پذیر و برای متن بزرگ قابل استفاده بماند.",
+            "ورود آزمایشی و هشدار عدم ارسال پیامک واقعی همچنان آشکار باشد.",
+            "تست Journey واقعی، مسیر Onboarding → Phone → OTP را در ارتفاع 640dp و fontScale 1.3 پوشش دهد.",
+            "Route، ViewModel، reducer، MockAuthRepository، validation، timer و content/lesson/practice تغییر نکنند."
+          ],
+          "evidenceFiles": [
+            "docs/PROGRESS_FA.md",
+            "harness/WORKLOG.md",
+            "docs/design/UI_UX_BACKLOG_NON_LESSON_FA.md"
+          ],
+          "gates": [
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/sync-android-resources.py",
+                "--check"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/audit-project.py"
+              ]
+            },
+            {
+              "cwd": "android",
+              "command": [
+                "./gradlew",
+                "testDebugUnitTest",
+                "lintDebug",
+                "--no-daemon"
+              ]
+            }
           ]
         }
       ]
@@ -128,19 +347,45 @@
           "priority": "P0",
           "status": "blocked",
           "automationAllowed": true,
-          "dependsOn": ["061-db-s3-integration"],
-          "readFirst": ["docs/adr/0002-audio-policy-and-workflow-fa.md", "cms/payload/README_FA.md"],
-          "allowedPaths": ["cms/payload/**", "docs/**", "scripts/**", "harness/**"],
+          "dependsOn": [
+            "061-db-s3-integration"
+          ],
+          "readFirst": [
+            "docs/adr/0002-audio-policy-and-workflow-fa.md",
+            "cms/payload/README_FA.md"
+          ],
+          "allowedPaths": [
+            "cms/payload/**",
+            "docs/**",
+            "scripts/**",
+            "harness/**"
+          ],
           "acceptance": [
             "ClamAV یا scanner قابل‌تعویض با timeout و fail-closed اجرا شود.",
             "ffprobe یا decoder واقعی duration، codec، channels و sample rate را استخراج کند.",
             "mismatch، فایل خراب، bomb و timeout به rejected/failed با error code امن برسند.",
             "log شامل secret، signed URL یا bytes فایل نباشد."
           ],
-          "evidenceFiles": ["docs/PROGRESS_FA.md", "docs/NATIVE_VERIFICATION.json", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/PROGRESS_FA.md",
+            "docs/NATIVE_VERIFICATION.json",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": "cms/payload", "command": ["pnpm", "typecheck"] },
-            { "cwd": "cms/payload", "command": ["pnpm", "test"] }
+            {
+              "cwd": "cms/payload",
+              "command": [
+                "pnpm",
+                "typecheck"
+              ]
+            },
+            {
+              "cwd": "cms/payload",
+              "command": [
+                "pnpm",
+                "test"
+              ]
+            }
           ]
         },
         {
@@ -149,20 +394,52 @@
           "priority": "P0",
           "status": "blocked",
           "automationAllowed": true,
-          "dependsOn": ["070-audio-inspection"],
-          "readFirst": ["docs/AUDIO_INVENTORY_FA.md", "cms/payload/README_FA.md"],
-          "allowedPaths": ["cms/payload/**", "docs/**", "scripts/**", "harness/**"],
+          "dependsOn": [
+            "070-audio-inspection"
+          ],
+          "readFirst": [
+            "docs/AUDIO_INVENTORY_FA.md",
+            "cms/payload/README_FA.md"
+          ],
+          "allowedPaths": [
+            "cms/payload/**",
+            "docs/**",
+            "scripts/**",
+            "harness/**"
+          ],
           "acceptance": [
             "job idempotent و retry-safe باشد و یک master دو delivery متناقض نسازد.",
             "خروجی فقط codec/mime مجاز Android، حجم محدود و object key غیرقابل حدس داشته باشد.",
             "deliverySha256 و bytes پس از read-back verify ثبت شوند.",
             "release با pending/failed یا metadata ناقص مسدود بماند."
           ],
-          "evidenceFiles": ["docs/PROGRESS_FA.md", "docs/NATIVE_VERIFICATION.json", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/PROGRESS_FA.md",
+            "docs/NATIVE_VERIFICATION.json",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": "cms/payload", "command": ["pnpm", "typecheck"] },
-            { "cwd": "cms/payload", "command": ["pnpm", "test"] },
-            { "cwd": ".", "command": ["python3", "scripts/validate-cms-contract.py"] }
+            {
+              "cwd": "cms/payload",
+              "command": [
+                "pnpm",
+                "typecheck"
+              ]
+            },
+            {
+              "cwd": "cms/payload",
+              "command": [
+                "pnpm",
+                "test"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/validate-cms-contract.py"
+              ]
+            }
           ]
         },
         {
@@ -171,20 +448,55 @@
           "priority": "P0",
           "status": "blocked",
           "automationAllowed": true,
-          "dependsOn": ["070-audio-delivery-job", "061-educator-review"],
-          "readFirst": ["design/cms.roles.json", "design/cms.export.schema.json", "docs/CMS_SPIKE_FA.md"],
-          "allowedPaths": ["cms/payload/**", "design/**", "scripts/**", "docs/**", "harness/**"],
+          "dependsOn": [
+            "070-audio-delivery-job",
+            "061-educator-review"
+          ],
+          "readFirst": [
+            "design/cms.roles.json",
+            "design/cms.export.schema.json",
+            "docs/CMS_SPIKE_FA.md"
+          ],
+          "allowedPaths": [
+            "cms/payload/**",
+            "design/**",
+            "scripts/**",
+            "docs/**",
+            "harness/**"
+          ],
           "acceptance": [
             "author، reviewer فنی، reviewer آموزشی و publisher حساب‌های متفاوت باشند.",
             "تلاش self-approval و publish ناقص در API واقعی رد شود.",
             "audit create/update/review/publish قابل استخراج و در API غیرقابل ویرایش باشد.",
             "export تکراری byte-identical و منطبق با cms-export-v1 باشد."
           ],
-          "evidenceFiles": ["docs/PROGRESS_FA.md", "docs/NATIVE_VERIFICATION.json", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/PROGRESS_FA.md",
+            "docs/NATIVE_VERIFICATION.json",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": "cms/payload", "command": ["pnpm", "test"] },
-            { "cwd": ".", "command": ["python3", "scripts/validate-cms-contract.py"] },
-            { "cwd": ".", "command": ["python3", "scripts/audit-project.py"] }
+            {
+              "cwd": "cms/payload",
+              "command": [
+                "pnpm",
+                "test"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/validate-cms-contract.py"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/audit-project.py"
+              ]
+            }
           ]
         }
       ]
@@ -206,19 +518,48 @@
           "priority": "P0",
           "status": "blocked",
           "automationAllowed": true,
-          "dependsOn": ["070-workflow-integration"],
-          "readFirst": ["docs/LOCAL_CONTENT_RUNTIME_FA.md", "docs/CONTENT_CONTRACT_FA.md", "docs/PROJECT_MAP_FA.md"],
-          "allowedPaths": ["android/**", "design/**", "docs/**", "scripts/**", "harness/**"],
+          "dependsOn": [
+            "070-workflow-integration"
+          ],
+          "readFirst": [
+            "docs/LOCAL_CONTENT_RUNTIME_FA.md",
+            "docs/CONTENT_CONTRACT_FA.md",
+            "docs/PROJECT_MAP_FA.md"
+          ],
+          "allowedPaths": [
+            "android/**",
+            "design/**",
+            "docs/**",
+            "scripts/**",
+            "harness/**"
+          ],
           "acceptance": [
             "write در فایل موقت، fsync/close و rename اتمیک انجام شود.",
             "active، previous و staging جدا و نسخه‌دار باشند.",
             "corruption active را بی‌صدا حذف نکند و rollback/خطای recoverable داشته باشد.",
             "تست reopen و process recreation وجود داشته باشد."
           ],
-          "evidenceFiles": ["docs/PROGRESS_FA.md", "docs/NATIVE_VERIFICATION.json", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/PROGRESS_FA.md",
+            "docs/NATIVE_VERIFICATION.json",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": "android", "command": ["./gradlew", "testDebugUnitTest", "--no-daemon"] },
-            { "cwd": ".", "command": ["python3", "scripts/test-content-bundle.py"] }
+            {
+              "cwd": "android",
+              "command": [
+                "./gradlew",
+                "testDebugUnitTest",
+                "--no-daemon"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/test-content-bundle.py"
+              ]
+            }
           ]
         },
         {
@@ -227,19 +568,48 @@
           "priority": "P0",
           "status": "blocked",
           "automationAllowed": true,
-          "dependsOn": ["071-disk-store"],
-          "readFirst": ["docs/LOCAL_CONTENT_RUNTIME_FA.md", "docs/adr/0001-content-platform-boundary-fa.md"],
-          "allowedPaths": ["android/**", "design/**", "docs/**", "scripts/**", "harness/**"],
+          "dependsOn": [
+            "071-disk-store"
+          ],
+          "readFirst": [
+            "docs/LOCAL_CONTENT_RUNTIME_FA.md",
+            "docs/adr/0001-content-platform-boundary-fa.md"
+          ],
+          "allowedPaths": [
+            "android/**",
+            "design/**",
+            "docs/**",
+            "scripts/**",
+            "harness/**"
+          ],
           "acceptance": [
             "network adapter بیرون UI و پشت interface تزریق‌پذیر باشد.",
             "size limit، HTTPS policy، hash، signature، schema و asset index پیش از commit بررسی شوند.",
             "قطع دانلود یا tamper active را تغییر ندهد.",
             "INTERNET permission فقط با ADR و configuration مناسب flavor اضافه شود."
           ],
-          "evidenceFiles": ["docs/PROGRESS_FA.md", "docs/NATIVE_VERIFICATION.json", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/PROGRESS_FA.md",
+            "docs/NATIVE_VERIFICATION.json",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": "android", "command": ["./gradlew", "testDebugUnitTest", "lintDebug", "--no-daemon"] },
-            { "cwd": ".", "command": ["python3", "scripts/audit-project.py"] }
+            {
+              "cwd": "android",
+              "command": [
+                "./gradlew",
+                "testDebugUnitTest",
+                "lintDebug",
+                "--no-daemon"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/audit-project.py"
+              ]
+            }
           ]
         },
         {
@@ -248,20 +618,53 @@
           "priority": "P0",
           "status": "blocked",
           "automationAllowed": true,
-          "dependsOn": ["071-download-verify"],
-          "readFirst": ["docs/LOCAL_CONTENT_RUNTIME_FA.md", "docs/TEST_STRATEGY_FA.md"],
-          "allowedPaths": ["android/**", "docs/**", "scripts/**", "harness/**"],
+          "dependsOn": [
+            "071-download-verify"
+          ],
+          "readFirst": [
+            "docs/LOCAL_CONTENT_RUNTIME_FA.md",
+            "docs/TEST_STRATEGY_FA.md"
+          ],
+          "allowedPaths": [
+            "android/**",
+            "docs/**",
+            "scripts/**",
+            "harness/**"
+          ],
           "acceptance": [
             "crash در هر مرز staging/commit نتیجه تعریف‌شده داشته باشد.",
             "نسخه previous تا اثبات boot نسخه جدید حفظ شود.",
             "rollback دستی و خودکار idempotent باشند.",
             "UI هنگام recover خطای قابل retry نشان دهد و seed همیشه fallback باشد."
           ],
-          "evidenceFiles": ["docs/PROGRESS_FA.md", "docs/NATIVE_VERIFICATION.json", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/PROGRESS_FA.md",
+            "docs/NATIVE_VERIFICATION.json",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": "android", "command": ["./gradlew", "testDebugUnitTest", "--no-daemon"] },
-            { "cwd": ".", "command": ["python3", "scripts/test-content-bundle.py"] },
-            { "cwd": ".", "command": ["python3", "scripts/audit-project.py"] }
+            {
+              "cwd": "android",
+              "command": [
+                "./gradlew",
+                "testDebugUnitTest",
+                "--no-daemon"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/test-content-bundle.py"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/audit-project.py"
+              ]
+            }
           ]
         }
       ]
@@ -283,20 +686,54 @@
           "priority": "P1",
           "status": "blocked",
           "automationAllowed": true,
-          "dependsOn": ["061-educator-review"],
-          "readFirst": ["docs/LEVEL1_SEQUENCE_FA.md", "docs/RESEARCH_FA.md", "docs/ACTIVITY_ENGINE_FA.md"],
-          "allowedPaths": ["design/**", "android/**", "docs/**", "scripts/**", "harness/**"],
+          "dependsOn": [
+            "061-educator-review"
+          ],
+          "readFirst": [
+            "docs/LEVEL1_SEQUENCE_FA.md",
+            "docs/RESEARCH_FA.md",
+            "docs/ACTIVITY_ENGINE_FA.md"
+          ],
+          "allowedPaths": [
+            "design/**",
+            "android/**",
+            "docs/**",
+            "scripts/**",
+            "harness/**"
+          ],
           "acceptance": [
             "هر درس هدف آموزشی، پیش‌نیاز و معیار پایان روشن داشته باشد.",
             "Segment/PositionalForm فقط با interaction و محرک تأییدشده فعال شوند.",
             "IDهای قدیمی حفظ و migration برای تغییر ساختاری ارائه شود.",
             "content/audio/CMS validatorها و تست renderer پاس شوند."
           ],
-          "evidenceFiles": ["docs/PROGRESS_FA.md", "docs/NATIVE_VERIFICATION.json", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/PROGRESS_FA.md",
+            "docs/NATIVE_VERIFICATION.json",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": ".", "command": ["python3", "scripts/validate-content-contract.py"] },
-            { "cwd": ".", "command": ["python3", "scripts/validate-audio-inventory.py"] },
-            { "cwd": ".", "command": ["python3", "scripts/audit-project.py"] }
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/validate-content-contract.py"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/validate-audio-inventory.py"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/audit-project.py"
+              ]
+            }
           ]
         },
         {
@@ -305,18 +742,42 @@
           "priority": "P0",
           "status": "human_gate",
           "automationAllowed": false,
-          "dependsOn": ["061-educator-review"],
-          "readFirst": ["docs/AUDIO_INVENTORY_FA.md", "docs/adr/0002-audio-policy-and-workflow-fa.md"],
-          "allowedPaths": ["design/**", "docs/**", "harness/**"],
+          "dependsOn": [
+            "061-educator-review"
+          ],
+          "readFirst": [
+            "docs/AUDIO_INVENTORY_FA.md",
+            "docs/adr/0002-audio-policy-and-workflow-fa.md"
+          ],
+          "allowedPaths": [
+            "design/**",
+            "docs/**",
+            "harness/**"
+          ],
           "acceptance": [
             "رضایت/مجوز گوینده و دامنه استفاده ثبت شود.",
             "متخصص تلفظ فارسی هر asset را با stable ID تأیید کند.",
             "فایل master در repository یا گزارش عمومی قرار نگیرد."
           ],
-          "evidenceFiles": ["docs/AUDIO_INVENTORY_FA.md", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/AUDIO_INVENTORY_FA.md",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": ".", "command": ["python3", "scripts/validate-audio-inventory.py"] },
-            { "cwd": ".", "command": ["python3", "scripts/validate-audio-delivery.py"] }
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/validate-audio-inventory.py"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/validate-audio-delivery.py"
+              ]
+            }
           ]
         },
         {
@@ -325,18 +786,38 @@
           "priority": "P0",
           "status": "human_gate",
           "automationAllowed": false,
-          "dependsOn": ["061-native-toolchain"],
-          "readFirst": ["docs/DEVICE_QA_FA.md", "docs/TEST_STRATEGY_FA.md", "docs/SCREEN_MATRIX_FA.md"],
-          "allowedPaths": ["android/**", "docs/**", "harness/**"],
+          "dependsOn": [
+            "061-native-toolchain"
+          ],
+          "readFirst": [
+            "docs/DEVICE_QA_FA.md",
+            "docs/TEST_STRATEGY_FA.md",
+            "docs/SCREEN_MATRIX_FA.md"
+          ],
+          "allowedPaths": [
+            "android/**",
+            "docs/**",
+            "harness/**"
+          ],
           "acceptance": [
             "عرض‌های هدف، fontScale تا ۱٫۵، RTL و reduced motion روی دستگاه بررسی شوند.",
             "TalkBack، IME، lifecycle صوت، voice موجود/ناموجود و process death بررسی شوند.",
             "startup/jank/memory برای release-like build اندازه‌گیری و ثبت شوند.",
             "Robolectric یا screenshot محلی به‌جای دستگاه گزارش نشود."
           ],
-          "evidenceFiles": ["docs/DEVICE_QA_FA.md", "docs/NATIVE_VERIFICATION.json", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/DEVICE_QA_FA.md",
+            "docs/NATIVE_VERIFICATION.json",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": ".", "command": ["python3", "scripts/audit-project.py"] }
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/audit-project.py"
+              ]
+            }
           ]
         },
         {
@@ -345,19 +826,48 @@
           "priority": "P1",
           "status": "ready",
           "automationAllowed": true,
-          "dependsOn": ["061-native-toolchain"],
-          "readFirst": ["docs/RESEARCH_FA.md", "docs/DEVICE_QA_FA.md", "docs/adr/0001-content-platform-boundary-fa.md"],
-          "allowedPaths": ["android/**", "docs/**", "scripts/**", "harness/**"],
+          "dependsOn": [
+            "061-native-toolchain"
+          ],
+          "readFirst": [
+            "docs/RESEARCH_FA.md",
+            "docs/DEVICE_QA_FA.md",
+            "docs/adr/0001-content-platform-boundary-fa.md"
+          ],
+          "allowedPaths": [
+            "android/**",
+            "docs/**",
+            "scripts/**",
+            "harness/**"
+          ],
           "acceptance": [
             "auth واقعی قرارداد خطا/timeout/rate-limit و محیط mock جدا داشته باشد.",
             "OTP/شماره در storage آموزشی یا log ذخیره نشوند.",
             "سیاست retention، حذف حساب، backup/restore و incident path ثبت شوند.",
             "permission و dependency تازه با ADR و least privilege توجیه شوند."
           ],
-          "evidenceFiles": ["docs/PROGRESS_FA.md", "docs/NATIVE_VERIFICATION.json", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/PROGRESS_FA.md",
+            "docs/NATIVE_VERIFICATION.json",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": "android", "command": ["./gradlew", "testDebugUnitTest", "lintDebug", "--no-daemon"] },
-            { "cwd": ".", "command": ["python3", "scripts/audit-project.py"] }
+            {
+              "cwd": "android",
+              "command": [
+                "./gradlew",
+                "testDebugUnitTest",
+                "lintDebug",
+                "--no-daemon"
+              ]
+            },
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/audit-project.py"
+              ]
+            }
           ]
         },
         {
@@ -366,21 +876,66 @@
           "priority": "P0",
           "status": "blocked",
           "automationAllowed": true,
-          "dependsOn": ["080-human-audio-rights", "080-device-accessibility-qa", "080-account-privacy-operations"],
-          "readFirst": ["AGENTS.md", "docs/AVA_MASTER_ROADMAP_FA.md", "docs/DEVICE_QA_FA.md"],
-          "allowedPaths": ["android/**", "cms/**", "design/**", "docs/**", "scripts/**", "harness/**"],
+          "dependsOn": [
+            "080-human-audio-rights",
+            "080-device-accessibility-qa",
+            "080-account-privacy-operations"
+          ],
+          "readFirst": [
+            "AGENTS.md",
+            "docs/AVA_MASTER_ROADMAP_FA.md",
+            "docs/DEVICE_QA_FA.md"
+          ],
+          "allowedPaths": [
+            "android/**",
+            "cms/**",
+            "design/**",
+            "docs/**",
+            "scripts/**",
+            "harness/**"
+          ],
           "acceptance": [
             "تمام blockerها با شاهد واقعی بسته یا صریحاً باز باشند.",
             "وابستگی، secret، permission، license، backup و rollback ممیزی شوند.",
             "نسخه release فقط با درخواست صریح مالک و signing خارج repository ساخته شود.",
             "هیچ درصد مهندسی به‌عنوان اثربخشی آموزشی یا آمادگی فروش معرفی نشود."
           ],
-          "evidenceFiles": ["docs/PROGRESS_FA.md", "docs/NATIVE_VERIFICATION.json", "harness/WORKLOG.md"],
+          "evidenceFiles": [
+            "docs/PROGRESS_FA.md",
+            "docs/NATIVE_VERIFICATION.json",
+            "harness/WORKLOG.md"
+          ],
           "gates": [
-            { "cwd": ".", "command": ["python3", "scripts/audit-project.py"] },
-            { "cwd": "cms/payload", "command": ["pnpm", "typecheck"] },
-            { "cwd": "cms/payload", "command": ["pnpm", "test"] },
-            { "cwd": "android", "command": ["./gradlew", "testDebugUnitTest", "lintDebug", "--no-daemon"] }
+            {
+              "cwd": ".",
+              "command": [
+                "python3",
+                "scripts/audit-project.py"
+              ]
+            },
+            {
+              "cwd": "cms/payload",
+              "command": [
+                "pnpm",
+                "typecheck"
+              ]
+            },
+            {
+              "cwd": "cms/payload",
+              "command": [
+                "pnpm",
+                "test"
+              ]
+            },
+            {
+              "cwd": "android",
+              "command": [
+                "./gradlew",
+                "testDebugUnitTest",
+                "lintDebug",
+                "--no-daemon"
+              ]
+            }
           ]
         }
       ]

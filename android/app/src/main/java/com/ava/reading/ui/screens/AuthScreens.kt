@@ -41,17 +41,29 @@ import com.ava.reading.ui.theme.LayoutThresholds
             val compact=maxHeight<LayoutThresholds.compactHeight
             val large=LocalDensity.current.fontScale>1.15f
             val artHeight=(maxHeight.value*.28f).coerceIn(90f,250f).dp
-            val m=if(large)Modifier.verticalScroll(rememberScrollState()) else Modifier
+            val scroll=large || compact
+            val m=if(scroll)Modifier.verticalScroll(rememberScrollState()) else Modifier
             Column(Modifier.fillMaxSize().then(m).padding(horizontal=24.dp,vertical=12.dp),horizontalAlignment=Alignment.CenterHorizontally,verticalArrangement=Arrangement.spacedBy(if(compact)8.dp else 12.dp)) {
                 ArtImage("brand.logo",Modifier.height(if(compact)48.dp else 72.dp),txt("brand_name"))
                 SoftCard(Modifier.fillMaxWidth()) {
                     Title(txt(if(first)"onboarding_step1_title" else "onboarding_step2_title"))
                     Text(txt(if(first)"onboarding_step1_body" else "onboarding_step2_body"),textAlign=TextAlign.Center,color=AvaColors.soft)
                 }
-                Box(if(large)Modifier.height(artHeight).fillMaxWidth() else Modifier.weight(1f).fillMaxWidth(),contentAlignment=Alignment.BottomCenter) {
+                Box(if(scroll)Modifier.height(artHeight).fillMaxWidth() else Modifier.weight(1f).fillMaxWidth(),contentAlignment=Alignment.BottomCenter) {
                     if(first) {
                         ArtImage("char.ava.reading",Modifier.fillMaxHeight().fillMaxWidth(.76f).align(AbsoluteAlignment.BottomLeft))
-                        ArtImage("decor.tree",Modifier.fillMaxHeight(.48f).fillMaxWidth(.32f).align(AbsoluteAlignment.TopRight))
+                        Box(
+                            Modifier.fillMaxHeight(.72f).fillMaxWidth(.48f).align(AbsoluteAlignment.TopRight),
+                            contentAlignment=Alignment.Center
+                        ) {
+                            val glowShape=RoundedCornerShape(100.dp)
+                            Box(
+                                Modifier.fillMaxWidth(.88f).aspectRatio(1f)
+                                    .background(AvaColors.surface.copy(alpha=.58f),glowShape)
+                                    .border(1.dp,AvaColors.line,glowShape)
+                            )
+                            ArtImage("decor.onboarding.cloud_castle",Modifier.fillMaxSize())
+                        }
                     } else {
                         ArtImage("char.friend.squirrel",Modifier.fillMaxHeight(.85f).fillMaxWidth(.38f).align(Alignment.TopCenter))
                         ArtImage("char.friend.bunny",Modifier.fillMaxHeight(.8f).fillMaxWidth(.33f).align(AbsoluteAlignment.BottomLeft))
@@ -73,51 +85,122 @@ import com.ava.reading.ui.theme.LayoutThresholds
     val invalid=s.message=="phone_error_invalid"
     val errorText=if(invalid)txt("phone_error_invalid") else null
     Scene("bg.login") {
-        Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(24.dp),horizontalAlignment=Alignment.CenterHorizontally,verticalArrangement=Arrangement.spacedBy(16.dp)) {
-            ArtImage("brand.logo",Modifier.height(104.dp),txt("brand_name"))
-            Text(txt("brand_tagline"),color=AvaColors.deep,textAlign=TextAlign.Center)
-            Title(txt("phone_title"))
-            val label=txt("phone_label")
-            OutlinedTextField(s.phone,a.phone,modifier=Modifier.fillMaxWidth().focusRequester(focus).onFocusChanged {if(hadFocus&&!it.isFocused)a.blurPhone();hadFocus=it.isFocused}.semantics {contentType=ContentType.PhoneNumberNational;if(errorText!=null)error(errorText)},
-                enabled=!s.busy,label={Text(label)},placeholder={Text(txt("phone_placeholder"))},singleLine=true,isError=invalid,shape=RoundedCornerShape(20.dp),
-                keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Phone,imeAction=ImeAction.Done),keyboardActions=KeyboardActions(onDone={a.send(false)}),
-                visualTransformation=PersianDigits,textStyle=MaterialTheme.typography.titleMedium.copy(textDirection=TextDirection.Ltr,textAlign=TextAlign.Right))
-            s.message?.let {Feedback(txt(it))}
-            val consentState=txt(if(s.consent)"consent_accepted" else "consent_not_accepted")
-            Row(Modifier.fillMaxWidth().heightIn(min=64.dp).semantics(mergeDescendants=true) {stateDescription=consentState}
-                .toggleable(value=s.consent,enabled=!s.busy,role=Role.Checkbox,onValueChange=a.consent),verticalAlignment=Alignment.CenterVertically) {
-                Checkbox(s.consent,onCheckedChange=null,modifier=Modifier.clearAndSetSemantics {});Spacer(Modifier.width(8.dp));Text(txt("phone_consent"),color=AvaColors.deep)
+        BoxWithConstraints(Modifier.fillMaxSize()) {
+            val compact=maxHeight<LayoutThresholds.compactHeight
+            val horizontalPadding=if(maxWidth>=600.dp)40.dp else 24.dp
+            Column(
+                Modifier.align(Alignment.TopCenter)
+                    .widthIn(max=520.dp).fillMaxWidth()
+                    .verticalScroll(rememberScrollState())
+                    .padding(horizontal=horizontalPadding,vertical=if(compact)12.dp else 20.dp),
+                horizontalAlignment=Alignment.CenterHorizontally,
+                verticalArrangement=Arrangement.spacedBy(if(compact)12.dp else 16.dp)
+            ) {
+                ArtImage("brand.logo",Modifier.height(if(compact)72.dp else 88.dp),txt("brand_name"))
+                Text(txt("brand_tagline"),color=AvaColors.deep,textAlign=TextAlign.Center)
+                SoftCard(Modifier.fillMaxWidth(),color=AvaColors.surface,padding=20.dp,gap=12.dp) {
+                    Title(txt("phone_title"))
+                    val label=txt("phone_label")
+                    OutlinedTextField(
+                        s.phone,a.phone,
+                        modifier=Modifier.fillMaxWidth().heightIn(min=64.dp)
+                            .focusRequester(focus)
+                            .onFocusChanged {if(hadFocus&&!it.isFocused)a.blurPhone();hadFocus=it.isFocused}
+                            .semantics {contentType=ContentType.PhoneNumberNational;if(errorText!=null)error(errorText)},
+                        enabled=!s.busy,
+                        label={Text(label)},
+                        placeholder={Text(txt("phone_placeholder"))},
+                        singleLine=true,
+                        isError=invalid,
+                        shape=RoundedCornerShape(AvaShapes.large),
+                        keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Phone,imeAction=ImeAction.Done),
+                        keyboardActions=KeyboardActions(onDone={a.send(false)}),
+                        visualTransformation=PersianDigits,
+                        textStyle=MaterialTheme.typography.titleMedium.copy(textDirection=TextDirection.Ltr,textAlign=TextAlign.Right)
+                    )
+                    s.message?.let {Feedback(txt(it))}
+                    val consentState=txt(if(s.consent)"consent_accepted" else "consent_not_accepted")
+                    Row(
+                        Modifier.fillMaxWidth().heightIn(min=64.dp)
+                            .semantics(mergeDescendants=true) {stateDescription=consentState}
+                            .toggleable(value=s.consent,enabled=!s.busy,role=Role.Checkbox,onValueChange=a.consent),
+                        verticalAlignment=Alignment.CenterVertically
+                    ) {
+                        Checkbox(s.consent,onCheckedChange=null,modifier=Modifier.clearAndSetSemantics {})
+                        Spacer(Modifier.width(8.dp))
+                        Text(txt("phone_consent"),color=AvaColors.deep)
+                    }
+                    HorizontalDivider(color=AvaColors.line)
+                    Row(
+                        Modifier.fillMaxWidth(),
+                        horizontalArrangement=Arrangement.spacedBy(AvaSpacing.xs),
+                        verticalAlignment=Alignment.CenterVertically
+                    ) {
+                        TextButton({a.legal(true)},Modifier.weight(1f).heightIn(min=64.dp)) {
+                            Text(txt("phone_link_privacy"),textAlign=TextAlign.Center)
+                        }
+                        TextButton({a.legal(false)},Modifier.weight(1f).heightIn(min=64.dp)) {
+                            Text(txt("phone_link_terms"),textAlign=TextAlign.Center)
+                        }
+                    }
+                    Primary(
+                        txt(if(s.busy)"phone_sending" else "phone_cta"),
+                        {a.send(false)},
+                        enabled=validPhone(s.phone)&&s.consent,
+                        busy=s.busy
+                    )
+                }
+                Text(txt("mock_hint"),style=MaterialTheme.typography.bodySmall,color=AvaColors.muted,textAlign=TextAlign.Center)
             }
-            HorizontalDivider(color=AvaColors.line)
-            Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceEvenly,verticalAlignment=Alignment.CenterVertically) {
-                TextButton({a.legal(true)},Modifier.weight(1f).heightIn(min=64.dp)) {Text(txt("phone_link_privacy"),textAlign=TextAlign.Center)}
-                TextButton({a.legal(false)},Modifier.weight(1f).heightIn(min=64.dp)) {Text(txt("phone_link_terms"),textAlign=TextAlign.Center)}
-            }
-            Primary(txt(if(s.busy)"phone_sending" else "phone_cta"),{a.send(false)},enabled=validPhone(s.phone)&&s.consent,busy=s.busy)
-            Text(txt("mock_hint"),style=MaterialTheme.typography.bodySmall,color=AvaColors.muted,textAlign=TextAlign.Center)
         }
     }
 }
 private val PersianDigits=VisualTransformation { value -> TransformedText(AnnotatedString(fa(value.text)),OffsetMapping.Identity) }
 @Composable fun OtpScreen(s: AvaState,a: AvaActions) {
     Scene("bg.garden") {
-        Column(Modifier.fillMaxSize()) {
-            BoxWithConstraints(Modifier.fillMaxWidth().weight(.28f)) {
-                ArtImage("brand.logo",Modifier.height(maxHeight.coerceAtMost(88.dp)).align(Alignment.Center),txt("brand_name"))
-            }
-            Surface(Modifier.fillMaxWidth().weight(.72f),shape=RoundedCornerShape(topStart=40.dp,topEnd=40.dp),color=AvaColors.cream,shadowElevation=6.dp) {
-                Column(Modifier.verticalScroll(rememberScrollState()).padding(20.dp),horizontalAlignment=Alignment.CenterHorizontally,verticalArrangement=Arrangement.spacedBy(12.dp)) {
-                    Title(txt("otp_title"))
-                    Text(txt("otp_subtitle","phone" to fa(s.phone)),textAlign=TextAlign.Center,color=AvaColors.soft)
-                    Secondary(txt("otp_edit_phone"),{a.navigate(Route.Phone)},enabled=!s.busy)
-                    OtpField(s,a)
-                    s.message?.let {Feedback(txt(it))}
-                    val seconds=if(s.locked)s.lockSeconds else s.resendSeconds
-                    val time=fa("${seconds/60}:${(seconds%60).toString().padStart(2,'0')}")
-                    if(s.locked || seconds>0)Text(txt(if(s.locked)"lock_timer" else "otp_resend_in","time" to time),color=AvaColors.deep)
-                    else TextButton({a.send(true)},Modifier.heightIn(min=64.dp),enabled=!s.busy) {Text(txt("otp_resend"))}
-                    Primary(txt(if(s.busy)"otp_verifying" else "otp_cta"),a.verify,enabled=s.code.length==6&&!s.locked,busy=s.busy)
-                    Text(txt("mock_hint"),style=MaterialTheme.typography.bodySmall,color=AvaColors.muted,textAlign=TextAlign.Center)
+        BoxWithConstraints(Modifier.fillMaxSize()) {
+            val compact=maxHeight<LayoutThresholds.compactHeight
+            val largeText=LocalDensity.current.fontScale>1.15f
+            val heroHeight=if(compact || largeText)112.dp else 156.dp
+            Column(Modifier.fillMaxSize()) {
+                Box(Modifier.fillMaxWidth().height(heroHeight)) {
+                    ArtImage(
+                        "brand.logo",
+                        Modifier.height(if(compact || largeText)64.dp else 80.dp).align(Alignment.Center),
+                        txt("brand_name")
+                    )
+                }
+                Surface(
+                    Modifier.fillMaxWidth().weight(1f),
+                    shape=RoundedCornerShape(topStart=AvaShapes.xlarge,topEnd=AvaShapes.xlarge),
+                    color=AvaColors.cream,
+                    shadowElevation=AvaElevation.sheet
+                ) {
+                    BoxWithConstraints(Modifier.fillMaxSize()) {
+                        Column(
+                            Modifier.widthIn(max=520.dp).fillMaxWidth()
+                                .align(Alignment.TopCenter)
+                                .verticalScroll(rememberScrollState())
+                                .padding(horizontal=AvaSpacing.page,vertical=if(compact)AvaSpacing.sm else AvaSpacing.lg),
+                            horizontalAlignment=Alignment.CenterHorizontally,
+                            verticalArrangement=Arrangement.spacedBy(if(compact)8.dp else 12.dp)
+                        ) {
+                            Title(txt("otp_title"))
+                            Text(txt("otp_subtitle","phone" to fa(s.phone)),textAlign=TextAlign.Center,color=AvaColors.soft)
+                            Secondary(txt("otp_edit_phone"),{a.navigate(Route.Phone)},enabled=!s.busy)
+                            OtpField(s,a)
+                            s.message?.let {Feedback(txt(it))}
+                            val seconds=if(s.locked)s.lockSeconds else s.resendSeconds
+                            val time=fa("${seconds/60}:${(seconds%60).toString().padStart(2,'0')}")
+                            if(s.locked || seconds>0) {
+                                Text(txt(if(s.locked)"lock_timer" else "otp_resend_in","time" to time),color=AvaColors.deep)
+                            } else {
+                                TextButton({a.send(true)},Modifier.heightIn(min=64.dp),enabled=!s.busy) {Text(txt("otp_resend"))}
+                            }
+                            Primary(txt(if(s.busy)"otp_verifying" else "otp_cta"),a.verify,enabled=s.code.length==6&&!s.locked,busy=s.busy)
+                            Text(txt("mock_hint"),style=MaterialTheme.typography.bodySmall,color=AvaColors.muted,textAlign=TextAlign.Center)
+                        }
+                    }
                 }
             }
         }
