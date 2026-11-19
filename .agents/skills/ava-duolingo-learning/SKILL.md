@@ -1,21 +1,31 @@
 ---
 name: ava-duolingo-learning
-description: Build and review AVA native Android Persian reading screens, guided learning paths, story flows and recoverable feedback using primary Duolingo and ABC research, AVA artwork and RTL rules.
+description: Use for AVA Persian alphabet/literacy curriculum, lesson sequencing, review sessions, story flows and recoverable learning activities.
 ---
 
-Read docs/AVA_MASTER_ROADMAP_FA.md and the relevant screen mapping. Use docs/RESEARCH_FA.md for primary sources.
-- Preserve AVA mint/cream/teal, local Vazirmatn and art. Never copy Duolingo branding, mascot, proprietary sounds or fonts.
-- Give Home one obvious next action, an ordered path and completed/current/locked labels. Permit replay. Derive achievements and progress from real local actions.
-- Distinguish Duolingo language-learning patterns from ABC literacy. Development visual matching is not a validated curriculum; retain approvedForRelease=false pending educational review.
-- Keep lessons bite-sized while varying activity inside the guided path: visual recognition, optional listen-and-choose, and tap-to-build words. Do not add navigation depth merely to create variety.
-- Treat device TTS as optional support. Every listening activity must expose a written hint and remain completable when narration is off or no Persian voice exists.
-- Prefer tap tokens with undo over mandatory drag. Keep each child-facing target at least 64dp (decision DG-3, 2026-11-01; adult-facing form controls keep the 48dp token), expose selected/used state to accessibility services, and support large-text reflow.
-- Give every task a stable content ID. Read legacy lesson:index review keys, write stable keys, and remove both aliases after a corrected review.
-- Keep default review sessions short. Prioritize valid mistakes, add available activity-kind variety, cap the session, and rotate learned items deterministically. Do not call this spaced repetition unless the data model records timing and mastery evidence.
-- Use large targets and choices, gentle amber feedback, retry and clear completion. Do not punish mistakes with payment, permanent blocking or lost lives.
-- Keep four root destinations and predictable back. Confirm lesson exit/reset. Preserve completed steps and story position.
-- Use Kotlin/Compose state/actions, repositories and lifecycle-aware observation. Keep storage outside Composables. Verify generic skill/version advice with official Android documentation and actual builds.
-- Preserve 64dp child touch targets (48dp minimum elsewhere), RTL, unmirrored artwork, large text, semantic controls, a single OTP input, reduced motion and lifecycle audio stop.
-- Use installed offline Persian TTS, report absent voices, request no microphone or Internet permission. Keep authorized mock phone/OTP during development.
-- Run logic, disk and UI tests; inspect renderings. Separate local evidence from device testing. Never reuse lost results as new proof.
-- Provide recoverable deliverables with persistent links. These are project-bundled skills, not personal installations.
+# AVA learning and curriculum design
+
+Use this skill only for educational flow and content decisions. Repository-wide product rules and task execution are defined by `AGENTS.md` and the selected harness task.
+
+## Research and product boundaries
+
+- Read `docs/AVA_MASTER_ROADMAP_FA.md`, the relevant screen mapping and `docs/RESEARCH_FA.md`. For claims about learning, inspect and cite the primary source; otherwise label the choice as a design judgement.
+- Use learning patterns as inspiration, not as permission to copy another product's branding, mascot, proprietary sounds, fonts or copy.
+- Distinguish language-learning patterns from Persian alphabet literacy. Visual matching or a Duolingo-like flow is not a validated curriculum; keep `approvedForRelease=false` until educational review.
+- Do not add navigation depth just to create activity variety. Keep the guided path simple and vary activity inside each lesson where meaningful.
+
+## Lesson and review design
+
+- Give Home one obvious next action. Show an ordered learning path with completed/current/locked states and clear reasons for locked steps.
+- Keep lessons bite-sized. Prefer visual recognition, optional listen-and-choose and tap-to-build words where appropriate; use tap tokens with undo instead of mandatory drag.
+- Every listening task needs a written hint and must remain completable when narration is disabled or a Persian voice is unavailable.
+- Keep every lesson/task/audio reference on a stable content ID. When correcting review references, read legacy `lesson:index` keys, write the stable key, and remove both aliases only after the correction is verified.
+- Keep review sessions short. Prioritize valid mistakes, add activity-kind variety only when available, cap the session and rotate learned items deterministically.
+- Do not describe the review as spaced repetition unless the data model records timing and mastery evidence.
+- Give mistakes a recoverable path: retry, useful hint and clear completion. Never punish a wrong answer with permanent blocking or loss of progress.
+- Preserve predictable navigation and back behavior. Confirm lesson exit/reset and preserve completed steps and story position.
+
+## Evidence
+
+- Separate code/test evidence from educational validation. Unit tests, static review and screenshots do not replace review by a qualified Persian literacy educator or supervised child testing.
+- Keep specialist approval as a human gate; never mark educational approval complete on behalf of a reviewer.
