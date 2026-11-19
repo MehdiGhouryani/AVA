@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.Check
+import androidx.compose.material.icons.outlined.ChevronLeft
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.material.icons.outlined.RadioButtonChecked
@@ -47,9 +48,9 @@ import com.ava.reading.ui.theme.LocalReducedMotion
 import com.ava.reading.ui.theme.motionMs
 
 /**
- * R01 base components. They complement `ui/screens/Components.kt` (which stays untouched
- * until each page migrates) and consume only the design tokens — no screen-specific
- * values are allowed here. Everything is RTL-safe (start/end-relative) and TalkBack-ready.
+ * R01 production components. Legacy screen primitives delegate here during gradual
+ * migration; screen-specific layout remains in the screen package. Values come from tokens.
+ * Everything is RTL-safe and exposes the semantics required by TalkBack.
  */
 
 enum class AvaButtonStyle { Primary, Secondary, Tertiary }
@@ -83,13 +84,70 @@ enum class AvaButtonStyle { Primary, Secondary, Tertiary }
 }
 
 /** Card with Default/Interactive/Selected/Disabled states. Interactive cards keep the 64dp child target. */
-@Composable fun AvaCard(modifier: Modifier = Modifier, onClick: (() -> Unit)? = null, enabled: Boolean = true, selected: Boolean = false, shape: Shape = RoundedCornerShape(AvaShapes.xlarge), color: Color = if (selected) AvaColors.cream else AvaColors.surface, stateDescription: String? = null, content: @Composable () -> Unit) {
+@Composable fun AvaCard(modifier: Modifier = Modifier, onClick: (() -> Unit)? = null, enabled: Boolean = true, selected: Boolean = false, shape: Shape = RoundedCornerShape(AvaShapes.xlarge), color: Color = if (selected) AvaColors.cream else AvaColors.surface, stateDescription: String? = null, bordered: Boolean = true, content: @Composable () -> Unit) {
     val ring = if (selected) BorderStroke(3.dp, AvaSemanticColors.selectedRing) else BorderStroke(1.dp, AvaColors.line)
     val describe = if (stateDescription == null) modifier else modifier.semantics { this.stateDescription = stateDescription }
     if (onClick != null) {
-        Surface(onClick, describe.defaultMinSize(minHeight = 64.dp).semantics { role = Role.Button }, enabled = enabled, shape = shape, color = color, tonalElevation = 0.dp, shadowElevation = AvaElevation.card, border = ring, content = content)
+        Surface(onClick, describe.defaultMinSize(minHeight = 64.dp).semantics { role = Role.Button }, enabled = enabled, shape = shape, color = color, tonalElevation = 0.dp, shadowElevation = AvaElevation.card, border = if (selected || bordered) ring else null, content = content)
     } else {
         Surface(describe, shape = shape, color = color, tonalElevation = 0.dp, shadowElevation = AvaElevation.card, border = ring, content = content)
+    }
+}
+
+
+/**
+ * Navigation row used by profile/settings and secondary information lists.
+ * The whole 72dp+ row is one button target; icon, title and optional description
+ * are merged into one RTL reading order.
+ */
+@Composable fun AvaMenuRow(
+    title: String,
+    icon: ImageVector,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    subtitle: String? = null,
+    enabled: Boolean = true,
+    stateDescription: String? = null
+) {
+    val accessible = modifier.semantics(mergeDescendants = true) {
+        role = Role.Button
+        if (stateDescription != null) this.stateDescription = stateDescription
+    }
+    Surface(
+        onClick = onClick,
+        modifier = accessible.fillMaxWidth().heightIn(min = 72.dp),
+        enabled = enabled,
+        shape = RoundedCornerShape(AvaShapes.large),
+        color = AvaColors.surface,
+        tonalElevation = 0.dp,
+        shadowElevation = AvaElevation.flat,
+        border = BorderStroke(1.dp, AvaColors.line)
+    ) {
+        Row(
+            Modifier.fillMaxWidth().padding(horizontal = AvaSpacing.md, vertical = AvaSpacing.sm),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(AvaSpacing.sm)
+        ) {
+            Surface(
+                modifier = Modifier.size(44.dp),
+                shape = RoundedCornerShape(AvaShapes.medium),
+                color = AvaColors.cream
+            ) {
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Icon(icon, null, tint = AvaColors.green, modifier = Modifier.size(22.dp))
+                }
+            }
+            Column(
+                Modifier.weight(1f),
+                verticalArrangement = Arrangement.spacedBy(AvaSpacing.xxs)
+            ) {
+                Text(title, style = MaterialTheme.typography.titleSmall, color = AvaColors.deep)
+                if (subtitle != null) {
+                    Text(subtitle, style = MaterialTheme.typography.bodySmall, color = AvaColors.soft)
+                }
+            }
+            Icon(Icons.Outlined.ChevronLeft, null, tint = AvaColors.muted, modifier = Modifier.size(22.dp))
+        }
     }
 }
 
