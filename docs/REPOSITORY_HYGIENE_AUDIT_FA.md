@@ -38,7 +38,7 @@
 
 **اقدام:** پس از تثبیت گیت‌ها، workflow سبک برای validatorها، بررسی اسناد، build/typecheck وب تاریخی در صورت نیاز و تست‌های CMS ایجاد شود. گیت Native باید با toolchain مشخص اجرا شود و نبود SDK یا وابستگی نباید به‌عنوان موفقیت گزارش شود.
 
-### P2 — بررسی اسناد از گیت canonical جدا بود <badge>رفع شد</badge>
+### P2 — بررسی اسناد از گیت canonical جدا بود **رفع شد**
 `check-docs.py` در ابتدا با قالب قبلی `PROJECT_STATE.md` همگام بود و دیگر snapshot کوتاه فعلی را نمی‌فهمید.
 
 **اقدام انجام‌شده:** parser اکنون ارقام فارسی/عربی/انگلیسی را می‌خواند، شمار `@Test` را با تست‌های Kotlin و شمار string resourceها را با XML تولیدی مقایسه می‌کند، نام تکراری resource را رد می‌کند و لینک/فهرست اسناد را کنترل می‌کند. پنج آزمون واحد برای parser و شمارنده‌ها در `scripts/test-docs-check.py` اضافه شد. هر دو اسکریپت به `scripts/audit-project.py` متصل شدند؛ اجرای کامل audit در این نشست هنوز انجام نشده است.
@@ -68,11 +68,11 @@
 
 ترتیب پیشنهادی و وضعیت اجرا:
 
-1. <badge color="success">انجام شد</badge> کوتاه‌سازی `PROJECT_STATE.md` و مشخص‌کردن محل اسناد canonical.
+1. **انجام شد** کوتاه‌سازی `PROJECT_STATE.md` و مشخص‌کردن محل اسناد canonical.
 2. <badge color="success">انجام شد</badge> افزودن `.gitattributes` و کنترل عدم تغییر blob مهارت‌های pinned و resource generated.
 3. <badge color="success">کد تکمیل شد</badge> بازنویسی `check-docs.py`، افزودن ۵ unit test و اتصال هر دو به `audit-project.py`. اجرای کامل checkout هنوز باز است.
 4. <badge color="success">انجام شد</badge> کوتاه‌سازی ورودی Claude و تمرکز قواعد در `AGENTS.md`.
-5. <badge color="warning">باز</badge> ساخت گزارش dependency/reference برای کاندیداهای حذف؛ حذف فقط پس از اثبات نبود مصرف‌کننده.
+5. **باز** ساخت گزارش dependency/reference برای کاندیداهای حذف؛ حذف فقط پس از اثبات نبود مصرف‌کننده.
 6. پس از هر برش، اجرای گیت متناسب، ثبت نتیجهٔ واقعی و مقایسهٔ tree/diff قبل و بعد.
 
 ## ۵. ترتیب کارهای خارج از فاز اول
