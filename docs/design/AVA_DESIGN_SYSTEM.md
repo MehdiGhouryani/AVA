@@ -12,7 +12,7 @@
 4. **لمس کودک:** هدف ۶۴dp، CTA اصلی ۷۲dp (DG-3)، حداقل Android ۴۸dp، فاصلهٔ اهداف ≥۸dp.
 5. **دسترس‌پذیری پیش‌فرض:** semantics/liveRegion/Role در کامپوننت‌ها، نه در صفحه‌ها؛ وضعیت هرگز فقط با رنگ.
 6. **حرکت هدفمند:** کوتاه، یک‌بار، قابل‌حذف با `motionMs()` (کاهش حرکت درون‌اپ یا سیستم).
-7. **سازگاری تکاملی:** کامپوننت‌های موجود `ui/screens/Components.kt` دست‌نخورده می‌مانند تا هر صفحه مهاجرت کند.
+7. **سازگاری تکاملی:** wrapperهای `ui/screens/Components.kt` به‌تدریج به R01 delegate می‌کنند؛ API صفحه‌ها تا زمان مهاجرت layout حفظ می‌شود.
 
 ## 2. Color Tokens
 
@@ -99,7 +99,7 @@ Border استاندارد: ۱dp `line` (حالت عادی) ← ۲dp/۳dp `select
 
 ## 8. Component Catalog — `ui/components/AvaUI.kt`
 
-۹ کامپوننت پایه (همه RTL-safe، با semantics؛ متن از پارامتر صفحه می‌آید — بدون رشتهٔ هاردکد):
+۱۰ کامپوننت پایه (همه RTL-safe، با semantics؛ متن از پارامتر صفحه می‌آید — بدون رشتهٔ هاردکد):
 
 | کامپوننت | حالت‌ها | ابعاد | Semantics | نکته |
 |---|---|---|---|---|
@@ -133,7 +133,7 @@ Border استاندارد: ۱dp `line` (حالت عادی) ← ۲dp/۳dp `select
 
 ## 11. Preview Gallery
 
-فیکسچر تست `android/app/src/test/java/com/ava/reading/ui/components/AvaComponentGallery.kt`: تابع `AvaComponentGallery(fontScale, width)` — هر ۹ کامپوننت در همهٔ حالت‌ها، RTL و فارسی، با چهار بخش (دکمه‌ها، کارت‌ها و گزینه‌ها، بازخورد و وضعیت‌ها، هدر و پیشرفت). **شواهد رندر واقعی:** تست `componentGallerySnapshotRendersEveryState` گالری تستی را روی Robolectric رندر و در مسیر build/reports/native-ui (خروجی build، بدون track در مخزن) ثبت می‌کند (همان سازوکار snapshot سند `android/README.md`)؛ یک تست جدا در عرض/فونت ۳۲۰dp/۱٫۵ هم رندر سالم را می‌سنجد. **`@Preview` عمداً حذف شد:** وابستگی `androidx.compose.ui:ui-tooling-preview:1.8.0` روی این ماشین قابل دریافت نیست (خطای TLS handshake آینهٔ maven — همان شبکهٔ بلاک‌شدهٔ ثبت‌شده در WORKLOG) و نسخهٔ 1.12.0 موجود در کش با BOM فعلی ناسازگار است؛ افزودن annotation بعداً فقط یک import تغییر است. پیش‌فرض‌های گالری: RTL، متن فارسی، متن چندخطی، حالت Disabled، فونت ۱٫۵، عرض ۳۲۰.
+فیکسچر تست `android/app/src/test/java/com/ava/reading/ui/components/AvaComponentGallery.kt`: تابع `AvaComponentGallery(fontScale, width)` — هر ۱۰ کامپوننت در همهٔ حالت‌ها، RTL و فارسی، با چهار بخش (دکمه‌ها، کارت‌ها و گزینه‌ها، بازخورد و وضعیت‌ها، هدر و پیشرفت). **شواهد رندر واقعی:** تست `componentGallerySnapshotRendersEveryState` گالری تستی را روی Robolectric رندر و در مسیر build/reports/native-ui (خروجی build، بدون track در مخزن) ثبت می‌کند (همان سازوکار snapshot سند `android/README.md`)؛ یک تست جدا در عرض/فونت ۳۲۰dp/۱٫۵ هم رندر سالم را می‌سنجد. **`@Preview` عمداً حذف شد:** وابستگی `androidx.compose.ui:ui-tooling-preview:1.8.0` روی این ماشین قابل دریافت نیست (خطای TLS handshake آینهٔ maven — همان شبکهٔ بلاک‌شدهٔ ثبت‌شده در WORKLOG) و نسخهٔ 1.12.0 موجود در کش با BOM فعلی ناسازگار است؛ افزودن annotation بعداً فقط یک import تغییر است. پیش‌فرض‌های گالری: RTL، متن فارسی، متن چندخطی، حالت Disabled، فونت ۱٫۵، عرض ۳۲۰.
 
 ## 12. Migration Guide (Existing → Proposed)
 
@@ -142,7 +142,8 @@ Border استاندارد: ۱dp `line` (حالت عادی) ← ۲dp/۳dp `select
 | `Primary` (72dp pill) | `AvaButton(Primary)` | R02+ صفحه‌به‌صفحه |
 | `Secondary` (64dp outline) | `AvaButton(Secondary)` | همان |
 | `TextButton` ۶۴dp کودک | `AvaButton(Tertiary)` | همان |
-| `Header` | `AvaHeader` (برچسب بازگشت صریح) | همان |
+| `Header` | `AvaHeader` (برچسب بازگشت صریح) | همین برش |
+| `Menu` | `AvaMenuRow` | همین برش |
 | `SoftCard` | `AvaCard` (حالت‌ها) | همان |
 | `Feedback` | `AvaFeedback` (tone) | همان |
 | `LessonChoice`/`SceneTile`/`BubbleChoice`/`StoryChoice` | `AvaAnswerOption` | R04/R07 (با تست رفتار) |
