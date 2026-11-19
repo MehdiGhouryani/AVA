@@ -66,15 +66,37 @@ def is_skipped(path: str) -> bool:
     return any(path.startswith(prefix) for prefix in SKIP_PREFIXES)
 
 
-def tracked_files() -> list[str]:
-    result = subprocess.run(
-        ["git", "ls-files"],
-        cwd=ROOT,
-        check=True,
-        capture_output=True,
-        text=True,
+def tracked_files(root: Path = ROOT) -> list[str]:
+    """Include tracked and non-ignored new files; support source ZIPs without Git."""
+    try:
+        result = subprocess.run(
+            ["git", "ls-files", "--cached", "--others", "--exclude-standard"],
+            cwd=root,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+    except OSError:
+        result = None
+    if result is not None and result.returncode == 0:
+        return [path for path in result.stdout.splitlines() if path]
+    if (root / ".git").exists():
+        raise subprocess.CalledProcessError(
+            result.returncode if result is not None else 1,
+            ["git", "ls-files"],
+            output=result.stdout if result is not None else "",
+            stderr=result.stderr if result is not None else "git executable unavailable",
+        )
+
+    ignored_dirs = {
+        ".git", ".gradle", ".kotlin", ".next", "__pycache__",
+        "build", "coverage", "dist", "node_modules", "venv", ".venv",
+    }
+    return sorted(
+        path.relative_to(root).as_posix()
+        for path in root.rglob("*")
+        if path.is_file() and not any(part in ignored_dirs for part in path.relative_to(root).parts)
     )
-    return [path for path in result.stdout.splitlines() if path]
 
 
 def main() -> int:
