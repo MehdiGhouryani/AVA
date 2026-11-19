@@ -82,12 +82,17 @@ class JourneyUiTest {
         ui.onNodeWithText("رد کردن").performScrollTo().performClick()
         ui.waitForIdle()
         ui.onNodeWithText("ورود یا ساخت حساب").performScrollTo().assertIsDisplayed()
-        ui.onNode(hasSetTextAction()).performTextInput("۰۹۱۲۳۴۵۶۷۸۹")
+        ui.onNode(hasSetTextAction()).performScrollTo().performTextInput("۰۹۱۲۳۴۵۶۷۸۹")
         ui.onNodeWithText("حریم خصوصی و قوانین را می‌پذیرم").performScrollTo().performClick()
+        ui.onNodeWithText("حریم خصوصی").performScrollTo().assertIsDisplayed()
+        ui.onNodeWithText("قوانین و مقررات").performScrollTo().assertIsDisplayed()
+        ui.onNodeWithText("ورود آزمایشی: کد ۱۲۳۴۵۶؛ پیامک واقعی ارسال نمی‌شود.").performScrollTo().assertIsDisplayed()
         ui.onNodeWithText("دریافت کد").performScrollTo().assertIsEnabled().performClick()
         ui.waitUntil(timeoutMillis=10_000) {v.state.value.route==Route.Otp}
         ui.onNodeWithText("کد تأیید را وارد کنید").assertIsDisplayed()
+        ui.onNodeWithContentDescription("کد شش‌رقمی").assertExists()
         ui.onNodeWithText("ویرایش شماره").performScrollTo().assertIsDisplayed()
+        ui.onNodeWithText("ورود آزمایشی: کد ۱۲۳۴۵۶؛ پیامک واقعی ارسال نمی‌شود.").performScrollTo().assertIsDisplayed()
     }
 
     @Test fun newUserLogsInWithMockCode() {

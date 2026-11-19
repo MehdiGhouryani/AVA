@@ -3,7 +3,7 @@
 **Task ID:** `062-entry-auth-ui`  
 **Branch:** `phase-062-r02-entry-auth-ui`  
 **Baseline:** `phase-062-r01-ui-foundation` @ `01e0576ff572b77abc4c1a2b38e2edefc9afbd01`  
-**Status:** `blocked` — dependency `062-uiux-foundation` هنوز تکمیل نشده است.
+**Status:** `in_progress`
 
 ## هدف
 
@@ -60,4 +60,4 @@ Task فقط پس از موفقیت تمام گیت‌ها و مرور diff به 
 
 ## وضعیت فعلی
 
-کد و تست regression به‌صورت پیش‌نویس روی شاخه ثبت شده‌اند؛ هیچ گیت اجرایی در این نشست اجرا نشده است. چون dependency یعنی `062-uiux-foundation` هنوز `in_progress` است، این task تا تکمیل آن `blocked` می‌ماند.
+پیاده‌سازی سورس و تست regression افزوده شده؛ هیچ گیت اجرایی در این نشست اجرا نشده است. تا آن زمان task عمداً `in_progress` می‌ماند.
