@@ -75,7 +75,7 @@ Splash، Onboarding 1، Onboarding 2، Phone، OTP، Home، Library، StoryDetai
 | U04 | حالت بازیابی اطلاعات، خطای ذخیره و دکمهٔ تلاش مجدد | حالت | منطق و پیام پایه موجود؛ نیازمند طراحی یکپارچه | P0 |
 | U05 | چیدمان کامل Onboarding 1 و سلسله‌مراتب عنوان/متن/تصویر | صفحه | موجود؛ بازطراحی در همان هویت | P1 |
 | U06 | چیدمان کامل Onboarding 2 و معرفی دوستان | صفحه | موجود؛ بازطراحی در همان هویت | P1 |
-| U07 | تصویر داخل حباب درخشان Onboarding 1 | تصویر برداری | در manifest عمداً مفقود؛ باید ساده و سبک ساخته شود | P1 |
+| U07 | تصویر داخل حباب درخشان Onboarding 1 | تصویر برداری | VectorDrawable اختصاصی ساخته، در manifest ثبت و در Onboarding 1 استفاده شد | P1 |
 | U08 | جای‌گذاری و مقیاس آوا و سه دوست در Onboarding | ترکیب تصویر | چهار شخصیت و فایل‌هایشان موجودند؛ ترکیب‌بندی لازم است | P1 |
 | U09 | نشانگر دو صفحهٔ onboarding و حالت فعال/غیرفعال | کامپوننت | نقطه‌ها موجود؛ نیازمند اندازه و کنتراست مناسب | P2 |
 | U10 | محل و ظاهر کنترل ردکردن onboarding | کامپوننت | موجود؛ بازبینی اولویت بصری و دسترسی | P1 |
@@ -184,12 +184,12 @@ Splash، Onboarding 1، Onboarding 2، Phone، OTP، Home، Library، StoryDetai
 
 | ID | خروجی طراحی | نوع | وضعیت فعلی / نیاز | اولویت |
 |---|---|---|---|---|
-| U91 | مهاجرت Primary/Secondary/Tertiary به AvaButton و حالت‌های loading/disabled/pressed | کامپوننت | AvaButton موجود و تست‌شده؛ هنوز در صفحات تولیدی مهاجرت نشده | P0 |
+| U91 | مهاجرت Primary/Secondary/Tertiary به AvaButton و حالت‌های loading/disabled/pressed | کامپوننت | wrapperهای Primary/Secondary به AvaButton متصل شدند؛ مصرف مستقیم سایر صفحه‌ها در برش‌های بعدی | P0 |
 | U92 | مهاجرت کنترل‌های آیکونی به AvaIconButton با برچسب اجباری | کامپوننت | AvaIconButton موجود؛ استفادهٔ واقعی صفحات باید یکپارچه شود | P1 |
-| U93 | یکپارچه‌سازی AvaCard برای Default/Interactive/Selected/Disabled | کامپوننت | AvaCard موجود؛ جایگزینی کارت‌های پراکنده لازم است | P1 |
-| U94 | یکپارچه‌سازی AvaHeader و الگوی Page برای عنوان/بازگشت | کامپوننت | AvaHeader موجود؛ صفحه‌های فرعی هنوز از Header قدیمی استفاده می‌کنند | P1 |
+| U93 | یکپارچه‌سازی AvaCard برای Default/Interactive/Selected/Disabled | کامپوننت | SoftCard قدیمی به AvaCard متصل شد؛ کارت‌های اختصاصی مهاجرت‌نشده‌اند | P1 |
+| U94 | یکپارچه‌سازی AvaHeader و الگوی Page برای عنوان/بازگشت | کامپوننت | Header قدیمی اکنون به AvaHeader delegate می‌کند؛ layout هر صفحه هنوز جداست | P1 |
 | U95 | یکپارچه‌سازی AvaProgress با ارتفاع، label و مقدار فارسی ثابت | کامپوننت | AvaProgress موجود؛ استفاده در قصه/پیشرفت باید منتقل شود | P1 |
-| U96 | الگوی مشترک AvaFeedback و AvaStateMessage برای info/success/error/empty | کامپوننت/حالت | هر دو موجود؛ نگاشت صفحه‌ها به آن‌ها لازم است | P0 |
+| U96 | الگوی مشترک AvaFeedback و AvaStateMessage برای info/success/error/empty | کامپوننت/حالت | Feedback قدیمی به AvaFeedback متصل شد؛ نگاشت stateهای خالی و موفقیت صفحه‌ها ادامه دارد | P0 |
 | U97 | AvaCharacterMessage و قواعد استفاده از art شخصیت به‌عنوان عنصر تزئینی | کامپوننت | موجود؛ استفادهٔ محدود و هدفمند لازم است | P1 |
 | U98 | تکمیل قرارداد Design Tokens: تایپوگرافی، وزن فونت، فاصله، شعاع، elevation و motion | سیستم طراحی | توکن‌ها موجود؛ یک وزن فایل فونت و تعدادی مهاجرت صفحه‌ای باقی است | P0 |
 | U99 | بستهٔ آیکون برداری نهایی: back، edit، refresh، check، info، leaf و آیکون‌های چهار تب | مجموعه آیکون | بخشی Material است؛ manifest ساخت آیکون‌های نهایی را کمبود اعلام می‌کند | P1 |
@@ -282,3 +282,13 @@ Splash، Onboarding 1، Onboarding 2، Phone، OTP، Home، Library، StoryDetai
 - [توکن‌های طراحی](../../design/design_tokens.json)
 - [ممیزی مراجع تصویری](../../design/screen-references.audit.json)
 - [نقشهٔ معماری پروژه](../PROJECT_MAP_FA.md)
+
+
+## checkpoint اجرایی ۲۰۲۶-۱۱-۱۹ — Foundation slice 01
+
+- **U07 انجام شد در سورس:** تصویرسازی برداری قلعهٔ ابری به‌عنوان دارایی Native ثبت و در Onboarding 1 مصرف شد؛ دارایی‌های قبلی حذف نشدند.
+- **U91 آغاز شد:** wrapperهای دکمهٔ قدیمی اکنون R01 AvaButton را مصرف می‌کنند.
+- **U93 آغاز شد:** SoftCard به AvaCard متصل شد و سطح بدون border حفظ می‌شود.
+- **U94 آغاز شد:** Header قدیمی به AvaHeader متصل شد.
+- **U96 آغاز شد:** Feedback قدیمی به AvaFeedback متصل شد.
+- هنوز انجام نشده: مهاجرت layout صفحه‌های اختصاصی، آیکون‌های نهایی، طرح کامل Home/Profile/Progress و QA بصری دستگاه.
