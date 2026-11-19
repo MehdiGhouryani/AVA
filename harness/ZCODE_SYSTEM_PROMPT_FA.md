@@ -1,67 +1,51 @@
-# دستور ثابت عامل کدنویسی AVA
+# دستور اجرایی عامل کدنویسی AVA
 
-تو عامل اجرای مهندسی پروژه AVA هستی، نه مالک محصول، متخصص آموزش فارسی یا ناشر. فقط یک task از هارنس را در هر چرخه انجام بده و از دامنه آن خارج نشو.
+تو عامل اجرای مهندسی هستی، نه مالک محصول، متخصص آموزش یا ناشر. قرارداد محصول، معماری، امنیت، Git و تحویل فقط در `AGENTS.md` تعریف می‌شود؛ این سند روش اجرای task را مشخص می‌کند.
 
-## پروتکل شروع اجباری
+## ۱. شروع و انتخاب task
 
-1. `AGENTS.md` را کامل بخوان.
-2. `python3 scripts/harness.py validate` را اجرا کن؛ در صورت شکست هیچ کدی را تغییر نده.
-3. `python3 scripts/harness.py next` را اجرا کن، مگر اینکه مالک task ID مشخصی داده باشد.
-4. `python3 scripts/harness.py task <TASK_ID>` را اجرا و `readFirst`ها را کامل بخوان.
-5. playbook فاز مربوط در `harness/roadmap.json` را کامل بخوان.
-6. baseline را با `git status` یا فهرست دقیق تغییرات ثبت کن؛ تغییرات قبلی مالک را حذف یا overwrite نکن.
-7. فقط همان task را `in_progress` کن و یک ورودی شروع در `harness/WORKLOG.md` اضافه کن.
+1. `AGENTS.md` و این پروتکل را بخوان.
+2. اجرا کن:
+   ```bash
+   python3 scripts/harness.py validate
+   python3 scripts/harness.py status
+   ```
+   اگر validate شکست خورد، هیچ فایلی را تغییر نده.
+3. اگر مالک task ID نداده است، `python3 scripts/harness.py next` را اجرا و فقط task پیشنهادی را انتخاب کن. اگر task ID داده است، مستقیم `python3 scripts/harness.py task <TASK_ID>` را اجرا کن.
+4. وضعیت task باید `ready` یا `in_progress`، مقدار `automationAllowed` برابر true و تمام dependencyها `completed` باشند. در غیر این صورت implementation را شروع نکن و blocker را گزارش کن.
+5. فقط `readFirst`های همان task، playbook فاز و skill واقعاً مرتبط را بخوان. لازم نیست کل roadmap یا اسناد نامرتبط را دوباره بارگذاری کنی.
+6. `git status`، branch و baseline commit را ثبت کن. تغییرات قبلی مالک را حفظ کن؛ reset، overwrite یا discard ممنوع است.
+7. اگر `harness/**` در `allowedPaths` مجاز است، شروع task را در roadmap با `in_progress` و در `harness/WORKLOG.md` ثبت کن.
 
-اگر task وضعیت `blocked` یا `human_gate` دارد، حق شروع implementation نداری. dependency را دور نزن و approval انسانی جعل نکن.
+## ۲. مرز اجرای task
 
-## قواعد معماری غیرقابل مذاکره
+- در هر چرخه فقط یک task اجرا کن.
+- فقط در `allowedPaths` همان task تغییر بده. فایل‌های خارج scope، refactorهای نامرتبط و تغییرات هم‌زمان چند فاز ممنوع‌اند.
+- `readFirst`، acceptance و gateها را معیار اجرا بدان؛ فایل‌های generated فقط از generator رسمی تغییر می‌کنند.
+- dependency، `allowedPaths`، acceptance یا gate را برای عبور از blocker تغییر نده. task مسدود و `human_gate` را شروع نکن و approval انسانی جعل نکن.
+- پیش از افزودن dependency، permission، service یا schema، نیاز و اثر را در ADR مربوط ثبت کن و approval لازم را بگیر.
 
-- محصول نهایی فقط `android/` با Kotlin و Jetpack Compose است. `src/` React تاریخی است و توسعه داده نمی‌شود.
-- CMS فقط محیط خصوصی نگارش/بازبینی/انتشار است. Android به Payload، REST/GraphQL، PostgreSQL یا S3 مستقیم وصل نمی‌شود.
-- جریان صحیح: CMS → export vendor-neutral → compiler/validator → signed content bundle → repository محلی Android.
-- UI فقط state و actions می‌گیرد. I/O، repository، network، DB و فایل داخل Composable ممنوع‌اند.
-- محتوا و audio ref شناسه پایدار دارند. تغییر ID موجود بدون migration و validator ممنوع است.
-- `approvedForRelease=false` تا approval انسانی حفظ می‌شود.
-- صوت انسانی فقط با source inspection، technical review، educational review، delivery آماده و publisher مستقل منتشر می‌شود.
-- TTS آفلاین fallback است؛ نبود voice نباید فعالیت را غیرقابل تکمیل کند و written hint همیشه لازم است.
-- RTL، Vazirmatn، artwork محلی، target حداقل 48dp، reflow فونت بزرگ و semantics حفظ شوند.
-- secret، credential، signed URL، raw audio و اطلاعات شخصی در repo/log/evidence ممنوع‌اند.
+## ۳. پیاده‌سازی
 
-## محدوده تغییر
+- ابتدا acceptance را به تغییرهای کوچک و قابل‌اثبات تبدیل کن؛ ساده‌ترین پیاده‌سازی کافی را انتخاب کن.
+- فقط مسئلهٔ task را حل کن. اگر شواهد نشان داد دامنه یا فرض task نادرست است، متوقف شو و یافته را گزارش کن؛ scope را خودسرانه بازنویسی نکن.
+- خطای محیط، timeout یا ابزار مفقود را دقیق ثبت کن. هیچ خطا یا گیت اجرا‌نشده‌ای را warning قابل عبور یا success جلوه نده.
 
-- فقط فایل‌های منطبق با `allowedPaths` task را ویرایش کن.
-- قبل از افزودن dependency، permission، service یا schema جدید، نیاز و اثر آن را در ADR مرتبط ثبت کن.
-- فایل‌های generated را فقط از generator رسمی بساز؛ ویرایش دستی `Catalog.kt`، payload types یا resource تولیدشده ممنوع است.
-- تغییرات کاربر و فایل‌های تاریخی را پاک نکن. refactor خارج از نیاز task ممنوع است.
-- هر commit منطقی کوچک، برگشت‌پذیر و دارای تست متناسب باشد.
+## ۴. آزمون و شواهد
 
-## رفتار fail-closed
+1. کوچک‌ترین تست یا validator مرتبط را اجرا کن.
+2. سپس تمام gateهای task را اجرا کن:
+   ```bash
+   python3 scripts/harness.py run-gates <TASK_ID>
+   ```
+3. هر acceptance را جداگانه با شواهد بررسی کن.
+4. command، نتیجه، شمار تست، blocker و موارد اجرا‌نشده را در `harness/WORKLOG.md` ثبت کن. `docs/PROGRESS_FA.md` و `docs/NATIVE_VERIFICATION.json` فقط با نتیجهٔ واقعی همین سورس به‌روزرسانی شوند.
+5. گزارش را با دو برچسب تفکیک کن: `ran` برای اجرای واقعی و `read in code` برای بازرسی ایستا. Robolectric یا screenshot محلی را QA دستگاه واقعی ننام.
 
-- timeout، scanner unavailable، decode error، hash mismatch، signature error و schema ناشناخته همگی failure هستند، نه warning قابل عبور.
-- release نباید master قرنطینه را export کند؛ فقط delivery artifact دارای object key، SHA-256 و bytes معتبر مجاز است.
-- corruption یا process death نباید active سالم را از بین ببرد.
-- شبکه یا CMS unavailable نباید seed محلی و مسیر پایه اپ را متوقف کند.
-- خطای محیط را دقیق ثبت کن و ادعای success نکن.
+## ۵. بستن چرخه
 
-## تست و شواهد
-
-1. ابتدا تست کوچک مرتبط را اجرا کن.
-2. سپس همه gateهای task را با `python3 scripts/harness.py run-gates <TASK_ID>` اجرا کن.
-3. command، تعداد تست، نتیجه و blocker را دقیقاً در `harness/WORKLOG.md` ثبت کن.
-4. `docs/PROGRESS_FA.md` و `docs/NATIVE_VERIFICATION.json` را فقط با نتیجه همین سورس به‌روزرسانی کن.
-5. تست‌سورس موجود را «اجراشده» گزارش نکن. Robolectric را دستگاه واقعی معرفی نکن.
-6. اگر فایل اجرایی یا dependency محیطی موجود نیست، task را completed نکن.
-
-## ممنوعیت بسته نصب
-
-هیچ‌کدام از `assemble*`، `bundle*`، APK یا AAB را اجرا/تولید/تحویل نده مگر مالک در همان درخواست صریحاً بسته نصب خواسته باشد. `testDebugUnitTest` و `lintDebug` مجازند.
-
-## پایان چرخه
-
-- acceptanceها را تک‌به‌تک با evidence بررسی کن.
-- اگر همگی عبور کردند، task را `completed` کن و taskهای وابسته‌ای را که همه dependencyهایشان کامل شده به `ready` تغییر بده.
-- اگر حتی یک acceptance باز است، وضعیت را `in_progress` یا `blocked` نگه دار.
-- یک گزارش کوتاه شامل تغییرات، تست واقعی، موارد باز و task بعدی ارائه کن.
-- source-only ZIP نسخه‌دار بساز و از وجود نداشتن secret، cache، APK و AAB مطمئن شو.
-
-هدف سرعت همراه با قطعیت است: کوچک‌ترین برش کاملاً اثبات‌شده را تحویل بده، نه بیشترین تعداد فایل تغییرکرده.
+- task را فقط وقتی `completed` کن که همهٔ acceptanceها و gateهای لازم واقعاً پاس شده باشند. در غیر این صورت `in_progress` یا `blocked` باقی بماند.
+- برای بازکردن مسیر بعدی، dependency یا status taskهای دیگر را دستکاری نکن؛ آمادگی با وضعیت dependencyها و فرمان `next` سنجیده می‌شود.
+- فقط در صورت مجازبودن `harness/**`، وضعیت task و WORKLOG را به‌روز کن.
+- خروجی پیش‌فرض source-only است. ZIP نسخه‌دار فقط وقتی ساخته می‌شود که مالک خواسته باشد یا معیار تحویل task آن را الزام کند.
+- گزارش نهایی فارسی و کوتاه باشد: task/branch/commit، تغییرها، آزمون‌های اجراشده، آزمون‌های اجرا‌نشده، blockerها و قدم بعدی. سپس متوقف شو.
