@@ -9,6 +9,7 @@ import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Text
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
@@ -20,6 +21,11 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.unit.*
 import androidx.compose.ui.test.SemanticsMatcher
 import com.ava.reading.ui.components.*
+import com.ava.reading.ui.screens.Feedback
+import com.ava.reading.ui.screens.Menu
+import com.ava.reading.ui.screens.Primary
+import com.ava.reading.ui.screens.Secondary
+import com.ava.reading.ui.screens.SoftCard
 import com.ava.reading.ui.theme.AvaTheme
 import org.junit.*
 import org.junit.Assert.*
@@ -101,6 +107,28 @@ class AvaComponentsTest {
         render { AvaIconButton(Icons.AutoMirrored.Outlined.ArrowBack,"بازگشت",{fired=true}) }
         ui.onNodeWithContentDescription("بازگشت").assertIsDisplayed().performClick()
         assertTrue(fired)
+    }
+    @Test fun legacyScreenPrimitivesBridgeToTheFoundation() {
+        var saved=false
+        var opened=false
+        render {
+            Column {
+                Primary("ذخیره",{saved=true})
+                Secondary("انصراف",{})
+                SoftCard {Text("کارت یکپارچه")}
+                Menu("تنظیمات",Icons.Outlined.Settings,{opened=true},"ترجیحات برنامه")
+                Feedback("پیام راهنما")
+            }
+        }
+        ui.onNodeWithText("ذخیره").assertHeightIsAtLeast(72.dp).performClick()
+        assertTrue(saved)
+        ui.onNodeWithText("انصراف").assertHeightIsAtLeast(64.dp)
+        ui.onNodeWithText("کارت یکپارچه").assertIsDisplayed()
+        val menu=SemanticsMatcher.expectValue(SemanticsProperties.Role,androidx.compose.ui.semantics.Role.Button) and hasText("تنظیمات",substring=true)
+        ui.onNode(menu).assertIsDisplayed().performClick()
+        assertTrue(opened)
+        ui.onNodeWithText("ترجیحات برنامه").assertIsDisplayed()
+        ui.onNodeWithText("پیام راهنما").assertIsDisplayed()
     }
     @Test fun progressShowsRangeAndSpokenLabel() {
         render { AvaProgress(0.5f,label="۲ از ۶ مرحله") }
