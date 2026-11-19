@@ -25,7 +25,7 @@ adb shell am start -n com.ava.reading/.MainActivity --es qa_route Phone --ez qa_
 
 Project audit needs Pillow: `python3 -m pip install -r ../scripts/requirements.txt`. The resource sync command itself uses only the Python standard library. Source can be repackaged with `python3 ../scripts/package-source.py /absolute/path/AVA-source.zip` after saving changes (tracked files in a checkout; filtered tree when extracted).
 
-Current workflow: source-only increments. Do not build an APK/AAB at every step. Run focused tests for affected behavior and resource checks; keep the previous full-suite evidence separate when running only a subset. Package source and update progress/next actions. Device QA/release checks remain open until a device/package pass is requested.
+Current workflow: source-only increments. Do not build an APK/AAB at every step. Run focused tests for affected behavior and resource checks; keep previous full-suite evidence separate when running only a subset. Create a source ZIP only when the owner requests one or the task's delivery criteria require it; use `package-source.py`, then update progress and next actions. Device QA/release checks remain open until a device/package pass is requested.
 
 0.3.2 preserves root-tab scroll state using a SaveableStateHolder limited to the four roots. Story text scrolls independently of its page controls; Back from the question returns to the last read page. Compact/large text tests cover Home, reader, profile/edit and library. The design inventory and remaining page specifications are in ../docs/PAGE_DESIGN_PLAN_FA.md.
 
