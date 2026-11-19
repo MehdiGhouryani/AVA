@@ -1,6 +1,6 @@
 {
   "package": "ava-ui-assets",
-  "version": "0.2-clean",
+  "version": "0.3-foundation",
   "rule": "UI code may reference images ONLY through these ids. Never hard-code paths in screens.",
   "font": {
     "family": "Vazirmatn",
@@ -230,6 +230,20 @@
       "knownIssues": []
     },
     {
+      "id": "decor.onboarding.cloud_castle",
+      "src": "/ava-assets/decor/onboarding_glow_castle.xml",
+      "kind": "decoration",
+      "width": 320,
+      "height": 447,
+      "hasAlpha": true,
+      "sizeKB": 6.3,
+      "usedIn": [
+        "onboarding1 (inside the glow bubble)"
+      ],
+      "notes": "Original lightweight Android VectorDrawable: pastel floating castle, clouds, tiny bird, music notes and sparkles. Decorative only; no text or new mascot.",
+      "knownIssues": []
+    },
+    {
       "id": "decor.tree",
       "src": "/ava-assets/decor/story_tree.webp",
       "kind": "decoration",
@@ -238,9 +252,9 @@
       "hasAlpha": true,
       "sizeKB": 130.7,
       "usedIn": [
-        "onboarding1 (inside the glow bubble)"
+        "story: little_seed (Native content v3)"
       ],
-      "notes": "Small green tree; source has small edge artifacts at top-right/bottom-right corners (trim or scale small).",
+      "notes": "Small green tree used as the cover illustration for little_seed; onboarding glow scene now has a dedicated castle illustration.",
       "knownIssues": [
         "Edge artifacts in source"
       ]
@@ -263,7 +277,6 @@
     }
   ],
   "missing_on_purpose": [
-    "Glow bubble content of onboarding1 (castle on clouds, bird, music notes): build with CSS/SVG, simple version",
     "High-resolution vector logo",
     "Dedicated OTP top scene (reuse bg.garden)",
     "Final art for icons: draw simple inline SVG (arrow-left, pencil, refresh, check, info, leaf)"
