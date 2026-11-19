@@ -489,3 +489,14 @@ Next action:
 - Verification: HEAD شاخه و tree با commit جدید تطبیق داده شد؛ هر سه مسیر قدیمی از root حذف و چهار فایل آرشیو حاضرند؛ ارجاع prompt به مسیر جدید و لینک‌های راهنمای جاری تأیید شد.
 - Not run: `check-docs.py`، build وب، Gradle و Native tests؛ هنوز محیط محلی پروژه در دسترس نیست.
 - Next action: ممیزی مصرف assetها و فایل‌های بدون ارجاع در ماژول Android؛ حذف فقط وقتی generator/import/test references نیز صفر باشند.
+
+
+## ۲۰۲۶-۱۱-۱۹ — ممیزی مصرف assetها
+
+- Task ID: `repo-hygiene-cleanup`
+- Baseline: `main` در `eef23dc9c8db979df484c50929ae26971b36e194`
+- هر ۱۶ asset ID در مسیر Native، محتوای جاری یا پروتوتایپ تاریخی مصرف دارد؛ مورد امنی برای حذف یافت نشد. ۱۷ گروه blob یکسان باقی‌مانده، کپی‌های عمدی منبع public به منابع drawable Android هستند و با generator همگام می‌شوند.
+- اصلاح metadata: `char.ava.head_happy` از spare به سه مصرف Native (profile avatar، lesson feedback، story question)؛ `decor.magic_book` از unused-in-v1 به تصویر story `friends_book`.
+- Files changed: `design/assets.manifest.json`، `docs/PROGRESS_FA.md`، این WORKLOG.
+- Not run: `sync-android-resources.py --check`، `audit-project.py`، Gradle؛ محیط محلی در دسترس نبود.
+- Next action: ممیزی string/resource usage و سپس بررسی نهایی ساختار root و scripts.

@@ -14,7 +14,7 @@
       "width": 940,
       "height": 1672,
       "hasAlpha": false,
-      "sizeKB": 26.0,
+      "sizeKB": 26,
       "usedIn": [
         "splash"
       ],
@@ -42,7 +42,7 @@
       "width": 852,
       "height": 1846,
       "hasAlpha": false,
-      "sizeKB": 109.0,
+      "sizeKB": 109,
       "usedIn": [
         "onboarding2",
         "otp(top scene)",
@@ -99,9 +99,11 @@
       "hasAlpha": true,
       "sizeKB": 26.3,
       "usedIn": [
-        "spare"
+        "profile avatar selection",
+        "lesson answer feedback",
+        "story question"
       ],
-      "notes": "Ava head, happy. Spare/fallback (e.g. if the baked splash scene is replaced).",
+      "notes": "Ava head, happy. Active in the Native profile avatar, lesson feedback and story-question screens; reusable as a standalone character.",
       "knownIssues": []
     },
     {
@@ -252,9 +254,9 @@
       "hasAlpha": true,
       "sizeKB": 56.1,
       "usedIn": [
-        "unused in v1"
+        "story: friends_book (Native content v3)"
       ],
-      "notes": "Purple open book with gold star. Optional.",
+      "notes": "Purple open book with gold star; used as the illustration for the friends_book story.",
       "knownIssues": [
         "Faint residue at top-right page tips"
       ]

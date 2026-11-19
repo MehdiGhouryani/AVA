@@ -232,3 +232,11 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - لینک‌های داخل سه سند به راهنمای جاری اصلاح شدند و prompt قدیمی اکنون مسیر جدید `DESIGN_BRIEF.md` را می‌خواند. منابع مشترک `design/`، `public/` و `reference/` جابه‌جا نشدند.
 - `docs/README.md` از آرشیو تازه خبر می‌دهد. اشاره‌های داخل WORKLOG و READINESS_REVIEW که گزارش تاریخی وضعیت قبل از انتقال‌اند عمداً دست نخورده ماندند.
 - این تغییر فقط جابه‌جایی مستندات و لینک‌هاست؛ build وب، Gradle و تست‌های Native اجرا نشدند.
+
+
+## بروزرسانی ۲۰۲۶-۱۱-۱۹ — ممیزی مصرف artwork و اصلاح manifest
+
+- هر ۱۶ شناسهٔ asset از manifest در مسیر Native، محتوای جاری یا پروتوتایپ تاریخی ارجاع دارد؛ هیچ تصویر فاقد مصرف‌کنندهٔ اثبات‌شده حذف نشد.
+- metadata دو مورد کهنه اصلاح شد: `char.ava.head_happy` در آواتار پروفایل، بازخورد درس و سؤال قصه استفاده می‌شود؛ `decor.magic_book` تصویر داستان `friends_book` در content v3 است، نه asset بلااستفاده.
+- همهٔ کپی‌های آینه‌ای public/Android عمداً حفظ شدند؛ generator آن‌ها را از manifest تولید می‌کند.
+- این تغییر فقط metadata manifest است؛ `sync-android-resources.py --check` و audit اجرا نشدند.
