@@ -90,7 +90,7 @@ enum class AvaButtonStyle { Primary, Secondary, Tertiary }
     if (onClick != null) {
         Surface(onClick, describe.defaultMinSize(minHeight = 64.dp).semantics { role = Role.Button }, enabled = enabled, shape = shape, color = color, tonalElevation = 0.dp, shadowElevation = AvaElevation.card, border = if (selected || bordered) ring else null, content = content)
     } else {
-        Surface(describe, shape = shape, color = color, tonalElevation = 0.dp, shadowElevation = AvaElevation.card, border = ring, content = content)
+        Surface(describe, shape = shape, color = color, tonalElevation = 0.dp, shadowElevation = AvaElevation.card, border = if (selected || bordered) ring else null, content = content)
     }
 }
 
