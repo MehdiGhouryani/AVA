@@ -1,4 +1,4 @@
-> Historical initial web specification. Current native Android work starts at [docs/README.md](docs/README.md). Flutter/Home-placeholder instructions below are superseded.
+> Historical archive: original React web specification. The active product is Native Android; see [راهنمای توسعهٔ جاری](../../README.md).
 
 # AVA — Design Brief (v1, first 4 screens)
 

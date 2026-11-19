@@ -1,4 +1,4 @@
-> Historical initial web specification. Current native Android work starts at [docs/README.md](docs/README.md). Flutter/Home-placeholder instructions below are superseded.
+> Historical archive: original Google AI Studio / React web prototype. The active product is Native Android; see [راهنمای توسعهٔ جاری](../../README.md). This guide is retained for history and is not the current build guide.
 
 # بستهٔ ورودی AVA برای Google AI Studio
 

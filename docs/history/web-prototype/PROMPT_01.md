@@ -1,4 +1,4 @@
-> Historical prompt for the original web prototype (Google AI Studio). Current native Android work starts at [docs/README.md](docs/README.md); sizes below (48 px) are superseded by the 64 dp child rule.
+> Historical prompt for the original web prototype (Google AI Studio). Current native Android work starts at [راهنمای توسعهٔ جاری](../../README.md); sizes below (48 px) are superseded by the 64 dp child rule.
 
 # PROMPT 01 — paste this into Google AI Studio (Build mode)
 
@@ -8,10 +8,10 @@
 
 You are building the first flow of **AVA**, a Persian (RTL) early-reading mobile app for children aged 4–7. This project already contains everything you need. Do **not** invent art, copy, colors or flows.
 
-**Step 0 — check the project:** list the files you can see at the project root. If `/DESIGN_BRIEF.md`, `/design/` or `/public/ava-assets/` are missing, STOP and say exactly which are missing. Do not continue with invented art or copy.
+**Step 0 — check the project:** list the files you can see at the project root. If `/docs/history/web-prototype/DESIGN_BRIEF.md`, `/design/` or `/public/ava-assets/` are missing, STOP and say exactly which are missing. Do not continue with invented art or copy.
 
 **Read first, in this order:**
-1. `/DESIGN_BRIEF.md` — the specification (layout, states, behavior, architecture). Follow it exactly.
+1. `/docs/history/web-prototype/DESIGN_BRIEF.md` — the specification (layout, states, behavior, architecture). Follow it exactly.
 2. `/design/design_tokens.json` — every color/size/motion value.
 3. `/design/strings.fa.json` — every Persian string.
 4. `/design/assets.manifest.json` — every image, with real sizes and known issues.
