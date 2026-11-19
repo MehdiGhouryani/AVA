@@ -13,7 +13,7 @@
 | ui/theme/ | typography و semantic palette |
 | android/app/src/test/ | آزمون منطق/auth/state، دیسک و کنترل‌های Compose |
 | design/ | متن، محتوای v3، release/audio schema، fixture مهاجرت، توکن و manifest اصلی art |
-| public/ | ۱۶ art اصلی و فونت محلی |
+| public/ | ۱۷ art محلی (۱۶ raster + یک VectorDrawable برای Onboarding) و فونت محلی |
 | reference/ | عکس‌های مقایسه و خانه ارسالی؛ نمایش در اپ ممنوع |
 | scripts/ | sync، audit، بررسی اسناد و آزمون‌های آن |
 | cms/payload/ | پنل خصوصی Payload، workflow محتوا/صوت، release و audit؛ بدون اتصال مستقیم Android |
