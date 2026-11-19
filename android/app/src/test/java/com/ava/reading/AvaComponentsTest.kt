@@ -165,6 +165,7 @@ class AvaComponentsTest {
         ui.onNodeWithText("در حال بررسی…").assertIsNotEnabled()
         // Bottom-of-gallery items are composed but scrolled out of the window in mdpi-844dp.
         ui.onNodeWithText("۲ از ۶ مرحله").assertExists()
+        ui.onNodeWithText("تنظیمات").assertExists()
         ui.waitForIdle()
         ui.runOnIdle {
             val view=ui.activity.window.decorView
