@@ -36,5 +36,5 @@
 ## Git and delivery
 - Default to a `phase-<n>-<topic>` branch. Commit focused, reversible changes and push the working branch when authorized and available; never force-push.
 - Direct work or push to `main` requires the owner's explicit written approval for that exact scope. Keep the exception inside that scope; it does not authorize product or UX changes.
-- Source-only is the default. Create a versioned source ZIP only when the owner requests one or the task's acceptance/delivery explicitly requires it—not for every small cycle.
+- Source-only is the default. Create a versioned source ZIP only when the owner requests one or the task's acceptance/delivery explicitly requires it—not for every small cycle. Use `scripts/package-source.py`; inspect the archive and exclude secrets, caches, build outputs and APK/AAB.
 - Report in Persian: task and branch/commit, changed files, checks actually run, checks not run, blockers and the next action. Stop at the task boundary.
