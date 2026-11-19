@@ -108,7 +108,7 @@
 
 - انتقال پروتوتایپ وب از ریشه فعلاً متوقف است: `npm run check` شامل `npm run build` است، `index.html` ورودی `/src/main.tsx` دارد، `tsconfig.json` شامل `src` و `design` است و `public/` منبع مشترک Native و وب محسوب می‌شود. انتقال نیازمند تنظیم مستقل Vite/TypeScript و مسیر assetهاست.
 - `metadata.json` هنوز در ریشه حفظ شده است؛ نبود import در کد به‌تنهایی ثابت نمی‌کند فایل metadata پلتفرمی Google AI Studio دیگر لازم نیست.
-- `.env.example` ریشه صرفاً یادداشت no-secret برای پروتوتایپ وب است؛ اسکریپت بسته‌بندی سورس آن را عمداً در حالت fallback نگه می‌دارد. چون این مورد زیان یا تداخل اثبات‌شده‌ای ایجاد نمی‌کند، حذف نشد.
+- فایل ریشهٔ `.env.example` فقط دو خط توضیح بدون هیچ متغیر محیطی داشت و هیچ مصرف‌کننده‌ای در React/Native نداشت؛ حذف شد. نمونهٔ واقعی محیط CMS در `cms/payload/.env.example` حفظ شده و مسیر مستندشدهٔ راه‌اندازی CMS تغییر نکرد.
 - `scripts/check-docs.py` اکنون با snapshot فعلی هم‌راستاست و از `audit-project.py` اجرا می‌شود. `PROJECT_STATE.md` اعداد ۱۵۴ تست Kotlin و ۲۹۵ string resource را به‌صورت قابل‌خواندن نگه می‌دارد. `scripts/test-docs-check.py` شش آزمون helper دارد. unit testها در محیط موقت اجرا شدند (۶ پاس)، اما اجرای کامل روی checkout واقعی مخزن و لینک‌های همهٔ اسناد هنوز تأیید نشده است.
 - باقی‌ماندن کپی‌های `public/` و drawableهای Android مورد حذف نیست؛ این‌ها خروجی‌های sync هستند.
 
