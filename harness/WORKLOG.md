@@ -541,3 +541,11 @@ Next action:
 - Verification: دو اسکریپت فعلی در /tmp/ava-docs-check بازسازی شدند؛ python -m py_compile برای هر دو و python test-docs-check.py اجرا شد: ۶ آزمون، ۰ شکست. file discovery در Git شامل فایل‌های untracked غیرignored است و برای source ZIP فاقد .git نیز fallback دارد.
 - Not run: اجرای کامل check-docs.py در ریشه Git، audit-project.py، sync-android-resources.py --check، build وب، Gradle، Native tests و lint. این محیط clone/worktree مخزن را ندارد؛ بنابراین لینک‌ها، شمار واقعی test source و کل XML همین commit هنوز به‌صورت end-to-end اعتبارسنجی نشده‌اند.
 - Next action: اجرای python3 scripts/audit-project.py در checkout تمیز main روی ماشین مالک؛ سپس گزارش خطاهای احتمالی لینک/فهرست را اصلاح کن. پس از پاس‌شدن، ممیزی candidateها را ادامه بده؛ React/Vite و shared assets را بدون طرح مستقل جابه‌جا نکن.
+
+
+## ۲۰۲۶-۱۱-۱۹ — حذف نمونهٔ محیطی خالی از ریشه
+
+- Task ID: repo-hygiene-cleanup
+- Root .env.example فقط دو خط comment داشت؛ هیچ key/value یا تنظیم مصرف‌شده‌ای نداشت. جست‌وجوی کد برای VITE_/import.meta.env و بررسی process.env نشان داد مسیر environment واقعی فقط داخل CMS است و به نمونهٔ مستقل cms/payload/.env.example متکی است.
+- فایل ریشه حذف شد؛ نمونهٔ CMS و README آن حفظ شدند. هیچ secret یا متغیر محیطی حذف نشد.
+- Not run: build وب، CMS boot و audit کامل؛ این بررسی از خواندن فایل‌ها و جست‌وجوی reference در مخزن انجام شد.
