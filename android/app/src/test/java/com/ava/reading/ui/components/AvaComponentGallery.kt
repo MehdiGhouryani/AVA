@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
@@ -45,6 +47,7 @@ import com.ava.reading.ui.theme.AvaTheme
         Text("کارت‌ها و گزینه‌ها", color = AvaColors.deep, style = MaterialTheme.typography.titleMedium)
         AvaCard { Column(Modifier.padding(AvaSpacing.md)) { Text("کارت ساده", color = AvaColors.deep) } }
         AvaCard(onClick = {}, selected = true, stateDescription = "انتخاب‌شده") { Column(Modifier.padding(AvaSpacing.md)) { Text("کارت انتخاب‌شده", color = AvaColors.deep) } }
+        AvaMenuRow("تنظیمات", Icons.Outlined.Settings, {}, subtitle = "ترجیحات، راهنما و اطلاعات")
         AvaAnswerOption("آ", selected = false, onClick = {})
         AvaAnswerOption("ب", selected = true, onClick = {})
         AvaAnswerOption("واژهٔ چندحرفی", selected = false, onClick = {}, enabled = false, sublabel = "غیرفعال")
