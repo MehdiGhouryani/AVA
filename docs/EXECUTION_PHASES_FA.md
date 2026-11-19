@@ -89,7 +89,7 @@
 | P0.1 | ثبت DG-1 تا DG-4 | مالک | بخش «تصمیم‌ها» در `PROJECT_STATE.md` | هر DG یک گزینهٔ ثبت‌شده | G-human |
 | P0.2 | افزودن `CLAUDE.md`، `PROJECT_STATE.md` و skill (`.agents/skills/ava-app-engineering/SKILL.md`) | Claude | سه فایل در شاخه | `python3 scripts/harness.py validate` پاس؛ هش skillهای قفل‌شده دست‌نخورده | G-script |
 | P0.3 | رفع شکست audit طبق DG-4 | Claude | یک کامیت | `python3 scripts/audit-project.py` کامل پاس | G-script |
-| P0.4 | اگر DG-2=B: نوشتن `docs/adr/0004-...` و پیشنهاد تغییر ۴ وابستگی | Claude می‌نویسد، مالک تأیید می‌کند | ADR + diff روی `harness/roadmap.json` | `scripts/validate-harness.py` پاس؛ بدون چرخه | G-script + G-human |
+| P0.4 | اگر DG-2=B: نوشتن `docs/adr/0004-...` و پیشنهاد تغییر ۴ وابستگی | Claude می‌نویسد، مالک تأیید می‌کند | ADR + diff روی `harness/roadmap.json` | `python3 scripts/harness.py validate` پاس؛ بدون چرخه | G-script + G-human |
 | P0.5 | ثبت در WORKLOG | Claude | ورودی با فرمان‌های واقعاً اجراشده | — | G-script |
 
 **خروج:** audit سبز؛ تصمیم‌ها ثبت؛ هیچ تغییری در `android/` یا `design/content*`.

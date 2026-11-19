@@ -1,99 +1,66 @@
-# AVA — project state (knowledge file). Updated 2026-11-07.
+# وضعیت جاری پروژه AVA
 
-Read this first. If the owner's latest message disagrees with it, trust the owner and update the plan.
-This file replaces the earlier version that described the React web line (`AVA-Ui`, phase 2/3).
+**آخرین بازبینی:** ۲۰۲۶-۱۱-۱۹  
+**مخزن:** `MehdiGhouryani/AVA` · شاخهٔ اصلی: `main`
 
-## 1. Source of truth
-- Repo: `https://github.com/MehdiGhouryani/AVA.git`, branch `main`, HEAD `2f67ba8` (2026-11-06: merge of `061-audio-playback`, gate 143/0). Earlier agent branches `phase-0-v1-phasing` (PR #1, docs-only) and `phase-1-native-toolchain` (PR #2) were merged to `main` on 2026-11-06.
-- Product: **native Android**, Kotlin + Jetpack Compose, `android/`. Version 0.6.1, versionCode 16, minSdk 26, targetSdk 35.
-- `src/` (React) is a historical reference. `AGENTS.md` and the harness forbid expanding it.
-- `PAGES_PLAYBOOK.md` (React phase 3) is **superseded**. Do not run it. Its product ideas are kept as candidates (section 5).
-- `AVA-Ui` and its branch `phase-2-s04` were not found in `AVA.git`. Treat them as unrelated history unless the owner says otherwise.
+این فایل فقط snapshot عملیاتی کوتاه است. برای جزئیات و شواهد، اسناد canonical زیر را بخوانید؛ تاریخچهٔ آزمون‌ها در این فایل تکثیر نمی‌شود.
 
-## 2. Working contract (in the repo)
-Start from `ZCODE.md`, then `AGENTS.md`, `harness/roadmap.json`, the phase playbook in `harness/phases/`.
-```
+## هویت و منبع حقیقت
+
+- محصول اصلی: اپ Native Android با Kotlin و Jetpack Compose در `android/`.
+- `src/` و پیکربندی Vite در ریشه، پروتوتایپ تاریخی React هستند؛ آن‌ها را توسعه ندهید و صرفاً به دلیل تاریخی بودن حذف نکنید.
+- محتوای canonical: `design/content.fa.json`؛ متن: `design/strings.fa.json`؛ رنگ‌ها: `design/design_tokens.json`؛ فهرست artwork: `design/assets.manifest.json`.
+- منابع Android تولیدی‌اند؛ آن‌ها را دستی ویرایش نکنید. مرجع Sync: `scripts/sync-android-resources.py`.
+- CMS در `cms/payload/` یک پروژهٔ مستقل است؛ اپ Android مستقیماً به CMS، PostgreSQL یا S3 وصل نمی‌شود.
+
+## وضعیت قابل اتکا
+
+- نسخهٔ Native: **۰٫۶٫۱** · versionCode **۱۶** · minSdk **۲۶** · targetSdk **۳۵**.
+- دامنهٔ محتوای توسعه: ۱ سطح، ۳ واحد، ۶ درس، ۱۷ فعالیت، ۲ قصه و ۹ صفحه؛ `approvedForRelease=false`.
+- تعداد تست‌های Native در سورس: **۱۵۴**.
+- آخرین اجرای ثبت‌شدهٔ کامل Native در **۲۰۲۶-۱۱-۱۱**: **۱۵۴ تست، ۰ شکست، ۰ خطا** و `lintDebug` موفق.
+- پاک‌سازی‌های مخزن پس از آن، از جمله انتقال گالری به source set تست، هنوز با Gradle دوباره اجرا نشده‌اند؛ نتیجهٔ قبلی، تأیید این تغییرات جدید نیست.
+- CMS prototype: Payload، پنج collection و ۱۸ تست دامنه؛ اتصال واقعی DB/object storage هنوز اثبات نشده است.
+- صوت انسانی تحویل‌شده: **صفر**؛ inventory شامل ۲۲ نیاز صوتی است.
+
+## گیت‌ها و کارهای باز
+
+- `061-db-s3-integration`: آماده در هارنس؛ نیازمند محیط واقعی Docker/PostgreSQL/object storage.
+- `080-account-privacy-operations`: آماده در هارنس.
+- بازبین آموزشی، حقوق صوت و QA دسترس‌پذیری/دستگاه، گیت انسانی‌اند و عامل خودکار حق بستن آن‌ها را ندارد.
+- فازهای CMS و offline sync تا رفع dependencyهایشان مسدود می‌مانند.
+- حساب واقعی/SMS، متن حقوقی تأییدشده، تأیید آموزشی و QA دستگاه از آمادگی انتشار مستقل‌اند.
+
+## قواعد ثابت توسعه
+
+1. فارسی، RTL، Vazirmatn و artwork محلی هویت محصول‌اند؛ چهار شخصیت مجاز فقط آوا، خرگوش، سنجاب و روباه‌اند.
+2. پنل والد، تبلیغ، پرداخت، خرید سکه، lives، streak تنبیهی و خطای قرمز اضافه نشود.
+3. ورود فعلی mock تلفن/OTP است؛ سرویس پیامک واقعی یا دسترسی شبکه بدون تصمیم و مجوز صریح اضافه نشود.
+4. شناسه‌های lesson/task/audio پایدارند؛ تغییر یا حذف آن‌ها migration و validator می‌خواهد.
+5. UI فقط state/actions دریافت می‌کند؛ I/O و repository داخل Composable ممنوع است.
+6. خروجی پیش‌فرض source-only است. APK/AAB فقط با درخواست صریح مالک ساخته می‌شود.
+7. taskهای `blocked` یا `human_gate` را شروع یا دور نزنید؛ یک task آماده در هر چرخه، دقیقاً در `allowedPaths` خودش.
+8. شواهد را فقط با نتیجهٔ واقعاً اجراشده به‌روزرسانی کنید؛ Robolectric جای QA دستگاه واقعی نیست.
+
+## مسیر کار عامل‌ها
+
+ابتدا `AGENTS.md`، `ZCODE.md`، وضعیت در `docs/PROGRESS_FA.md` و `harness/roadmap.json` را بخوانید. سپس:
+
+```bash
 python3 scripts/harness.py validate
 python3 scripts/harness.py status
 python3 scripts/harness.py next
 ```
-One ready task per cycle. Obey its `readFirst`, `allowedPaths`, acceptance and gates. Log real results in `harness/WORKLOG.md`.
-Never start `blocked` or `human_gate` tasks. Never build APK/AAB unless the owner asks in that request. `testDebugUnitTest` and `lintDebug` are allowed.
 
-## 3. What exists (read in code unless marked ran)
-- 23 distinct `Route` values in `AvaViewModel.kt`: Splash, Onboarding 1/2, Phone, OTP, Home, LessonDetails, Lesson, Library, StoryDetails/Reader/Question/Complete, Practice, Progress, Profile, EditProfile, Settings, Help, About, Privacy, Terms, Album. `AvaApp.kt` renders them through 22 branches because Onboarding1/Onboarding2 share one branch.
-- Content (`design/content.fa.json`, schema v3): 1 level, 3 units, 6 lessons, 17 tasks (7 kinds), 2 stories (9 pages). `approvedForRelease=false`.
-- 154 tests exist in source (120 on `main` + 23 added on `phase-1-native-toolchain` / `061-audio-playback` — 3 more on 2026-11-06 for bundled local audio playback (PlayedLocal, non-bundled fallback, unopenable-file fallback), including 2 content-load regression tests, 2 snapshot/Match tests, MainActivity/AndroidNarrator tests, 2 all-kinds UI tests + 1 interaction test, 4 journey UI tests, 2 width UI tests, 1 empty-lesson rejection test, 1 back-during-success-delay login test, 1 confirm-slot position test, and 1 story-pages-empty rejection test; +11 on 2026-11-11 in `AvaComponentsTest` for the R01 design-system base components, including a rendered gallery snapshot). FIRST REAL RUN 2026-11-05 on the owner's Windows machine: 133 passed, 7 failed (all test-side bugs), `lintDebug` BUILD SUCCESSFUL. 6 of the 7 failures are fixed in this commit (double setContent in Widths/AllKinds, check-button scrollTo outside the scrollable column, wrong badge count 6-vs-4, wrong lesson for the word-builder test); the 7th (Journey login "component is not displayed") was root-caused with runtime semantics-tree diagnostics and fixed on 2026-11-06 (real-condition `waitUntil` instead of blind idle). Re-run 2026-11-06 after the playback increment: 143 passed, 0 failed; lintDebug BUILD SUCCESSFUL (needs _JAVA_OPTIONS=-Djava.net.preferIPv4Stack=true and -Pkotlin.compiler.execution.strategy=in-process on this machine). Formal completion 2026-11-07 on branch `061-native-toolchain-formal`: fresh `--rerun-tasks` gate (all 38 tasks re-executed) = 143 passed, 0 failed, lint BUILD SUCCESSFUL; `061-native-toolchain` marked completed in the harness.
-- 295 strings in generated resources (295 on `main`; no net change on this branch — `mock_hint` was removed and then restored per the owner's decision); 16 images.
-- CMS prototype (`cms/payload`): Payload 3.92.1, PostgreSQL, S3-compatible storage, 5 collections, 6 roles, 18 domain tests. Not run against a database.
-- Audio: 22 needs in `design/audio.inventory.json`; no delivered audio files yet. Since 2026-11-06 the app has a bundled human-audio playback path (`AndroidNarrator.play()` plays a delivered asset from `res/raw` via `BundledAudio.ids` and returns `PlayedLocal`; otherwise the previous TTS fallback, `Missing` + written hint when no voice). With an empty delivery the generated map is empty and behavior is unchanged fail-closed.
-- Art: 16 images in `design/assets.manifest.json`. No word pictures.
+فقط task آماده را مطابق playbook، `readFirst`، `allowedPaths`، acceptance و gateهای خودش اجرا کنید. نتیجهٔ واقعی در `harness/WORKLOG.md` ثبت شود.
 
-## 4. Verified on 2026-10-31 (ran, in a sandbox with no Android SDK; table shows `main` as cloned)
-| Check | Result |
-|---|---|
-| `scripts/harness.py validate` | passed, 14 tasks, 4 phases |
-| `scripts/validate-content-contract.py` | passed (3 units, 17 tasks) |
-| `scripts/validate-audio-inventory.py` | passed (22 assets, 12 prompts) |
-| `scripts/validate-harness.py` | passed |
-| `scripts/sync-android-resources.py --check` | passed (16 images, 263 strings) |
-| `scripts/audit-project.py` (and so `npm run check`) | **FAILS** on `main`: it expects 3 files under `.aistudio/artifacts/...` that the clean push removed. Fixed on branch `phase-0-align` (section 8) |
-Not run: Gradle, unit tests, lint, any device, the CMS server.
+## اسناد canonical
 
-## 5. Plan (phases)
-The precise plan, with steps, gates and risks, is `docs/EXECUTION_PHASES_FA.md`. This list is only a summary.
-0. Align: this file, `CLAUDE.md`, the skill, owner decisions in section 6.
-1. Prove the baseline: harness task `061-native-toolchain` on a machine with JDK 17, Android SDK 35, Gradle 8.11.1. Fix the `audit-project.py` failure first.
-2. Content truth (parallel): `061-educator-review` (human gate) using `docs/CURRICULUM_BLUEPRINT_FA.md` as the proposal.
-3. Child UX on a device: owner explicitly asks for a debug APK; run `docs/DEVICE_QA_FA.md`.
-4. Audio: `080-human-audio-rights`; then the CMS pipeline (`070-*`) or a simpler bundled-manifest path (owner decision).
-5. Offline sync (`071-*`): only if content must change after release.
-6. Release: `080-content-expansion`, `080-account-privacy-operations`, `080-device-accessibility-qa`, `080-release-readiness`.
-Candidates from the old playbook (need educator review before they are activities): bubble, match, find, album of discoveries, weekly flowers, companion colours.
+- وضعیت و پیشرفت/شواهد: `docs/PROGRESS_FA.md` و `docs/NATIVE_VERIFICATION.json`
+- نقشهٔ اسناد و معماری: `docs/README.md` و `docs/PROJECT_MAP_FA.md`
+- UX و طراحی: `docs/design/AVA_UX_DISCOVERY.md` و `docs/design/AVA_DESIGN_SYSTEM.md`
+- قواعد عامل: `AGENTS.md`، `CLAUDE.md`، `ZCODE.md`
+- فازها و قرارداد اجرا: `harness/roadmap.json` و `harness/phases/`
+- سوابق اجرا: `harness/WORKLOG.md`
 
-## 6. Open items that need a human
-- An educator for Persian early reading (gate `061-educator-review`). Nothing in the curriculum can be approved without a person.
-- A machine with JDK 17, Android SDK 35 and Gradle 8.11.1 (or a CI job) for `061-native-toolchain`. This sandbox has none of them.
-- Real SMS/account service, legal text for privacy and terms (needs a lawyer for the target market and child data), logo wordmark "اوا" versus "آوا".
-- Word pictures: no art exists. Version 1 stays text and letter shapes only unless the owner commissions art.
-
-## 7. Decisions already made (do not reopen without the owner)
-- Native Android is the product. Persian RTL, Vazirmatn, local art.
-- No parent panel, payment, ads, social features, red errors, punishing timers, lives or lost streaks.
-- Four characters only: Ava, bunny, squirrel, fox.
-- Source-only increments; APK/AAB only on explicit request.
-- Existing lesson and task IDs never change without migration and validator.
-- Decided 2026-11-01 (delegated to Claude; the owner may reverse any of these):
-  - `AVA` is the only repository; `AVA-Ui` is archived (DG-1).
-  - Track B: version 1 bundles content and audio; CMS and sync come after version 1. ADR-0004 is accepted and the four dependencies in `harness/roadmap.json` are changed (DG-2).
-  - Child screens use 64 dp targets and a 72 dp main CTA. Applied in phase 2; no code changed yet (DG-3).
-  - The stale `.aistudio` audit entries moved to `removedEntries` (DG-4).
-  - The "Checkbox والد" note in SCREEN_MATRIX 0.3.6 is a Compose accessibility term (the parent node of one toggleable row). The visible text is "حریم خصوصی و قوانین را می‌پذیرم"; no wording addressed to an adult. Closed.
-  - The vocabulary words بابا and مادر stay. The "no parent" rule covers UI, features and wording aimed at an adult, not everyday words children know. New curriculum avoids extra family words. The educator reviews the list.
-  - Version 1 has no word pictures.
-
-
-## 9. Phase 1 pre-work (branch `phase-1-baseline`)
-JVM-only partial check, not Gradle: `scripts/jvm-core-check/` compiles the pure Kotlin layers (`content`, `data`) with kotlinc 2.1.20 and runs ModelTest, ActivityEngineTest and ContentRepositoryTest with small stand-ins for JUnit and coroutines.
-First run found one real defect: `ModelTest.wordBuilderRequiresEveryTokenAndSupportsUndoAndCorrection` took `Catalog.lessons[2]`, which is now `edge_sounds_03` (choice tasks); the word builder is `words_03`. The test now selects the lesson by id.
-Result: before the fix 26 passed and 1 failed; after the fix 27 passed and 0 failed (kotlinc 2.1.20, JDK 21 runtime; run with `KOTLINC=<path> python3 scripts/jvm-core-check.py`). This does not replace `testDebugUnitTest`/`lintDebug`; AvaViewModelTest, LearnerPersistenceTest, AuthRepositoryTest and NativeUiTest are still unrun.
-
-## 10. Phase 2 and 3 progress (read in code unless marked ran)
-- P2.1 done: `docs/UX_CONFORMANCE_FA.md` (12 gaps). S2 (skip after two wrong answers) applied, reducer tests ran (29 passed, JVM-only). S1 (64 dp targets, 72 dp CTA) applied, not compiled.
-- P3.1 done: `docs/EDUCATOR_REVIEW_PACK_FA.md`, generated by `scripts/export-educator-pack.py` (`--check` detects staleness). It is a review form; nothing is approved.
-- Not built on purpose (owner, 2026-11-01): no app build or output for now. Gradle, Compose and every UI change stay unverified until phase 1.
-- Remaining P2.3: S3 (confirm dialogs), S4 (path current-node emphasis), S5 (reduced motion default).
-
-## 11. Owner priority 2026-11-02 and content infrastructure
-- Order now: all screens first, then content expansion; the stage content itself is postponed; the content infrastructure is built now. See `docs/COMPLETION_PLAN_FA.md`.
-- I1 done on branch `phase-4i-activity-kinds`: task kinds Find, Bubble, Match (registry, reducer, schema, validators, generator). Match may not ship in content until its renderer exists (`unrendered_kinds` in `validate-content-contract.py`).
-- I2 done: `migrate-content-v2-to-v3.py --check` now requires frozen v2 items to be preserved, not equality, so adding units/lessons no longer breaks the audit. Kotlin catalog tests no longer hard-code counts.
-- Progression logic done on branch `phase-2b-progression-logic`: `content/Progression.kt` (discoveries, path status, Saturday-to-Friday flower week, bounded active days) with `ProgressionTest` (6 tests, JVM-run). `Learner.activeDays` is persisted (DataStore key `active_days`, appended with a default so positional constructors still compile), recorded on lesson completion (not on review) and cleared by reset (branch `phase-2b-flowers-storage`, read in code; the new DataStore round-trip test has not run). UX improvements G1 to G3 (current path node, safe dialogs, system reduced motion), Ava reacting in feedback and a short discovery pop are written on branch `phase-2c-ux`, read in code only; `pathNodes` is JVM-tested. Renderers F1 to F3 (Find tiles, floating Bubble, face-up Match) and `flip`/`clearMismatch` in the ViewModel are written on branch `phase-2b-games`, read in code only; Match stays blocked in shipped content. Screens A to D (discovery card on the lesson result, `Route.Album`, flower week on Progress, path-end button on Home) are written on branch `phase-2b-ui-a`, read in code only.
-- Commands (all offline): `python3 scripts/test-activity-kinds.py`, `KOTLINC=<kotlinc 2.1.20> python3 scripts/jvm-core-check.py`, `python3 scripts/export-educator-pack.py --check`.
-
-## 12. Formal toolchain completion (2026-11-07, branch `061-native-toolchain-formal`)
-
-- Line-ending root cause: global `core.autocrlf=true` (`C:/Users/.../SPB_Data/.gitconfig`) converts LF blobs to CRLF in the Windows worktree, so byte-exact gates failed on this machine (`sync-android-resources.py --check` on the generated `Audio.kt`; pinned SHA-256 of `.agents/skills/ava-duolingo-learning/SKILL.md` in `audit-project.py`) while `git status` stayed clean. Fix (machine-local, no repo change): `git config --local core.autocrlf input` plus force re-materialization of exactly those two files from HEAD — a plain restore is a no-op because a CRLF worktree is clean after the clean filter, so the two files were deleted and re-checked out, byte-identical to the LF blobs. No `.gitattributes` was introduced; a repo-wide line-ending policy stays a separate task.
-- Harness runner on Windows: `run-gates 061-native-toolchain` fails with `FileNotFoundError: [WinError 2]` on `./gradlew` (extensionless bash script). Recorded as the exact failure; the Windows equivalent `gradlew.bat` with identical arguments was used and the runner itself was never claimed to pass.
-- Fresh gate 2026-11-07 (`--rerun-tasks`, all 38 tasks executed, 13 XML files): **143 tests, 0 failures, 0 errors**; lintDebug BUILD SUCCESSFUL. An earlier same-day invocation without `--rerun-tasks` was discarded as evidence because `testDebugUnitTest` stayed UP-TO-DATE with 2026-11-06 XMLs — old reports are not fresh evidence. `audit-project.py` passed (3 skill hashes, 10 design references, all validators).
-- Harness status: `061-native-toolchain` → completed; `080-account-privacy-operations` → ready (only dependency completed). `080-device-accessibility-qa` stays `human_gate` (it cannot be `ready` while automationAllowed=false per harness validation). CMS (`061-db-s3-integration`) stays deferred per ADR-0004; Docker Desktop and pnpm are not installed on this machine.
+**مجوز شاخه:** مالک در این گفتگو Push مستقیم به `main` را برای پاک‌سازی و نگهداری مخزن مجاز کرده است. این مجوز به‌تنهایی مجوز تغییرات محصول، طراحی یا انتشار نیست؛ دامنهٔ هر کار جدید باید مطابق درخواست مالک باشد.

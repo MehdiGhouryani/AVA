@@ -455,3 +455,15 @@ Next action:
 - روش بررسی: جست‌وجوی repo برای تمام ارجاعات `AvaComponentGallery`، بررسی package و imports؛ محتوای تابع گالری و helper بدون تغییر به source set تست منتقل شد.
 - Not run: `testDebugUnitTest` و `lintDebug`؛ ویرایش از GitHub API انجام شد و Gradle در این نشست اجرا نشد. هیچ نتیجه‌ای برای این گیت‌ها ادعا نمی‌شود.
 - Next action: اجرای `gradlew.bat testDebugUnitTest lintDebug` در محیط Android مالک؛ سپس ادامهٔ ممیزی فایل‌های کاندیدای حذف، بدون دست‌کاری فایل‌های canonical، مهارت‌های pinned یا منابع generated.
+
+
+## ۲۰۲۶-۱۱-۱۹ — ادغام وضعیت جاری و حذف wrapper اعتبارسنجی تکراری
+
+- Task ID: `repo-hygiene-cleanup` (نگهداری مخزن، خارج از roadmap محصول)
+- Baseline: `main` در `567ab4a35380e3bd3f7876add7c0bc48fd34326c`
+- `PROJECT_STATE.md` از snapshot قدیمی و چندبخشی ۱۳٫۸ کیلوبایتی به راهنمای عملیاتی کوتاه تبدیل شد؛ وضعیت جاری و آخرین شاهد Native از `docs/PROGRESS_FA.md` بازخوانی شد و سوابق جزئی در WORKLOG/verification باقی ماندند.
+- `scripts/validate-harness.py` فقط `assert_valid` و `task_index` را از همان ماژولی صدا می‌زد که `scripts/harness.py validate` استفاده می‌کند. فراخوانی audit به CLI canonical منتقل و wrapper تکراری حذف شد.
+- ارجاع جاری در `docs/V1_PHASING_FA.md` و `docs/EXECUTION_PHASES_FA.md` به دستور canonical تغییر کرد. ارجاعات داخل WORKLOG و NATIVE_VERIFICATION که شواهد تاریخی‌اند عمداً دست نخورده ماندند.
+- Files changed: `PROJECT_STATE.md`، `scripts/audit-project.py`، `docs/V1_PHASING_FA.md`، `docs/EXECUTION_PHASES_FA.md`، `harness/WORKLOG.md`؛ حذف `scripts/validate-harness.py`.
+- Not run: `scripts/harness.py validate`، `scripts/audit-project.py`، Gradle و CMS tests؛ این ویرایش از GitHub API انجام شد و محیط اجرای repo در این نشست در دسترس نبود.
+- Next action: در کلون محلی `python3 scripts/harness.py validate`، `python3 scripts/audit-project.py` و `python3 scripts/check-docs.py` اجرا شود؛ سپس پاک‌سازی کاندیداهای بعدی فقط بر پایهٔ مصرف واقعی انجام شود.
