@@ -314,7 +314,7 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - wrapperهای مشترک صفحه‌ها در `ui/screens/Components.kt` به کامپوننت‌های R01 وصل شدند: دکمهٔ اصلی/فرعی، SoftCard، Header، Menu و Feedback.
 - کامپوننت `AvaMenuRow` با هدف ۷۲dp، آیکون ۴۴dp، زیرعنوان اختیاری و semantics واحد اضافه شد. `AvaCard` نیز برای soft card امکان حذف border دارد.
 - artwork برداری اختصاصی قلعهٔ ابری در `public/ava-assets/decor/onboarding_glow_castle.xml` اضافه و از طریق manifest/Art به drawable Native نگاشت شد؛ در Onboarding 1 استفاده می‌شود.
-- آزمون `legacyScreenPrimitivesBridgeToTheFoundation` برای رگرسیون adapterها اضافه شد و `AvaMenuRow` نیز به Gallery ده‌کامپوننتی افزوده شد؛ تست‌ها در این نشست اجرا نشده‌اند.
+- آزمون `legacyScreenPrimitivesBridgeToTheFoundation` برای رگرسیون adapterها اضافه شد و `AvaMenuRow` در حالت فعال/غیرفعال به Gallery ده‌کامپوننتی افزوده شد؛ تست‌ها در این نشست اجرا نشده‌اند.
 - منطق route، auth mock، داده، reducer، محتوای درس و تمرین تغییر نکرد.
 - **اجرا نشد:** Gradle unit tests، lint، resource sync `--check` کامل، build و screenshot/device QA؛ checkout محلی کامل در این نشست موجود نیست. بررسی محتوایی و تطبیق mapping تولیدی `Art.kt` با generator انجام شده است.
 - Branch: `phase-062-r01-ui-foundation`; هنوز روی `main` ادغام نشده است.
