@@ -105,7 +105,7 @@
     ],
     "evidence": "Robolectric API35 native graphics; compact layouts at 320x560 and fontScale1.3; not device screenshots or golden comparisons",
     "includedPreviews": [
-      "docs/preview-0.3.2/home-fresh.png",
+      "docs/preview-0.3.1/home.png",
       "docs/preview-0.3.2/compact-review.png"
     ]
   },
