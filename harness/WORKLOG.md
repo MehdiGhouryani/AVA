@@ -531,3 +531,13 @@ Next action:
 - این تغییر فقط مستندات عامل‌هاست؛ Android، React، CMS، resource و task state تغییر نکردند.
 - Not run: Gradle، build وب، audit و docs checker. بازبینی محتوایی و پیوندهای فایل‌ها انجام شد؛ اجرای validator مستندات هنوز در این محیط ممکن نیست.
 - Next action: بازطراحی کوچک `check-docs.py` برای snapshot جدید `PROJECT_STATE.md` و سپس تصمیم دربارهٔ افزودن آن به `audit-project.py`، پس از فراهم‌شدن امکان اجرای واقعی validator.
+
+
+## ۲۰۲۶-۱۱-۱۹ — بازسازی و اتصال گیت بررسی اسناد
+
+- Task ID: repo-hygiene-cleanup
+- Baseline: main در 1d77ca6e8fdc9ad1c678a4a8915155a9d4045812.
+- Files changed: PROJECT_STATE.md (افزودن شمار ۲۹۵ string resource)، scripts/check-docs.py (parser snapshot فعلی، ارقام چندزبانه، شمارنده XML و نام‌های یکتا)، scripts/test-docs-check.py (۵ آزمون واحد)، scripts/audit-project.py (اجرای unit test و docs checker)، AGENTS.md (تفکیک skill مهندسی/یادگیری)، docs/PROJECT_MAP_FA.md، docs/REPOSITORY_HYGIENE_AUDIT_FA.md، docs/PROGRESS_FA.md و این WORKLOG.
+- Verification: محتوای دقیق دو اسکریپت از مخزن در /tmp/ava-docs-check بازسازی شد؛ python -m py_compile برای هر دو و python test-docs-check.py اجرا شد: ۵ آزمون، ۰ شکست.
+- Not run: اجرای کامل check-docs.py در ریشه Git، audit-project.py، sync-android-resources.py --check، build وب، Gradle، Native tests و lint. این محیط clone/worktree مخزن را ندارد؛ بنابراین لینک‌ها، شمار واقعی test source و کل XML همین commit هنوز به‌صورت end-to-end اعتبارسنجی نشده‌اند.
+- Next action: اجرای python3 scripts/audit-project.py در checkout تمیز main روی ماشین مالک؛ سپس گزارش خطاهای احتمالی لینک/فهرست را اصلاح کن. پس از پاس‌شدن، ممیزی candidateها را ادامه بده؛ React/Vite و shared assets را بدون طرح مستقل جابه‌جا نکن.
