@@ -521,3 +521,13 @@ Next action:
 - Not run: checkout واقعی روی Windows/Linux، `audit-project.py`، `sync-android-resources.py --check`، build وب و Gradle؛ GitHub API جایگزین آزمون worktree نیست.
 - یافتهٔ تکمیلی: انتقال کل پروتوتایپ React هنوز امن نیست؛ `npm run check`، `npm run build` را اجرا می‌کند، `index.html` ورودی `/src/main.tsx` دارد، TypeScript پوشه‌های `src` و `design` را می‌خواند و منابع `public/` با Native مشترک‌اند.
 - Next action: به‌روزرسانی `check-docs.py` برای قالب فعلی `PROJECT_STATE.md` پیش از ادغام آن در audit؛ فعلاً گیت اسناد مستقل باقی بماند.
+
+
+## ۲۰۲۶-۱۱-۱۹ — یکپارچه‌سازی قرارداد عامل‌ها
+
+- Task ID: `repo-hygiene-cleanup`
+- `AGENTS.md` اکنون مرجع canonical قواعد محصول و مهندسی است: محدودیت‌های مخاطب کودک، احراز mock، شخصیت‌ها، UI/Compose، touch target، CMS، شاخه، تست و تحویل صریح‌تر و یک‌جا ثبت شدند.
+- `CLAUDE.md` از تکرار قواعد محصول/اجرا کوتاه شد و فقط نقطهٔ ورود Claude و ترتیب شروع کار را نگه می‌دارد. `ZCODE.md` و `harness/ZCODE_SYSTEM_PROMPT_FA.md` حفظ شدند؛ اولی entrypoint کوتاه است و دومی پروتکل عملیاتی مستقل و کامل هارنس را ارائه می‌کند.
+- این تغییر فقط مستندات عامل‌هاست؛ Android، React، CMS، resource و task state تغییر نکردند.
+- Not run: Gradle، build وب، audit و docs checker. بازبینی محتوایی و پیوندهای فایل‌ها انجام شد؛ اجرای validator مستندات هنوز در این محیط ممکن نیست.
+- Next action: بازطراحی کوچک `check-docs.py` برای snapshot جدید `PROJECT_STATE.md` و سپس تصمیم دربارهٔ افزودن آن به `audit-project.py`، پس از فراهم‌شدن امکان اجرای واقعی validator.
