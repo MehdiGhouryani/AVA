@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Offline repository documentation and snapshot consistency checks."""
 from pathlib import Path
+import os
 import re
 import subprocess
 import sys
@@ -92,11 +93,12 @@ def tracked_files(root: Path = ROOT) -> list[str]:
         ".git", ".gradle", ".kotlin", ".next", "__pycache__",
         "build", "coverage", "dist", "node_modules", "venv", ".venv",
     }
-    return sorted(
-        path.relative_to(root).as_posix()
-        for path in root.rglob("*")
-        if path.is_file() and not any(part in ignored_dirs for part in path.relative_to(root).parts)
-    )
+    discovered = []
+    for current, directories, filenames in os.walk(root):
+        directories[:] = [name for name in directories if name not in ignored_dirs]
+        for filename in filenames:
+            discovered.append((Path(current) / filename).relative_to(root).as_posix())
+    return sorted(discovered)
 
 
 def main() -> int:
