@@ -269,10 +269,10 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 ## بروزرسانی ۲۰۲۶-۱۱-۱۹ — بازسازی گیت بررسی اسناد
 
 - `scripts/check-docs.py` با snapshot فعلی هماهنگ شد: شمار تست‌های Kotlin و تعداد string resourceهای Android را از منبع واقعی می‌خواند و با دو عدد ثبت‌شده در `PROJECT_STATE.md` مقایسه می‌کند. ارقام فارسی، عربی و انگلیسی پذیرفته می‌شوند؛ مقدار مفقود/تکراری، XML خراب و نام تکراری resource خطا هستند.
-- هفت آزمون واحد در `scripts/test-docs-check.py` اضافه شد و هر دو اسکریپت به `scripts/audit-project.py` افزوده شدند؛ بنابراین مسیر `npm run check` هم این گیت را اجرا خواهد کرد.
+- شش آزمون واحد در `scripts/test-docs-check.py` اضافه شد و هر دو اسکریپت به `scripts/audit-project.py` افزوده شدند؛ بنابراین مسیر `npm run check` هم این گیت را اجرا خواهد کرد.
 - `PROJECT_STATE.md` شمار resourceهای تولیدی (۲۹۵) را کنار تعداد تست‌های Native (۱۵۴) ثبت می‌کند. `docs/PROJECT_MAP_FA.md` نیز وظیفهٔ validator و آزمونش را نشان می‌دهد.
-- **اجراشده در محیط موقت:** `python -m py_compile` روی دو اسکریپت و `python scripts/test-docs-check.py -v` — هفت آزمون پاس شدند. فایل‌های آزمایش در پوشهٔ موقت از پیاده‌سازی بازسازی‌شده بر اساس سورس فعلی ساخته شدند؛ کشف فایل در Git فایل‌های untracked غیرignored را هم می‌بیند؛ fallback آرشیو با os.walk و prune پوشه‌های cache/build انجام می‌شود تا node_modules پیمایش نشود.
-- **اجرا نشد:** اجرای کامل `check-docs.py` روی checkout مخزن، `audit-project.py`، Sync منابع، build وب، Gradle و lint؛ چون در این نشست worktree کامل مخزن در دسترس نیست. پاس شدن هفت آزمون helper، معادل پاس شدن گیت کامل اسناد/مخزن نیست.
+- **اجراشده در محیط موقت:** `python -m py_compile` روی دو اسکریپت و `python scripts/test-docs-check.py` — شش آزمون پاس شدند. فایل‌های آزمایش در پوشهٔ موقت از پیاده‌سازی بازسازی‌شده بر اساس سورس فعلی ساخته شدند؛ کشف فایل در Git فایل‌های untracked غیرignored را هم می‌بیند؛ fallback آرشیو با os.walk و prune پوشه‌های cache/build انجام می‌شود تا node_modules پیمایش نشود.
+- **اجرا نشد:** اجرای کامل `check-docs.py` روی checkout مخزن، `audit-project.py`، Sync منابع، build وب، Gradle و lint؛ چون در این نشست worktree کامل مخزن در دسترس نیست. پاس شدن شش آزمون helper، معادل پاس شدن گیت کامل اسناد/مخزن نیست.
 
 
 ## بروزرسانی ۲۰۲۶-۱۱-۱۹ — حذف placeholder محیطی بلااستفاده
@@ -280,3 +280,10 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - فایل ریشهٔ `.env.example` فقط دو کامنت داشت و هیچ متغیر یا مقداری تعریف نمی‌کرد؛ جست‌وجوی مصرف نشان داد پروتوتایپ React و Native آن را نمی‌خوانند. حذف شد.
 - نمونهٔ واقعی CMS در `cms/payload/.env.example` و فرمان کپی آن در راهنمای CMS حفظ شد؛ `scripts/package-source.py` همچنان نمونه‌های محیطی واقعی را در بستهٔ سورس نگه می‌دارد.
 - هیچ secret یا مقدار پیکربندی حذف نشد؛ این تغییر فقط حذف یک placeholder خالی از ریشه بود.
+
+## بروزرسانی ۲۰۲۶-۱۱-۱۹ — دقیق‌سازی مرز پوشه‌های مستثنا در docs checker
+
+- تابع `is_skipped()` اکنون فقط مسیرهای دقیق و زیرشاخه‌های واقعی را مستثنا می‌کند؛ نام‌های مشابه مانند `docs/history-notes/` یا `docs/previewing/` دیگر اشتباهاً skip نمی‌شوند.
+- یک آزمون واحد برای مرز پوشه‌ها افزوده شد؛ مجموع آزمون‌های `scripts/test-docs-check.py` اکنون **۷** است.
+- **اجراشده در محیط موقت:** سورس دقیق checker و آزمون از GitHub در `/tmp/ava-cleanup-tests` بازسازی شد؛ `python -m py_compile` و `python test-docs-check.py -v` اجرا شدند: **۷ آزمون، ۰ شکست**.
+- اجرای کامل `check-docs.py` و `audit-project.py` روی clone مخزن، Sync منابع، build وب و Gradle هنوز انجام نشده‌اند.
