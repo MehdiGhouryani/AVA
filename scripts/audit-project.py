@@ -17,7 +17,7 @@ for s in json.loads((root/'.agents/skills.lock.json').read_text())['skills']:
 inventory=json.loads((root/'design/screen-references.audit.json').read_text())['files']
 reviewed={item['path'] for item in inventory}
 actual=set()
-for folder in [root/'reference',root/'public/assets/aistudio',root/'.aistudio']:
+for folder in [root/'reference',root/'public/assets/aistudio',root/'.aistudio',root/'docs/history/web-prototype/references']:
  for p in folder.rglob('*'):
   if p.is_file() and p.suffix.lower() in {'.png','.jpg','.jpeg','.webp'}:actual.add(p.relative_to(root).as_posix())
 assert actual==reviewed,('Unreviewed or removed design references',actual^reviewed)
