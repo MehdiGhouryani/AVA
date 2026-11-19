@@ -37,6 +37,12 @@ class DocsCheckTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             check_docs.extract_snapshot_count(state, "تعداد تست‌های Native در سورس")
 
+    def test_skip_paths_respect_directory_boundaries(self):
+        self.assertTrue(check_docs.is_skipped("docs/history/old.md"))
+        self.assertTrue(check_docs.is_skipped(".agents/skills/ui/SKILL.md"))
+        self.assertFalse(check_docs.is_skipped("docs/history-notes/current.md"))
+        self.assertFalse(check_docs.is_skipped("docs/previewing/current.md"))
+
     def test_count_test_annotations(self):
         self.assertEqual(
             check_docs.count_test_annotations(["@Test fun first() {}", "fun helper() {}\n@Test"]),
