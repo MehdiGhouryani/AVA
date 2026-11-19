@@ -287,3 +287,11 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - یک آزمون واحد برای مرز پوشه‌ها افزوده شد؛ مجموع آزمون‌های `scripts/test-docs-check.py` اکنون **۷** است.
 - **اجراشده در محیط موقت:** سورس دقیق checker و آزمون از GitHub در `/tmp/ava-cleanup-tests` بازسازی شد؛ `python -m py_compile` و `python test-docs-check.py -v` اجرا شدند: **۷ آزمون، ۰ شکست**.
 - اجرای کامل `check-docs.py` و `audit-project.py` روی clone مخزن، Sync منابع، build وب و Gradle هنوز انجام نشده‌اند.
+
+
+## بروزرسانی ۲۰۲۶-۱۱-۱۹ — انتقال اسکرین‌شات‌های تاریخی از public به آرشیو
+
+- سه PNG مربوط به اسکرین‌شات مرورگر پروتوتایپ AI Studio از `public/assets/aistudio/` به `docs/history/web-prototype/references/` منتقل شدند؛ محتوا/Blob SHA هر سه فایل بدون تغییر حفظ شد.
+- حجم خارج‌شده از `public/`: **۲٬۵۳۴٬۷۲۴ بایت**. این تصاویر هیچ مصرف‌کننده‌ای در کد وب/Native نداشتند و فقط در manifest ممیزی ثبت شده بودند؛ اکنون از خروجی قابل‌انتشار Vite جدا هستند.
+- مسیرهای `design/screen-references.audit.json` به‌روز شد، `scripts/audit-project.py` پوشهٔ آرشیو را هم برای کنترل ابعاد و hash بررسی می‌کند و README آرشیو نقش این سه مرجع را توضیح می‌دهد.
+- اجرا/اعتبارسنجی: مقایسهٔ Blob SHA مبدأ و مقصد در Git Data API برابر بود. **اجرا نشد:** build وب، `audit-project.py`، Sync منابع، Gradle و lint؛ این تغییر هنوز end-to-end روی checkout واقعی اجرا نشده است.
