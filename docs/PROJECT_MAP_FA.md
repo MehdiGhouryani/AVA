@@ -15,7 +15,7 @@
 | design/ | متن، محتوای v3، release/audio schema، fixture مهاجرت، توکن و manifest اصلی art |
 | public/ | ۱۶ art اصلی و فونت محلی |
 | reference/ | عکس‌های مقایسه و خانه ارسالی؛ نمایش در اپ ممنوع |
-| scripts/ | sync و audit و کنترل خروجی |
+| scripts/ | sync، audit، بررسی اسناد و آزمون‌های آن |
 | cms/payload/ | پنل خصوصی Payload، workflow محتوا/صوت، release و audit؛ بدون اتصال مستقیم Android |
 | harness/ | نقشه ماشین‌خوان فازهای باقی‌مانده، playbook، CLI امن و worklog عامل‌های کدنویسی |
 | .agents/ | سه مهارت و lock منابع |
