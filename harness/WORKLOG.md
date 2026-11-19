@@ -558,3 +558,12 @@ Next action:
 - Verification روی محتوای دقیق commitهای فعلی: بازسازی در `/tmp/ava-cleanup-tests`، `python -m py_compile` روی هر دو فایل، `python test-docs-check.py -v` → **۷ passed، ۰ failed**.
 - مستندات اجرایی به‌روز شدند: ۱۰۴ تست و خطای قدیمی `.aistudio` به‌عنوان وضعیت تاریخی اصلاح شد؛ audit references اکنون از `removedEntries` استفاده می‌کند؛ آخرین گیت Native مستند ۱۵۴/۰ در ۲۰۲۶-۱۱-۱۱ باقی ماند.
 - Not run: اجرای کامل docs checker، `audit-project.py`، Sync منابع، build وب، Gradle و lint روی clone واقعی.
+
+
+## ۲۰۲۶-۱۱-۱۹ — انتقال PNGهای تاریخی از public به آرشیو
+
+- Task ID: repo-hygiene-cleanup
+- سه فایل `public/assets/aistudio/image_6d57375c.png`، `image_d0b83b38.png` و `image_f907e9b9.png` به `docs/history/web-prototype/references/` منتقل شدند. جست‌وجوی نام فایل در مخزن فقط manifest ممیزی را به‌عنوان مصرف نشان داد؛ در کد React/Native reference مستقیمی وجود نداشت.
+- انتقال با Git Data API انجام شد؛ Blob SHA هر فایل قبل و بعد یکسان بود. مجموع payload از public حذف‌شده: **۲٬۵۳۴٬۷۲۴ بایت**.
+- `design/screen-references.audit.json` مسیرها را اصلاح کرد؛ `scripts/audit-project.py` پوشهٔ آرشیو تازه را در inventory واقعی می‌بیند؛ README آرشیو توضیح می‌دهد این تصاویر مرجع تاریخی‌اند.
+- Not run: build Vite، `audit-project.py` کامل، Sync منابع، Gradle، Native tests و lint. برابری Blob SHA و مسیرهای فایل در GitHub بررسی شد؛ گیت محلی کامل باقی است.
