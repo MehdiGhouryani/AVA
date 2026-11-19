@@ -538,7 +538,7 @@ Next action:
 - Task ID: repo-hygiene-cleanup
 - Baseline: main در 1d77ca6e8fdc9ad1c678a4a8915155a9d4045812.
 - Files changed: PROJECT_STATE.md (افزودن شمار ۲۹۵ string resource)، scripts/check-docs.py (parser snapshot فعلی، ارقام چندزبانه، شمارنده XML و نام‌های یکتا)، scripts/test-docs-check.py (۶ آزمون واحد)، scripts/audit-project.py (اجرای unit test و docs checker)، AGENTS.md (تفکیک skill مهندسی/یادگیری)، docs/PROJECT_MAP_FA.md، docs/REPOSITORY_HYGIENE_AUDIT_FA.md، docs/PROGRESS_FA.md و این WORKLOG.
-- Verification: دو اسکریپت فعلی در /tmp/ava-docs-check بازسازی شدند؛ python -m py_compile برای هر دو و python test-docs-check.py اجرا شد: ۶ آزمون، ۰ شکست. file discovery در Git شامل فایل‌های untracked غیرignored است و برای source ZIP فاقد .git نیز fallback دارد.
+- Verification: دو اسکریپت فعلی در /tmp/ava-docs-check بازسازی شدند؛ python -m py_compile برای هر دو و python test-docs-check.py اجرا شد: ۶ آزمون، ۰ شکست. file discovery در Git شامل فایل‌های untracked غیرignored است و برای source ZIP فاقد .git نیز fallback دارد؛ fallback با os.walk پوشه‌های ignored مثل node_modules را پیش از descent حذف می‌کند. پس از این اصلاح، py_compile و هر ۶ unit test دوباره اجرا شدند و پاس شدند.
 - Not run: اجرای کامل check-docs.py در ریشه Git، audit-project.py، sync-android-resources.py --check، build وب، Gradle، Native tests و lint. این محیط clone/worktree مخزن را ندارد؛ بنابراین لینک‌ها، شمار واقعی test source و کل XML همین commit هنوز به‌صورت end-to-end اعتبارسنجی نشده‌اند.
 - Next action: اجرای python3 scripts/audit-project.py در checkout تمیز main روی ماشین مالک؛ سپس گزارش خطاهای احتمالی لینک/فهرست را اصلاح کن. پس از پاس‌شدن، ممیزی candidateها را ادامه بده؛ React/Vite و shared assets را بدون طرح مستقل جابه‌جا نکن.
 
