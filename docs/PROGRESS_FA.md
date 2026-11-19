@@ -270,7 +270,7 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - شش آزمون واحد در `scripts/test-docs-check.py` اضافه شد و هر دو اسکریپت به `scripts/audit-project.py` افزوده شدند؛ بنابراین مسیر `npm run check` هم این گیت را اجرا خواهد کرد.
 - `PROJECT_STATE.md` شمار resourceهای تولیدی (۲۹۵) را کنار تعداد تست‌های Native (۱۵۴) ثبت می‌کند. `docs/PROJECT_MAP_FA.md` نیز وظیفهٔ validator و آزمونش را نشان می‌دهد.
 - **اجراشده در محیط موقت:** `python -m py_compile` روی دو اسکریپت و `python scripts/test-docs-check.py` — شش آزمون پاس شدند. فایل‌های آزمایش در پوشهٔ موقت از پیاده‌سازی بازسازی‌شده بر اساس سورس فعلی ساخته شدند؛ کشف فایل در Git فایل‌های untracked غیرignored را هم می‌بیند و source ZIP بدون .git هم مسیر fallback دارد.
-- **اجرا نشد:** اجرای کامل `check-docs.py` روی checkout مخزن، `audit-project.py`، Sync منابع، build وب، Gradle و lint؛ چون در این نشست worktree کامل مخزن در دسترس نیست. پاس شدن پنج آزمون helper، معادل پاس شدن گیت کامل اسناد/مخزن نیست.
+- **اجرا نشد:** اجرای کامل `check-docs.py` روی checkout مخزن، `audit-project.py`، Sync منابع، build وب، Gradle و lint؛ چون در این نشست worktree کامل مخزن در دسترس نیست. پاس شدن شش آزمون helper، معادل پاس شدن گیت کامل اسناد/مخزن نیست.
 
 
 ## بروزرسانی ۲۰۲۶-۱۱-۱۹ — حذف placeholder محیطی بلااستفاده
