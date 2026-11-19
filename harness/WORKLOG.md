@@ -467,3 +467,14 @@ Next action:
 - Files changed: `PROJECT_STATE.md`، `scripts/audit-project.py`، `docs/V1_PHASING_FA.md`، `docs/EXECUTION_PHASES_FA.md`، `harness/WORKLOG.md`؛ حذف `scripts/validate-harness.py`.
 - Not run: `scripts/harness.py validate`، `scripts/audit-project.py`، Gradle و CMS tests؛ این ویرایش از GitHub API انجام شد و محیط اجرای repo در این نشست در دسترس نبود.
 - Next action: در کلون محلی `python3 scripts/harness.py validate`، `python3 scripts/audit-project.py` و `python3 scripts/check-docs.py` اجرا شود؛ سپس پاک‌سازی کاندیداهای بعدی فقط بر پایهٔ مصرف واقعی انجام شود.
+
+
+## ۲۰۲۶-۱۱-۱۹ — رفع تعارض سیاست شاخه در راهنمای عامل‌ها
+
+- Task ID: `repo-hygiene-cleanup` (نگهداری قرارداد عامل‌ها)
+- Baseline: `main` در `3fd3ea8dc64d3e1fdadca0a9e8fa7a027ff5b32d`
+- در `PROJECT_STATE.md` مجوز مکتوب مالک برای Push مستقیم به `main` در محدودهٔ پاک‌سازی ثبت شده است؛ skill داخلی AVA هنوز «هرگز روی main کار نکن» می‌گفت. هر دو دستور به حالت پیش‌فرض branch و استثنای محدودِ مجوز مکتوب برای همان scope یکسان شدند.
+- `ava-app-engineering` در `.agents/skills.lock.json` فهرست نشده است؛ مهارت‌های شخص ثالث و hash/license آن‌ها تغییر نکردند.
+- Files changed: `CLAUDE.md`، `.agents/skills/ava-app-engineering/SKILL.md`، این WORKLOG.
+- Not run: validatorها و تست‌ها؛ فقط متن راهنمای عامل تغییر کرد.
+- Next action: ادامهٔ ممیزی حذف فایل‌های بلااستفاده؛ پس از پایان این دور، اجرای validatorها و native tests در کلون محلی مالک.

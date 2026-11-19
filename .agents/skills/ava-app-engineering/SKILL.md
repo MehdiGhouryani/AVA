@@ -9,7 +9,7 @@ Replaces the React-era version. Where `AGENTS.md`, `harness/roadmap.json` or a p
 
 ## 1. Start every task this way
 1. Read `PROJECT_STATE.md`, `AGENTS.md`, `ZCODE.md`.
-2. Run `git status` and `git branch --show-current`. Never work on `main`.
+2. Run `git status` and `git branch --show-current`. Use a phase branch by default. Work directly on `main` only when the owner explicitly authorizes that exact scope in writing; do not generalize the exception to other work.
 3. Run `python3 scripts/harness.py validate`; if it fails, change nothing. Then `next` (or the task the owner names) and `task <ID>`.
 4. Never start a `blocked` or `human_gate` task.
 5. Write a short plan. Each step has its check: `step -> verify: <script | test | lint | screenshot>`.
@@ -70,7 +70,7 @@ For any claim about how children learn, cite a source you have read, or label it
 5. Record real results in `harness/WORKLOG.md` and `docs/PROGRESS_FA.md`.
 
 ## 7. Git
-- One branch per phase from the base the owner names: `phase-<n>-<topic>`.
+- Default: one branch per phase from the base the owner names (`phase-<n>-<topic>`). A written owner authorization may permit direct `main` work for a narrowly named maintenance scope; stay inside it and do not force-push.
 - Commit `feat(<id>): <title>` with a body of what changed and what ran. Stage only the task's files.
 - Push the branch. If refused, write `git format-patch` and `git bundle` files and report their paths. Never force-push. Never delete what the task does not name.
 

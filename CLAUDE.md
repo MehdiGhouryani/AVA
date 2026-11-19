@@ -20,7 +20,7 @@ AVA (آوا) is a Persian early-reading app for children aged 4 to 7. The produc
 9. Content stays `approvedForRelease=false` until a human approves it. Never write "approved" in the UI.
 10. Do not build APK/AAB unless the owner asks in that request. `testDebugUnitTest` and `lintDebug` are allowed.
 11. Never run a `blocked` or `human_gate` harness task. Never fake approval or mark unexecuted evidence as passed.
-12. Never commit to, push to or merge into `main` without the owner's written approval. Work on a branch `phase-<n>-<topic>`.
+12. Use a `phase-<n>-<topic>` branch by default. Commit/push/merge directly to `main` only when the owner gives explicit written approval for the exact scope; keep any exception within that scope.
 
 ## Working method
 - Pick exactly one ready task. Touch only its `allowedPaths`.
