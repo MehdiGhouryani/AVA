@@ -109,6 +109,10 @@ enum class AvaButtonStyle { Primary, Secondary, Tertiary }
     enabled: Boolean = true,
     stateDescription: String? = null
 ) {
+    val rowColor = if (enabled) AvaColors.surface else AvaColors.disabled
+    val titleColor = if (enabled) AvaColors.deep else AvaColors.disabledText
+    val supportingColor = if (enabled) AvaColors.soft else AvaColors.disabledText
+    val iconColor = if (enabled) AvaColors.green else AvaColors.disabledText
     val accessible = modifier.semantics(mergeDescendants = true) {
         role = Role.Button
         if (stateDescription != null) this.stateDescription = stateDescription
@@ -118,7 +122,7 @@ enum class AvaButtonStyle { Primary, Secondary, Tertiary }
         modifier = accessible.fillMaxWidth().heightIn(min = 72.dp),
         enabled = enabled,
         shape = RoundedCornerShape(AvaShapes.large),
-        color = AvaColors.surface,
+        color = rowColor,
         tonalElevation = 0.dp,
         shadowElevation = AvaElevation.flat,
         border = BorderStroke(1.dp, AvaColors.line)
@@ -134,19 +138,19 @@ enum class AvaButtonStyle { Primary, Secondary, Tertiary }
                 color = AvaColors.cream
             ) {
                 Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Icon(icon, null, tint = AvaColors.green, modifier = Modifier.size(22.dp))
+                    Icon(icon, null, tint = iconColor, modifier = Modifier.size(22.dp))
                 }
             }
             Column(
                 Modifier.weight(1f),
                 verticalArrangement = Arrangement.spacedBy(AvaSpacing.xxs)
             ) {
-                Text(title, style = MaterialTheme.typography.titleSmall, color = AvaColors.deep)
+                Text(title, style = MaterialTheme.typography.titleSmall, color = titleColor)
                 if (subtitle != null) {
-                    Text(subtitle, style = MaterialTheme.typography.bodySmall, color = AvaColors.soft)
+                    Text(subtitle, style = MaterialTheme.typography.bodySmall, color = supportingColor)
                 }
             }
-            Icon(Icons.Outlined.ChevronLeft, null, tint = AvaColors.muted, modifier = Modifier.size(22.dp))
+            Icon(Icons.Outlined.ChevronLeft, null, tint = supportingColor, modifier = Modifier.size(22.dp))
         }
     }
 }
