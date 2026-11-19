@@ -9,6 +9,7 @@
 | RESEARCH_FA.md | پژوهش اولیه و تصمیم‌های اجرایی |
 | SKILLS.md | منابع pinned، روش استفاده و تقدم قواعد AVA |
 | PROJECT_MAP_FA.md | ساختار منابع، داده، ذخیره، state و UI |
+| REPOSITORY_HYGIENE_AUDIT_FA.md | ممیزی ساختار مخزن، موارد قابل حفظ و برنامهٔ پاک‌سازی مرحله‌ای |
 | NATIVE_VERIFICATION.json | نتایج واقعی همین بازسازی، هش و وضعیت آزمون دستگاه |
 | DEVICE_QA_FA.md | چک‌لیست باز دستگاه و انتشار |
 | TEST_STRATEGY_FA.md | لایه‌های آزمون، ماتریس UI و قواعد شواهد |
