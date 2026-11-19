@@ -567,3 +567,18 @@ Next action:
 - انتقال با Git Data API انجام شد؛ Blob SHA هر فایل قبل و بعد یکسان بود. مجموع payload از public حذف‌شده: **۲٬۵۳۴٬۷۲۴ بایت**.
 - `design/screen-references.audit.json` مسیرها را اصلاح کرد؛ `scripts/audit-project.py` پوشهٔ آرشیو تازه را در inventory واقعی می‌بیند؛ README آرشیو توضیح می‌دهد این تصاویر مرجع تاریخی‌اند.
 - Not run: build Vite، `audit-project.py` کامل، Sync منابع، Gradle، Native tests و lint. برابری Blob SHA و مسیرهای فایل در GitHub بررسی شد؛ گیت محلی کامل باقی است.
+
+
+## ۲۰۲۶-۱۱-۱۹ — مرحلهٔ دوم بهینه‌سازی قوانین عامل‌ها
+
+- Task ID: `repo-hygiene-cleanup` (محدودهٔ مستندات و قرارداد عامل‌ها)
+- Baseline: `main` در `55174af64f353f28aaa272f49d87a86f35111f74`.
+- مالکیت قواعد تفکیک شد: `AGENTS.md` قرارداد canonical؛ `roadmap.json` صاحب status/dependency/allowedPaths/gates؛ playbook و `readFirst` جزئیات task؛ skillهای AVA فقط راهنمای تخصصی؛ `CLAUDE.md` و `ZCODE.md` صرفاً entrypoint.
+- توالی Harness در ورودی‌ها یکسان شد: `validate` → `status` → `next` (مگر task ID مشخص مالک) → `task <ID>`. شرایط automationAllowed، status مجاز و dependencyهای تکمیل‌شده صریح شد.
+- تضاد touch target رفع شد: ۶۴dp برای کودک، CTA برابر ۷۲dp و حداقل ۴۸dp فقط برای فرم‌های بزرگسال.
+- تحویل ZIP از الزام هر چرخه خارج شد؛ فقط در درخواست مالک یا معیار تحویل task، با `scripts/package-source.py` و حذف secret/cache/build/APK/AAB.
+- مهارت‌های داخلی مهندسی و یادگیری از تکرار workflow و قواعد سراسری پاک شدند؛ چک‌لیست تخصصی UX کودک، اصول curriculum و معیار human review حفظ شدند. مهارت‌های ثالث و lock/hash آن‌ها تغییر نکردند.
+- Files changed: `AGENTS.md`، `CLAUDE.md`، `ZCODE.md`، `harness/ZCODE_SYSTEM_PROMPT_FA.md`، دو skill داخلی AVA، `PROJECT_STATE.md`، `docs/SKILLS.md` و این WORKLOG.
+- Verification: بازخوانی فایل‌های تغییرکرده از شاخهٔ `main` و تطبیق ارجاع‌ها/ترتیب فرمان‌ها؛ کد محصول، roadmap taskها و فایل‌های skill ثالث تغییر نکردند.
+- Not run: `harness.py validate`، `audit-project.py`، docs checker، build وب، Sync منابع، Gradle، Native tests و lint؛ محیط این نشست clone/worktree قابل‌اجرا ندارد.
+- Next action: روی checkout تازه، `python3 scripts/harness.py validate` و `python3 scripts/audit-project.py` اجرا شوند؛ در صورت عبور، task بعدی را فقط با `next` انتخاب کن.
