@@ -615,7 +615,7 @@ Next action:
 
 ## ۲۰۲۶-۱۱-۱۹ — Entry/Auth UI، برش دوم
 
-- Task ID: `062-entry-auth-ui` (roadmap: in_progress)
+- Task ID: `062-entry-auth-ui` (roadmap: blocked؛ dependency `062-uiux-foundation` هنوز تکمیل نشده است)
 - Branch: `phase-062-r02-entry-auth-ui`
 - Baseline: `phase-062-r01-ui-foundation` @ `01e0576ff572b77abc4c1a2b38e2edefc9afbd01`
 - Scope: Onboarding responsive scroll + Phone form hierarchy/width + OTP hero/panel proportions; no auth behavior changes.
@@ -624,5 +624,5 @@ Next action:
 - Safety/invariants: متن ورود آزمایشی حفظ شده؛ phone/OTP actions، validation، consent action، timer، focus request، route و ViewModel دست‌نخورده مانده‌اند. Lesson/Practice و content تغییر نکرده‌اند.
 - Regression test source: یک تست Journey برای مسیر Onboarding → Phone → OTP با viewport برابر 390×640dp و fontScale=1.3 افزوده شد؛ تست اجرا نشده است.
 - Checks performed: بازخوانی سورس‌های مبنا، بررسی APIهای استفاده‌شده در R01 و بررسی ایستای diff/anchorها.
-- Not run: Gradle tests، lint، resource sync، audit-project، screenshot/device QA. وضعیت task عمداً `in_progress` است تا اجرای گیت‌ها روی checkout واقعی ثبت شود.
-- Next: اجرای گیت‌های task در محیط clone؛ رفع خطاهای واقعی پیش از تکمیل task یا شروع برش Home/Navigation.
+- Not run: Gradle tests، lint، resource sync، audit-project، screenshot/device QA. به‌دلیل تکمیل‌نشدن dependency یعنی `062-uiux-foundation`، task جدید طبق قرارداد Harness در وضعیت `blocked` قرار گرفت؛ کد این شاخه پیش‌نویس باقی می‌ماند و تا عبور گیت Foundation نباید فعال یا ادغام شود.
+- Next: ابتدا گیت‌های `062-uiux-foundation` را روی checkout واقعی اجرا و همان task را تکمیل کن؛ سپس این برش را از حالت blocked خارج و گیت‌های خودش را اجرا کن.
