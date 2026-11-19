@@ -90,3 +90,28 @@
 - Combined Status برای HEAD ممیزی: خالی.
 
 این داده‌ها نشان می‌دهند مسیر نوشتن مستقیم روی `main` از نظر مجوز اتصال و metadata شاخه مهیاست؛ با این حال، تا ثبت و تأیید commit واقعی، نباید آن را push عملیِ آزمایش‌شده نامید.
+
+
+## ۷. الحاقیهٔ وضعیت پس از پاک‌سازی ۲۰۲۶-۱۱-۱۹
+
+این گزارش در بخش‌های ۱ تا ۶ snapshot زمان commit `86c9862dc765353f046daacca36ac5b55b8d2373` باقی می‌ماند؛ اعداد و وضعیت آن baseline تاریخی‌اند، نه آمار لحظه‌ای مخزن.
+
+### موارد تکمیل‌شده پس از baseline
+
+- `PROJECT_STATE.md` به snapshot عملیاتی کوتاه تبدیل شد؛ وضعیت جزئی و شواهد در `docs/PROGRESS_FA.md` و `docs/NATIVE_VERIFICATION.json` باقی مانده‌اند.
+- اسناد اولیهٔ React/Google AI Studio از ریشه به `docs/history/web-prototype/` منتقل شدند؛ منابع مشترک و کد `src/` عمداً جابه‌جا نشدند.
+- گالری صرفاً تستی از فایل production به source set تست منتقل شد؛ تست Gradle بعد از این جابه‌جایی اجرا نشده است.
+- wrapper تکراری `scripts/validate-harness.py` حذف و فراخوانی‌ها به `scripts/harness.py validate` منتقل شدند.
+- `.gitattributes` در commit `4b6b1edc86c42a2bf2c0ff7c6ffe52bbdf0d849f` اضافه شد. سه blob مهارت pinned و blob فایل generated `Catalog.kt` با parent مقایسه و بدون تغییر بودند؛ هیچ renormalization سراسری انجام نشد.
+
+### تصمیم‌های بازبینی تازه
+
+- انتقال پروتوتایپ وب از ریشه فعلاً متوقف است: `npm run check` شامل `npm run build` است، `index.html` ورودی `/src/main.tsx` دارد، `tsconfig.json` شامل `src` و `design` است و `public/` منبع مشترک Native و وب محسوب می‌شود. انتقال نیازمند تنظیم مستقل Vite/TypeScript و مسیر assetهاست.
+- `metadata.json` هنوز در ریشه حفظ شده است؛ نبود import در کد به‌تنهایی ثابت نمی‌کند فایل metadata پلتفرمی Google AI Studio دیگر لازم نیست.
+- `.env.example` ریشه صرفاً یادداشت no-secret برای پروتوتایپ وب است؛ اسکریپت بسته‌بندی سورس آن را عمداً در حالت fallback نگه می‌دارد. چون این مورد زیان یا تداخل اثبات‌شده‌ای ایجاد نمی‌کند، حذف نشد.
+- `scripts/check-docs.py` هنوز مستقل است. منطق فعلی آن با قالب قدیمی `PROJECT_STATE.md` کار می‌کند و regexهایی برای عبارت‌های انگلیسی `tests exist in source` و `strings in generated resources` دارد؛ snapshot فعلی این قالب را ندارد. قبل از افزودن به `audit-project.py` باید خود validator به مدل فعلی وضعیت و منبع canonical شمارها تطبیق یابد.
+- باقی‌ماندن کپی‌های `public/` و drawableهای Android مورد حذف نیست؛ این‌ها خروجی‌های sync هستند.
+
+### محدودیت شواهد این الحاقیه
+
+این بررسی از خواندن فایل‌ها و مقایسهٔ blobهای GitHub انجام شده است. checkout ویندوز/لینوکس، audit محلی، build وب، Gradle، تست Native و lint در این مرحله اجرا نشده‌اند. آخرین شاهد اجرای کامل Native همچنان اجرای ۲۰۲۶-۱۱-۱۱ است و نباید به این commitها تعمیم داده شود.
