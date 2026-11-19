@@ -500,3 +500,13 @@ Next action:
 - Files changed: `design/assets.manifest.json`، `docs/PROGRESS_FA.md`، این WORKLOG.
 - Not run: `sync-android-resources.py --check`، `audit-project.py`، Gradle؛ محیط محلی در دسترس نبود.
 - Next action: ممیزی string/resource usage و سپس بررسی نهایی ساختار root و scripts.
+
+
+## ۲۰۲۶-۱۱-۱۹ — بررسی رشته‌ها و منابع تولیدی
+
+- Task ID: `repo-hygiene-cleanup`
+- Baseline: `main` در `df6461dfdcf51b7bc2234c51740a7d377c9d6a79`
+- `design/strings.fa.json` شامل ۲۹۵ رشته است. کد Native هم lookup literal و هم lookup پویا از مسیر `txt(key)`، `if/when` و keyهای انتخاب‌شده در runtime دارد؛ پروتوتایپ React نیز بخشی از keyهای پایه را مصرف می‌کند.
+- نتیجه: رشتهٔ بلااستفادهٔ قطعی از این بررسی به دست نیامد و هیچ رشته‌ای حذف نشد. فایل‌های generated منابع Android نیز تا زمان تغییر منبع canonical دست‌نخورده ماندند.
+- روش: جست‌وجوی مصرف‌کننده‌ها در Kotlin و React و بررسی flattening قرارداد `strings.fa.json` در generator. Not run: build وب، Sync، audit و Gradle.
+- Next action: اعتبارسنجی نهایی لینک‌های archive، tree، فایل‌های generated و ارجاع‌های قدیمی؛ سپس فقط در صورت یافتن مورد صفرمصرف، حذف بعدی.
