@@ -2,7 +2,7 @@
 
 **نسخه:** ۱٫۰ · **تاریخ:** ۲۰۲۶-۱۱-۰۷ · **شاخه:** `062-r01-design-system` (از `b70b7f9` روی `062-ux-discovery`)
 **مبنای طراحی:** `docs/design/AVA_UX_DISCOVERY.md` (فاز ۰۶۲) · **مبنای کد:** `2f67ba8` با گیت ۱۴۳/۰
-**قاعدهٔ برش:** R01 فقط توکن‌ها و کامپوننت‌های پایه را اضافه می‌کند؛ هیچ صفحه‌ای تغییر ظاهر نداده است و مهاجرت صفحه‌به‌صفحه در R02..R13 انجام می‌شود.
+**قاعدهٔ برش:** R01 توکن‌ها و کامپوننت‌های پایه را تعریف می‌کند. در برش ۲۰۲۶-۱۱-۱۹، wrapperهای مشترک صفحه‌ها به این پایه متصل شدند؛ مهاجرت layout اختصاصی هر صفحه همچنان جداگانه و مرحله‌ای انجام می‌شود.
 
 ## 1. Design Principles
 
@@ -105,7 +105,8 @@ Border استاندارد: ۱dp `line` (حالت عادی) ← ۲dp/۳dp `select
 |---|---|---|---|---|
 | `AvaButton` | Primary/Secondary/Tertiary × enabled/disabled/loading | 72 (Primary) / 64 dp | دکمهٔ متن، `labelLarge` | loading اسپینر (بدون reduced motion) + غیرفعال |
 | `AvaIconButton` | enabled/disabled | 64dp (حداقل 48 Android) | `contentDescription` **الزامی** (`require`) | آیکون بدون برچسب ممنوع |
-| `AvaCard` | Default/Interactive/Selected/Disabled | min 64dp در Interactive | `Role.Button` + `stateDescription` اختیاری | حلقهٔ ۳dp انتخاب |
+| `AvaCard` | Default/Interactive/Selected/Disabled | min 64dp در Interactive | `Role.Button` + `stateDescription` اختیاری | حلقهٔ ۳dp انتخاب؛ `bordered=false` برای soft card |
+| `AvaMenuRow` | enabled/disabled، عنوان/زیرعنوان | حداقل 72dp، آیکون 44dp | یک هدف Button با عنوان/شرح ادغام‌شده | منوهای Profile/Settings/Info؛ نه برای CTA اصلی |
 | `AvaHeader` | با/بدون بازگشت | 64dp | `heading()` + برچسب الزامی بازگشت | `AutoMirrored` ← RTL خودکار |
 | `AvaProgress` | 0..1 + برچسب | 8dp pill | `ProgressBarRangeInfo` + `contentDescription` برچسب | تنها نوار پیشرفت از این پس |
 | `AvaFeedback` | Success/Info/Attention | — | `liveRegion=Polite` (merge) | موفق=سبز/خطا=کهربایی؛ آیکون + رنگ + متن |
@@ -159,3 +160,12 @@ Border استاندارد: ۱dp `line` (حالت عادی) ← ۲dp/۳dp `select
 - `ran`: رندر اسنپ‌شات گالری در خروجی build زیر reports/native-ui (خروجی build است و در مخزن track نمی‌شود).
 - **بدون تغییر وابستگی Gradle:** تلاش افزودن `ui-tooling-preview` به‌دلیل بلاک بودن دانلود حذف شد (خطای دقیق: `Could not resolve androidx.compose.ui:ui-tooling-preview:1.8.0 … Remote host terminated the handshake`).
 - `NOT VERIFIED`: پنل Preview اندروید استودیو (نیازمند ui-tooling-preview)، TalkBack دستگاه، fontScale ‏2.0 رندر واقعی، وزن‌های واقعی فونت (تصمیم باز مالک)، مقایسهٔ پیکسلی اسنپ‌شات (گیت «gold» وجود ندارد و عمداً ساخته نشده است).
+
+
+## ۱۴. مهاجرت Foundation و دارایی Onboarding — ۲۰۲۶-۱۱-۱۹
+
+- wrapperهای `Primary`، `Secondary`، `SoftCard`، `Header`، `Menu` و `Feedback` در `ui/screens/Components.kt` اکنون به پیاده‌سازی‌های R01 در `ui/components/AvaUI.kt` delegate می‌کنند. API صفحه‌ها تغییر نکرده است؛ بنابراین مهاجرت ظاهری مشترک یک‌جا انجام می‌شود و تغییر layout اختصاصی صفحات همچنان در برش‌های بعدی است.
+- `AvaMenuRow` اضافه شد: یک هدف لمسی ۷۲dp، آیکون ۴۴dp، عنوان/شرح اختیاری و semantics ادغام‌شده؛ این الگو برای ردیف‌های ناوبری/ترجیحات است، نه اقدام اصلی.
+- `AvaCard` گزینهٔ `bordered=false` گرفت تا SoftCard سبک قبلی بدون حاشیهٔ ناخواسته حفظ شود.
+- artwork برداری `decor.onboarding.cloud_castle` از حالت «missing on purpose» خارج و در Onboarding 1 استفاده شد. `decor.tree` فقط برای جلد قصهٔ `little_seed` باقی ماند.
+- آزمون رگرسیون adapterها به `AvaComponentsTest` افزوده شد. این یادداشت، گزارش اجرای Gradle نیست؛ اجرای تست روی checkout محلی هنوز لازم است.
