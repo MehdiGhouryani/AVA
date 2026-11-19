@@ -12,7 +12,7 @@
 - CMS is a private authoring/review/release tool. Android never connects directly to Payload, PostgreSQL, GraphQL or S3.
 
 ## Development and verification
-- Read `docs/README.md` and the roadmap before changes. Use `.agents/skills/ava-app-engineering/SKILL.md`; for visual work, perform focused UI UX Pro Max searches and consult Claymorphism guidance. Existing AVA tokens, typography and local artwork override generic skill palettes/fonts.
+- Read `docs/README.md` and the roadmap before changes. Use `.agents/skills/ava-app-engineering/SKILL.md` for engineering and `.agents/skills/ava-duolingo-learning/SKILL.md` for learning-flow/content work. For visual work, perform focused UI UX Pro Max searches and consult Claymorphism guidance. Existing AVA tokens, typography and local artwork override generic skill palettes/fonts.
 - Keep pinned third-party skills and licenses intact. Project skills are bundled guidance, not personal installations.
 - New original code must separate content, state/actions, repositories and UI. Generated files must be changed only through their canonical generator.
 - Use a `phase-<n>-<topic>` branch by default. Commit/push/merge directly to `main` only with the owner's explicit written approval for the exact scope; keep any exception within that scope.
