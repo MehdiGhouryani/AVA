@@ -1,54 +1,163 @@
 #!/usr/bin/env python3
-"""Offline consistency check for the project documents.
-
-Checks: (1) every docs/*.md is listed in docs/README.md, (2) every full repo path written in backticks
-(docs/, design/, scripts/, android/, harness/, cms/, .agents/) exists unless it is a declared planned path,
-(3) the test and string counts in PROJECT_STATE.md match the source. Not part of audit-project.py.
-"""
-import re, subprocess, sys
+"""Offline repository documentation and snapshot consistency checks."""
 from pathlib import Path
+import re
+import subprocess
+import sys
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 PREFIXES = ("docs/", "design/", "scripts/", "android/", "harness/", "cms/", ".agents/")
-PLANNED = {"design/curriculum.blueprint.json", "design/drafts/", "docs/CONTENT_AUTHORING_FA.md"}
-SKIP_DIRS = ("docs/preview", "docs/history", ".agents/skills", "cms/payload/node_modules")
+PLANNED = {
+    "design/curriculum.blueprint.json",
+    "design/drafts/",
+    "docs/CONTENT_AUTHORING_FA.md",
+}
+SKIP_PREFIXES = (
+    "docs/preview",
+    "docs/history",
+    ".agents/skills",
+    "cms/payload/node_modules",
+)
+TEST_COUNT_LABEL = "تعداد تست‌های Native در سورس"
+STRING_COUNT_LABEL = "رشته‌های Android تولیدی"
+SNAPSHOT_DIGITS = re.compile(r"^[0-9۰-۹٠-٩,٬]+$")
+DIGIT_MAP = str.maketrans(
+    "۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩",
+    "01234567890123456789",
+)
 
 
-def tracked() -> list[str]:
-    return [f for f in subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True).stdout.split("\n") if f]
+def extract_snapshot_count(state: str, label: str) -> int:
+    """Read exactly one bold integer from a labeled PROJECT_STATE bullet."""
+    pattern = re.compile(
+        rf"(?m)^\s*-\s*{re.escape(label)}:\s*\*\*([0-9۰-۹٠-٩,٬]+)\*\*\s*\.?\s*$"
+    )
+    matches = pattern.findall(state)
+    if len(matches) != 1:
+        raise ValueError(f"expected one '{label}' snapshot line, found {len(matches)}")
+    raw = matches[0]
+    if not SNAPSHOT_DIGITS.fullmatch(raw):
+        raise ValueError(f"invalid numeric value for '{label}': {raw}")
+    normalized = raw.translate(DIGIT_MAP).replace(",", "").replace("٬", "")
+    return int(normalized)
+
+
+def count_test_annotations(contents) -> int:
+    """Count Kotlin @Test annotations in the supplied source contents."""
+    return sum(content.count("@Test") for content in contents)
+
+
+def count_android_strings(xml_content: str) -> int:
+    """Count generated Android string resources and reject duplicate names."""
+    root = ET.fromstring(xml_content)
+    if root.tag != "resources":
+        raise ValueError("Android strings root element must be <resources>")
+    elements = root.findall("string")
+    names = [element.get("name") for element in elements]
+    if any(not name for name in names):
+        raise ValueError("Android string resource is missing its name")
+    if len(names) != len(set(names)):
+        raise ValueError("duplicate Android string resource name")
+    return len(elements)
+
+
+def is_skipped(path: str) -> bool:
+    return any(path.startswith(prefix) for prefix in SKIP_PREFIXES)
+
+
+def tracked_files() -> list[str]:
+    result = subprocess.run(
+        ["git", "ls-files"],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return [path for path in result.stdout.splitlines() if path]
 
 
 def main() -> int:
-    files = tracked()
+    try:
+        files = tracked_files()
+    except (OSError, subprocess.CalledProcessError) as error:
+        print(f"PROBLEM cannot list tracked files: {error}")
+        return 1
+
     fileset = set(files)
     problems: list[str] = []
-    index = (ROOT / "docs/README.md").read_text(encoding="utf-8")
-    for f in files:
-        if f.startswith("docs/") and f.endswith(".md") and f != "docs/README.md" and not f.startswith(SKIP_DIRS[:2]):
-            if f[len("docs/"):] not in index:
-                problems.append(f"not indexed in docs/README.md: {f}")
-    for f in files:
-        if not f.endswith(".md") or f.startswith(SKIP_DIRS) or f in ("harness/WORKLOG.md",):
+    index_path = ROOT / "docs/README.md"
+    try:
+        index = index_path.read_text(encoding="utf-8")
+    except OSError as error:
+        print(f"PROBLEM cannot read docs/README.md: {error}")
+        return 1
+
+    for path in files:
+        if (
+            path.startswith("docs/")
+            and path.endswith(".md")
+            and path != "docs/README.md"
+            and not is_skipped(path)
+            and path[len("docs/"):] not in index
+        ):
+            problems.append(f"not indexed in docs/README.md: {path}")
+
+    path_pattern = re.compile(r"`([A-Za-z0-9_./-]+)`")
+    for path in files:
+        if not path.endswith(".md") or is_skipped(path) or path == "harness/WORKLOG.md":
             continue
-        text = (ROOT / f).read_text(encoding="utf-8")
-        for m in re.finditer(r"`([A-Za-z0-9_./-]+)`", text):
-            p = m.group(1)
-            if not p.startswith(PREFIXES) or "..." in p or p in PLANNED:
+        try:
+            document = (ROOT / path).read_text(encoding="utf-8")
+        except (OSError, UnicodeError) as error:
+            problems.append(f"cannot read Markdown file {path}: {error}")
+            continue
+        for match in path_pattern.finditer(document):
+            reference = match.group(1)
+            if (
+                not reference.startswith(PREFIXES)
+                or "..." in reference
+                or reference in PLANNED
+            ):
                 continue
-            if p not in fileset and not any(x.startswith(p.rstrip("/") + "/") for x in files):
-                problems.append(f"{f}: missing path `{p}`")
-    tests = sum(Path(p).read_text(encoding="utf-8").count("@Test") for p in (ROOT / "android/app/src/test").rglob("*.kt"))
-    state = (ROOT / "PROJECT_STATE.md").read_text(encoding="utf-8")
-    m = re.search(r"(\d+) tests exist in source", state)
-    if not m or int(m.group(1)) != tests:
-        problems.append(f"PROJECT_STATE.md says {m.group(1) if m else 'no count'} tests exist in source, source has {tests}")
-    strings = len(re.findall(r'<string name=', (ROOT / "android/app/src/main/res/values/strings.xml").read_text(encoding="utf-8")))
-    m = re.search(r"(\d+) strings in generated resources", state)
-    if not m or int(m.group(1)) != strings:
-        problems.append(f"PROJECT_STATE.md says {m.group(1) if m else 'no count'} strings, resources have {strings}")
-    for p in problems:
-        print("PROBLEM", p)
-    print(f"Docs check: {len(problems)} problem(s); {tests} tests in source, {strings} strings.")
+            if reference not in fileset and not any(
+                item.startswith(reference.rstrip("/") + "/") for item in files
+            ):
+                problems.append(f"{path}: missing path `{reference}`")
+
+    state_path = ROOT / "PROJECT_STATE.md"
+    test_root = ROOT / "android/app/src/test"
+    strings_path = ROOT / "android/app/src/main/res/values/strings.xml"
+    tests = 0
+    strings = 0
+    try:
+        state = state_path.read_text(encoding="utf-8")
+        test_sources = [
+            path.read_text(encoding="utf-8")
+            for path in sorted(test_root.rglob("*.kt"))
+        ]
+        tests = count_test_annotations(test_sources)
+        snapshot_tests = extract_snapshot_count(state, TEST_COUNT_LABEL)
+        if snapshot_tests != tests:
+            problems.append(
+                f"PROJECT_STATE.md says {snapshot_tests} Native tests; source has {tests}"
+            )
+        strings = count_android_strings(strings_path.read_text(encoding="utf-8"))
+        snapshot_strings = extract_snapshot_count(state, STRING_COUNT_LABEL)
+        if snapshot_strings != strings:
+            problems.append(
+                f"PROJECT_STATE.md says {snapshot_strings} generated Android strings; "
+                f"resources have {strings}"
+            )
+    except (OSError, UnicodeError, ET.ParseError, ValueError) as error:
+        problems.append(f"snapshot/resource consistency check failed: {error}")
+
+    for problem in problems:
+        print("PROBLEM", problem)
+    print(
+        f"Docs check: {len(problems)} problem(s); "
+        f"{tests} Native tests in source, {strings} generated Android strings."
+    )
     return 1 if problems else 0
 
 
