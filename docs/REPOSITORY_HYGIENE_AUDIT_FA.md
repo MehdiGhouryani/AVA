@@ -38,10 +38,10 @@
 
 **اقدام:** پس از تثبیت گیت‌ها، workflow سبک برای validatorها، بررسی اسناد، build/typecheck وب تاریخی در صورت نیاز و تست‌های CMS ایجاد شود. گیت Native باید با toolchain مشخص اجرا شود و نبود SDK یا وابستگی نباید به‌عنوان موفقیت گزارش شود.
 
-### P2 — بررسی اسناد از گیت canonical جداست
-`scripts/check-docs.py` لینک‌ها، فهرست اسناد، شمار تست‌ها و شمار رشته‌ها را بررسی می‌کند؛ اما `scripts/audit-project.py` آن را اجرا نمی‌کند و دستور `npm run check` نیز مستقیماً آن را فراخوانی نمی‌کند.
+### P2 — بررسی اسناد از گیت canonical جدا بود <badge>رفع شد</badge>
+`check-docs.py` در ابتدا با قالب قبلی `PROJECT_STATE.md` همگام بود و دیگر snapshot کوتاه فعلی را نمی‌فهمید.
 
-**اقدام:** بررسی اسناد به مسیر اعتبارسنجی استاندارد اضافه شود تا تغییرات بعدی باعث لینک شکسته یا drift در شمارها نشوند.
+**اقدام انجام‌شده:** parser اکنون ارقام فارسی/عربی/انگلیسی را می‌خواند، شمار `@Test` را با تست‌های Kotlin و شمار string resourceها را با XML تولیدی مقایسه می‌کند، نام تکراری resource را رد می‌کند و لینک/فهرست اسناد را کنترل می‌کند. پنج آزمون واحد برای parser و شمارنده‌ها در `scripts/test-docs-check.py` اضافه شد. هر دو اسکریپت به `scripts/audit-project.py` متصل شدند؛ اجرای کامل audit در این نشست هنوز انجام نشده است.
 
 ### P2 — ورودی‌های عامل‌های کدنویسی چندلایه‌اند
 `AGENTS.md`، `CLAUDE.md`، `ZCODE.md` و `harness/ZCODE_SYSTEM_PROMPT_FA.md` همگی بخشی از قواعد کار را تکرار می‌کنند. وجود entry point جدا برای ابزارها لازم است؛ تکرار سیاست‌ها خطر ناسازگاری ایجاد می‌کند.
@@ -66,13 +66,13 @@
 
 ## ۴. برنامهٔ پیشنهادی فاز اول: Repository Hygiene
 
-ترتیب پیشنهادی برای اجرا:
+ترتیب پیشنهادی و وضعیت اجرا:
 
-1. به‌روزرسانی `PROJECT_STATE.md` و تثبیت اینکه هر نوع وضعیت/شاهد در کدام سند canonical ثبت می‌شود.
-2. افزودن `.gitattributes` با سیاست LF/Binary و بررسی اثر آن روی hashهای pinned و generatorها.
-3. افزودن `check-docs.py` به گیت استاندارد و روشن‌کردن تفاوت گیت وب تاریخی، CMS و Android Native.
-4. کوتاه‌سازی ورودی‌های عامل‌ها با حفظ کامل قواعد و مجوزها.
-5. ساخت گزارش reference/dependency برای فایل‌های تاریخی و کاندیداهای حذف؛ فقط مواردی حذف شوند که نبود مصرف‌کننده با جست‌وجوی کد، اسناد و اسکریپت‌ها اثبات شده باشد.
+1. <badge color="success">انجام شد</badge> کوتاه‌سازی `PROJECT_STATE.md` و مشخص‌کردن محل اسناد canonical.
+2. <badge color="success">انجام شد</badge> افزودن `.gitattributes` و کنترل عدم تغییر blob مهارت‌های pinned و resource generated.
+3. <badge color="success">کد تکمیل شد</badge> بازنویسی `check-docs.py`، افزودن ۵ unit test و اتصال هر دو به `audit-project.py`. اجرای کامل checkout هنوز باز است.
+4. <badge color="success">انجام شد</badge> کوتاه‌سازی ورودی Claude و تمرکز قواعد در `AGENTS.md`.
+5. <badge color="warning">باز</badge> ساخت گزارش dependency/reference برای کاندیداهای حذف؛ حذف فقط پس از اثبات نبود مصرف‌کننده.
 6. پس از هر برش، اجرای گیت متناسب، ثبت نتیجهٔ واقعی و مقایسهٔ tree/diff قبل و بعد.
 
 ## ۵. ترتیب کارهای خارج از فاز اول
@@ -109,7 +109,7 @@
 - انتقال پروتوتایپ وب از ریشه فعلاً متوقف است: `npm run check` شامل `npm run build` است، `index.html` ورودی `/src/main.tsx` دارد، `tsconfig.json` شامل `src` و `design` است و `public/` منبع مشترک Native و وب محسوب می‌شود. انتقال نیازمند تنظیم مستقل Vite/TypeScript و مسیر assetهاست.
 - `metadata.json` هنوز در ریشه حفظ شده است؛ نبود import در کد به‌تنهایی ثابت نمی‌کند فایل metadata پلتفرمی Google AI Studio دیگر لازم نیست.
 - `.env.example` ریشه صرفاً یادداشت no-secret برای پروتوتایپ وب است؛ اسکریپت بسته‌بندی سورس آن را عمداً در حالت fallback نگه می‌دارد. چون این مورد زیان یا تداخل اثبات‌شده‌ای ایجاد نمی‌کند، حذف نشد.
-- `scripts/check-docs.py` هنوز مستقل است. منطق فعلی آن با قالب قدیمی `PROJECT_STATE.md` کار می‌کند و regexهایی برای عبارت‌های انگلیسی `tests exist in source` و `strings in generated resources` دارد؛ snapshot فعلی این قالب را ندارد. قبل از افزودن به `audit-project.py` باید خود validator به مدل فعلی وضعیت و منبع canonical شمارها تطبیق یابد.
+- `scripts/check-docs.py` اکنون با snapshot فعلی هم‌راستاست و از `audit-project.py` اجرا می‌شود. `PROJECT_STATE.md` اعداد ۱۵۴ تست Kotlin و ۲۹۵ string resource را به‌صورت قابل‌خواندن نگه می‌دارد. `scripts/test-docs-check.py` پنج آزمون helper دارد. unit testها در محیط موقت اجرا شدند (۵ پاس)، اما اجرای کامل روی checkout واقعی مخزن و لینک‌های همهٔ اسناد هنوز تأیید نشده است.
 - باقی‌ماندن کپی‌های `public/` و drawableهای Android مورد حذف نیست؛ این‌ها خروجی‌های sync هستند.
 
 ### محدودیت شواهد این الحاقیه
@@ -117,3 +117,5 @@
 این بررسی از خواندن فایل‌ها و مقایسهٔ blobهای GitHub انجام شده است. checkout ویندوز/لینوکس، audit محلی، build وب، Gradle، تست Native و lint در این مرحله اجرا نشده‌اند. آخرین شاهد اجرای کامل Native همچنان اجرای ۲۰۲۶-۱۱-۱۱ است و نباید به این commitها تعمیم داده شود.
 
 - تکرار قواعد در ورودی عامل‌ها تا حد لازم کم شد: `AGENTS.md` مرجع canonical قواعد محصول/مهندسی است و `CLAUDE.md` صرفاً نقطهٔ ورود Claude است. `ZCODE.md` و دستور کامل `harness/ZCODE_SYSTEM_PROMPT_FA.md` به‌دلیل نقش‌های متفاوت حفظ شدند.
+
+- `AGENTS.md` اکنون هر دو مهارت مهندسی و یادگیری AVA را به تفکیک scope معرفی می‌کند؛ مهارت‌های pinned ثالث تغییر نکرده‌اند.
