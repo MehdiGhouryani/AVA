@@ -292,3 +292,14 @@ Splash، Onboarding 1، Onboarding 2، Phone، OTP، Home، Library، StoryDetai
 - **U94 آغاز شد:** Header قدیمی به AvaHeader متصل شد.
 - **U96 آغاز شد:** Feedback قدیمی به AvaFeedback متصل شد.
 - هنوز انجام نشده: مهاجرت layout صفحه‌های اختصاصی، آیکون‌های نهایی، طرح کامل Home/Profile/Progress و QA بصری دستگاه.
+
+
+## checkpoint اجرایی ۲۰۲۶-۱۱-۱۹ — Entry/Auth UI، برش دوم
+
+- **U05/U06 بهبود واکنش‌گرایی:** Onboarding در ارتفاع کوتاه نیز scroll می‌شود؛ artwork در حالت scroll ارتفاع مشخص دارد.
+- **U11 از برش Foundation:** CTAها از wrapper مشترک R01 استفاده می‌کنند؛ در این برش رفتار و ارتفاعشان تغییر نکرد.
+- **U12/U13 بهبود چیدمان:** Phone در نمایشگر عریض حداکثر ۵۲۰dp می‌شود و فرم آن در یک SoftCard منسجم قرار گرفته است؛ فیلد شماره همچنان از همان IME، فوکوس، تبدیل ارقام و خطا استفاده می‌کند.
+- **U15/U16/U17/U18 حفظ و یکپارچه‌سازی بصری:** ردیف رضایت، لینک‌های قانونی، بازخورد کهربایی و CTA در کارت فرم گروه‌بندی شدند؛ callback و شرط enable بدون تغییر باقی ماندند.
+- **U19/U20/U21 بهبود تناسب:** بخش برند OTP در compact/large-text کوتاه‌تر است؛ پنل اصلی scroll می‌شود و edit phone، تایمر، ارسال مجدد، خطا و mock hint حفظ شده‌اند.
+- Regression Journey برای ۳۹۰×۶۴۰dp با fontScale=1.3 به سورس تست افزوده شد؛ نتیجهٔ اجرا هنوز موجود نیست.
+- Task `062-entry-auth-ui` تا اجرای Resource Sync، audit، Gradle tests و lint باز می‌ماند.

@@ -44,11 +44,15 @@ class JourneyUiTest {
         val repo=MemoryLearnerRepository(Learner(signedIn=signedIn,onboarded=signedIn))
         return AvaViewModel(SavedStateHandle(),MockAuthRepository(latency=0),repo,progressClock={1234L})
     }
-    private fun render(v: AvaViewModel) {
+    private fun render(v: AvaViewModel,height:Dp=844.dp,fontScale:Float=1f) {
         ui.setContent {
             val s by v.state.collectAsState()
-            CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
-                AvaTheme {Box(Modifier.requiredSize(390.dp,844.dp)) {AvaApp(s,v.actions())}}
+            val density=LocalDensity.current
+            CompositionLocalProvider(
+                LocalLayoutDirection provides LayoutDirection.Rtl,
+                LocalDensity provides Density(density.density,fontScale)
+            ) {
+                AvaTheme {Box(Modifier.requiredSize(390.dp,height)) {AvaApp(s,v.actions())}}
             }
         }
     }
@@ -69,6 +73,21 @@ class JourneyUiTest {
             else ui.onNodeWithText("ادامه").assertIsDisplayed().performClick()
             ui.waitForIdle()
         }
+    }
+
+    @Test fun entryAndAuthScreensRemainUsableOnCompactLargeText() {
+        val v=model()
+        render(v,height=640.dp,fontScale=1.3f)
+        idle()
+        ui.onNodeWithText("رد کردن").performScrollTo().performClick()
+        ui.waitForIdle()
+        ui.onNodeWithText("ورود یا ساخت حساب").performScrollTo().assertIsDisplayed()
+        ui.onNode(hasSetTextAction()).performTextInput("۰۹۱۲۳۴۵۶۷۸۹")
+        ui.onNodeWithText("حریم خصوصی و قوانین را می‌پذیرم").performScrollTo().performClick()
+        ui.onNodeWithText("دریافت کد").performScrollTo().assertIsEnabled().performClick()
+        ui.waitUntil(timeoutMillis=10_000) {v.state.value.route==Route.Otp}
+        ui.onNodeWithText("کد تأیید را وارد کنید").assertIsDisplayed()
+        ui.onNodeWithText("ویرایش شماره").performScrollTo().assertIsDisplayed()
     }
 
     @Test fun newUserLogsInWithMockCode() {
