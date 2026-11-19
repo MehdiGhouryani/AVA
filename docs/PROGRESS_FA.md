@@ -269,10 +269,10 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 ## بروزرسانی ۲۰۲۶-۱۱-۱۹ — بازسازی گیت بررسی اسناد
 
 - `scripts/check-docs.py` با snapshot فعلی هماهنگ شد: شمار تست‌های Kotlin و تعداد string resourceهای Android را از منبع واقعی می‌خواند و با دو عدد ثبت‌شده در `PROJECT_STATE.md` مقایسه می‌کند. ارقام فارسی، عربی و انگلیسی پذیرفته می‌شوند؛ مقدار مفقود/تکراری، XML خراب و نام تکراری resource خطا هستند.
-- شش آزمون واحد در `scripts/test-docs-check.py` اضافه شد و هر دو اسکریپت به `scripts/audit-project.py` افزوده شدند؛ بنابراین مسیر `npm run check` هم این گیت را اجرا خواهد کرد.
+- هفت آزمون واحد در `scripts/test-docs-check.py` اضافه شد و هر دو اسکریپت به `scripts/audit-project.py` افزوده شدند؛ بنابراین مسیر `npm run check` هم این گیت را اجرا خواهد کرد.
 - `PROJECT_STATE.md` شمار resourceهای تولیدی (۲۹۵) را کنار تعداد تست‌های Native (۱۵۴) ثبت می‌کند. `docs/PROJECT_MAP_FA.md` نیز وظیفهٔ validator و آزمونش را نشان می‌دهد.
-- **اجراشده در محیط موقت:** `python -m py_compile` روی دو اسکریپت و `python scripts/test-docs-check.py` — شش آزمون پاس شدند. فایل‌های آزمایش در پوشهٔ موقت از پیاده‌سازی بازسازی‌شده بر اساس سورس فعلی ساخته شدند؛ کشف فایل در Git فایل‌های untracked غیرignored را هم می‌بیند؛ fallback آرشیو با os.walk و prune پوشه‌های cache/build انجام می‌شود تا node_modules پیمایش نشود.
-- **اجرا نشد:** اجرای کامل `check-docs.py` روی checkout مخزن، `audit-project.py`، Sync منابع، build وب، Gradle و lint؛ چون در این نشست worktree کامل مخزن در دسترس نیست. پاس شدن شش آزمون helper، معادل پاس شدن گیت کامل اسناد/مخزن نیست.
+- **اجراشده در محیط موقت:** `python -m py_compile` روی دو اسکریپت و `python scripts/test-docs-check.py -v` — هفت آزمون پاس شدند. فایل‌های آزمایش در پوشهٔ موقت از پیاده‌سازی بازسازی‌شده بر اساس سورس فعلی ساخته شدند؛ کشف فایل در Git فایل‌های untracked غیرignored را هم می‌بیند؛ fallback آرشیو با os.walk و prune پوشه‌های cache/build انجام می‌شود تا node_modules پیمایش نشود.
+- **اجرا نشد:** اجرای کامل `check-docs.py` روی checkout مخزن، `audit-project.py`، Sync منابع، build وب، Gradle و lint؛ چون در این نشست worktree کامل مخزن در دسترس نیست. پاس شدن هفت آزمون helper، معادل پاس شدن گیت کامل اسناد/مخزن نیست.
 
 
 ## بروزرسانی ۲۰۲۶-۱۱-۱۹ — حذف placeholder محیطی بلااستفاده
