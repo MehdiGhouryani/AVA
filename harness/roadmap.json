@@ -269,7 +269,7 @@
           "id": "062-entry-auth-ui",
           "titleFa": "بازطراحی واکنش‌گرای ورود، شماره‌تلفن و OTP",
           "priority": "P0",
-          "status": "in_progress",
+          "status": "blocked",
           "automationAllowed": true,
           "dependsOn": [
             "062-uiux-foundation"

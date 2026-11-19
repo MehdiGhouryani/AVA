@@ -302,4 +302,4 @@ Splash، Onboarding 1، Onboarding 2، Phone، OTP، Home، Library، StoryDetai
 - **U15/U16/U17/U18 حفظ و یکپارچه‌سازی بصری:** ردیف رضایت، لینک‌های قانونی، بازخورد کهربایی و CTA در کارت فرم گروه‌بندی شدند؛ callback و شرط enable بدون تغییر باقی ماندند.
 - **U19/U20/U21 بهبود تناسب:** بخش برند OTP در compact/large-text کوتاه‌تر است؛ پنل اصلی scroll می‌شود و edit phone، تایمر، ارسال مجدد، خطا و mock hint حفظ شده‌اند.
 - Regression Journey برای ۳۹۰×۶۴۰dp با fontScale=1.3 به سورس تست افزوده شد؛ نتیجهٔ اجرا هنوز موجود نیست.
-- Task `062-entry-auth-ui` تا اجرای Resource Sync، audit، Gradle tests و lint باز می‌ماند.
+- Task `062-entry-auth-ui` اکنون `blocked` است؛ ابتدا dependency یعنی `062-uiux-foundation` باید با گیت‌های Resource Sync، audit، Gradle tests و lint تکمیل شود. سپس گیت‌های این برش اجرا شوند.
