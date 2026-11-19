@@ -605,9 +605,9 @@ Next action:
 - Branch: `phase-062-r01-ui-foundation`
 - Baseline: inventory branch `phase-062-non-lesson-uiux-inventory` @ `72c4c5df45d10942d15ece4fdffb0a1322acd1a9`
 - Scope: wrapper migration + one onboarding art asset; no page-flow or learning-logic changes.
-- Files changed: `AvaUI.kt`, `ui/screens/Components.kt`, `AuthScreens.kt`, generated `Art.kt`, generated `drawable-nodpi/decor_onboarding_cloud_castle.xml`, source `public/ava-assets/decor/onboarding_glow_castle.xml`, `AvaComponentsTest.kt`, asset manifest, Design System, UI/UX inventory, progress and worklog.
+- Files changed: `AvaUI.kt`, `ui/screens/Components.kt`, `AuthScreens.kt`, `AvaComponentGallery.kt`, generated `Art.kt`, generated `drawable-nodpi/decor_onboarding_cloud_castle.xml`, source `public/ava-assets/decor/onboarding_glow_castle.xml`, `AvaComponentsTest.kt`, asset manifest, Design System, UI/UX inventory, progress and worklog.
 - Generated-resource method: `Art.kt` mapping was rebuilt with the exact snake/id iteration used by `scripts/sync-android-resources.py`; pre-existing mapping was compared before adding the new id. Native drawable source is identical to the public manifest source.
-- Result: common screen primitives now share R01 button/card/header/feedback implementations; navigation rows use the new accessible AvaMenuRow. Onboarding 1 now uses the dedicated cloud-castle vector asset. Existing APIs remain compatible.
+- Result: common screen primitives now share R01 button/card/header/feedback implementations; navigation rows use the new accessible AvaMenuRow; the 10-component render gallery now includes its row state. Onboarding 1 now uses the dedicated cloud-castle vector asset. Existing APIs remain compatible.
 - Checks performed: static source/manifest consistency, generated Art mapping comparison, new asset path/id mapping, test-source insertion and reference checks.
 - Not run: Gradle, unit tests, lint, full `sync-android-resources.py --check`, audit-project, build or device screenshots. Do not infer runtime success from static inspection.
 - Next: execute resource sync and native tests on a checkout; then move to the Entry screens and navigation shell as a separate slice.
