@@ -41,7 +41,7 @@
 ### P2 — بررسی اسناد از گیت canonical جدا بود **رفع شد**
 `check-docs.py` در ابتدا با قالب قبلی `PROJECT_STATE.md` همگام بود و دیگر snapshot کوتاه فعلی را نمی‌فهمید.
 
-**اقدام انجام‌شده:** parser اکنون ارقام فارسی/عربی/انگلیسی را می‌خواند، شمار `@Test` را با تست‌های Kotlin و شمار string resourceها را با XML تولیدی مقایسه می‌کند، نام تکراری resource را رد می‌کند و لینک/فهرست اسناد را کنترل می‌کند. پنج آزمون واحد برای parser و شمارنده‌ها در `scripts/test-docs-check.py` اضافه شد. هر دو اسکریپت به `scripts/audit-project.py` متصل شدند؛ اجرای کامل audit در این نشست هنوز انجام نشده است.
+**اقدام انجام‌شده:** parser اکنون ارقام فارسی/عربی/انگلیسی را می‌خواند، شمار `@Test` را با تست‌های Kotlin و شمار string resourceها را با XML تولیدی مقایسه می‌کند، نام تکراری resource را رد می‌کند و لینک/فهرست اسناد را کنترل می‌کند. شش آزمون واحد برای parser و شمارنده‌ها در `scripts/test-docs-check.py` اضافه شد. هر دو اسکریپت به `scripts/audit-project.py` متصل شدند؛ فایل‌های untracked غیرignored هم در Git بررسی می‌شوند و source ZIP بدون .git مسیر fallback دارد؛ اجرای کامل audit در این نشست هنوز انجام نشده است.
 
 ### P2 — ورودی‌های عامل‌های کدنویسی چندلایه‌اند
 `AGENTS.md`، `CLAUDE.md`، `ZCODE.md` و `harness/ZCODE_SYSTEM_PROMPT_FA.md` همگی بخشی از قواعد کار را تکرار می‌کنند. وجود entry point جدا برای ابزارها لازم است؛ تکرار سیاست‌ها خطر ناسازگاری ایجاد می‌کند.
@@ -69,8 +69,8 @@
 ترتیب پیشنهادی و وضعیت اجرا:
 
 1. **انجام شد** کوتاه‌سازی `PROJECT_STATE.md` و مشخص‌کردن محل اسناد canonical.
-2. <badge color="success">انجام شد</badge> افزودن `.gitattributes` و کنترل عدم تغییر blob مهارت‌های pinned و resource generated.
-3. <badge color="success">کد تکمیل شد</badge> بازنویسی `check-docs.py`، افزودن ۵ unit test و اتصال هر دو به `audit-project.py`. اجرای کامل checkout هنوز باز است.
+2. **انجام شد** افزودن `.gitattributes` و کنترل عدم تغییر blob مهارت‌های pinned و resource generated.
+3. **کد تکمیل شد** بازنویسی `check-docs.py`، افزودن ۵ unit test و اتصال هر دو به `audit-project.py`. اجرای کامل checkout هنوز باز است.
 4. <badge color="success">انجام شد</badge> کوتاه‌سازی ورودی Claude و تمرکز قواعد در `AGENTS.md`.
 5. **باز** ساخت گزارش dependency/reference برای کاندیداهای حذف؛ حذف فقط پس از اثبات نبود مصرف‌کننده.
 6. پس از هر برش، اجرای گیت متناسب، ثبت نتیجهٔ واقعی و مقایسهٔ tree/diff قبل و بعد.
@@ -109,7 +109,7 @@
 - انتقال پروتوتایپ وب از ریشه فعلاً متوقف است: `npm run check` شامل `npm run build` است، `index.html` ورودی `/src/main.tsx` دارد، `tsconfig.json` شامل `src` و `design` است و `public/` منبع مشترک Native و وب محسوب می‌شود. انتقال نیازمند تنظیم مستقل Vite/TypeScript و مسیر assetهاست.
 - `metadata.json` هنوز در ریشه حفظ شده است؛ نبود import در کد به‌تنهایی ثابت نمی‌کند فایل metadata پلتفرمی Google AI Studio دیگر لازم نیست.
 - `.env.example` ریشه صرفاً یادداشت no-secret برای پروتوتایپ وب است؛ اسکریپت بسته‌بندی سورس آن را عمداً در حالت fallback نگه می‌دارد. چون این مورد زیان یا تداخل اثبات‌شده‌ای ایجاد نمی‌کند، حذف نشد.
-- `scripts/check-docs.py` اکنون با snapshot فعلی هم‌راستاست و از `audit-project.py` اجرا می‌شود. `PROJECT_STATE.md` اعداد ۱۵۴ تست Kotlin و ۲۹۵ string resource را به‌صورت قابل‌خواندن نگه می‌دارد. `scripts/test-docs-check.py` پنج آزمون helper دارد. unit testها در محیط موقت اجرا شدند (۵ پاس)، اما اجرای کامل روی checkout واقعی مخزن و لینک‌های همهٔ اسناد هنوز تأیید نشده است.
+- `scripts/check-docs.py` اکنون با snapshot فعلی هم‌راستاست و از `audit-project.py` اجرا می‌شود. `PROJECT_STATE.md` اعداد ۱۵۴ تست Kotlin و ۲۹۵ string resource را به‌صورت قابل‌خواندن نگه می‌دارد. `scripts/test-docs-check.py` شش آزمون helper دارد. unit testها در محیط موقت اجرا شدند (۶ پاس)، اما اجرای کامل روی checkout واقعی مخزن و لینک‌های همهٔ اسناد هنوز تأیید نشده است.
 - باقی‌ماندن کپی‌های `public/` و drawableهای Android مورد حذف نیست؛ این‌ها خروجی‌های sync هستند.
 
 ### محدودیت شواهد این الحاقیه
