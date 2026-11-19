@@ -41,7 +41,7 @@
 ### P2 — بررسی اسناد از گیت canonical جدا بود **رفع شد**
 `check-docs.py` در ابتدا با قالب قبلی `PROJECT_STATE.md` همگام بود و دیگر snapshot کوتاه فعلی را نمی‌فهمید.
 
-**اقدام انجام‌شده:** parser اکنون ارقام فارسی/عربی/انگلیسی را می‌خواند، شمار `@Test` را با تست‌های Kotlin و شمار string resourceها را با XML تولیدی مقایسه می‌کند، نام تکراری resource را رد می‌کند و لینک/فهرست اسناد را کنترل می‌کند. شش آزمون واحد برای parser و شمارنده‌ها در `scripts/test-docs-check.py` اضافه شد. هر دو اسکریپت به `scripts/audit-project.py` متصل شدند؛ فایل‌های untracked غیرignored هم در Git بررسی می‌شوند و source ZIP بدون .git مسیر fallback دارد؛ اجرای کامل audit در این نشست هنوز انجام نشده است.
+**اقدام انجام‌شده:** parser اکنون ارقام فارسی/عربی/انگلیسی را می‌خواند، شمار `@Test` را با تست‌های Kotlin و شمار string resourceها را با XML تولیدی مقایسه می‌کند، نام تکراری resource را رد می‌کند و لینک/فهرست اسناد را کنترل می‌کند. شش آزمون واحد برای parser و شمارنده‌ها در `scripts/test-docs-check.py` اضافه شد. هر دو اسکریپت به `scripts/audit-project.py` متصل شدند؛ فایل‌های untracked غیرignored هم در Git بررسی می‌شوند و source ZIP بدون .git با os.walk و حذف پوشه‌های cache/build پیش از descent پیمایش می‌شود؛ اجرای کامل audit در این نشست هنوز انجام نشده است.
 
 ### P2 — ورودی‌های عامل‌های کدنویسی چندلایه‌اند
 `AGENTS.md`، `CLAUDE.md`، `ZCODE.md` و `harness/ZCODE_SYSTEM_PROMPT_FA.md` همگی بخشی از قواعد کار را تکرار می‌کنند. وجود entry point جدا برای ابزارها لازم است؛ تکرار سیاست‌ها خطر ناسازگاری ایجاد می‌کند.
