@@ -582,3 +582,18 @@ Next action:
 - Verification: بازخوانی فایل‌های تغییرکرده از شاخهٔ `main` و تطبیق ارجاع‌ها/ترتیب فرمان‌ها؛ کد محصول، roadmap taskها و فایل‌های skill ثالث تغییر نکردند.
 - Not run: `harness.py validate`، `audit-project.py`، docs checker، build وب، Sync منابع، Gradle، Native tests و lint؛ محیط این نشست clone/worktree قابل‌اجرا ندارد.
 - Next action: روی checkout تازه، `python3 scripts/harness.py validate` و `python3 scripts/audit-project.py` اجرا شوند؛ در صورت عبور، task بعدی را فقط با `next` انتخاب کن.
+
+
+## ۲۰۲۶-۱۱-۱۹ — ممیزی ۱۰۰ موردی UI/UX خارج از درس و تمرین
+
+- Date (Asia/Tehran): ۲۰۲۶-۱۱-۱۹
+- Task ID: `uiux-non-lesson-inventory` (فهرست‌برداری و طراحی دامنه؛ بدون implementation)
+- Branch: `phase-062-non-lesson-uiux-inventory`
+- Baseline: `main` در `486a3f9f999d63f8d996907e0293673b02f8eaab`
+- Files changed: `docs/design/UI_UX_BACKLOG_NON_LESSON_FA.md`، `docs/README.md`، `docs/PROGRESS_FA.md` و این WORKLOG.
+- Audit method: خواندن ماتریس صفحه‌ها، PAGE DESIGN PLAN، UX Discovery، Design System R01، PROJECT MAP، Route/ViewModel، screen composables، shared components، design tokens، asset manifest، content model و screen reference audit؛ جست‌وجوی مصرف واقعی AvaUI در کد.
+- Result: دقیقاً ۱۰۰ مورد با شناسه‌های U01–U100، اولویت P0/P1/P2، وضعیت موجود/مهاجرت/دارایی جدید/تصمیم و تفکیک شش دسته ثبت شد. ۱۹ مقصد پیرامونی داخل محدوده‌اند؛ LessonDetails، Lesson، StoryQuestion و محتوای Practice خارج‌اند.
+- Confirmed findings: ۱۶ دارایی اصلی، ۷ مرجع تصویری محصول، ۹ کامپوننت پایهٔ R01؛ R01 به صفحه‌های تولیدی مهاجرت نشده است. دارایی جدید به سه نیاز محدودتر شده و تصویرسازی ۹ صفحهٔ قصه به‌دلیل نبود artRef صفحه‌ای، فعلاً مشروط باقی می‌ماند.
+- Verification: محتوای فایل و ترتیب شناسه‌ها پیش از انتشار کنترل شد؛ سند در شاخهٔ کاری ایجاد و به docs index متصل شد. مرور مسیرهای relative در سند انجام شد.
+- Not run: `harness.py validate`، `audit-project.py`، docs checker، Gradle، Native tests، lint، build، screenshot/device QA. این مرحله فقط inventory است؛ تولید تصویر و پیاده‌سازی کامپوننت شروع نشده است.
+- Next action: بررسی inventory توسط مالک؛ پس از تعیین تکلیف F8 (Progress/Album)، F9 (چیدمان مسیر Home) و F5 (وزن فونت)، طراحی و پیاده‌سازی برش‌های مستقل از Foundation و سپس صفحه‌ها آغاز شود.
