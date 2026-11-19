@@ -317,4 +317,4 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - آزمون `legacyScreenPrimitivesBridgeToTheFoundation` برای رگرسیون adapterها اضافه شد و `AvaMenuRow` در حالت فعال/غیرفعال به Gallery ده‌کامپوننتی افزوده شد؛ تست‌ها در این نشست اجرا نشده‌اند.
 - منطق route، auth mock، داده، reducer، محتوای درس و تمرین تغییر نکرد.
 - **اجرا نشد:** Gradle unit tests، lint، resource sync `--check` کامل، build و screenshot/device QA؛ checkout محلی کامل در این نشست موجود نیست. بررسی محتوایی و تطبیق mapping تولیدی `Art.kt` با generator انجام شده است.
-- Branch: `phase-062-r01-ui-foundation`; هنوز روی `main` ادغام نشده است.
+- Task: `062-uiux-foundation` با وضعیت `in_progress` در Harness ثبت شده است. Branch: `phase-062-r01-ui-foundation`; هنوز روی `main` ادغام نشده است.
