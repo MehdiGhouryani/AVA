@@ -71,7 +71,7 @@
 1. **انجام شد** کوتاه‌سازی `PROJECT_STATE.md` و مشخص‌کردن محل اسناد canonical.
 2. **انجام شد** افزودن `.gitattributes` و کنترل عدم تغییر blob مهارت‌های pinned و resource generated.
 3. **کد تکمیل شد** بازنویسی `check-docs.py`، افزودن ۵ unit test و اتصال هر دو به `audit-project.py`. اجرای کامل checkout هنوز باز است.
-4. <badge color="success">انجام شد</badge> کوتاه‌سازی ورودی Claude و تمرکز قواعد در `AGENTS.md`.
+4. **انجام شد** کوتاه‌سازی ورودی Claude و تمرکز قواعد در `AGENTS.md`.
 5. **باز** ساخت گزارش dependency/reference برای کاندیداهای حذف؛ حذف فقط پس از اثبات نبود مصرف‌کننده.
 6. پس از هر برش، اجرای گیت متناسب، ثبت نتیجهٔ واقعی و مقایسهٔ tree/diff قبل و بعد.
 
