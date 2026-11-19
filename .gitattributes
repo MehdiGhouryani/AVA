@@ -1,0 +1,47 @@
+# Normalize text files to LF on every platform.
+* text=auto eol=lf
+
+# Images
+*.avif binary
+*.bmp binary
+*.gif binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.tif binary
+*.tiff binary
+*.webp binary
+
+# Fonts
+*.otf binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+
+# Audio and video
+*.aac binary
+*.flac binary
+*.m4a binary
+*.mp3 binary
+*.ogg binary
+*.wav binary
+*.mkv binary
+*.mov binary
+*.mp4 binary
+*.webm binary
+
+# Archives, documents, packages and native binaries
+*.7z binary
+*.aab binary
+*.apk binary
+*.gz binary
+*.jar binary
+*.pdf binary
+*.tar binary
+*.zip binary
+*.dll binary
+*.exe binary
+*.jks binary
+*.keystore binary
+*.so binary
