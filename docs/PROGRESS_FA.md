@@ -224,3 +224,11 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - تابع `AvaComponentGallery` و helper خصوصی `GalleryScaffold` فقط از `AvaComponentsTest` فراخوانی می‌شدند و هیچ مصرف‌کننده‌ای در مسیر اجرای اپ نداشتند. این بخش به فایل تستی `android/app/src/test/java/com/ava/reading/ui/components/AvaComponentGallery.kt` منتقل شد؛ کامپوننت‌های واقعی `AvaUI.kt` و رفتار آن‌ها تغییر نکرد.
 - importهای Compose و theme که فقط برای گالری لازم بودند از فایل production حذف شدند. تست گالری از همان package مشترک test به helper دسترسی دارد.
 - اعتبارسنجی: جست‌وجوی ارجاعات `AvaComponentGallery` در مخزن و بازبینی imports/package؛ **Gradle، testDebugUnitTest و lintDebug در این تغییر اجرا نشدند**. نتیجهٔ ۱۵۴ تست/صفر شکست در ۱۱ نوامبر، آخرین شاهد اجرای Native پیش از این جابه‌جایی است و اجرای همین commit محسوب نمی‌شود.
+
+
+## بروزرسانی ۲۰۲۶-۱۱-۱۹ — انتقال اسناد وب تاریخی به آرشیو
+
+- سه سند `README_FA.md`، `DESIGN_BRIEF.md` و `PROMPT_01.md` از ریشه به `docs/history/web-prototype/` منتقل شدند؛ محتوا حفظ شد و یک README آرشیو اضافه شد.
+- لینک‌های داخل سه سند به راهنمای جاری اصلاح شدند و prompt قدیمی اکنون مسیر جدید `DESIGN_BRIEF.md` را می‌خواند. منابع مشترک `design/`، `public/` و `reference/` جابه‌جا نشدند.
+- `docs/README.md` از آرشیو تازه خبر می‌دهد. اشاره‌های داخل WORKLOG و READINESS_REVIEW که گزارش تاریخی وضعیت قبل از انتقال‌اند عمداً دست نخورده ماندند.
+- این تغییر فقط جابه‌جایی مستندات و لینک‌هاست؛ build وب، Gradle و تست‌های Native اجرا نشدند.

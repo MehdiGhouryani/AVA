@@ -478,3 +478,14 @@ Next action:
 - Files changed: `CLAUDE.md`، `.agents/skills/ava-app-engineering/SKILL.md`، این WORKLOG.
 - Not run: validatorها و تست‌ها؛ فقط متن راهنمای عامل تغییر کرد.
 - Next action: ادامهٔ ممیزی حذف فایل‌های بلااستفاده؛ پس از پایان این دور، اجرای validatorها و native tests در کلون محلی مالک.
+
+
+## ۲۰۲۶-۱۱-۱۹ — گروه‌بندی اسناد پروتوتایپ وب در آرشیو
+
+- Task ID: `repo-hygiene-cleanup`
+- Baseline: `main` در `8666081936bff5d0034f4b9414dbaa0962caa743`
+- Files moved (content-preserving): `README_FA.md`، `DESIGN_BRIEF.md`، `PROMPT_01.md` → `docs/history/web-prototype/`؛ `docs/history/web-prototype/README.md` افزوده شد و `docs/README.md` به‌روزرسانی شد.
+- مسیر prompt به Design Brief جدید اصلاح شد؛ لینک‌ها به راهنمای Native نیز نسبی و معتبر شدند. منابع مشترک `design/`، `public/`، `reference/` و کد `src/` تغییر نکردند.
+- Verification: HEAD شاخه و tree با commit جدید تطبیق داده شد؛ هر سه مسیر قدیمی از root حذف و چهار فایل آرشیو حاضرند؛ ارجاع prompt به مسیر جدید و لینک‌های راهنمای جاری تأیید شد.
+- Not run: `check-docs.py`، build وب، Gradle و Native tests؛ هنوز محیط محلی پروژه در دسترس نیست.
+- Next action: ممیزی مصرف assetها و فایل‌های بدون ارجاع در ماژول Android؛ حذف فقط وقتی generator/import/test references نیز صفر باشند.
