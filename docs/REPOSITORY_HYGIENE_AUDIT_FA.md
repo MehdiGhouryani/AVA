@@ -119,3 +119,5 @@
 - تکرار قواعد در ورودی عامل‌ها تا حد لازم کم شد: `AGENTS.md` مرجع canonical قواعد محصول/مهندسی است و `CLAUDE.md` صرفاً نقطهٔ ورود Claude است. `ZCODE.md` و دستور کامل `harness/ZCODE_SYSTEM_PROMPT_FA.md` به‌دلیل نقش‌های متفاوت حفظ شدند.
 
 - `AGENTS.md` اکنون هر دو مهارت مهندسی و یادگیری AVA را به تفکیک scope معرفی می‌کند؛ مهارت‌های pinned ثالث تغییر نکرده‌اند.
+
+- سه تصویر ۱۹۲۰×۱۰۸۰ اسکرین‌شات پروتوتایپ که اشتباهاً زیر `public/assets/aistudio/` بودند و فقط در manifest ممیزی مصرف می‌شدند، به `docs/history/web-prototype/references/` منتقل شدند. هر سه Blob SHA حفظ شد و `audit-project.py` محل جدید را کنترل می‌کند؛ مجموع ۲٬۵۳۴٬۷۲۴ بایت از public خارج شد.
