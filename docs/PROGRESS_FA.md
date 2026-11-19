@@ -262,3 +262,12 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - قواعد محصول و مهندسی در `AGENTS.md` به‌عنوان منبع canonical روشن و کامل‌تر شدند؛ محدودیت‌های مخاطب کودک، ورود mock، شخصیت‌ها، touch target، معماری Compose/CMS، سیاست شاخه و شواهد اجرا یک‌جا آمده‌اند.
 - `CLAUDE.md` به entrypoint کوتاه Claude تبدیل شد و دیگر فهرست موازی قواعد محصول را نگه نمی‌دارد. `ZCODE.md` و prompt عملیاتی کامل هارنس دست‌نخورده ماندند.
 - این برش فقط مستندات است؛ هیچ test/build اجرا نشد.
+
+
+## بروزرسانی ۲۰۲۶-۱۱-۱۹ — بازسازی گیت بررسی اسناد
+
+- `scripts/check-docs.py` با snapshot فعلی هماهنگ شد: شمار تست‌های Kotlin و تعداد string resourceهای Android را از منبع واقعی می‌خواند و با دو عدد ثبت‌شده در `PROJECT_STATE.md` مقایسه می‌کند. ارقام فارسی، عربی و انگلیسی پذیرفته می‌شوند؛ مقدار مفقود/تکراری، XML خراب و نام تکراری resource خطا هستند.
+- پنج آزمون واحد در `scripts/test-docs-check.py` اضافه شد و هر دو اسکریپت به `scripts/audit-project.py` افزوده شدند؛ بنابراین مسیر `npm run check` هم این گیت را اجرا خواهد کرد.
+- `PROJECT_STATE.md` شمار resourceهای تولیدی (۲۹۵) را کنار تعداد تست‌های Native (۱۵۴) ثبت می‌کند. `docs/PROJECT_MAP_FA.md` نیز وظیفهٔ validator و آزمونش را نشان می‌دهد.
+- **اجراشده در محیط موقت:** `python -m py_compile` روی دو اسکریپت و `python scripts/test-docs-check.py` — پنج آزمون پاس شدند. فایل‌های آزمایش از محتوای دقیق commitهای GitHub در پوشهٔ موقت ساخته شدند.
+- **اجرا نشد:** اجرای کامل `check-docs.py` روی checkout مخزن، `audit-project.py`، Sync منابع، build وب، Gradle و lint؛ چون در این نشست worktree کامل مخزن در دسترس نیست. پاس شدن پنج آزمون helper، معادل پاس شدن گیت کامل اسناد/مخزن نیست.
