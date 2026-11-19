@@ -2,6 +2,7 @@
 """Unit tests for the repository documentation consistency checker."""
 import importlib.util
 from pathlib import Path
+import tempfile
 import unittest
 
 SCRIPT = Path(__file__).with_name("check-docs.py")
@@ -41,6 +42,19 @@ class DocsCheckTests(unittest.TestCase):
             check_docs.count_test_annotations(["@Test fun first() {}", "fun helper() {}\n@Test"]),
             2,
         )
+
+
+    def test_file_discovery_in_source_archive(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "docs").mkdir()
+            (root / "docs/README.md").write_text("# Docs", encoding="utf-8")
+            (root / "node_modules").mkdir()
+            (root / "node_modules/ignored.md").write_text("ignore", encoding="utf-8")
+            self.assertEqual(
+                check_docs.tracked_files(root),
+                ["docs/README.md"],
+            )
 
     def test_android_string_count_and_duplicate_detection(self):
         xml = (
