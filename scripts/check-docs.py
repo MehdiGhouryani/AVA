@@ -64,7 +64,10 @@ def count_android_strings(xml_content: str) -> int:
 
 
 def is_skipped(path: str) -> bool:
-    return any(path.startswith(prefix) for prefix in SKIP_PREFIXES)
+    return any(
+        path == prefix.rstrip("/") or path.startswith(prefix.rstrip("/") + "/")
+        for prefix in SKIP_PREFIXES
+    )
 
 
 def tracked_files(root: Path = ROOT) -> list[str]:
