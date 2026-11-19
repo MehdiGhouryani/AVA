@@ -578,7 +578,7 @@ Next action:
 - تضاد touch target رفع شد: ۶۴dp برای کودک، CTA برابر ۷۲dp و حداقل ۴۸dp فقط برای فرم‌های بزرگسال.
 - تحویل ZIP از الزام هر چرخه خارج شد؛ فقط در درخواست مالک یا معیار تحویل task، با `scripts/package-source.py` و حذف secret/cache/build/APK/AAB.
 - مهارت‌های داخلی مهندسی و یادگیری از تکرار workflow و قواعد سراسری پاک شدند؛ چک‌لیست تخصصی UX کودک، اصول curriculum و معیار human review حفظ شدند. مهارت‌های ثالث و lock/hash آن‌ها تغییر نکردند.
-- Files changed: `AGENTS.md`، `CLAUDE.md`، `ZCODE.md`، `harness/ZCODE_SYSTEM_PROMPT_FA.md`، دو skill داخلی AVA، `PROJECT_STATE.md`، `docs/SKILLS.md` و این WORKLOG.
+- Files changed: `AGENTS.md`، `CLAUDE.md`، `ZCODE.md`، `harness/ZCODE_SYSTEM_PROMPT_FA.md`، دو skill داخلی AVA، `PROJECT_STATE.md`، `docs/SKILLS.md`، `android/README.md` و این WORKLOG.
 - Verification: بازخوانی فایل‌های تغییرکرده از شاخهٔ `main` و تطبیق ارجاع‌ها/ترتیب فرمان‌ها؛ کد محصول، roadmap taskها و فایل‌های skill ثالث تغییر نکردند.
 - Not run: `harness.py validate`، `audit-project.py`، docs checker، build وب، Sync منابع، Gradle، Native tests و lint؛ محیط این نشست clone/worktree قابل‌اجرا ندارد.
 - Next action: روی checkout تازه، `python3 scripts/harness.py validate` و `python3 scripts/audit-project.py` اجرا شوند؛ در صورت عبور، task بعدی را فقط با `next` انتخاب کن.
