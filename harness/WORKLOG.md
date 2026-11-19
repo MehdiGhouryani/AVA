@@ -510,3 +510,14 @@ Next action:
 - نتیجه: رشتهٔ بلااستفادهٔ قطعی از این بررسی به دست نیامد و هیچ رشته‌ای حذف نشد. فایل‌های generated منابع Android نیز تا زمان تغییر منبع canonical دست‌نخورده ماندند.
 - روش: جست‌وجوی مصرف‌کننده‌ها در Kotlin و React و بررسی flattening قرارداد `strings.fa.json` در generator. Not run: build وب، Sync، audit و Gradle.
 - Next action: اعتبارسنجی نهایی لینک‌های archive، tree، فایل‌های generated و ارجاع‌های قدیمی؛ سپس فقط در صورت یافتن مورد صفرمصرف، حذف بعدی.
+
+
+## ۲۰۲۶-۱۱-۱۹ — تثبیت line ending و فایل‌های باینری
+
+- Task ID: `repo-hygiene-cleanup`
+- Baseline: `main` در `fa8eda278b649ac64c8da06451f6490ac6bc3cbc`.
+- فایل ریشهٔ `.gitattributes` در commit `4b6b1edc86c42a2bf2c0ff7c6ffe52bbdf0d849f` اضافه شد: متن‌ها با LF checkout می‌شوند و گروه‌های تصویر، فونت، صوت/ویدئو، آرشیو، PDF و binary صریحاً binary علامت‌گذاری شدند.
+- Integrity check از طریق GitHub API: blob سه مهارت pinned (`ava-duolingo-learning`، `ui-ux-pro-max`، `claymorphism`) و `android/app/src/main/java/com/ava/reading/content/Catalog.kt` در parent و commit جدید عیناً یکسان بود. هیچ فایل موجودی در این commit normalize یا بازنویسی نشد.
+- Not run: checkout واقعی روی Windows/Linux، `audit-project.py`، `sync-android-resources.py --check`، build وب و Gradle؛ GitHub API جایگزین آزمون worktree نیست.
+- یافتهٔ تکمیلی: انتقال کل پروتوتایپ React هنوز امن نیست؛ `npm run check`، `npm run build` را اجرا می‌کند، `index.html` ورودی `/src/main.tsx` دارد، TypeScript پوشه‌های `src` و `design` را می‌خواند و منابع `public/` با Native مشترک‌اند.
+- Next action: به‌روزرسانی `check-docs.py` برای قالب فعلی `PROJECT_STATE.md` پیش از ادغام آن در audit؛ فعلاً گیت اسناد مستقل باقی بماند.
