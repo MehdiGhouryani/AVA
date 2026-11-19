@@ -217,3 +217,10 @@ Payload برای prototype از حالت ADR خارج و به سورس اجرا�
 - محدودیت صادقانه: `@Preview` و وابستگی `ui-tooling-preview` حذف شدند — دانلود artifact روی این شبکه بلاک است (خطای TLS آینه ثبت شد) و نسخهٔ کش‌شده با BOM ناسازگار؛ گالری با تست اسنپ‌شات واقعی جایگزین شد. وزن واقعی فونت هم وارد نشد (تصمیم باز F5).
 - اجرا‌شده (`ran`): گیت کامل `gradlew.bat testDebugUnitTest lintDebug -Pkotlin.compiler.execution.strategy=in-process --no-daemon` با فلگ‌های ماشین → **۱۵۴ تست، ۰ شکست، ۰ خطا (۱۴ فایل XML)** + lint ‏BUILD SUCCESSFUL؛ `audit-project.py` کامل پاس؛ کنتراست همهٔ جفت‌های واقعی محاسبه و در `docs/design/AVA_DESIGN_SYSTEM.md` ثبت شد (کمینهٔ متنی ۵٫۰۹:۱، فوکوس ۴٫۹۸:1، disabled ‏۴٫۷۷ معاف).
 - قدم بعد: برش R02 (Home و مسیر) پس از تأیید مالک؛ تصمیم‌های باز در بخش ۱۵ سند Discovery هنوز پذیرفته نشده‌اند.
+
+
+## بروزرسانی ۲۰۲۶-۱۱-۱۹ — خلوت‌سازی کد تولیدی
+
+- تابع `AvaComponentGallery` و helper خصوصی `GalleryScaffold` فقط از `AvaComponentsTest` فراخوانی می‌شدند و هیچ مصرف‌کننده‌ای در مسیر اجرای اپ نداشتند. این بخش به فایل تستی `android/app/src/test/java/com/ava/reading/ui/components/AvaComponentGallery.kt` منتقل شد؛ کامپوننت‌های واقعی `AvaUI.kt` و رفتار آن‌ها تغییر نکرد.
+- importهای Compose و theme که فقط برای گالری لازم بودند از فایل production حذف شدند. تست گالری از همان package مشترک test به helper دسترسی دارد.
+- اعتبارسنجی: جست‌وجوی ارجاعات `AvaComponentGallery` در مخزن و بازبینی imports/package؛ **Gradle، testDebugUnitTest و lintDebug در این تغییر اجرا نشدند**. نتیجهٔ ۱۵۴ تست/صفر شکست در ۱۱ نوامبر، آخرین شاهد اجرای Native پیش از این جابه‌جایی است و اجرای همین commit محسوب نمی‌شود.

@@ -443,3 +443,15 @@ Next action:
 - Blocked by: — (برای R01). تصمیم‌های باز مالک (بخش ۱۵ Discovery، به‌ویژه F8 و F5) برای برش‌های بعدی باز هستند.
 - Evidence paths: `android/app/build/test-results/testDebugUnitTest/*.xml`، `android/app/build/reports/lint-results-debug.html`، `android/app/build/reports/native-ui/ava-components-gallery.png`، `docs/design/AVA_DESIGN_SYSTEM.md`
 - Next action: تأیید مالک + شروع R02 (Home و مسیر)؛ ادغام R01 در main و push به origin/main به درخواست صریح مالک در همین چرخه انجام می‌شود.
+
+
+## ۲۰۲۶-۱۱-۱۹ — انتقال ابزار گالری فقط-تستی از source set اصلی
+
+- Task ID: `repo-hygiene-cleanup` (نگهداری مخزن، خارج از roadmap محصول)
+- Agent/tool: بازبینی کد و ویرایش مستقیم GitHub با اتصال مالک مخزن
+- Baseline: `main` در `45a18e140bb23f8fccf2c43cf7dc397d727772cf`
+- یافته: `AvaComponentGallery` و `GalleryScaffold` فقط از `AvaComponentsTest` فراخوانی می‌شدند؛ هیچ caller تولیدی نداشتند.
+- Files changed: حذف بخش گالری از `android/app/src/main/java/com/ava/reading/ui/components/AvaUI.kt`، افزودن `android/app/src/test/java/com/ava/reading/ui/components/AvaComponentGallery.kt`، و به‌روزرسانی `docs/design/AVA_DESIGN_SYSTEM.md` و `docs/PROGRESS_FA.md`.
+- روش بررسی: جست‌وجوی repo برای تمام ارجاعات `AvaComponentGallery`، بررسی package و imports؛ محتوای تابع گالری و helper بدون تغییر به source set تست منتقل شد.
+- Not run: `testDebugUnitTest` و `lintDebug`؛ ویرایش از GitHub API انجام شد و Gradle در این نشست اجرا نشد. هیچ نتیجه‌ای برای این گیت‌ها ادعا نمی‌شود.
+- Next action: اجرای `gradlew.bat testDebugUnitTest lintDebug` در محیط Android مالک؛ سپس ادامهٔ ممیزی فایل‌های کاندیدای حذف، بدون دست‌کاری فایل‌های canonical، مهارت‌های pinned یا منابع generated.
