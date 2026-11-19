@@ -1,11 +1,10 @@
-# CLAUDE.md — AVA
+# Claude Code entrypoint — AVA
 
-This is Claude Code's entry point, not a second project contract. **`AGENTS.md` is the canonical source** for product invariants, architecture, branch policy, verification and delivery rules.
+`AGENTS.md` is the canonical repository contract. This file only routes Claude Code into the shared workflow.
 
-## Start here
-1. Read `AGENTS.md` and `ZCODE.md` completely.
-2. Read `docs/PROGRESS_FA.md`, then `docs/README.md` and the relevant roadmap/playbook.
-3. Follow the harness start procedure in `ZCODE.md`: validate, inspect status, select exactly one ready task, then read its `readFirst` and acceptance gates.
-4. Change only that task's `allowedPaths`. Never start a `blocked` or `human_gate` task or bypass a dependency.
-5. Run relevant checks, label each claim `ran` or `read in code`, and record actual results in `harness/WORKLOG.md`.
-6. Report in Persian with completed work, checks actually run, open gates and the next action. Then stop for the owner.
+1. Read `AGENTS.md` and `ZCODE.md`.
+2. Follow the single task-selection and execution procedure in `ZCODE.md` and `harness/ZCODE_SYSTEM_PROMPT_FA.md`.
+3. For the selected task, read its `readFirst` files, phase playbook and applicable AVA skill. Do not load unrelated phases or repeat the full project history.
+4. Preserve owner changes, stay within `allowedPaths`, and report only verified work in Persian.
+
+Do not treat this file as a separate source of product rules, task state or delivery policy.
