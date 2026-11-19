@@ -51,7 +51,18 @@ import com.ava.reading.ui.theme.LayoutThresholds
                 Box(if(large)Modifier.height(artHeight).fillMaxWidth() else Modifier.weight(1f).fillMaxWidth(),contentAlignment=Alignment.BottomCenter) {
                     if(first) {
                         ArtImage("char.ava.reading",Modifier.fillMaxHeight().fillMaxWidth(.76f).align(AbsoluteAlignment.BottomLeft))
-                        ArtImage("decor.tree",Modifier.fillMaxHeight(.48f).fillMaxWidth(.32f).align(AbsoluteAlignment.TopRight))
+                        Box(
+                            Modifier.fillMaxHeight(.72f).fillMaxWidth(.48f).align(AbsoluteAlignment.TopRight),
+                            contentAlignment=Alignment.Center
+                        ) {
+                            val glowShape=RoundedCornerShape(100.dp)
+                            Box(
+                                Modifier.fillMaxWidth(.88f).aspectRatio(1f)
+                                    .background(AvaColors.surface.copy(alpha=.58f),glowShape)
+                                    .border(1.dp,AvaColors.line,glowShape)
+                            )
+                            ArtImage("decor.onboarding.cloud_castle",Modifier.fillMaxSize())
+                        }
                     } else {
                         ArtImage("char.friend.squirrel",Modifier.fillMaxHeight(.85f).fillMaxWidth(.38f).align(Alignment.TopCenter))
                         ArtImage("char.friend.bunny",Modifier.fillMaxHeight(.8f).fillMaxWidth(.33f).align(AbsoluteAlignment.BottomLeft))
