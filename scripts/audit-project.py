@@ -1,15 +1,26 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import hashlib,json,subprocess,sys
+import xml.etree.ElementTree as ET
 from PIL import Image
 root=Path(__file__).resolve().parents[1]
 assets=json.loads((root/'design/assets.manifest.json').read_text())['assets']
 schema=json.loads((root/'design/content.schema.json').read_text())
 assert schema['$id'].endswith('content-v3.json') and schema['properties']['schemaVersion']['const']==3
+ANDROID_NS='{http://schemas.android.com/apk/res/android}'
 for a in assets:
- with Image.open(root/'public'/a['src'].lstrip('/')) as im:
-  assert im.size==(a['width'],a['height']),(a['id'],im.size)
-  im.verify()
+ p=root/'public'/a['src'].lstrip('/')
+ if p.suffix.lower()=='.xml':
+  vector=ET.parse(p).getroot()
+  assert vector.tag=='vector',(a['id'],'expected Android VectorDrawable')
+  assert vector.attrib.get(ANDROID_NS+'width')==f"{a['width']}dp",(a['id'],'width')
+  assert vector.attrib.get(ANDROID_NS+'height')==f"{a['height']}dp",(a['id'],'height')
+  size=(int(float(vector.attrib[ANDROID_NS+'viewportWidth'])),int(float(vector.attrib[ANDROID_NS+'viewportHeight'])))
+ else:
+  with Image.open(p) as im:
+   size=im.size
+   im.verify()
+ assert size==(a['width'],a['height']),(a['id'],size)
 for s in json.loads((root/'.agents/skills.lock.json').read_text())['skills']:
  p=root/f'.agents/skills/{s["name"]}/SKILL.md';b=p.read_bytes()
  assert b.startswith(b'---\nname:')
